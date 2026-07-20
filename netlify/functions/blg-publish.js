@@ -514,7 +514,12 @@ exports.handler = async (event) => {
     // injects the card into the latest content instead of a stale copy.
     const buildFiles = async () => {
       const filesToCommit = { [articleFileName]: articleHtml };
-      const blogFile = await getFile("blog.html");
+
+      const [blogFile, sitemapFile] = await Promise.all([
+        getFile("blog.html"),
+        getFile("sitemap.xml"),
+      ]);
+
       if (blogFile) {
         const newCard = generateArticleCard({ title, slug, excerpt, category, catStyle, dateStr, readTime });
         const marker = "<!-- BLOG_ARTICLES_START -->";
@@ -522,6 +527,19 @@ exports.handler = async (event) => {
           filesToCommit["blog.html"] = blogFile.content.replace(marker, marker + newCard);
         }
       }
+
+      if (sitemapFile) {
+        const articleUrl = `https://planegy.de/blog-${slug}`;
+        if (!sitemapFile.content.includes(articleUrl)) {
+          const isoDate = new Date(dateStr).toISOString().slice(0, 10);
+          const newEntry = `  <url>\n    <loc>${articleUrl}</loc>\n    <lastmod>${isoDate}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  `;
+          filesToCommit["sitemap.xml"] = sitemapFile.content.replace(
+            "<!-- SITEMAP_ARTICLES_END -->",
+            newEntry + "<!-- SITEMAP_ARTICLES_END -->"
+          );
+        }
+      }
+
       return filesToCommit;
     };
 
