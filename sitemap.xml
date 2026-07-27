@@ -198,6 +198,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+    <url>
+    <loc>https://planegy.de/blog-kommunale-warmeplanung-bayern</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- SITEMAP_ARTICLES_END -->
 
 </urlset>
