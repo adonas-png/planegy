@@ -30,6 +30,20 @@
     <priority>0.3</priority>
   </url>
 
+  <url>
+    <loc>https://planegy.de/klimamanager-service</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://planegy.de/waermetechnik-rechner</loc>
+    <lastmod>2026-08-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- SITEMAP_ARTICLES_START -->
   <url>
     <loc>https://planegy.de/blog-kommunale-waermeplanung</loc>

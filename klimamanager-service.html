@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Klimamanager Service – Klimaschutzmanagement im Abo | PLANEGY</title>
+  <meta name="description" content="Ausgelagertes Klimaschutzmanagement für Kommunen und Gemeinden: alle Leistungen eines angestellten Klimamanagers im 12–36-Monats-Abo, inkl. Beratung und Vor-Ort-Terminen." />
+  <meta name="keywords" content="Klimamanager, Klimaschutzmanagement, Kommune, Gemeinde, Klimaschutzkonzept, THG-Bilanz, Fördermittel, Kommunalrichtlinie" />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Klimamanager Service – Klimaschutzmanagement im Abo | PLANEGY" />
+  <meta property="og:description" content="Alle Leistungen eines angestellten Klimaschutzmanagers als flexibles 12–36-Monats-Abo für Kommunen – mit Beratung und Terminen vor Ort." />
+  <meta property="og:url" content="https://planegy.de/klimamanager-service" />
+  <link rel="canonical" href="https://planegy.de/klimamanager-service" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Klimaschutzmanagement für Kommunen",
+    "name": "PLANEGY Klimamanager Service",
+    "provider": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "areaServed": { "@type": "Country", "name": "Germany" },
+    "audience": { "@type": "Audience", "audienceType": "Kommunen, Gemeinden, Stadtwerke" },
+    "description": "Ausgelagertes Klimaschutzmanagement im Abo-Modell (12–36 Monate) für Kommunen – Klimaschutzkonzepte, THG-Bilanzierung, Fördermittelmanagement, Gremien- und Öffentlichkeitsarbeit sowie Vor-Ort-Termine."
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:   #1a7fd4;
+      --green-l: #3b9ae1;
+      --green-d: #1565b0;
+      --navy:    #0d2b5e;
+      --navy-m:  #13377a;
+      --slate:   #64748b;
+      --white:   #ffffff;
+      --off:     #f8fafc;
+      --border:  #e2e8f0;
+      --amber:   #f59e0b;
+      --radius:  12px;
+      --radius-l:20px;
+      --shadow:  0 4px 24px rgba(0,0,0,.08);
+      --shadow-l:0 8px 48px rgba(0,0,0,.12);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--navy); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy); padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between; height: 70px;
+    }
+    .nav-logo { font-family: 'DM Sans', sans-serif; font-size: 1.4rem; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -.5px; }
+    .nav-logo span { color: var(--green-l); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: rgba(255,255,255,.8); font-size: .9rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--green-l); }
+    .nav-cta { background: var(--green) !important; color: #fff !important; padding: .5rem 1.2rem; border-radius: 8px; }
+    .nav-cta:hover { background: var(--green-d) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; }
+    .mobile-menu { display: none; position: fixed; inset: 0; background: var(--white); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.4rem; font-weight: 600; color: var(--navy); text-decoration: none; }
+    .mobile-close { position: absolute; top: 1.5rem; right: 5%; font-size: 1.8rem; cursor: pointer; color: var(--slate); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0a2050 50%, #071540 100%);
+      padding: 90px 5% 70px; position: relative; overflow: hidden;
+    }
+    .hero-orb { position: absolute; border-radius: 50%; pointer-events: none; }
+    .hero-orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(26,127,212,.2) 0%, transparent 70%); top: -120px; right: -100px; }
+    .hero-orb-2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(59,154,225,.1) 0%, transparent 70%); bottom: -80px; left: 5%; }
+    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .breadcrumb { display: flex; align-items: center; justify-content: center; gap: .5rem; margin-bottom: 1.5rem; font-size: .8rem; }
+    .breadcrumb a { color: rgba(255,255,255,.5); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--green-l); }
+    .breadcrumb span { color: rgba(255,255,255,.3); }
+    .breadcrumb .current { color: rgba(255,255,255,.7); }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(26,127,212,.15); border: 1px solid rgba(26,127,212,.35);
+      color: var(--green-l); padding: .35rem .9rem; border-radius: 999px;
+      font-size: .8rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 { font-family: 'DM Sans', sans-serif; font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 800; color: #fff; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 1.2rem; }
+    .hero h1 em { font-style: normal; color: var(--green-l); }
+    .hero-sub { font-size: 1.05rem; color: rgba(255,255,255,.65); line-height: 1.7; max-width: 640px; margin: 0 auto 2rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--green); color: #fff; padding: .85rem 1.8rem; border-radius: var(--radius);
+      font-weight: 600; text-decoration: none; font-size: .95rem; transition: all .2s;
+      box-shadow: 0 4px 20px rgba(26,127,212,.35);
+    }
+    .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(255,255,255,.2);
+      padding: .85rem 1.8rem; border-radius: var(--radius); font-weight: 600; text-decoration: none; font-size: .95rem;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.14); }
+    .hero-stats { display: flex; gap: 3rem; justify-content: center; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,.1); flex-wrap: wrap; }
+    .hero-stat-value { font-family: 'DM Sans', sans-serif; font-size: 1.8rem; font-weight: 800; color: #fff; line-height: 1; }
+    .hero-stat-value span { color: var(--green-l); }
+    .hero-stat-label { font-size: .78rem; color: rgba(255,255,255,.5); margin-top: .3rem; text-transform: uppercase; letter-spacing: .05em; }
+
+    /* SECTIONS */
+    section { padding: 90px 5%; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label { display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--green); margin-bottom: .8rem; }
+    .section-title { font-family: 'DM Sans', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; color: var(--navy); letter-spacing: -.02em; line-height: 1.2; margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: var(--slate); max-width: 620px; line-height: 1.7; }
+    .section-head { margin-bottom: 3rem; }
+    .section-head.centered { text-align: center; }
+    .section-head.centered .section-sub { margin: 0 auto; }
+
+    /* PROBLEM */
+    .problem { background: var(--off); }
+    .problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+    .problem-list { display: flex; flex-direction: column; gap: 1rem; }
+    .problem-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.1rem 1.3rem; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); }
+    .problem-item span:first-child { font-size: 1.3rem; flex-shrink: 0; }
+    .problem-item h4 { font-size: .92rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+    .problem-item p { font-size: .85rem; color: var(--slate); line-height: 1.55; }
+    .solution-card {
+      background: linear-gradient(135deg, var(--navy), #0d3a80); border-radius: var(--radius-l);
+      padding: 2.2rem; color: #fff; position: relative; overflow: hidden;
+    }
+    .solution-card h3 { font-family: 'DM Sans', sans-serif; font-size: 1.2rem; font-weight: 800; margin-bottom: .8rem; }
+    .solution-card p { font-size: .9rem; color: rgba(255,255,255,.7); line-height: 1.7; }
+
+    /* LEISTUNGEN GRID */
+    .leistungen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .leistung-card { background: var(--white); border-radius: var(--radius-l); padding: 1.8rem; border: 1px solid var(--border); transition: transform .25s, box-shadow .25s; }
+    .leistung-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-l); }
+    .leistung-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1rem; }
+    .leistung-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .5rem; color: var(--navy); }
+    .leistung-card p { font-size: .87rem; color: var(--slate); line-height: 1.6; }
+
+    /* ABO TIERS */
+    .abo { background: var(--off); }
+    .abo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .abo-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-l); padding: 2rem; display: flex; flex-direction: column; }
+    .abo-card.featured { border: 2px solid var(--green); box-shadow: var(--shadow-l); position: relative; }
+    .abo-badge { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; font-size: .72rem; font-weight: 700; padding: .3rem .9rem; border-radius: 999px; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+    .abo-duration { font-family: 'DM Sans', sans-serif; font-size: 1.6rem; font-weight: 800; color: var(--navy); }
+    .abo-duration span { font-size: .95rem; font-weight: 500; color: var(--slate); }
+    .abo-tagline { font-size: .85rem; color: var(--slate); margin: .3rem 0 1.3rem; min-height: 2.6em; }
+    .abo-features { list-style: none; display: flex; flex-direction: column; gap: .65rem; margin-bottom: 1.5rem; flex-grow: 1; }
+    .abo-features li { font-size: .85rem; color: #374151; display: flex; gap: .5rem; align-items: flex-start; }
+    .abo-features li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .abo-price { font-size: .82rem; color: var(--slate); border-top: 1px solid var(--border); padding-top: 1rem; margin-bottom: 1.2rem; }
+    .abo-cta { display: block; text-align: center; background: var(--off); color: var(--navy); border: 1px solid var(--border); padding: .8rem; border-radius: var(--radius); font-weight: 600; font-size: .9rem; text-decoration: none; transition: all .2s; }
+    .abo-card.featured .abo-cta { background: var(--green); color: #fff; border-color: var(--green); }
+    .abo-cta:hover { opacity: .85; }
+
+    /* PROZESS */
+    .prozess-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; position: relative; }
+    .prozess-steps::before { content: ""; position: absolute; top: 28px; left: 12.5%; right: 12.5%; height: 2px; background: linear-gradient(to right, var(--green), var(--green-l)); z-index: 0; }
+    .prozess-step { text-align: center; position: relative; z-index: 1; }
+    .prozess-num { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--green), var(--green-d)); color: #fff; font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; box-shadow: 0 4px 16px rgba(26,127,212,.3); }
+    .prozess-step h3 { font-size: .92rem; font-weight: 700; margin-bottom: .4rem; color: var(--navy); }
+    .prozess-step p { font-size: .82rem; color: var(--slate); line-height: 1.5; }
+
+    /* VERGLEICH */
+    .vergleich-table { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-l); overflow: hidden; }
+    .vergleich-table table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .vergleich-table th { background: var(--navy); color: #fff; padding: .9rem 1.2rem; text-align: left; font-weight: 600; }
+    .vergleich-table td { padding: .85rem 1.2rem; border-bottom: 1px solid var(--border); color: #374151; }
+    .vergleich-table tr:last-child td { border-bottom: none; }
+    .vergleich-table td.ok { color: var(--green-d); font-weight: 600; }
+    .table-wrap { overflow-x: auto; }
+
+    /* CTA BANNER */
+    .cta-banner { background: linear-gradient(135deg, var(--navy), #071540); text-align: center; }
+    .cta-banner .section-label { color: var(--green-l); }
+    .cta-banner .section-title { color: #fff; margin: 0 auto 1rem; }
+    .cta-banner p { color: rgba(255,255,255,.6); max-width: 520px; margin: 0 auto 2rem; }
+    .cta-banner-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white { display: inline-flex; align-items: center; gap: .5rem; background: #fff; color: var(--navy); padding: .85rem 1.8rem; border-radius: var(--radius); font-weight: 600; text-decoration: none; font-size: .95rem; }
+    .btn-white:hover { background: var(--off); }
+
+    /* FOOTER */
+    footer { background: var(--navy); padding: 60px 5% 30px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-logo { font-family: 'DM Sans', sans-serif; font-size: 1.3rem; font-weight: 700; color: #fff; text-decoration: none; letter-spacing: -.5px; }
+    .footer-logo span { color: var(--green-l); }
+    .footer-brand p { font-size: .85rem; color: rgba(255,255,255,.45); margin-top: .8rem; line-height: 1.7; max-width: 260px; }
+    .footer-col h4 { font-size: .85rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .footer-col ul a { text-decoration: none; font-size: .85rem; color: rgba(255,255,255,.45); transition: color .2s; }
+    .footer-col ul a:hover { color: var(--green-l); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; font-size: .8rem; color: rgba(255,255,255,.3); flex-wrap: wrap; gap: 1rem; }
+    .footer-bottom a { color: rgba(255,255,255,.4); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--green-l); }
+    .footer-social { display: flex; gap: .6rem; margin-top: 1rem; }
+    .footer-social a { width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,.06); display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: .9rem; }
+    .footer-social a:hover { background: var(--green); }
+
+    /* ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .problem-grid { grid-template-columns: 1fr; }
+      .leistungen-grid { grid-template-columns: repeat(2,1fr); }
+      .abo-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .prozess-steps { grid-template-columns: repeat(2,1fr); }
+      .prozess-steps::before { display: none; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      section { padding: 60px 5%; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .leistungen-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .hero-stats { gap: 1.5rem 2rem; }
+    }
+    @media (max-width: 480px) {
+      .hero-actions { flex-direction: column; }
+      .prozess-steps { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">PLAN<span>EGY</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html#leistungen">Leistungen</a></li>
+    <li><a href="klimamanager-service.html">Klimamanager Service</a></li>
+    <li><a href="waermetechnik-rechner.html">Wärmetechnik Rechner</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#kontakt" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" aria-label="Menü öffnen"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <span class="mobile-close" id="mobileClose">✕</span>
+  <a href="index.html#leistungen" class="mobile-link">Leistungen</a>
+  <a href="klimamanager-service.html" class="mobile-link">Klimamanager Service</a>
+  <a href="waermetechnik-rechner.html" class="mobile-link">Wärmetechnik Rechner</a>
+  <a href="blog.html" class="mobile-link">Blog</a>
+  <a href="index.html#kontakt" class="mobile-link">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Startseite</a><span>/</span><span class="current">Klimamanager Service</span>
+    </div>
+    <div class="hero-badge">Für Kommunen &amp; Gemeinden</div>
+    <h1>Klimaschutzmanagement <em>im Abo</em> –<br>ohne Stellenbesetzung</h1>
+    <p class="hero-sub">
+      Wir übernehmen für Ihre Gemeinde alle Aufgaben eines angestellten Klimaschutzmanagers – als flexibles 12-, 24- oder 36-Monats-Abo mit persönlicher Beratung und regelmäßigen Vor-Ort-Terminen.
+    </p>
+    <div class="hero-actions">
+      <a href="index.html#kontakt" class="btn-primary">Kostenloses Erstgespräch →</a>
+      <a href="#leistungen" class="btn-secondary">Leistungen ansehen</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-value">12–36<span> Mon.</span></div><div class="hero-stat-label">Flexible Laufzeit</div></div>
+      <div><div class="hero-stat-value">1<span>:1</span></div><div class="hero-stat-label">Fester Ansprechpartner</div></div>
+      <div><div class="hero-stat-value">100<span>%</span></div><div class="hero-stat-label">Vor-Ort &amp; remote</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM / LÖSUNG -->
+<section class="problem">
+  <div class="section-inner">
+    <div class="section-head centered">
+      <span class="section-label fade-up">Die Ausgangslage</span>
+      <h2 class="section-title fade-up">Klimaschutzmanager-Stellen sind schwer zu besetzen</h2>
+      <p class="section-sub fade-up">Viele Kommunen wollen ihre Klimaschutzziele professionell angehen – finden aber keine geeignete Fachkraft, oder die Stelle bleibt über Monate unbesetzt.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-list">
+        <div class="problem-item fade-up">
+          <span>🕒</span>
+          <div><h4>Lange Rekrutierung</h4><p>Ausschreibung, Besetzung und Einarbeitung einer Fachkraft dauern oft 6–12 Monate.</p></div>
+        </div>
+        <div class="problem-item fade-up">
+          <span>📉</span>
+          <div><h4>Fachkräftemangel</h4><p>Qualifizierte Klimaschutzmanager sind rar – kleinere Gemeinden konkurrieren mit Großstädten und Landkreisen.</p></div>
+        </div>
+        <div class="problem-item fade-up">
+          <span>⚖️</span>
+          <div><h4>Befristung &amp; Fluktuation</h4><p>Förderstellen sind oft befristet, was die Personalgewinnung zusätzlich erschwert.</p></div>
+        </div>
+        <div class="problem-item fade-up">
+          <span>📋</span>
+          <div><h4>Breites Aufgabenspektrum</h4><p>Klimaschutzkonzept, Bilanzierung, Förderanträge, Gremienarbeit – eine Person muss alles abdecken.</p></div>
+        </div>
+      </div>
+      <div class="solution-card fade-up">
+        <h3>💡 Unsere Lösung</h3>
+        <p>PLANEGY übernimmt die Aufgaben eines Klimaschutzmanagers als externe Dienstleistung – sofort einsatzbereit, mit über 20 Jahren Erfahrung im Energiesektor. Sie erhalten einen festen Ansprechpartner, planbare Kosten über die Vertragslaufzeit und keinen Unterbrechungsrisiko durch Personalwechsel.</p>
+        <p style="margin-top:1rem">Ideal als Übergangslösung bis zur eigenen Stellenbesetzung – oder als dauerhaftes Modell für kleinere Gemeinden ohne eigene Kapazitäten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section id="leistungen">
+  <div class="section-inner">
+    <div class="section-head centered">
+      <span class="section-label fade-up">Leistungsumfang</span>
+      <h2 class="section-title fade-up">Alles, was ein Klimaschutzmanager leistet</h2>
+      <p class="section-sub fade-up">Der komplette Aufgabenbereich einer kommunalen Klimaschutzmanagement-Stelle – abgedeckt durch PLANEGY.</p>
+    </div>
+    <div class="leistungen-grid">
+      <div class="leistung-card fade-up">
+        <div class="leistung-icon" style="background:rgba(26,127,212,.1)">📘</div>
+        <h3>Klimaschutzkonzept &amp; Fortschreibung</h3>
+        <p>Erstellung, Aktualisierung und Weiterentwicklung Ihres integrierten Klimaschutzkonzepts inkl. Maßnahmenkatalog.</p>
+      </div>
+      <div class="leistung-card fade-up">
+        <div class="leistung-icon" style="background:rgba(59,130,246,.1)">📊</div>
+        <h3>THG-Bilanzierung &amp; Controlling</h3>
+        <p>Jährliche CO₂-Bilanz Ihrer Gemeinde, Fortschrittskontrolle und Reporting für Gemeinderat und Öffentlichkeit.</p>
+      </div>
+      <div class="leistung-card fade-up">
+        <div class="leistung-icon" style="background:rgba(16,185,129,.1)">🚀</div>
+        <h3>Maßnahmenumsetzung &amp; Projektsteuerung</h3>
+        <p>Koordination und Begleitung konkreter Klimaschutzprojekte – von der Idee bis zur Umsetzung.</p>
+      </div>
+      <div class="leistung-card fade-up">
+        <div class="leistung-icon" style="background:rgba(245,158,11,.1)">💶</div>
+        <h3>Fördermittelmanagement</h3>
+        <p>Identifikation und Beantragung passender Förderprogramme (u. a. Kommunalrichtlinie, BEW, KfW, Landesförderung).</p>
+      </div>
+      <div class="leistung-card fade-up">
+        <div class="leistung-icon" style="background:rgba(139,92,246,.1)">🏛️</div>
+        <h3>Gremien- &amp; Öffentlichkeitsarbeit</h3>
+        <p>Vorbereitung von Ausschuss- und Gemeinderatssitzungen, Bürgerbeteiligung und Informationsveranstaltungen vor Ort.</p>
+      </div>
+      <div class="leistung-card fade-up">
+        <div class="leistung-icon" style="background:rgba(236,72,153,.1)">🔗</div>
+        <h3>Vernetzung &amp; Schnittstellen</h3>
+        <p>Abstimmung mit Wärmeplanung, Energieversorgern, Landkreis und regionalen Klimaschutzinitiativen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABO MODELL -->
+<section class="abo" id="abo">
+  <div class="section-inner">
+    <div class="section-head centered">
+      <span class="section-label fade-up">Abo-Modell</span>
+      <h2 class="section-title fade-up">Laufzeit nach Bedarf – 12, 24 oder 36 Monate</h2>
+      <p class="section-sub fade-up">Alle Laufzeiten beinhalten laufende Beratung und regelmäßige Vor-Ort-Termine. Der genaue Leistungsumfang und Preis richten sich nach Größe und Zielen Ihrer Gemeinde.</p>
+    </div>
+    <div class="abo-grid">
+      <div class="abo-card fade-up">
+        <div class="abo-duration">12 <span>Monate</span></div>
+        <p class="abo-tagline">Einstieg &amp; Potenzialanalyse – ideal zum Kennenlernen oder als Übergangslösung.</p>
+        <ul class="abo-features">
+          <li>Bestands- &amp; Potenzialanalyse</li>
+          <li>Erste Maßnahmenpriorisierung</li>
+          <li>Quartalsweise Vor-Ort-Termine</li>
+          <li>Laufende telefonische Beratung</li>
+        </ul>
+        <div class="abo-price">Preis nach Erstgespräch &amp; Bedarfsanalyse</div>
+        <a href="index.html#kontakt" class="abo-cta">Anfragen →</a>
+      </div>
+      <div class="abo-card featured fade-up">
+        <span class="abo-badge">Empfohlen</span>
+        <div class="abo-duration">24 <span>Monate</span></div>
+        <p class="abo-tagline">Umsetzungsbegleitung – Konzept, Förderakquise und erste Maßnahmen aus einer Hand.</p>
+        <ul class="abo-features">
+          <li>Klimaschutzkonzept inkl. Fortschreibung</li>
+          <li>Fördermittelmanagement &amp; Antragstellung</li>
+          <li>Monatliche Vor-Ort-Termine</li>
+          <li>Gremien- &amp; Öffentlichkeitsarbeit</li>
+          <li>Jährliche THG-Bilanz</li>
+        </ul>
+        <div class="abo-price">Preis nach Erstgespräch &amp; Bedarfsanalyse</div>
+        <a href="index.html#kontakt" class="abo-cta">Anfragen →</a>
+      </div>
+      <div class="abo-card fade-up">
+        <div class="abo-duration">36 <span>Monate</span></div>
+        <p class="abo-tagline">Vollständige Begleitung – analog zur typischen Förderlaufzeit für Klimaschutzmanagement.</p>
+        <ul class="abo-features">
+          <li>Alle Leistungen des 24-Monats-Abos</li>
+          <li>Kontinuierliches Maßnahmen-Controlling</li>
+          <li>Priorisierter Ansprechpartner</li>
+          <li>Strategische Weiterentwicklung des Konzepts</li>
+        </ul>
+        <div class="abo-price">Preis nach Erstgespräch &amp; Bedarfsanalyse</div>
+        <a href="index.html#kontakt" class="abo-cta">Anfragen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROZESS -->
+<section id="prozess">
+  <div class="section-inner">
+    <div class="section-head centered">
+      <span class="section-label fade-up">So starten wir</span>
+      <h2 class="section-title fade-up">In 4 Schritten zum Klimamanager Service</h2>
+    </div>
+    <div class="prozess-steps">
+      <div class="prozess-step fade-up">
+        <div class="prozess-num">1</div>
+        <h3>Erstgespräch</h3>
+        <p>Kostenfreie Bedarfsanalyse und Klärung Ihrer Klimaschutzziele</p>
+      </div>
+      <div class="prozess-step fade-up">
+        <div class="prozess-num">2</div>
+        <h3>Abo-Modell festlegen</h3>
+        <p>Auswahl der passenden Laufzeit und Vertragsdetails</p>
+      </div>
+      <div class="prozess-step fade-up">
+        <div class="prozess-num">3</div>
+        <h3>Kick-off vor Ort</h3>
+        <p>Persönlicher Termin in Ihrer Gemeinde, Abstimmung mit Verwaltung und Gremien</p>
+      </div>
+      <div class="prozess-step fade-up">
+        <div class="prozess-num">4</div>
+        <h3>Laufende Betreuung</h3>
+        <p>Regelmäßiges Reporting, Vor-Ort-Termine und kontinuierliche Umsetzung</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERGLEICH -->
+<section class="problem">
+  <div class="section-inner">
+    <div class="section-head centered">
+      <span class="section-label fade-up">Im Vergleich</span>
+      <h2 class="section-title fade-up">Eigene Stelle vs. Klimamanager Service</h2>
+    </div>
+    <div class="vergleich-table fade-up">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Kriterium</th><th>Eigene Stelle</th><th>PLANEGY Klimamanager Service</th></tr></thead>
+          <tbody>
+            <tr><td>Startzeitpunkt</td><td>Nach Rekrutierung (oft 6–12 Monate)</td><td class="ok">Kurzfristig möglich</td></tr>
+            <tr><td>Fachwissen</td><td>Abhängig von Bewerberlage</td><td class="ok">20+ Jahre Praxiserfahrung sofort verfügbar</td></tr>
+            <tr><td>Ausfallrisiko</td><td>Krankheit, Kündigung, Elternzeit</td><td class="ok">Vertretung im Vertrag geregelt</td></tr>
+            <tr><td>Vertragslaufzeit</td><td>Unbefristet / befristet</td><td class="ok">Flexibel: 12, 24 oder 36 Monate</td></tr>
+            <tr><td>Vor-Ort-Präsenz</td><td>Durchgehend</td><td class="ok">Regelmäßige Vor-Ort-Termine + remote</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="section-inner">
+    <span class="section-label fade-up">Jetzt starten</span>
+    <h2 class="section-title fade-up">Klimaschutz für Ihre Gemeinde – professionell begleitet</h2>
+    <p class="fade-up">Lassen Sie uns in einem kostenfreien Erstgespräch klären, welches Abo-Modell zu Ihrer Gemeinde passt.</p>
+    <div class="cta-banner-actions fade-up">
+      <a href="index.html#kontakt" class="btn-white">Kostenloses Erstgespräch →</a>
+      <a href="mailto:kontakt@planegy.de" class="btn-secondary">kontakt@planegy.de</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">PLAN<span>EGY</span></a>
+        <p>Ihr Partner für Energie, Daten &amp; Strategie. Technologieoffene Energieberatung für Kommunen, Stadtwerke und Industrie.</p>
+        <div class="footer-social">
+          <a href="https://de.linkedin.com/in/alexios-donas-49a590193" target="_blank" rel="noopener" title="LinkedIn">💼</a>
+          <a href="mailto:kontakt@planegy.de" title="E-Mail">✉️</a>
+          <a href="tel:+4915678513470" title="Telefon">📞</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="index.html#leistungen">Kommunale Wärmeplanung</a></li>
+          <li><a href="index.html#leistungen">Anlagenkonzeption</a></li>
+          <li><a href="index.html#foerderung">Förderservice</a></li>
+          <li><a href="index.html#esg">ESG / CSRD Reporting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Unternehmen</h4>
+        <ul>
+          <li><a href="index.html#ueber">Über uns</a></li>
+          <li><a href="waermetechnik-rechner.html">Wärmetechnik Rechner</a></li>
+          <li><a href="blog.html">Energie-Blog</a></li>
+          <li><a href="klimamanager-service.html">Klimamanager Service</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:kontakt@planegy.de">kontakt@planegy.de</a></li>
+          <li><a href="tel:+4915678513470">+49 15678 513470</a></li>
+          <li style="margin-top:.5rem"><a href="/impressum">Impressum</a></li>
+          <li><a href="/datenschutz">Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 PLANEGY – Alexios Donas. Alle Rechte vorbehalten.</span>
+      <div style="display:flex;gap:1.5rem">
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+  mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
