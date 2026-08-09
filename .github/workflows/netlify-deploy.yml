@@ -1,7 +1,13 @@
 name: Deploy to Netlify
 on:
-  push:
-    branches: [main]
+  schedule:
+    # 08:00 und 18:00 MESZ (06:00 und 16:00 UTC) - buendelt alle Commits des Tages in 2 Deploys statt einem pro Push
+    - cron: '0 6 * * *'
+    - cron: '0 16 * * *'
+  workflow_dispatch: {}
+concurrency:
+  group: netlify-deploy
+  cancel-in-progress: true
 jobs:
   deploy:
     runs-on: ubuntu-latest
