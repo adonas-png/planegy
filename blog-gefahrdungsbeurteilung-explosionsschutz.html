@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gefährdungsbeurteilung Explosionsschutz: Der Praxisleitfaden – PLANEGY</title>
+  <meta name="description" content="Erfahren Sie, wie Sie eine Gefährdungsbeurteilung für den Explosionsschutz durchführen können, um die Sicherheit in Ihrem Betrieb zu gewährleisten." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Gefährdungsbeurteilung Explosionsschutz: Der Praxisleitfaden" />
+  <meta property="og:description" content="Erfahren Sie, wie Sie eine Gefährdungsbeurteilung für den Explosionsschutz durchführen können, um die Sicherheit in Ihrem Betrieb zu gewährleisten." />
+  <link rel="canonical" href="https://www.planegy.de/blog-gefahrdungsbeurteilung-explosionsschutz" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gefährdungsbeurteilung Explosionsschutz: Der Praxisleitfaden",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://www.planegy.de" },
+    "datePublished": "2026-08-10",
+    "description": "Erfahren Sie, wie Sie eine Gefährdungsbeurteilung für den Explosionsschutz durchführen können, um die Sicherheit in Ihrem Betrieb zu gewährleisten."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#7f1d1d,#dc2626); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🛡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#dc2626; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="blog.html" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Startseite</a>
+      <span>/</span>
+      <a href="blog.html">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Gefährdungsbeurteilung Explosionsschutz: Der Praxisleitfaden</span>
+    </div>
+    <div class="article-cat">Compliance</div>
+    <h1>Gefährdungsbeurteilung Explosionsschutz: Der Praxisleitfaden</h1>
+    <div class="article-meta">
+      <span>📅 <strong>August 2026</strong></span>
+      <span>⏱ <strong>13 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="gefahrdungsbeurteilung-explosionsschutz-der-praxisleitfaden" tabindex="-1">Gefährdungsbeurteilung Explosionsschutz: Der Praxisleitfaden</h1>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1786121796647_Hands-installing-explosion-proof-zone-sign.jpeg" alt="Hände bringen ein Schild für den Ex-Bereich an"></p>
+<p>Ja, wenn in Ihrem Betrieb brennbare Stoffe eingesetzt werden und explosionsfähige Gemische entstehen können, sind Sie verpflichtet, eine Gefährdungsbeurteilung durchzuführen und ein Explosionsschutzdokument zu erstellen. Die Pflicht ergibt sich unmittelbar aus <a href="https://www.bgrci.de/fileadmin/BGRCI/Downloads/DL_Praevention/Explosionsschutzportal/Dokumente/DGUV_Information_213-106_Explosionsschutzdokument_06_2021.pdf" rel="nofollow noopener noreferrer" target="_blank">§ 6 Abs. 9 GefStoffV</a>, ergänzt durch § 5 ArbSchG und die BetrSichV. Sie gilt unabhängig von der Betriebsgröße und muss <strong>vor Aufnahme der Tätigkeit</strong> vorliegen.</p>
+<p>Drei Schritte, die Sie jetzt angehen sollten:</p>
+<ul>
+<li><strong>Prozesse mit brennbaren Stoffen identifizieren:</strong> Welche Gase, Dämpfe, Nebel oder Stäube treten wo auf? Welche Mengen und Konzentrationen sind realistisch?</li>
+<li><strong>Kurz dokumentieren, ob explosionsfähige Gemische entstehen können:</strong> Selbst eine knappe Erstbewertung auf Basis von Sicherheitsdatenblättern reicht als Ausgangspunkt.</li>
+<li><strong>Bei positivem Befund das Explosionsschutzdokument anstoßen:</strong> Betriebsleitung, Fachkraft für Arbeitssicherheit und ggf. externe Sachverständige einbinden.</li>
+</ul>
+<blockquote>
+<p><strong>Wer trägt die Verantwortung?</strong> Der Arbeitgeber ist rechtlich verantwortlich. In der Praxis übernimmt die Fachkraft für Arbeitssicherheit die Koordination, während Anlagenverantwortliche die Prozesskenntnis beisteuern. Bei komplexen Anlagen empfiehlt sich die Hinzuziehung eines zugelassenen Überwachungsgremiums (ZÜS) oder eines akkreditierten Sachverständigen.</p>
+</blockquote>
+<hr>
+<h2 id="wichtige-erkenntnisse" tabindex="-1">Wichtige Erkenntnisse</h2>
+<p>Eine rechtskonforme Gefährdungsbeurteilung zum Explosionsschutz erfordert eine systematische Risikoanalyse nach TRGS 720/721, eine nachvollziehbare Zoneneinteilung und ein vollständiges Explosionsschutzdokument, das vor Aufnahme der Tätigkeit vorliegen muss.</p>
+<table>
+<thead>
+<tr>
+<th>Thema</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rechtliche Pflicht</td>
+<td>§ 6 Abs. 9 GefStoffV verpflichtet jeden Arbeitgeber mit explosionsgefährdeten Bereichen, unabhängig von der Beschäftigtenzahl.</td>
+</tr>
+<tr>
+<td>Zeitpunkt der Erstellung</td>
+<td>Das Explosionsschutzdokument muss vor Aufnahme der Tätigkeit vorliegen, nicht nachträglich.</td>
+</tr>
+<tr>
+<td>Zoneneinteilung und Kenngrößen</td>
+<td>Zonen 0/1/2 und 20/21/22 basieren auf UEG, Flammpunkt und Auftrittsdauer; die 10-Liter-Faustregel gibt erste Orientierung.</td>
+</tr>
+<tr>
+<td>Maßnahmenrangfolge</td>
+<td>Vermeidung vor Zündquellenvermeidung vor konstruktiven Maßnahmen nach TRGS 722/723/724.</td>
+</tr>
+<tr>
+<td>PLANEGY</td>
+<td>Begleitet Betriebe von der Erstbewertung bis zum fertigen Explosionsschutzdokument inklusive Schulung und Prüfplanung.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#wann-ist-ein-explosionsschutzdokument-gesetzlich-erforderlich">Wann ist ein Explosionsschutzdokument gesetzlich erforderlich?</a></li>
+<li><a href="#wie-gehen-sie-bei-der-gefahrdungsbeurteilung-nach-trgs-720721-vor">Wie gehen Sie bei der Gefährdungsbeurteilung nach TRGS 720/721 vor?</a></li>
+<li><a href="#welche-kenngrossen-sind-fur-die-beurteilung-explosionsfahiger-gemische-entscheidend">Welche Kenngrößen sind für die Beurteilung explosionsfähiger Gemische entscheidend?</a></li>
+<li><a href="#wie-teilen-sie-zonen-ein-und-was-muss-ins-dokument">Wie teilen Sie Zonen ein, und was muss ins Dokument?</a></li>
+<li><a href="#welche-explosionsschutzmassnahmen-stehen-ihnen-zur-verfugung">Welche Explosionsschutzmaßnahmen stehen Ihnen zur Verfügung?</a></li>
+<li><a href="#was-mussen-sie-bei-prufungen-instandhaltung-und-unterweisungen-nachweisen">Was müssen Sie bei Prüfungen, Instandhaltung und Unterweisungen nachweisen?</a></li>
+<li><a href="#was-muss-im-explosionsschutzdokument-stehen-eine-checkliste">Was muss im Explosionsschutzdokument stehen? Eine Checkliste</a></li>
+<li><a href="#welche-methode-passt-zu-ihrer-risikoanalyse">Welche Methode passt zu Ihrer Risikoanalyse?</a></li>
+<li><a href="#wie-wir-die-gefahrdungsbeurteilung-angehen-wurden">Wie wir die Gefährdungsbeurteilung angehen würden</a></li>
+<li><a href="#planegy-begleitet-sie-von-der-erstbewertung-bis-zum-fertigen-dokument">PLANEGY begleitet Sie von der Erstbewertung bis zum fertigen Dokument</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="wann-ist-ein-explosionsschutzdokument-gesetzlich-erforderlich" tabindex="-1">Wann ist ein Explosionsschutzdokument gesetzlich erforderlich?</h2>
+<p>Die Pflicht zur Erstellung eines Explosionsschutzdokuments greift, sobald an einem Arbeitsplatz gefährliche explosionsfähige Gemische auftreten können und diese durch Schutzmaßnahmen nicht sicher verhindert werden. Das ist kein Ermessensspielraum, sondern eine klare gesetzliche Anforderung.</p>
+<p><strong>Relevante Rechtsgrundlagen im Überblick:</strong></p>
+<ul>
+<li><strong>GefStoffV § 6 Abs. 9:</strong> Kernpflicht zur Dokumentation der Gefährdungsbeurteilung und des Explosionsschutzkonzepts; gilt für jeden Arbeitgeber mit explosionsgefährdeten Bereichen, unabhängig von der Beschäftigtenzahl.</li>
+<li><strong>ArbSchG § 5:</strong> Allgemeine Pflicht zur Gefährdungsbeurteilung für alle Arbeitsbereiche; Explosionsschutz ist ein Teilaspekt davon.</li>
+<li><strong>BetrSichV:</strong> Regelt Dokumentationspflichten für überwachungsbedürftige Anlagen und verlangt, dass Schutzmaßnahmen nachvollziehbar festgelegt und überprüft werden.</li>
+<li><strong>TRGS 720 / TRGS 721:</strong> Konkretisieren das Vorgehen bei der Beurteilung explosionsfähiger Gemische; TRGS 720 als allgemeine Vorgehensgrundlage, TRGS 721 für die eigentliche Beurteilung der Explosionsgefährdung.</li>
+<li><strong>TRGS 722 / TRGS 723 / TRGS 724:</strong> Behandeln Vermeidung gefährlicher explosionsfähiger Gemische, Zündquellenvermeidung und konstruktive Schutzmaßnahmen.</li>
+<li><strong>TRBS 2152:</strong> Technische Regel für Betriebssicherheit, die Mindestinhalte des Explosionsschutzdokuments und Anforderungen an Zoneneinteilung und Normalbetrieb festlegt.</li>
+<li><strong>DGUV Information 213-106:</strong> Praxisnahe Handreichung der Berufsgenossenschaften zum Aufbau und Inhalt des Explosionsschutzdokuments.</li>
+</ul>
+<p><strong>Konkrete Auslösekriterien, die ein Explosionsschutzdokument erforderlich machen:</strong></p>
+<ol>
+<li>Brennbare Gase, Dämpfe oder Nebel können sich mit Luft zu einem explosionsfähigen Gemisch verbinden.</li>
+<li>Brennbare Stäube entstehen bei Prozessen in Mengen, die eine Explosionsgefahr begründen.</li>
+<li>Eine Zoneneinteilung ist erforderlich, weil explosionsfähige Atmosphären nicht sicher ausgeschlossen werden können.</li>
+<li>Schutzmaßnahmen allein reichen nicht aus, um das Entstehen gefährlicher Gemische vollständig zu verhindern.</li>
+</ol>
+<p>Der Zeitpunkt ist eindeutig geregelt: Das Dokument muss vorliegen, bevor die Tätigkeit aufgenommen wird. Nachträgliche Erstellung ist ein Compliance-Risiko, das bei Betriebsprüfungen regelmäßig beanstandet wird.</p>
+<hr>
+<h2 id="wie-gehen-sie-bei-der-gefahrdungsbeurteilung-nach-trgs-720721-vor" tabindex="-1">Wie gehen Sie bei der Gefährdungsbeurteilung nach TRGS 720/721 vor?</h2>
+<p>Die Gefährdungsbeurteilung ist die fachliche Grundlage für das gesamte Explosionsschutzkonzept. Ohne sie lässt sich weder eine sinnvolle Zoneneinteilung vornehmen noch ein belastbares Schutzkonzept ableiten.</p>
+<p>TRGS 721 verlangt, dass die Beurteilung drei Kernaspekte dokumentiert: die Wahrscheinlichkeit und Dauer des Auftretens explosionsfähiger Gemische, die Wahrscheinlichkeit des Vorhandenseins wirksamer Zündquellen und das Ausmaß der zu erwartenden Auswirkungen. Das ist kein optionaler Zusatz, sondern Pflichtinhalt.</p>
+<p><strong>Schritt-für-Schritt-Vorgehen:</strong></p>
+<ol>
+<li><strong>Informationssammlung:</strong> Sicherheitsdatenblätter, Verfahrensbeschreibungen, Anlagenpläne und Betriebsanweisungen zusammenstellen. Stoffkenngrößen wie Flammpunkt, untere Explosionsgrenze (UEG) und Mindestzündenergie erfassen.</li>
+<li><strong>Betriebskonzept erstellen:</strong> Normalbetrieb, An- und Abfahrvorgänge, Wartung und Störfälle separat betrachten. Jede Betriebsphase kann andere Gefährdungsprofile erzeugen.</li>
+<li><strong>Bewertung von Auftreten und Dauer:</strong> Wie häufig und wie lange können explosionsfähige Gemische entstehen? Ergebnis dieser Bewertung ist die Grundlage für die Zoneneinteilung.</li>
+<li><strong>Bewertung der Zündquellen:</strong> Heiße Oberflächen, elektrische Funken, elektrostatische Entladungen, mechanische Funken, offene Flammen und weitere Zündquellen systematisch erfassen und bewerten (Verweis: TRGS 723).</li>
+<li><strong>Auswirkungsabschätzung:</strong> Welche Schäden wären bei einer Explosion zu erwarten? Gebäudestruktur, Nachbarbereiche, Personenaufenthalt.</li>
+<li><strong>Schutzmaßnahmen ableiten:</strong> Rangfolge einhalten: Vermeidung vor Zündquellenvermeidung vor konstruktiven Maßnahmen (dazu mehr in Abschnitt 6).</li>
+</ol>
+<ul>
+<li>TRGS 722 liefert Methoden zur Vermeidung gefährlicher Gemische durch Substitution, Inertisierung oder Lüftung.</li>
+<li>TRGS 723 behandelt Zündquellenvermeidung und Anforderungen an elektrische und nichtelektrische Betriebsmittel.</li>
+<li>TRGS 724 beschreibt konstruktive Maßnahmen für den Fall, dass Vermeidung und Zündquellenvermeidung nicht ausreichen.</li>
+</ul>
+<p>Verantwortlichkeiten sollten von Anfang an schriftlich festgelegt werden: Wer liefert welche Prozessdaten, wer zeichnet die Beurteilung ab, wer pflegt das Dokument bei Änderungen?</p>
+<hr>
+<h2 id="welche-kenngrossen-sind-fur-die-beurteilung-explosionsfahiger-gemische-entscheidend" tabindex="-1">Welche Kenngrößen sind für die Beurteilung explosionsfähiger Gemische entscheidend?</h2>
+<p>Die Beurteilung steht und fällt mit der Qualität der Stoffdaten. Wer hier mit veralteten oder falschen Kenngrößen arbeitet, riskiert eine fehlerhafte Zoneneinteilung und damit ein unzureichendes Schutzkonzept.</p>
+<p><strong>Wichtige Kenngrößen für Gase und Dämpfe:</strong></p>
+<ul>
+<li><strong>Untere Explosionsgrenze (UEG) / Unterer Explosionspunkt (UEP):</strong> Mindestkonzentration des brennbaren Stoffs in Luft, bei der eine Zündung möglich ist. Unterhalb der UEG ist das Gemisch zu mager.</li>
+<li><strong>Obere Explosionsgrenze (OEG):</strong> Oberhalb dieser Konzentration ist das Gemisch zu fett für eine Zündung. Relevant für Inertisierungskonzepte.</li>
+<li><strong>Flammpunkt:</strong> Temperatur, bei der ein Stoff genug Dampf bildet, um mit Luft ein zündfähiges Gemisch zu erzeugen. Entscheidend für die Einstufung flüssiger Stoffe.</li>
+<li><strong>Mindestzündenergie (MZE):</strong> Je niedriger, desto gefährlicher. Wasserstoff hat eine MZE von etwa 0,017 mJ, was ihn besonders kritisch macht.</li>
+<li><strong>Sauerstoffgrenzkonzentration (SGK):</strong> Maximaler Sauerstoffgehalt, bei dem keine Zündung mehr möglich ist. Basis für Inertisierungsberechnungen.</li>
+</ul>
+<p><strong>Besonderheiten bei brennbaren Stäuben:</strong></p>
+<p>Stäube verhalten sich anders als Gase. Entscheidend sind Korngröße (je feiner, desto reaktiver), Feuchtegehalt und Schüttdichte. Schon eine sehr dünne Staubablagerung kann nach Aufwirbelung zur Bildung eines explosionsfähigen Staub/Luft-Gemisches in einem Raum führen. Folgeexplosionen, bei denen eine erste Druckwelle weitere Ablagerungen aufwirbelt, sind ein bekanntes und unterschätztes Risiko.</p>
+<p><strong>Volumenbetrachtung und Faustregeln:</strong></p>
+<blockquote>
+<p>Mehr als 10 Liter zusammenhängende explosionsfähige Atmosphäre in einem geschlossenen Raum gelten als grundsätzlich gefährlich. Bei Räumen kleiner als etwa 100 m³ kann bereits 1/10.000 des Raumvolumens als Anhaltspunkt für eine gefahrdrohende Menge dienen.</p>
+</blockquote>
+<p>Diese <a href="https://www.bgbau-medien.de/handlungshilfen_gb/daten/tr/trgs721/3.htm" rel="nofollow noopener noreferrer" target="_blank">10-Liter-Faustregel</a> aus TRGS 721 ist kein Freifahrtschein: Sie ersetzt keine vollständige Berechnung, gibt aber eine schnelle erste Orientierung, ob eine tiefergehende Analyse notwendig ist.</p>
+<p>Kenngrößen beziehen Sie aus Sicherheitsdatenblättern des Herstellers, der GESTIS-Stoffdatenbank der IFA oder einschlägigen Tabellenwerken der BG RCI.</p>
+<hr>
+<h2 id="wie-teilen-sie-zonen-ein-und-was-muss-ins-dokument" tabindex="-1">Wie teilen Sie Zonen ein, und was muss ins Dokument?</h2>
+<p>Die Zoneneinteilung ist das Herzstück des Explosionsschutzdokuments. Sie legt fest, wo und wie intensiv Schutzmaßnahmen erforderlich sind, und bildet die Grundlage für die Auswahl zugelassener Betriebsmittel.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1786121756129_Hand-holding-zoning-plan-in-industrial-plant.jpeg" alt="Ein Mitarbeiter hält einen Bebauungsplan in der Produktionshalle in der Hand."></p>
+<p>Zonen sind immer dann auszuweisen, wenn explosionsfähige Atmosphären nicht sicher ausgeschlossen werden können. TRBS 2152 und die EX-RL legen die Mindestanforderungen an Zoneneinteilung und Dokumentation fest.</p>
+<p><strong>Unterscheidung Innenraum und Umgebung:</strong></p>
+<p>Das Innere von Apparaten, Behältern und Rohrleitungen (Apparateinneres) wird getrennt von der Umgebung bewertet. Im Apparateinneren herrschen oft dauerhaft explosionsfähige Atmosphären (Zone 0 / Zone 20), während die Umgebung je nach Dichtigkeit und Lüftung Zone 1 oder 2 zugeordnet wird.</p>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Häufigkeit / Dauer</th>
+<th>Typische Situation</th>
+<th>Typische Maßnahmen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zone 0</td>
+<td>Ständig oder langzeitig</td>
+<td>Behälterinneres mit brennbaren Flüssigkeiten</td>
+<td>Nur Kategorie 1G-Betriebsmittel, keine Zündquellen</td>
+</tr>
+<tr>
+<td>Zone 1</td>
+<td>Gelegentlich im Normalbetrieb</td>
+<td>Umgebung von Füllstellen, undichte Flansche</td>
+<td>Kategorie 2G-Betriebsmittel, Erdung, Lüftung</td>
+</tr>
+<tr>
+<td>Zone 2</td>
+<td>Selten und kurzzeitig</td>
+<td>Randbereich von Zone 1, Leckagen</td>
+<td>Kategorie 3G-Betriebsmittel, regelmäßige Kontrolle</td>
+</tr>
+<tr>
+<td>Zone 20</td>
+<td>Ständig (Staub)</td>
+<td>Mühleninneres, Silos</td>
+<td>Kategorie 1D-Betriebsmittel</td>
+</tr>
+<tr>
+<td>Zone 21</td>
+<td>Gelegentlich (Staub)</td>
+<td>Umgebung von Befüllstellen</td>
+<td>Kategorie 2D-Betriebsmittel, Reinigung</td>
+</tr>
+<tr>
+<td>—</td>
+<td>Selten (Staub)</td>
+<td>Randbereich, Staubablagerungen</td>
+<td>Kategorie 3D-Betriebsmittel, Reinigungsplan</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Sonderzustände wie An- und Abfahren, Reinigung und Instandhaltung müssen im Betriebskonzept explizit berücksichtigt werden. Für diese Phasen gelten oft andere Zonen oder zusätzliche Einzelmaßnahmen.</li>
+<li>Das Dokument muss Zonenpläne als Skizzen oder Zeichnungen enthalten, die die räumliche Ausdehnung der Zonen eindeutig zeigen.</li>
+<li>Änderungen an Prozessparametern oder Anlagenteilen können Zonengrenzen verschieben. Das Dokument ist dann zeitnah anzupassen.</li>
+</ul>
+<p><strong>Profi-Tipp:</strong> <em>Legen Sie Zonenpläne als separate, versionierte Zeichnungen an und verknüpfen Sie sie mit dem Hauptdokument. So lassen sich Änderungen nachvollziehbar dokumentieren, ohne das gesamte Dokument neu aufzusetzen.</em></p>
+<hr>
+<h2 id="welche-explosionsschutzmassnahmen-stehen-ihnen-zur-verfugung" tabindex="-1">Welche Explosionsschutzmaßnahmen stehen Ihnen zur Verfügung?</h2>
+<p>Die Rangfolge der Maßnahmen ist in GefStoffV und TRGS klar vorgegeben: Erst vermeiden, dann Zündquellen verhindern, zuletzt konstruktive Maßnahmen zur Begrenzung der Auswirkungen. Wer diese Reihenfolge umkehrt oder überspringt, hat ein rechtliches und fachliches Problem.</p>
+<p><strong>Primäre Maßnahmen: Vermeidung explosionsfähiger Atmosphären (TRGS 722)</strong></p>
+<ul>
+<li>Substitution brennbarer Stoffe durch nicht brennbare Alternativen</li>
+<li>Inertisierung (Stickstoff, CO₂) zur Unterschreitung der Sauerstoffgrenzkonzentration</li>
+<li>Technische Lüftung und Absaugung, um Konzentrationen unter der UEG zu halten</li>
+<li>Dichte Apparate und Rohrleitungen, die Freisetzungen im Normalbetrieb verhindern</li>
+</ul>
+<p><strong>Sekundäre Maßnahmen: Zündquellenvermeidung (TRGS 723)</strong></p>
+<ul>
+<li>Einsatz von Ex-geschützten elektrischen Betriebsmitteln (ATEX-Zertifizierung nach Richtlinie 2014/34/EU)</li>
+<li>Erdung und Potenzialausgleich zur Vermeidung elektrostatischer Entladungen</li>
+<li>Heiße Oberflächen unter der Zündtemperatur des Gemisches halten</li>
+<li>Arbeitsfreigabeverfahren für Heißarbeiten (Schweißen, Schleifen) in explosionsgefährdeten Bereichen</li>
+</ul>
+<p><strong>Konstruktive Schutzmaßnahmen: Begrenzung der Auswirkungen (TRGS 724)</strong></p>
+<p>TRGS 724 beschreibt vier Hauptansätze, wenn Vermeidung und Zündquellenvermeidung allein nicht ausreichen:</p>
+<ul>
+<li><strong>Explosionsfeste Bauweise:</strong> Apparate und Behälter so auslegen, dass sie dem Explosionsdruck standhalten.</li>
+<li><strong>Druckentlastung:</strong> Berstscheiben oder Entlastungsklappen leiten den Explosionsdruck kontrolliert ab.</li>
+<li><strong>Explosionsunterdrückung:</strong> Sensoren erkennen den Druckanstieg in Millisekunden und lösen ein Löschmittel aus, bevor sich die Explosion voll entwickelt.</li>
+<li><strong>Explosionstechnische Entkopplung:</strong> Flammendurchschlagsicherungen, Zellenradschleusen oder Schnellschlussschieber verhindern, dass sich eine Explosion von einem Apparateteil auf den nächsten überträgt.</li>
+</ul>
+<p><strong>Organisatorische Maßnahmen</strong></p>
+<p>Unterweisungen sind kein bürokratischer Pflichtpunkt. Technische Maßnahmen nützen wenig, wenn Beschäftigte Zündquellen nicht erkennen oder Arbeitsfreigaben nicht einhalten. Die Dokumentation der Unterweisung ist Compliance-kritisch und wird bei Behördenprüfungen regelmäßig abgefragt. Hinzu kommen Betriebsanweisungen, Koordinationsregeln für Fremdfirmen und ein geregeltes Instandhaltungsregime.</p>
+<p><strong>Profi-Tipp:</strong> <em>Ein häufiger Fehler ist die Kombination von Maßnahmen ohne Wirksamkeitsprüfung: Zwei Maßnahmen, die denselben Wirkungspfad abdecken, erhöhen die Sicherheit nicht zwingend, wenn ein dritter Pfad offen bleibt. Prüfen Sie nach der Maßnahmenableitung systematisch, ob alle identifizierten Zündquellen und Freisetzungsszenarien tatsächlich abgedeckt sind.</em></p>
+<hr>
+<h2 id="was-mussen-sie-bei-prufungen-instandhaltung-und-unterweisungen-nachweisen" tabindex="-1">Was müssen Sie bei Prüfungen, Instandhaltung und Unterweisungen nachweisen?</h2>
+<p>Prüfungen und Unterweisungen sind nicht nur sicherheitstechnisch notwendig, sie sind auch der Beweis gegenüber der Aufsichtsbehörde, dass das Schutzkonzept im Betrieb tatsächlich gelebt wird. Ein gut geschriebenes Explosionsschutzdokument ohne Prüfnachweise ist bei einer Inspektion wertlos.</p>
+<p><strong>Typische Prüfpflichten im Überblick:</strong></p>
+<ul>
+<li>Dichtheitsprüfungen an Apparaten, Rohrleitungen und Armaturen</li>
+<li>Wiederkehrende Prüfungen von Ex-Schutzeinrichtungen (elektrisch und nichtelektrisch) durch befähigte Personen oder ZÜS</li>
+<li>Funktionsprüfungen von Lüftungsanlagen, Gaswarngeräten und Unterdrückungsanlagen</li>
+<li>Reinigung von Staubablagerungen nach festgelegtem Plan (besonders kritisch: Ablagerungen über abgehängten Decken, auf Rohrleitungen)</li>
+<li>Prüfung von Erdungs- und Potenzialausgleichsverbindungen</li>
+</ul>
+<p><strong>Empfohlene Nachweisdokumente:</strong></p>
+<ol>
+<li>Prüfprotokolle mit Datum, Prüfer, Ergebnis und ggf. Mängelbeseitigung</li>
+<li>Unterweisungslisten mit Unterschrift der Beschäftigten und Datum</li>
+<li>Arbeitsfreigaben für Heißarbeiten und andere zündquellenbehaftete Tätigkeiten</li>
+<li>Wartungs- und Instandhaltungspläne mit Intervallen und Verantwortlichkeiten</li>
+<li>Nachweise über Qualifikation der prüfenden Personen</li>
+</ol>
+<p>Prüfintervalle sind keine festen gesetzlichen Vorgaben für jeden Einzelfall, sondern risikobasierte Entscheidungen. Als Orientierung: Ex-Schutzeinrichtungen in Zone 1 werden in der Praxis häufig jährlich geprüft, in Zone 2 alle zwei bis drei Jahre. Staubablagerungen in Zone 21 erfordern je nach Prozess wöchentliche bis monatliche Reinigungszyklen. Diese Intervalle müssen im Explosionsschutzdokument begründet und festgelegt sein.</p>
+<hr>
+<h2 id="was-muss-im-explosionsschutzdokument-stehen-eine-checkliste" tabindex="-1">Was muss im Explosionsschutzdokument stehen? Eine Checkliste</h2>
+<p>Das Explosionsschutzdokument ist kein Formular, das man einmal ausfüllt und ablegt. Es ist ein lebendes Dokument, das bei jeder technischen Änderung, jedem Zwischenfall und jeder Prozessanpassung überprüft und ggf. aktualisiert werden muss.</p>
+<p><strong>Pflichtinhalte nach GefStoffV § 6 Abs. 9 und DGUV Information 213-106:</strong></p>
+<ul>
+<li>Ergebnis der Gefährdungsbeurteilung (Stoffe, Mengen, Prozesse, Betriebsphasen)</li>
+<li>Zoneneinteilung mit Zonenplänen (Skizzen oder Zeichnungen)</li>
+<li>Explosionsschutzkonzept mit Rangfolge und Begründung der gewählten Maßnahmen</li>
+<li>Prüf- und Wartungsplan mit Intervallen und Verantwortlichkeiten</li>
+<li>Unterweisungsnachweise und Schulungsplan</li>
+<li>Koordinationsregeln für Fremdfirmen (Arbeitsfreigaben, Einweisungspflichten)</li>
+<li>Angaben zu verwendeten Betriebsmitteln und deren Ex-Schutz-Kategorien</li>
+</ul>
+<p>Die ISSA-Praxishilfe empfiehlt zudem, Explosionsrisiken, Zoneneinteilung und angewandte Schutzmaßnahmen so darzustellen, dass ein sachkundiger Dritter die Beurteilung nachvollziehen kann. Das ist der Prüfmaßstab bei Behördeninspektionen.</p>
+<table>
+<thead>
+<tr>
+<th>Dokumentelement</th>
+<th>Verantwortliche Person</th>
+<th>Änderungsindikator / Prüfintervall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gefährdungsbeurteilung</td>
+<td>Fachkraft für Arbeitssicherheit</td>
+<td>Bei Prozess- oder Anlagenänderung, mind. alle 3 Jahre</td>
+</tr>
+<tr>
+<td>Zonenpläne</td>
+<td>Anlagenverantwortlicher</td>
+<td>Bei Umbau, Erweiterung oder Parameteränderung</td>
+</tr>
+<tr>
+<td>Schutzkonzept</td>
+<td>Fachkraft für Arbeitssicherheit</td>
+<td>Bei Änderung der Maßnahmen oder neuen Erkenntnissen</td>
+</tr>
+<tr>
+<td>Prüfprotokolle</td>
+<td>Prüfbeauftragter / ZÜS</td>
+<td>Nach jeder Prüfung</td>
+</tr>
+<tr>
+<td>Unterweisungsnachweise</td>
+<td>Vorgesetzte / Sicherheitsbeauftragter</td>
+<td>Jährlich oder bei Änderung der Betriebsanweisung</td>
+</tr>
+<tr>
+<td>Koordinationsregeln Fremdfirmen</td>
+<td>Betriebsleitung</td>
+<td>Bei Auftragsvergabe und nach Zwischenfällen</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Änderungs-Trigger, die eine sofortige Überprüfung erfordern:</strong></p>
+<ul>
+<li>Austausch von Anlagenteilen mit anderen Ex-Kenngrößen</li>
+<li>Änderung von Prozessparametern (Temperatur, Druck, Durchfluss)</li>
+<li>Einsatz neuer Stoffe oder Änderung der Stoffmengen</li>
+<li>Zwischenfälle, Beinahe-Unfälle oder Behördenbeanstandungen</li>
+</ul>
+<p>Versionieren Sie das Dokument konsequent: Datum, Änderungsgrund und zeichnende Person bei jeder Revision festhalten.</p>
+<hr>
+<h2 id="welche-methode-passt-zu-ihrer-risikoanalyse" tabindex="-1">Welche Methode passt zu Ihrer Risikoanalyse?</h2>
+<p>Für einfache Tätigkeiten reicht eine strukturierte Risikomatrix. Für verfahrenstechnische Anlagen mit komplexen Wechselwirkungen zwischen Prozessparametern brauchen Sie mehr. Die Wahl der Methode beeinflusst direkt die Qualität und Nachvollziehbarkeit Ihrer Gefährdungsbeurteilung.</p>
+<p>Grundregel: HAZOP/PAAG für prozesstechnische Anlagen, LOPA für die Schutzniveaubewertung, FMEA für Bauteil- und Systemfehler, Risikomatrix für einfache Tätigkeiten.</p>
+<table>
+<thead>
+<tr>
+<th>Methode</th>
+<th>Beste Einsatzfälle</th>
+<th>Typischer Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HAZOP / PAAG</td>
+<td>Verfahrenstechnische Anlagen, Rohrleitungssysteme, Reaktoren</td>
+<td>Maßnahmenliste, Abweichungsprotokoll</td>
+</tr>
+<tr>
+<td>LOPA</td>
+<td>Bewertung von Schutzebenen, SIL-Bestimmung</td>
+<td>Risikoreduktionsfaktoren, PLT-Anforderungen</td>
+</tr>
+<tr>
+<td>FMEA</td>
+<td>Maschinenbauteile, elektrische Systeme, Sicherheitseinrichtungen</td>
+<td>Fehlermoduskatalog, Prioritätszahl (RPN)</td>
+</tr>
+<tr>
+<td>Risikomatrix</td>
+<td>Einfache Tätigkeiten, Lagerung, Handhabung</td>
+<td>Risikoeinstufung, Maßnahmenpriorität</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kurzbeschreibungen:</strong></p>
+<ul>
+<li><strong>HAZOP/PAAG:</strong> Strukturierte Abweichungsanalyse, bei der ein interdisziplinäres Team systematisch fragt: Was passiert, wenn ein Parameter (Druck, Temperatur, Durchfluss) von der Norm abweicht? Aufwand ist hoch, Ergebnis ist detailliert und gut dokumentierbar.</li>
+<li><strong>LOPA (Layer of Protection Analysis):</strong> Bewertet, ob vorhandene Schutzebenen ausreichen, um das Restrisiko auf ein akzeptables Niveau zu senken. Liefert quantitative Aussagen zu Risikoreduktionsfaktoren und ist Grundlage für SIL-Anforderungen in der Prozessleittechnik.</li>
+<li><strong>FMEA:</strong> Geht von möglichen Bauteilfehlern aus und bewertet deren Auswirkungen auf das Gesamtsystem. Besonders nützlich bei der Bewertung von Sicherheitseinrichtungen und Ex-geschützten Betriebsmitteln.</li>
+<li><strong>Risikomatrix:</strong> Schnell und pragmatisch. Geeignet für überschaubare Tätigkeiten, nicht für komplexe Prozessanlagen mit vielen Wechselwirkungen.</li>
+</ul>
+<p><strong>Profi-Tipp:</strong> <em>Kombinieren Sie Methoden sinnvoll: HAZOP identifiziert die kritischen Szenarien, LOPA bewertet, ob die vorhandenen Schutzebenen ausreichen, und die daraus abgeleiteten technischen Maßnahmen fließen in die TRGS 724-Konzeption ein. Prozessleittechnische Schutzfunktionen (PLT) sollten dabei von Anfang an einbezogen werden, da sie oft als Schutzebene in der LOPA-Bewertung angerechnet werden.</em></p>
+<hr>
+<h2 id="wie-wir-die-gefahrdungsbeurteilung-angehen-wurden" tabindex="-1">Wie wir die Gefährdungsbeurteilung angehen würden</h2>
+<p>Die häufigste Schwäche, die wir bei bestehenden Explosionsschutzdokumenten sehen, ist nicht fehlende Fachkenntnis, sondern mangelnde Nachvollziehbarkeit. Dokumente, die zwar alle Pflichtinhalte formal abdecken, aber keine klare Begründungskette von der Gefährdungsbeurteilung zur Maßnahmenauswahl zeigen, halten einer Behördenprüfung selten stand.</p>
+<p>Unser Ansatz bei PLANEGY folgt einem iterativen Ablauf: Zuerst eine strukturierte Datenaufnahme vor Ort, bei der wir Prozessbeschreibungen, Sicherheitsdatenblätter und bestehende Anlagendokumentation sichten. Dann die eigentliche Risikoanalyse, bei der wir je nach Anlagenkomplexität HAZOP/PAAG oder eine strukturierte Risikomatrix einsetzen. Auf dieser Basis entsteht das Explosionsschutzdokument mit Zonenplänen, Schutzkonzept und Prüfplan. Abgeschlossen wird das Projekt mit einer Schulung der verantwortlichen Personen und einer dokumentierten Übergabe an den Betreiber.</p>
+<p>Entscheidend ist die Qualifikation der beteiligten Personen. Die Fachkraft für Arbeitssicherheit muss die Beurteilung fachkundig begleiten können. Bei komplexen Anlagen, etwa Biogasanlagen, Lackieranlagen oder Staubverarbeitungsbetrieben, empfiehlt sich die Einbindung eines Sachverständigen mit nachgewiesener Erfahrung im Explosionsschutz. Das ist keine Frage des Misstrauens gegenüber internen Experten, sondern eine Frage der Haftungsabsicherung und der Tiefe der Analyse.</p>
+<p>Wer das Explosionsschutzdokument als einmalige Pflichtübung betrachtet, hat das Konzept verfehlt. Jede Anlagenänderung, jeder neue Stoff, jeder Zwischenfall ist ein Anlass zur Überprüfung. Betriebe, die das konsequent umsetzen, haben bei Behördenprüfungen deutlich weniger Erklärungsbedarf.</p>
+<hr>
+<h2 id="planegy-begleitet-sie-von-der-erstbewertung-bis-zum-fertigen-dokument" tabindex="-1">PLANEGY begleitet Sie von der Erstbewertung bis zum fertigen Dokument</h2>
+<p>Für Betriebe, die eine rechtskonforme Gefährdungsbeurteilung zum Explosionsschutz erstellen müssen, bietet PLANEGY einen vollständigen Compliance-Service: von der ersten Prozessaufnahme über die Risikoanalyse bis zum fertigen Explosionsschutzdokument inklusive Zonenplänen, Prüfplan und Unterweisungsunterlagen.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Was Sie von PLANEGY erhalten: eine strukturierte Datenaufnahme vor Ort, eine nachvollziehbare Gefährdungsbeurteilung nach TRGS 720/721, ein vollständiges <a href="https://planegy.de/blog-explosionsschutzdokument-erstellen" target="_blank" rel="noopener">Explosionsschutzdokument</a> mit allen Pflichtinhalten und eine Schulung Ihrer verantwortlichen Mitarbeiter. Auf Wunsch übernehmen wir auch die Prüfplanung und begleiten Behördenanfragen. Typische Projekte dauern je nach Anlagenkomplexität zwischen drei und acht Wochen. Fördermöglichkeiten für Beratungsleistungen prüfen wir dabei immer mit.</p>
+<p>Vereinbaren Sie jetzt einen Erstcheck auf <a href="https://planegy.de" target="_blank" rel="noopener">Planegy</a> und klären Sie in einem kurzen Gespräch, welcher Aufwand für Ihre Anlage realistisch ist.</p>
+<hr>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<p>Die folgenden Dokumente sind die maßgeblichen Grundlagen für die Gefährdungsbeurteilung und das Explosionsschutzdokument in Deutschland:</p>
+<ul>
+<li>DGUV Information 213-106 „Explosionsschutzdokument“</li>
+</ul>
+<p>Alle TRGS und TRBS sind kostenfrei über die Bundesanstalt für Arbeitsschutz und Arbeitsmedizin (BAuA) unter baua.de abrufbar. Die DGUV-Publikationen finden Sie im Publikationsportal der DGUV unter publikationen.dguv.de.</p>
+<h2 id="empfehlung" tabindex="-1">Empfehlung</h2>
+<ul>
+<li><a href="https://planegy.de/blog-explosionsschutzdokument-erstellen" target="_blank" rel="noopener">Explosionsschutzdokument erstellen: Praxisleitfaden für Betriebe – PLANEGY</a></li>
+<li><a href="https://planegy.de/blog.html" target="_blank" rel="noopener">Energie-Blog – PLANEGY | Fachartikel &amp; Expertenwissen</a></li>
+<li><a href="https://planegy.de/blog" target="_blank" rel="noopener">Energie-Blog – PLANEGY | Fachartikel &amp; Expertenwissen</a></li>
+<li><a href="https://planegy.de/blog-energieaudit-pflicht-2026-was-unternehmen-wissen-mussen" target="_blank" rel="noopener">Energieaudit Pflicht 2026: Was Unternehmen wissen müssen – PLANEGY</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>⚡ Kostenlose Erstberatung anfragen</h3>
+      <p>Wir analysieren Ihre spezifische Situation und zeigen konkrete Handlungsoptionen.</p>
+      <a href="index.html#kontakt">Jetzt Termin vereinbaren →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar">👨‍💼</div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifiziert: BAFA, dena, BEG, WP</div>
+      <a href="index.html#kontakt" class="author-cta">Beratung anfragen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="blog.html" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="index.html">Startseite</a>
+    <a href="blog.html">Blog</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
