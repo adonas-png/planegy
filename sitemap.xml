@@ -368,6 +368,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+    <url>
+    <loc>https://planegy.de/blog-ex-zonen-klassifizierung</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- SITEMAP_ARTICLES_END -->
 
 </urlset>
