@@ -304,14 +304,14 @@ function generateArticleHtml({ title, slug, content_html, metaDescription, categ
   <meta property="og:type" content="article" />
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${(metaDescription || "").replace(/"/g, "&quot;")}" />
-  <link rel="canonical" href="https://www.planegy.de/blog-${slug}" />
+  <link rel="canonical" href="https://planegy.de/blog-${slug}" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "${title.replace(/"/g, '\\"')}",
     "author": { "@type": "Person", "name": "Alexios Donas" },
-    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://www.planegy.de" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
     "datePublished": "${schemaDate}",
     "description": "${(metaDescription || "").replace(/"/g, '\\"')}"
   }
@@ -380,16 +380,16 @@ function generateArticleHtml({ title, slug, content_html, metaDescription, categ
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">PLAN<span>EGY</span></a>
-  <a href="blog.html" class="nav-back">← Zurück zum Blog</a>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
 </nav>
 
 <div class="article-hero">
   <div class="hero-inner">
     <div class="breadcrumb">
-      <a href="index.html">Startseite</a>
+      <a href="/">Startseite</a>
       <span>/</span>
-      <a href="blog.html">Blog</a>
+      <a href="/blog">Blog</a>
       <span>/</span>
       <span style="color:rgba(255,255,255,.7)">${title}</span>
     </div>
@@ -409,32 +409,41 @@ function generateArticleHtml({ title, slug, content_html, metaDescription, categ
       ${content_html}
     </div>
     <div class="cta-banner">
-      <h3>⚡ Kostenlose Erstberatung anfragen</h3>
-      <p>Wir analysieren Ihre spezifische Situation und zeigen konkrete Handlungsoptionen.</p>
-      <a href="index.html#kontakt">Jetzt Termin vereinbaren →</a>
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
     </div>
   </article>
   <aside class="sidebar">
     <div class="sidebar-card author-card">
       <div class="author-avatar">👨‍💼</div>
       <div class="author-name">Alexios Donas</div>
-      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifiziert: BAFA, dena, BEG, WP</div>
-      <a href="index.html#kontakt" class="author-cta">Beratung anfragen</a>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
     </div>
     <div class="sidebar-card">
-      <h3>📌 Mehr entdecken</h3>
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
       <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
-      <a href="blog.html" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
     </div>
   </aside>
 </div>
 
 <footer>
   <p>
-    <a href="index.html">Startseite</a>
-    <a href="blog.html">Blog</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
   </p>
   <p style="margin-top:.8rem">© ${new Date().getFullYear()} PLANEGY – Alexios Donas · Waiblingen</p>
 </footer>

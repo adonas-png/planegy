@@ -1,1629 +1,589 @@
-<html lang="de"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PLANEGY – Ihr Partner für Energie, Daten &amp; Strategie</title>
-  <meta name="description" content="Technologieoffen, praxisnahe Beratung für kommunale Wärmeplanung, Anlagenkonzeption und ESG-Reporting. 20+ Jahre Erfahrung. Jetzt Beratungsgespräch buchen.">
-  <meta name="keywords" content="Wärmeplanung, Energieberatung, ESG Reporting, BioLPG, BHKW, kommunale Wärmeplanung, Anlagenkonzeption, Förderservice">
-  <meta name="author" content="Alexios Donas – PLANEGY">
-  <meta property="og:title" content="PLANEGY – Energie, Daten &amp; Strategie">
-  <meta property="og:description" content="Technologieoffene Energieberatung für Kommunen, Stadtwerke und Industrie.">
-  <meta property="og:url" content="https://planegy.de">
-  <meta property="og:type" content="website">
-  <link rel="canonical" href="https://planegy.de">
-  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;rect width='100' height='100' rx='20' fill='%231a7fd4'/&gt;&lt;text y='.9em' font-size='75' x='12'&gt;⚡&lt;/text&gt;&lt;/svg&gt;">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --green:     #1a7fd4;
-      --green-l:   #3b9ae1;
-      --green-d:   #1565b0;
-      --navy:      #0d2b5e;
-      --navy-m:    #13377a;
-      --navy-l:    #1e4d8c;
-      --slate:     #64748b;
-      --slate-l:   #94a3b8;
-      --white:     #ffffff;
-      --off:       #f8fafc;
-      --border:    #e2e8f0;
-      --amber:     #f59e0b;
-      --radius:    12px;
-      --radius-l:  20px;
-      --shadow:    0 4px 24px rgba(0,0,0,.08);
-      --shadow-l:  0 8px 48px rgba(0,0,0,.12);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--white);
-      color: var(--navy);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--off); }
-    ::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
-
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 0 5%;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 70px;
-      transition: background .3s, box-shadow .3s;
-    }
-    nav.scrolled {
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 var(--border);
-    }
-    .nav-logo {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.5rem; font-weight: 700;
-      color: var(--white); text-decoration: none; letter-spacing: -.5px;
-    }
-    nav.scrolled .nav-logo { color: var(--navy); }
-    .nav-logo span { color: var(--green-l); }
-    nav.scrolled .nav-logo span { color: var(--green); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-    .nav-links a {
-      text-decoration: none; color: rgba(255,255,255,.8); font-size: .9rem;
-      font-weight: 500; transition: color .2s;
-    }
-    nav.scrolled .nav-links a { color: var(--navy-l); }
-    .nav-links a:hover { color: var(--green-l) !important; }
-    nav.scrolled .nav-links a:hover { color: var(--green) !important; }
-    .nav-cta {
-      background: var(--green) !important; color: var(--white) !important;
-      padding: .5rem 1.2rem; border-radius: 8px; transition: background .2s !important;
-    }
-    .nav-cta:hover { background: var(--green-d) !important; color: var(--white) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: .3s; }
-    nav.scrolled .hamburger span { background: var(--navy); }
-    .mobile-menu {
-      display: none; position: fixed; inset: 0; background: var(--white);
-      z-index: 99; flex-direction: column; align-items: center; justify-content: center;
-      gap: 2rem;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-size: 1.4rem; font-weight: 600; color: var(--navy);
-      text-decoration: none; transition: color .2s;
-    }
-    .mobile-menu a:hover { color: var(--green); }
-    .mobile-close {
-      position: absolute; top: 1.5rem; right: 5%;
-      font-size: 1.8rem; cursor: pointer; color: var(--slate);
-    }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, var(--navy) 0%, #0a2050 50%, #071540 100%);
-      display: flex; align-items: center; position: relative; overflow: hidden;
-      padding: 120px 5% 80px;
-    }
-    .hero-orb {
-      position: absolute; border-radius: 50%; pointer-events: none;
-    }
-    .hero-orb-1 {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(26,127,212,.2) 0%, transparent 70%);
-      top: -100px; right: -100px; animation: float 8s ease-in-out infinite;
-    }
-    .hero-orb-2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(59,154,225,.1) 0%, transparent 70%);
-      bottom: -80px; left: 10%; animation: float 10s ease-in-out infinite reverse;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-30px); }
-    }
-    .hero-inner {
-      max-width: 1200px; margin: 0 auto; width: 100%;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(26,127,212,.15); border: 1px solid rgba(26,127,212,.35);
-      color: var(--green-l); padding: .35rem .9rem; border-radius: 999px;
-      font-size: .8rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-    .hero-badge::before { content: "●"; font-size: .5rem; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-    .hero h1 {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800;
-      color: var(--white); line-height: 1.1; letter-spacing: -.03em;
-      margin-bottom: 1.2rem;
-    }
-    .hero h1 em { font-style: normal; color: var(--green-l); }
-    .hero-sub {
-      font-size: 1.05rem; color: rgba(255,255,255,.65); line-height: 1.7;
-      margin-bottom: 2rem; max-width: 480px;
-    }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: var(--green); color: var(--white);
-      padding: .85rem 1.8rem; border-radius: var(--radius); font-weight: 600;
-      text-decoration: none; font-size: .95rem; transition: all .2s;
-      box-shadow: 0 4px 20px rgba(26,127,212,.35);
-    }
-    .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); box-shadow: 0 6px 28px rgba(26,127,212,.45); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(255,255,255,.08); color: var(--white);
-      border: 1px solid rgba(255,255,255,.2);
-      padding: .85rem 1.8rem; border-radius: var(--radius); font-weight: 600;
-      text-decoration: none; font-size: .95rem; transition: all .2s;
-    }
-    .btn-secondary:hover { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.35); }
-    .hero-stats {
-      display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2.5rem;
-      border-top: 1px solid rgba(255,255,255,.1);
-    }
-    .hero-stat-value {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 2rem; font-weight: 800; color: var(--white); line-height: 1;
-    }
-    .hero-stat-value span { color: var(--green-l); }
-    .hero-stat-label { font-size: .8rem; color: rgba(255,255,255,.5); margin-top: .3rem; text-transform: uppercase; letter-spacing: .05em; }
-
-    .hero-visual { display: flex; justify-content: center; align-items: center; }
-    .hero-card {
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: var(--radius-l);
-      padding: 2rem; width: 100%; max-width: 420px;
-      backdrop-filter: blur(10px);
-    }
-    .hero-card-header { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.5rem; }
-    .hero-card-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--green), var(--green-d));
-      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
-    }
-    .hero-card-title { font-weight: 700; color: var(--white); font-size: 1rem; }
-    .hero-card-sub { font-size: .8rem; color: rgba(255,255,255,.5); }
-    .hero-card-item {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: .75rem 0; border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .hero-card-item:last-child { border-bottom: none; }
-    .hero-card-item-left { display: flex; align-items: center; gap: .7rem; }
-    .hero-card-dot { width: 8px; height: 8px; border-radius: 50%; }
-    .hero-card-item-label { font-size: .85rem; color: rgba(255,255,255,.7); }
-    .hero-card-item-val { font-size: .85rem; font-weight: 600; color: var(--white); }
-    .tag-green { background: rgba(26,127,212,.2); color: var(--green-l); padding: .2rem .6rem; border-radius: 4px; font-size: .75rem; font-weight: 600; }
-    .tag-amber { background: rgba(245,158,11,.2); color: #fbbf24; padding: .2rem .6rem; border-radius: 4px; font-size: .75rem; font-weight: 600; }
-    .tag-blue { background: rgba(59,130,246,.2); color: #93c5fd; padding: .2rem .6rem; border-radius: 4px; font-size: .75rem; font-weight: 600; }
-
-    /* SECTIONS */
-    section { padding: 100px 5%; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-label {
-      display: inline-block; font-size: .8rem; font-weight: 600; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--green); margin-bottom: .8rem;
-    }
-    .section-title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
-      color: var(--navy); letter-spacing: -.02em; line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-    .section-sub { font-size: 1.05rem; color: var(--slate); max-width: 580px; line-height: 1.7; }
-    .section-head { margin-bottom: 4rem; }
-    .section-head.centered { text-align: center; }
-    .section-head.centered .section-sub { margin: 0 auto; }
-
-    /* LEISTUNGEN */
-    .leistungen { background: var(--off); }
-    .leistungen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .leistung-card {
-      background: var(--white); border-radius: var(--radius-l);
-      padding: 2rem; border: 1px solid var(--border);
-      transition: transform .25s, box-shadow .25s;
-    }
-    .leistung-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-l); }
-    .leistung-icon {
-      width: 52px; height: 52px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; margin-bottom: 1.2rem;
-    }
-    .leistung-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: .5rem; color: var(--navy); }
-    .leistung-card p { font-size: .9rem; color: var(--slate); line-height: 1.6; }
-    .leistung-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
-    .leistung-tag {
-      font-size: .75rem; font-weight: 500; padding: .2rem .6rem;
-      border-radius: 4px; background: var(--off); color: var(--slate); border: 1px solid var(--border);
-    }
-
-    /* PROZESS */
-    .prozess-steps {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; position: relative;
-    }
-    .prozess-steps::before {
-      content: ""; position: absolute;
-      top: 28px; left: 12.5%; right: 12.5%;
-      height: 2px; background: linear-gradient(to right, var(--green), var(--green-l));
-      z-index: 0;
-    }
-    .prozess-step { text-align: center; position: relative; z-index: 1; }
-    .prozess-num {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--green), var(--green-d));
-      color: var(--white); font-weight: 800; font-size: 1.1rem;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.2rem; box-shadow: 0 4px 16px rgba(26,127,212,.3);
-    }
-    .prozess-step h3 { font-size: .95rem; font-weight: 700; margin-bottom: .4rem; color: var(--navy); }
-    .prozess-step p { font-size: .85rem; color: var(--slate); line-height: 1.5; }
-
-    /* EXPERTISE */
-    .expertise { background: var(--navy); }
-    .expertise .section-title { color: var(--white); }
-    .expertise .section-sub { color: rgba(255,255,255,.55); }
-    .expertise .section-label { color: var(--green-l); }
-    .expertise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .expertise-list { display: flex; flex-direction: column; gap: 1rem; }
-    .expertise-item {
-      display: flex; align-items: flex-start; gap: 1rem;
-      padding: 1.2rem 1.5rem;
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius); transition: background .2s, border-color .2s;
-    }
-    .expertise-item:hover { background: rgba(255,255,255,.07); border-color: rgba(26,127,212,.3); }
-    .expertise-item-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
-    .expertise-item h4 { font-size: .95rem; font-weight: 700; color: var(--white); margin-bottom: .2rem; }
-    .expertise-item p { font-size: .85rem; color: rgba(255,255,255,.5); line-height: 1.5; }
-    .expertise-visual {
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
-      border-radius: var(--radius-l); padding: 2.5rem;
-    }
-    .expertise-stat-row { display: flex; flex-direction: column; gap: 1.2rem; }
-    .expertise-stat-top {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: .4rem;
-    }
-    .expertise-stat-name { font-size: .85rem; color: rgba(255,255,255,.6); font-weight: 500; }
-    .expertise-stat-val { font-size: .85rem; color: var(--green-l); font-weight: 700; }
-    .expertise-stat-bar { height: 6px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; }
-    .expertise-stat-fill {
-      height: 100%; background: linear-gradient(to right, var(--green), var(--green-l));
-      border-radius: 3px;
-    }
-    .expertise-highlight {
-      margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.08);
-      display: flex; gap: 2rem;
-    }
-    .expertise-highlight-item { flex: 1; text-align: center; }
-    .expertise-highlight-num {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 2rem; font-weight: 800; color: var(--white);
-    }
-    .expertise-highlight-num span { color: var(--green-l); }
-    .expertise-highlight-label { font-size: .75rem; color: rgba(255,255,255,.45); text-transform: uppercase; letter-spacing: .05em; margin-top: .2rem; }
-
-    /* FÖRDERUNG */
-    .foerderung-banner {
-      background: linear-gradient(135deg, #0a2050 0%, #0d2b5e 50%, #1565b0 100%);
-      border-radius: var(--radius-l); padding: 3rem;
-      display: flex; align-items: center; gap: 3rem;
-      position: relative; overflow: hidden;
-    }
-    .foerderung-banner::before {
-      content: "€"; position: absolute; right: 2rem; top: 50%; transform: translateY(-50%);
-      font-size: 12rem; font-weight: 900; color: rgba(255,255,255,.04);
-      font-family: 'DM Sans', sans-serif; line-height: 1;
-    }
-    .foerderung-amount {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 3.5rem; font-weight: 900; color: var(--white);
-      white-space: nowrap; line-height: 1; flex-shrink: 0;
-    }
-    .foerderung-amount small { font-size: 1.2rem; font-weight: 500; opacity: .7; display: block; margin-top: .3rem; }
-    .foerderung-text h3 { font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: .5rem; }
-    .foerderung-text p { font-size: .9rem; color: rgba(255,255,255,.7); line-height: 1.6; max-width: 480px; }
-    .foerderung-list { display: flex; flex-direction: column; gap: .4rem; margin-top: 1rem; }
-    .foerderung-list li { display: flex; align-items: center; gap: .5rem; font-size: .85rem; color: rgba(255,255,255,.8); list-style: none; }
-    .foerderung-list li::before { content: "✓"; color: var(--green-l); font-weight: 700; }
-
-    /* ESG */
-    .esg { background: var(--off); }
-    .esg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-    .esg-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius-l); padding: 1.5rem; box-shadow: var(--shadow);
-    }
-    .esg-kpi-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-bottom: 1.2rem; }
-    .esg-kpi {
-      background: var(--off); border-radius: 10px; padding: 1rem;
-      text-align: center; border: 1px solid var(--border);
-    }
-    .esg-kpi-val { font-size: 1.4rem; font-weight: 800; color: var(--navy); }
-    .esg-kpi-val.green { color: var(--green); }
-    .esg-kpi-val.amber { color: var(--amber); }
-    .esg-kpi-label { font-size: .72rem; color: var(--slate); margin-top: .2rem; text-transform: uppercase; letter-spacing: .04em; }
-    .esg-chart { height: 6px; background: var(--border); border-radius: 3px; margin: .4rem 0; overflow: hidden; }
-    .esg-chart-fill { height: 100%; border-radius: 3px; }
-    .esg-items { display: flex; flex-direction: column; gap: .8rem; }
-    .esg-item { display: flex; justify-content: space-between; align-items: center; }
-    .esg-item-label { font-size: .85rem; color: var(--slate); }
-    .esg-item-status { font-size: .75rem; font-weight: 600; padding: .2rem .6rem; border-radius: 4px; }
-    .status-ok { background: rgba(26,127,212,.1); color: var(--green-d); }
-    .status-warn { background: rgba(245,158,11,.1); color: #b45309; }
-
-    /* ÜBER UNS */
-    .ueber-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-    .ueber-img-card {
-      background: linear-gradient(135deg, var(--navy) 0%, #0d3a80 100%);
-      border-radius: var(--radius-l); padding: 3rem;
-      display: flex; flex-direction: column; align-items: center; text-align: center;
-      position: relative; overflow: hidden;
-    }
-    .ueber-img-card::before {
-      content: ""; position: absolute; inset: 0;
-      background: radial-gradient(circle at 70% 30%, rgba(26,127,212,.25) 0%, transparent 60%);
-    }
-    .ueber-avatar {
-      width: 100px; height: 100px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--green), var(--green-d));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.5rem; font-weight: 800; color: var(--white);
-      font-family: 'DM Sans', sans-serif; margin-bottom: 1.2rem;
-      border: 4px solid rgba(255,255,255,.15); position: relative; z-index: 1;
-    }
-    .ueber-name { font-size: 1.2rem; font-weight: 700; color: var(--white); position: relative; z-index: 1; }
-    .ueber-role { font-size: .85rem; color: rgba(255,255,255,.6); margin-top: .3rem; position: relative; z-index: 1; }
-    .ueber-langs {
-      display: flex; gap: .4rem; flex-wrap: wrap; justify-content: center;
-      margin-top: 1rem; position: relative; z-index: 1;
-    }
-    .lang-badge {
-      font-size: .75rem; font-weight: 600; padding: .25rem .6rem;
-      border-radius: 4px; background: rgba(255,255,255,.1); color: rgba(255,255,255,.8);
-      border: 1px solid rgba(255,255,255,.15);
-    }
-    .ueber-credentials {
-      margin-top: 1.5rem; display: flex; flex-direction: column; gap: .6rem;
-      position: relative; z-index: 1; width: 100%;
-    }
-    .ueber-cred {
-      display: flex; align-items: flex-start; gap: .6rem; padding: .6rem .8rem;
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-      border-radius: 8px; text-align: left;
-    }
-    .ueber-cred span:first-child { font-size: 1rem; flex-shrink: 0; }
-    .ueber-cred-text { font-size: .8rem; color: rgba(255,255,255,.7); }
-    .ueber-values { display: flex; flex-direction: column; gap: 1rem; }
-    .ueber-value {
-      display: flex; gap: 1rem; align-items: flex-start;
-      padding: 1rem 1.2rem; border: 1px solid var(--border); border-radius: var(--radius);
-      transition: border-color .2s;
-    }
-    .ueber-value:hover { border-color: var(--green); }
-    .ueber-value-icon { font-size: 1.3rem; flex-shrink: 0; }
-    .ueber-value h4 { font-size: .9rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
-    .ueber-value p { font-size: .82rem; color: var(--slate); line-height: 1.5; }
-
-    /* BioLPG */
-    .biolpg { background: var(--navy); }
-    .biolpg .section-title { color: var(--white); }
-    .biolpg .section-sub { color: rgba(255,255,255,.55); }
-    .biolpg .section-label { color: #4ade80; }
-    .biolpg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
-    .biolpg-cards { display: flex; flex-direction: column; gap: 1rem; }
-    .biolpg-card {
-      padding: 1.2rem 1.5rem;
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius); display: flex; gap: 1rem; align-items: flex-start;
-      transition: border-color .2s;
-    }
-    .biolpg-card:hover { border-color: rgba(26,127,212,.4); }
-    .biolpg-card-icon { font-size: 1.5rem; flex-shrink: 0; }
-    .biolpg-card h4 { font-size: .9rem; font-weight: 700; color: var(--white); margin-bottom: .2rem; }
-    .biolpg-card p { font-size: .82rem; color: rgba(255,255,255,.5); line-height: 1.5; }
-    .biolpg-stat-card {
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
-      border-radius: var(--radius-l); padding: 2rem;
-    }
-    .biolpg-big-num {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 4rem; font-weight: 900; color: var(--green-l); line-height: 1; margin-bottom: .5rem;
-    }
-    .biolpg-big-label { font-size: .9rem; color: rgba(255,255,255,.6); margin-bottom: 2rem; }
-    .biolpg-bar-row { display: flex; flex-direction: column; gap: 1rem; }
-    .biolpg-bar-item label { display: flex; justify-content: space-between; font-size: .8rem; color: rgba(255,255,255,.5); margin-bottom: .3rem; }
-    .biolpg-bar { height: 8px; background: rgba(255,255,255,.08); border-radius: 4px; overflow: hidden; }
-    .biolpg-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(to right, var(--green), var(--green-l)); }
-
-    /* KONTAKT */
-    .kontakt { background: var(--off); }
-    .kontakt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-    .kontakt-info h3 { font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem; }
-    .kontakt-info p { font-size: .95rem; color: var(--slate); line-height: 1.7; margin-bottom: 2rem; }
-    .kontakt-links { display: flex; flex-direction: column; gap: .8rem; }
-    .kontakt-link {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1rem 1.2rem; background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius); text-decoration: none; color: var(--navy);
-      transition: border-color .2s, box-shadow .2s;
-    }
-    .kontakt-link:hover { border-color: var(--green); box-shadow: 0 0 0 3px rgba(26,127,212,.08); }
-    .kontakt-link-icon { font-size: 1.2rem; width: 40px; height: 40px; background: var(--off); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .kontakt-link-label { font-size: .8rem; color: var(--slate); }
-    .kontakt-link-val { font-size: .9rem; font-weight: 600; color: var(--navy); }
-    .kontakt-form {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius-l); padding: 2rem;
-    }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-group { margin-bottom: 1rem; }
-    .form-group label { display: block; font-size: .83rem; font-weight: 600; color: var(--navy); margin-bottom: .4rem; }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%; padding: .75rem 1rem; border: 1px solid var(--border);
-      border-radius: var(--radius); font-size: .9rem; font-family: inherit;
-      color: var(--navy); background: var(--white);
-      transition: border-color .2s, box-shadow .2s; outline: none;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: var(--green); box-shadow: 0 0 0 3px rgba(26,127,212,.12);
-    }
-    .form-group textarea { resize: vertical; min-height: 100px; }
-    .btn-form {
-      width: 100%; background: var(--green); color: var(--white);
-      border: none; padding: .9rem; border-radius: var(--radius);
-      font-size: .95rem; font-weight: 600; cursor: pointer;
-      transition: background .2s; font-family: inherit;
-    }
-    .btn-form:hover { background: var(--green-d); }
-
-    /* CTA BANNER */
-    .cta-banner { background: linear-gradient(135deg, var(--navy), #071540); text-align: center; padding: 80px 5%; }
-    .cta-banner .section-label { color: var(--green-l); }
-    .cta-banner .section-title { color: var(--white); margin: 0 auto 1rem; }
-    .cta-banner p { color: rgba(255,255,255,.6); max-width: 520px; margin: 0 auto 2rem; }
-    .cta-banner-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-white {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: var(--white); color: var(--navy);
-      padding: .85rem 1.8rem; border-radius: var(--radius); font-weight: 600;
-      text-decoration: none; font-size: .95rem; transition: all .2s;
-    }
-    .btn-white:hover { background: var(--off); transform: translateY(-1px); }
-
-    /* FOOTER */
-    footer { background: var(--navy); padding: 60px 5% 30px; }
-    .footer-inner { max-width: 1200px; margin: 0 auto; }
-    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-    .footer-logo {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.3rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: -.5px;
-    }
-    .footer-logo span { color: var(--green-l); }
-    .footer-brand p { font-size: .85rem; color: rgba(255,255,255,.45); margin-top: .8rem; line-height: 1.7; max-width: 260px; }
-    .footer-col h4 { font-size: .85rem; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1rem; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
-    .footer-col ul a { text-decoration: none; font-size: .85rem; color: rgba(255,255,255,.45); transition: color .2s; }
-    .footer-col ul a:hover { color: var(--green-l); }
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.08); padding-top: 1.5rem;
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: .8rem; color: rgba(255,255,255,.3);
-    }
-    .footer-bottom a { color: rgba(255,255,255,.4); text-decoration: none; }
-    .footer-bottom a:hover { color: var(--green-l); }
-    .footer-social { display: flex; gap: .6rem; margin-top: 1rem; }
-    .footer-social a {
-      width: 34px; height: 34px; border-radius: 8px;
-      background: rgba(255,255,255,.06); display: flex; align-items: center; justify-content: center;
-      text-decoration: none; font-size: .9rem; transition: background .2s;
-    }
-    .footer-social a:hover { background: var(--green); }
-
-    /* ANIMATIONS */
-    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-    .fade-up-delay-1 { transition-delay: .1s; }
-    .fade-up-delay-2 { transition-delay: .2s; }
-    .fade-up-delay-3 { transition-delay: .3s; }
-    .fade-up-delay-4 { transition-delay: .4s; }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-visual { display: none; }
-      .leistungen-grid { grid-template-columns: repeat(2,1fr); }
-      .prozess-steps { grid-template-columns: repeat(2,1fr); }
-      .prozess-steps::before { display: none; }
-      .expertise-grid, .esg-grid, .ueber-grid, .biolpg-grid, .kontakt-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .foerderung-banner { flex-direction: column; text-align: center; }
-    }
-    @media (max-width: 768px) {
-      section { padding: 70px 5%; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .leistungen-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
-      .hero-stats { flex-direction: column; gap: 1.5rem; }
-    }
-    @media (max-width: 480px) {
-      .hero-actions { flex-direction: column; }
-      .prozess-steps { grid-template-columns: 1fr; }
-      .expertise-highlight { flex-direction: column; gap: 1.5rem; }
-    }
-  </style>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ingenieurbüro für Energieplanung | PLANEGY, Waiblingen</title>
+  <meta name="description" content="Technologieoffene Energieplanung für Kommunen, Stadtwerke und Industrie – Analyse, Wirtschaftlichkeit, Genehmigung, Umsetzung. Über 20 Jahre Erfahrung." />
+  <meta name="author" content="Alexios Donas – PLANEGY" />
+  <link rel="canonical" href="https://planegy.de/" />
+  <meta property="og:site_name" content="PLANEGY" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ingenieurbüro für Energieplanung | PLANEGY, Waiblingen" />
+  <meta property="og:description" content="Technologieoffene Energieplanung für Kommunen, Stadtwerke und Industrie – Analyse, Wirtschaftlichkeit, Genehmigung, Umsetzung. Über 20 Jahre Erfahrung." />
+  <meta property="og:url" content="https://planegy.de/" />
+  <meta property="og:image" content="https://planegy.de/assets/og-planegy.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="PLANEGY – Energieplanung, die in der Realität funktioniert." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ingenieurbüro für Energieplanung | PLANEGY, Waiblingen" />
+  <meta name="twitter:description" content="Technologieoffene Energieplanung für Kommunen, Stadtwerke und Industrie – Analyse, Wirtschaftlichkeit, Genehmigung, Umsetzung. Über 20 Jahre Erfahrung." />
+  <meta name="twitter:image" content="https://planegy.de/assets/og-planegy.png" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>&#9889;</text></svg>" />
+  <link rel="preload" href="/assets/fonts/Inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/DMSans-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/assets/fonts.css" />
+  <link rel="stylesheet" href="/assets/planegy.css" />
   <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "url": "https://planegy.de",
-      "name": "PLANEGY",
-      "description": "Technologieoffene Energieberatung für Kommunen, Stadtwerke und Industrie.",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://planegy.de/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "PLANEGY",
+    "description": "Ingenieurbüro für technologieoffene Energieplanung: kommunale Wärmeplanung, Energieanlagen, Genehmigungsverfahren, Energieeffizienz und ESG.",
+    "url": "https://planegy.de",
+    "email": "kontakt@planegy.de",
+    "telephone": "+4915678513470",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Im Raisger 22",
+      "addressLocality": "Waiblingen",
+      "postalCode": "71336",
+      "addressRegion": "Baden-Württemberg",
+      "addressCountry": "DE"
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "url": "https://planegy.de",
-      "name": "PLANEGY",
-      "description": "PLANEGY bietet technologieoffene, praxisnahe Lösungen für kommunale Wärmeplanung, Anlagenkonzeption, ESG-Reporting und Energieberatung. Über 15 Jahre Erfahrung.",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Im Raisger 22",
-        "postalCode": "71336",
-        "addressLocality": "Waiblingen",
-        "addressCountry": "DE"
-      },
-      "telephone": "+4915678513470",
-      "email": "kontakt@planegy.de",
-      "founder": { "@type": "Person", "name": "Alexios Donas" }
+    "founder": {
+      "@type": "Person",
+      "name": "Alexios Donas",
+      "jobTitle": "Inhaber und Energieinfrastruktur-Experte"
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "url": "https://planegy.de",
-      "name": "PLANEGY – Ihr Partner für Energie, Daten & Strategie",
-      "inLanguage": "de",
-      "description": "PLANEGY bietet technologieoffene, praxisnahe Lösungen für kommunale Wärmeplanung, Anlagenkonzeption, ESG-Reporting und Energieberatung. Über 15 Jahre Erfahrung.",
-      "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Energieberatung",
-      "description": "Technologieoffene, praxisnahe Beratung für Industrie, Gewerbe und Kommunen im Energiesektor.",
-      "provider": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
-      "areaServed": { "@type": "Country", "name": "Germany" }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Kommunale Wärmeplanung",
-      "description": "Ganzheitliche Wärmeplanung und Nahwärmenetz-Analysen, inklusive Bestandsanalyse, Szenarien, WPG-Konformität.",
-      "provider": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
-      "areaServed": { "@type": "Country", "name": "Germany" }
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "PLANEGY",
-      "url": "https://planegy.de",
-      "telephone": "+4915678513470",
-      "email": "kontakt@planegy.de",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Im Raisger 22",
-        "postalCode": "71336",
-        "addressLocality": "Waiblingen",
-        "addressCountry": "DE"
-      },
-      "priceRange": "€€",
-      "description": "Unabhängige Energieberatung für Kommunen, Industrie und Gewerbe – Wärmeplanung, Förderung, ESG, Compliance."
+    "areaServed": { "@type": "Country", "name": "Deutschland" },
+    "sameAs": [
+      "https://de.linkedin.com/in/alexios-donas-49a590193",
+      "https://www.expertenatlas-bw.de/de/experten/alexios-donas"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Leistungen",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kommunale Wärmeplanung" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Planung von Energieanlagen" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Genehmigungsverfahren nach BImSchG" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Energieeffizienz und Energiemanagement" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ESG und Nachhaltigkeitsberatung" } }
+      ]
     }
-  ]
+  }
   </script>
 </head>
 <body>
 
-<!-- Netlify Form Registration (versteckt – für Drag & Drop Deploy) -->
-<form name="kontakt" netlify hidden>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+
+    <nav aria-label="Hauptnavigation">
+      <ul class="nav-menu">
+        <li><a href="/leistungen" data-nav="leistungen">Leistungen</a></li>
+        <li>
+          <button type="button" class="nav-sub-toggle" aria-expanded="false" aria-controls="submenu-zielgruppen">Für wen</button>
+          <ul class="nav-sub" id="submenu-zielgruppen">
+            <li><a href="/kommunen" data-nav="kommunen">
+              <span class="nav-sub-title">Kommunen</span>
+              <span class="nav-sub-desc">Von der Wärmeplanung zur Umsetzung</span>
+            </a></li>
+            <li><a href="/stadtwerke" data-nav="stadtwerke">
+              <span class="nav-sub-title">Stadtwerke &amp; Energieversorger</span>
+              <span class="nav-sub-desc">Energieinfrastruktur wirtschaftlich transformieren</span>
+            </a></li>
+            <li><a href="/industrie" data-nav="industrie">
+              <span class="nav-sub-title">Industrie &amp; Gewerbe</span>
+              <span class="nav-sub-desc">Energieversorgung optimieren und dekarbonisieren</span>
+            </a></li>
+          </ul>
+        </li>
+        <li><a href="/projekte" data-nav="projekte">Projekte</a></li>
+        <li><a href="/ueber-planegy" data-nav="ueber-planegy">Über PLANEGY</a></li>
+        <li><a href="/blog" data-nav="blog">Blog</a></li>
+        <li><a href="/kontakt" class="nav-cta" data-nav="kontakt">Projekt besprechen</a></li>
+      </ul>
+    </nav>
+
+    <button type="button" class="nav-burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="mobile-nav-head">
+    <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+    <button type="button" class="mobile-nav-close" aria-label="Menü schließen">&#10005;</button>
+  </div>
+  <nav aria-label="Mobile Navigation">
+    <a href="/leistungen">Leistungen</a>
+    <div class="mobile-nav-group">Für wen</div>
+    <a href="/kommunen" class="mobile-nav-sub">Kommunen</a>
+    <a href="/stadtwerke" class="mobile-nav-sub">Stadtwerke &amp; Energieversorger</a>
+    <a href="/industrie" class="mobile-nav-sub">Industrie &amp; Gewerbe</a>
+    <div class="mobile-nav-group">Unternehmen</div>
+    <a href="/projekte">Projekte</a>
+    <a href="/ueber-planegy">Über PLANEGY</a>
+    <a href="/fachwissen">Fachwissen</a>
+    <a href="/blog">Blog</a>
+    <a href="/kontakt" class="btn btn--primary">Projekt besprechen</a>
+  </nav>
+</div>
+
+<!-- Netlify-Formularregistrierung (versteckt) -->
+<form name="kontakt" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input type="text" name="name" />
   <input type="email" name="email" />
   <input type="text" name="organisation" />
+  <input type="text" name="telefon" />
   <input type="text" name="thema" />
   <textarea name="nachricht"></textarea>
 </form>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#" class="nav-logo">PLAN<span>EGY</span></a>
-  <ul class="nav-links">
-    <li><a href="#leistungen">Leistungen</a></li>
-    <li><a href="#expertise">Expertise</a></li>
-    <li><a href="#foerderung">Förderung</a></li>
-    <li><a href="#esg">ESG</a></li>
-    <li><a href="#ueber">Über uns</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
-  </ul>
-  <div class="hamburger" id="hamburger" aria-label="Menü öffnen">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
+<main id="main">
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <span class="mobile-close" id="mobileClose">✕</span>
-  <a href="#leistungen" class="mobile-link">Leistungen</a>
-  <a href="#expertise" class="mobile-link">Expertise</a>
-  <a href="#foerderung" class="mobile-link">Förderung</a>
-  <a href="#esg" class="mobile-link">ESG</a>
-  <a href="#ueber" class="mobile-link">Über uns</a>
-  <a href="blog.html" class="mobile-link">Blog</a>
-  <a href="#kontakt" class="mobile-link">Kontakt</a>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
-  <div class="hero-inner">
-    <div class="hero-copy">
-      <div class="hero-badge">Energie · Planung · Strategie</div>
-      <h1>Ihr Partner für<br><em>zukunftssichere</em><br>Energieplanung</h1>
-      <p class="hero-sub">
-        Technologieoffen. Praxisnah. Zuverlässig. – Energieberatung für Industrie, Gewerbe und Kommunen mit über 20 Jahren Ingenieur- und Projektmanagementpraxis im Energiesektor.
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Ingenieurbüro für Energieplanung</span>
+      <h1>Energieplanung, die in der Realität funktioniert.</h1>
+      <p class="lead">
+        PLANEGY entwickelt technologieoffene Energielösungen für Kommunen, Stadtwerke und Industrie –
+        von der Analyse und Planung bis zu Wirtschaftlichkeit, Genehmigung und Umsetzung.
       </p>
-      <div class="hero-actions">
-        <a href="#kontakt" class="btn-primary">Beratungsgespräch →</a>
-        <a href="#leistungen" class="btn-secondary">Leistungen entdecken</a>
+      <div class="btn-row">
+        <a href="/kontakt" class="btn btn--primary">Projekt besprechen</a>
+        <a href="/projekte" class="btn btn--ghost">Unsere Projekte</a>
       </div>
-      <div class="hero-stats">
+      <dl class="hero-meta">
         <div>
-          <div class="hero-stat-value">20<span>+</span></div>
-          <div class="hero-stat-label">Jahre Erfahrung</div>
+          <dt>Leistungstiefe</dt>
+          <dd>Analyse · Konzept · Wirtschaftlichkeit · Genehmigung · Umsetzung</dd>
         </div>
         <div>
-          <div class="hero-stat-value">1,2<span>M €</span></div>
-          <div class="hero-stat-label">Förderung verfügbar</div>
+          <dt>Auftraggeber</dt>
+          <dd>Kommunen · Stadtwerke und Energieversorger · Industrie und Gewerbe</dd>
         </div>
         <div>
-          <div class="hero-stat-value">100<span>%</span></div>
-          <div class="hero-stat-label">Technologieoffen</div>
+          <dt>Erfahrung</dt>
+          <dd>Über 20 Jahre im Energiesektor – Waiblingen, bundesweit tätig</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- QUALIFIKATION -->
+  <section class="section--tight trust-strip">
+    <div class="wrap">
+      <ul>
+        <li><strong>Über 20 Jahre</strong> Erfahrung im Energiesektor</li>
+        <li><strong>EUREM</strong> European Energy Manager (IHK Stuttgart)</li>
+        <li><strong>Kommunaler Wärmemanager</strong> (Öko-Zentrum NRW)</li>
+        <li><strong>Umweltauditor</strong> ISO 14001</li>
+        <li><a href="https://www.expertenatlas-bw.de/de/experten/alexios-donas" target="_blank" rel="noopener"><strong>Expertenatlas BW</strong> – Profil ansehen</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ZIELGRUPPEN -->
+  <section class="section" id="zielgruppen">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Für wen wir arbeiten</span>
+        <h2>Energieprojekte brauchen unterschiedliche Lösungen.</h2>
+        <p class="lead">
+          Eine Kommune, ein Stadtwerk und ein Industriebetrieb stehen vor jeweils anderen technischen,
+          wirtschaftlichen und regulatorischen Fragen. Wir arbeiten entlang dieser Unterschiede.
+        </p>
+      </div>
+
+      <div class="grid grid--3 reveal">
+        <a class="card" href="/kommunen">
+          <span class="card-kicker">Kommunen</span>
+          <h3>Von der Wärmeplanung zur Umsetzung</h3>
+          <p>Kommunale Wärmeplanung, Potenzialanalysen und konkrete Maßnahmen für eine wirtschaftliche Wärmeversorgung.</p>
+          <span class="textlink">Mehr über kommunale Wärmeplanung</span>
+        </a>
+        <a class="card" href="/stadtwerke">
+          <span class="card-kicker">Stadtwerke &amp; Energieversorger</span>
+          <h3>Energieinfrastruktur strategisch weiterentwickeln</h3>
+          <p>Technische Konzepte für Wärmeversorgung, Gasnetze, KWK und erneuerbare Energien.</p>
+          <span class="textlink">Lösungen für Stadtwerke</span>
+        </a>
+        <a class="card" href="/industrie">
+          <span class="card-kicker">Industrie &amp; Gewerbe</span>
+          <h3>Energieversorgung wirtschaftlich optimieren</h3>
+          <p>Energieeffizienz, Eigenversorgung, KWK, Dekarbonisierung, Genehmigung und alternative Energieträger.</p>
+          <span class="textlink">Lösungen für Unternehmen</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROZESS -->
+  <section class="section section--off" id="prozess">
+    <div class="wrap">
+      <div class="split">
+        <div class="reveal">
+          <span class="eyebrow">Vorgehen</span>
+          <h2>Vom Problem zum umsetzbaren Energieprojekt.</h2>
+          <p class="lead">
+            Jede Projektphase liefert eine belastbare Entscheidungsgrundlage für die nächste –
+            technisch, wirtschaftlich und regulatorisch geprüft.
+          </p>
+          <p class="statement" style="margin-top:2rem">
+            Wir verkaufen keine bestimmte Technologie. Wir entwickeln die Lösung, die technisch,
+            wirtschaftlich und regulatorisch funktioniert.
+          </p>
+        </div>
+
+        <div class="steps reveal">
+          <div class="step">
+            <span class="step-num" aria-hidden="true">01</span>
+            <div>
+              <h3>Analyse</h3>
+              <p>Energiebedarf, Infrastruktur, Potenziale und Rahmenbedingungen erfassen.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num" aria-hidden="true">02</span>
+            <div>
+              <h3>Konzept</h3>
+              <p>Technologien vergleichen und technisch sinnvolle Varianten entwickeln.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num" aria-hidden="true">03</span>
+            <div>
+              <h3>Wirtschaftlichkeit</h3>
+              <p>Investition, Betriebskosten, Energiepreise und Fördermöglichkeiten bewerten.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num" aria-hidden="true">04</span>
+            <div>
+              <h3>Genehmigung</h3>
+              <p>Technische Unterlagen und Genehmigungsprozesse begleiten.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-num" aria-hidden="true">05</span>
+            <div>
+              <h3>Umsetzung</h3>
+              <p>Ausschreibung, Projektbegleitung und technische Umsetzung unterstützen.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-card">
-        <div class="hero-card-header">
-          <div class="hero-card-icon">🌡️</div>
+  </section>
+
+  <!-- DIFFERENZIERUNG (Anker #expertise bleibt für bestehende Blog-Links erhalten) -->
+  <section class="section section--navy">
+    <span class="anchor-alias" id="expertise"></span>
+    <div class="wrap">
+      <div class="split">
+        <div class="reveal">
+          <span class="eyebrow">Unterschied</span>
+          <h2>Warum PLANEGY?</h2>
+          <p class="lead">
+            Energieprojekte scheitern selten an der Idee, sondern an der Lücke zwischen Konzept,
+            Wirtschaftlichkeit und Genehmigungsfähigkeit. Genau dort arbeiten wir.
+          </p>
+        </div>
+        <ul class="facts reveal">
+          <li>
+            <h3>Ingenieur statt reine Beratung</h3>
+            <p>Technische Planung und wirtschaftliche Bewertung gehören zusammen.</p>
+          </li>
+          <li>
+            <h3>Technologieoffen</h3>
+            <p>Wärmepumpe, Wärmenetz, KWK, Biomasse, BioLPG, Abwärme, Speicher oder andere Lösungen werden anhand der Projektbedingungen bewertet.</p>
+          </li>
+          <li>
+            <h3>Von der Planung bis zur Genehmigung</h3>
+            <p>PLANEGY begleitet Projekte über die reine Konzeptphase hinaus.</p>
+          </li>
+          <li>
+            <h3>Unternehmerisch gedacht</h3>
+            <p>Nicht die technisch schönste Lösung zählt, sondern diejenige, die technisch funktioniert und wirtschaftlich tragfähig ist.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENZ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Referenz</span>
+        <h2>Aus Planung wird Realität.</h2>
+      </div>
+      <div class="split reveal">
+        <div>
+          <span class="card-kicker">Kommunale Wärmeplanung</span>
+          <h3 style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Kommunaler Wärmeplan – Gemeinde Grafenwiesen</h3>
+          <p class="lead" style="margin-top:.9rem">
+            Für die Gemeinde Grafenwiesen (Landkreis Cham) hat PLANEGY den kommunalen Wärmeplan im
+            vereinfachten Verfahren nach § 22 WPG erstellt – von der Bestandsanalyse bis zum
+            priorisierten Maßnahmenkatalog.
+          </p>
+          <p style="color:var(--slate);font-size:.93rem;margin-top:1rem">
+            Die Eignungsprüfung nach § 14 WPG schloss eine leitungsgebundene Versorgung aus. Das
+            Zielszenario 2040 setzt auf Bedarfsreduktion und Wärmepumpen als Leittechnologie – ein
+            Ergebnis, das sich aus den Projektbedingungen ergab, nicht aus einer Technologievorliebe.
+          </p>
+          <div class="btn-row">
+            <a href="/projekte#grafenwiesen" class="btn btn--ghost">Projekt ansehen</a>
+          </div>
+        </div>
+        <div>
+          <dl class="dl-spec" style="margin-top:0">
+            <div>
+              <dt>Wärmebedarf</dt>
+              <dd>8.000–16.000 MWh/a</dd>
+            </div>
+            <div>
+              <dt>Anteil Heizöl im Bestand</dt>
+              <dd>40–50 %</dd>
+            </div>
+            <div>
+              <dt>Zielszenario 2040</dt>
+              <dd>58–64 % Wärmepumpen</dd>
+            </div>
+            <div>
+              <dt>THG-Minderung bis 2040</dt>
+              <dd>80–90 %</dd>
+            </div>
+          </dl>
+          <p class="note">
+            Alle Angaben stammen aus dem von der Gemeinde Grafenwiesen veröffentlichten Wärmeplan.
+            Weitere Referenzen besprechen wir gerne im direkten Gespräch.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN (Anker #leistungen bleibt für bestehende Blog-Links erhalten) -->
+  <section class="section section--off" id="leistungen">
+    <span class="anchor-alias" id="foerderung"></span>
+    <span class="anchor-alias" id="esg"></span>
+    <span class="anchor-alias" id="biolpg"></span>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Leistungen</span>
+        <h2>Unsere Leistungen</h2>
+        <p class="lead">
+          Sechs Arbeitsfelder, die sich in realen Projekten gegenseitig bedingen – von der
+          kommunalen Wärmeplanung bis zur Genehmigung einer Energieanlage.
+        </p>
+      </div>
+
+      <div class="svc-list reveal">
+        <div class="svc-item">
+          <span class="svc-item-num" aria-hidden="true">01</span>
           <div>
-            <div class="hero-card-title">Wärmeplanung Dashboard</div>
-            <div class="hero-card-sub">Aktuelle Projektübersicht</div>
+            <h3>Kommunale Wärmeplanung</h3>
+            <p>Wärmeplanung, Bestandsanalyse, Potenzialanalyse, Zielszenarien und Umsetzungsstrategie.</p>
           </div>
+          <a class="textlink" href="/leistungen#kommunale-waermeplanung">Details</a>
         </div>
-        <div class="hero-card-item">
-          <div class="hero-card-item-left">
-            <div class="hero-card-dot" style="background:#1a7fd4"></div>
-            <span class="hero-card-item-label">Nahwärmenetz Analyse</span>
+        <div class="svc-item">
+          <span class="svc-item-num" aria-hidden="true">02</span>
+          <div>
+            <h3>Energieanlagen</h3>
+            <p>KWK, BHKW, Gasturbinen, Wärmepumpen, Speicher und hybride Energiesysteme.</p>
           </div>
-          <span class="tag-green">Aktiv</span>
+          <a class="textlink" href="/leistungen#energieanlagen">Details</a>
         </div>
-        <div class="hero-card-item">
-          <div class="hero-card-item-left">
-            <div class="hero-card-dot" style="background:#f59e0b"></div>
-            <span class="hero-card-item-label">BHKW Konzeption</span>
+        <div class="svc-item">
+          <span class="svc-item-num" aria-hidden="true">03</span>
+          <div>
+            <h3>Energieträger</h3>
+            <p>LNG, LPG, BioLPG, Biogas, Wasserstoff und erneuerbare Energien.</p>
           </div>
-          <span class="tag-amber">In Bearbeitung</span>
+          <a class="textlink" href="/leistungen#energietraeger">Details</a>
         </div>
-        <div class="hero-card-item">
-          <div class="hero-card-item-left">
-            <div class="hero-card-dot" style="background:#3b82f6"></div>
-            <span class="hero-card-item-label">ESG-KPI Dashboard</span>
+        <div class="svc-item">
+          <span class="svc-item-num" aria-hidden="true">04</span>
+          <div>
+            <h3>Genehmigung</h3>
+            <p>BImSchG, 4. BImSchV und technische Genehmigungsverfahren.</p>
           </div>
-          <span class="tag-blue">Geplant</span>
+          <a class="textlink" href="/leistungen#genehmigung">Details</a>
         </div>
-        <div class="hero-card-item">
-          <div class="hero-card-item-left">
-            <div class="hero-card-dot" style="background:#1a7fd4"></div>
-            <span class="hero-card-item-label">Förderantrag BImSchV</span>
+        <div class="svc-item">
+          <span class="svc-item-num" aria-hidden="true">05</span>
+          <div>
+            <h3>Energieeffizienz</h3>
+            <p>Energiemanagement, Energieaudits und ISO 50001.</p>
           </div>
-          <span class="tag-green">Bewilligt</span>
+          <a class="textlink" href="/leistungen#energieeffizienz">Details</a>
         </div>
-        <div class="hero-card-item">
-          <div class="hero-card-item-left">
-            <div class="hero-card-dot" style="background:#1a7fd4"></div>
-            <span class="hero-card-item-label">CO₂-Reduktionsziel</span>
+        <div class="svc-item">
+          <span class="svc-item-num" aria-hidden="true">06</span>
+          <div>
+            <h3>ESG &amp; Nachhaltigkeit</h3>
+            <p>ESG, CSRD und Dekarbonisierungsstrategien.</p>
           </div>
-          <span class="hero-card-item-val" style="color:#3b9ae1">−42%</span>
+          <a class="textlink" href="/leistungen#esg">Details</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- LEISTUNGEN -->
-<section class="leistungen" id="leistungen">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-label fade-up">Unsere Leistungen</span>
-      <h2 class="section-title fade-up fade-up-delay-1">Ganzheitliche Energielösungen<br>aus einer Hand</h2>
-      <p class="section-sub fade-up fade-up-delay-2">Von der ersten Analyse bis zur erfolgreichen Umsetzung begleiten wir Kommunen, Stadtwerke und Industriebetriebe auf dem Weg zur klimaneutralen Energieversorgung.</p>
-    </div>
-    <div class="leistungen-grid">
-      <div class="leistung-card fade-up">
-        <div class="leistung-icon" style="background:rgba(26,127,212,.1)">🏘️</div>
-        <h3>Kommunale Wärmeplanung</h3>
-        <p>Umfassende Analyse von Bestandssituation, Potenzialen und Entwicklungsszenarien für Städte und Gemeinden – zukunftssicher und gesetzeskonform nach WPG.</p>
-        <div class="leistung-tags">
-          <span class="leistung-tag">Bestandsanalyse</span>
-          <span class="leistung-tag">Szenarien</span>
-          <span class="leistung-tag">WPG-konform</span>
+  <!-- ÜBER (Anker #ueber bleibt für bestehende Blog-Links erhalten) -->
+  <section class="section" id="ueber">
+    <div class="wrap">
+      <div class="split">
+        <div class="reveal">
+          <span class="eyebrow">Über PLANEGY</span>
+          <h2>Ingenieurkompetenz für komplexe Energieprojekte.</h2>
+          <p class="lead">
+            PLANEGY ist das Ingenieurbüro von Alexios Donas mit Sitz in Waiblingen – mit über
+            20 Jahren Erfahrung im Energiesektor. Schwerpunkte sind kommunale Wärmeplanung nach WPG,
+            Anlagenplanung, Genehmigungsverfahren sowie Energie- und Nachhaltigkeitsmanagement.
+          </p>
+          <div class="btn-row">
+            <a href="/ueber-planegy" class="btn btn--ghost">Über PLANEGY</a>
+          </div>
         </div>
-      </div>
-      <div class="leistung-card fade-up fade-up-delay-1">
-        <div class="leistung-icon" style="background:rgba(59,130,246,.1)">⚙️</div>
-        <h3>Anlagenkonzeption</h3>
-        <p>Maßgeschneiderte Systemlösungen inkl. Nahwärmesysteme, BioLPG-Anwendungen, BHKW, Gasturbinen und Dampferzeuger – technologieoffen und praxisnah.</p>
-        <div class="leistung-tags">
-          <span class="leistung-tag">BHKW</span>
-          <span class="leistung-tag">BioLPG</span>
-          <span class="leistung-tag">Nahwärme</span>
-        </div>
-      </div>
-      <div class="leistung-card fade-up fade-up-delay-2">
-        <div class="leistung-icon" style="background:rgba(245,158,11,.1)">📋</div>
-        <h3>Genehmigungsverfahren</h3>
-        <p>Vollständige Antragsaufbereitung nach 4. BImSchV für LNG- und Flüssiggasanlagen. Wir übernehmen die komplexe Bürokratie für Sie.</p>
-        <div class="leistung-tags">
-          <span class="leistung-tag">4. BImSchV</span>
-          <span class="leistung-tag">LNG</span>
-          <span class="leistung-tag">Flüssiggas</span>
-        </div>
-      </div>
-      <div class="leistung-card fade-up">
-        <div class="leistung-icon" style="background:rgba(16,185,129,.1)">💶</div>
-        <h3>Förderservice</h3>
-        <p>Von der Erstberatung über die Förderakquise bis zu 1,2 Mio. € bis zur Umsetzung. Wir kennen alle Förderprogramme und maximieren Ihre Zuschüsse.</p>
-        <div class="leistung-tags">
-          <span class="leistung-tag">bis 1,2 Mio. €</span>
-          <span class="leistung-tag">BEW</span>
-          <span class="leistung-tag">KfW / BAFA</span>
-        </div>
-      </div>
-      <div class="leistung-card fade-up fade-up-delay-1">
-        <div class="leistung-icon" style="background:rgba(139,92,246,.1)">📊</div>
-        <h3>ESG / CSRD Reporting</h3>
-        <p>Automatisierte KPI-Dashboards und Strukturierung von Nachhaltigkeitsdaten nach europäischen Standards CSRD/ESRS – compliant und zukunftssicher.</p>
-        <div class="leistung-tags">
-          <span class="leistung-tag">CSRD</span>
-          <span class="leistung-tag">ESRS</span>
-          <span class="leistung-tag">KPI-Dashboard</span>
-        </div>
-      </div>
-      <div class="leistung-card fade-up fade-up-delay-2">
-        <div class="leistung-icon" style="background:rgba(236,72,153,.1)">🛡️</div>
-        <h3>Compliance &amp; Sicherheit</h3>
-        <p>Explosionsschutzdokumente (ESD), Gefährdungsbeurteilungen (GBU), BImSchG-Anträge (4. BImSchV), Prüfungen vor Inbetriebnahme (PVI) und Einweisungen nach 29b BImSchG.</p>
-        <div class="leistung-tags">
-          <span class="leistung-tag">BetrSichV</span>
-          <span class="leistung-tag">DVGW / DVFG</span>
-          <span class="leistung-tag">BImSchG</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="reveal">
+          <ul class="facts">
+            <li>
+              <h3>Technische Qualifikation</h3>
+              <p>Ingenieurwesen (Tampere University of Applied Sciences), EUREM – European Energy Manager (IHK Stuttgart), Kommunaler Wärmemanager (Öko-Zentrum NRW), Umweltauditor ISO 14001.</p>
+            </li>
+            <li>
+              <h3>Arbeitsweise</h3>
+              <p>Direkte Zusammenarbeit mit den Entscheidungsträgern, nachvollziehbare Rechenwege und Unterlagen, die im Genehmigungsverfahren Bestand haben.</p>
+            </li>
 
-<!-- BRANCHEN -->
-<section style="background:var(--white);padding:60px 5%">
-  <div class="section-inner">
-    <div class="section-head centered">
-      <span class="section-label fade-up">Zielgruppen &amp; Branchen</span>
-      <h2 class="section-title fade-up fade-up-delay-1">Für wen arbeitet PLANEGY?</h2>
-      <p class="section-sub fade-up fade-up-delay-2">Von kleinen Gewerbebetrieben bis zur Großindustrie – PLANEGY berät alle Unternehmensgrößen branchenübergreifend.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem" class="fade-up fade-up-delay-2">
-      <div style="background:var(--off);border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center">
-        <div style="font-size:1.8rem;margin-bottom:.5rem">🏭</div>
-        <div style="font-size:.85rem;font-weight:700;color:var(--navy)">Verarbeitendes Gewerbe</div>
-      </div>
-      <div style="background:var(--off);border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center">
-        <div style="font-size:1.8rem;margin-bottom:.5rem">⚡</div>
-        <div style="font-size:.85rem;font-weight:700;color:var(--navy)">Energieversorgung</div>
-      </div>
-      <div style="background:var(--off);border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center">
-        <div style="font-size:1.8rem;margin-bottom:.5rem">🏛️</div>
-        <div style="font-size:.85rem;font-weight:700;color:var(--navy)">Öffentliche Verwaltung</div>
-      </div>
-      <div style="background:var(--off);border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center">
-        <div style="font-size:1.8rem;margin-bottom:.5rem">🏗️</div>
-        <div style="font-size:.85rem;font-weight:700;color:var(--navy)">Baugewerbe</div>
-      </div>
-      <div style="background:var(--off);border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center">
-        <div style="font-size:1.8rem;margin-bottom:.5rem">🌾</div>
-        <div style="font-size:.85rem;font-weight:700;color:var(--navy)">Land- &amp; Forstwirtschaft</div>
-      </div>
-      <div style="background:var(--off);border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center">
-        <div style="font-size:1.8rem;margin-bottom:.5rem">🏠</div>
-        <div style="font-size:.85rem;font-weight:700;color:var(--navy)">Wohnungswesen</div>
-      </div>
-      <div style="background:var(--off);border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center">
-        <div style="font-size:1.8rem;margin-bottom:.5rem">🏨</div>
-        <div style="font-size:.85rem;font-weight:700;color:var(--navy)">Gastgewerbe</div>
-      </div>
-      <div style="background:var(--off);border:1px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center">
-        <div style="font-size:1.8rem;margin-bottom:.5rem">🏥</div>
-        <div style="font-size:.85rem;font-weight:700;color:var(--navy)">Gesundheits­wesen</div>
+          </ul>
+        </div>
       </div>
     </div>
-    <div style="margin-top:2rem;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center" class="fade-up fade-up-delay-3">
-      <span style="background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;padding:.3rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600">1–9 Mitarbeiter</span>
-      <span style="background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;padding:.3rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600">10–49 Mitarbeiter</span>
-      <span style="background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;padding:.3rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600">50–249 Mitarbeiter</span>
-      <span style="background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;padding:.3rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600">ab 250 Mitarbeiter</span>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- PROZESS -->
-<section id="prozess">
-  <div class="section-inner">
-    <div class="section-head centered">
-      <span class="section-label fade-up">Unser Vorgehen</span>
-      <h2 class="section-title fade-up fade-up-delay-1">In 4 Schritten zum Ergebnis</h2>
-      <p class="section-sub fade-up fade-up-delay-2">Strukturiert, transparent und ergebnisorientiert – so begleiten wir Ihr Projekt vom ersten Gespräch bis zur erfolgreichen Umsetzung.</p>
-    </div>
-    <div class="prozess-steps">
-      <div class="prozess-step fade-up">
-        <div class="prozess-num">1</div>
-        <h3>Erstgespräch &amp; Analyse</h3>
-        <p>Kostenfreie Erstberatung, Bestandsaufnahme und Definition Ihrer Projektziele</p>
-      </div>
-      <div class="prozess-step fade-up fade-up-delay-1">
-        <div class="prozess-num">2</div>
-        <h3>Konzept &amp; Strategie</h3>
-        <p>Entwicklung technologieoffener Lösungskonzepte mit Wirtschaftlichkeitsanalyse</p>
-      </div>
-      <div class="prozess-step fade-up fade-up-delay-2">
-        <div class="prozess-num">3</div>
-        <h3>Genehmigung &amp; Förderung</h3>
-        <p>Antragsaufbereitung, Behördenabstimmung und Förderakquise aus einer Hand</p>
-      </div>
-      <div class="prozess-step fade-up fade-up-delay-3">
-        <div class="prozess-num">4</div>
-        <h3>Umsetzung &amp; Begleitung</h3>
-        <p>Projektbegleitung, Controlling und nachhaltige Erfolgssicherung</p>
+  <!-- CTA (Anker #kontakt bleibt für bestehende Blog-Links erhalten) -->
+  <section class="cta-band" id="kontakt">
+    <div class="wrap">
+      <span class="eyebrow">Kontakt</span>
+      <h2>Sie haben ein Energieprojekt?</h2>
+      <p>
+        Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY
+        unterstützen kann.
+      </p>
+      <div class="btn-row">
+        <a href="/kontakt" class="btn btn--primary">Projekt besprechen</a>
+        <a href="mailto:kontakt@planegy.de" class="btn btn--ghost">kontakt@planegy.de</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EXPERTISE -->
-<section class="expertise" id="expertise">
-  <div class="section-inner">
-    <div class="expertise-grid">
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
       <div>
-        <span class="section-label fade-up">Unsere Stärken</span>
-        <h2 class="section-title fade-up fade-up-delay-1">Tiefgreifendes Praxiswissen.<br>Strategische Umsetzungsstärke.</h2>
-        <p class="section-sub fade-up fade-up-delay-2" style="color:rgba(255,255,255,.55);margin-bottom:2rem">
-          Über 15 Jahre Erfahrung in der Planung und Realisierung komplexer Energieinfrastrukturprojekte – mit Spezialisierung in Automatisierung, Digitalisierung und Vertriebsstrategien für innovative Energielösungen.
-        </p>
-        <div class="expertise-list fade-up fade-up-delay-3">
-          <div class="expertise-item">
-            <span class="expertise-item-icon">🌱</span>
-            <div>
-              <h4>Technologieoffenheit</h4>
-              <p>Wir bewerten alle verfügbaren Technologien neutral und empfehlen die optimale Lösung für Ihre konkrete Situation.</p>
-            </div>
-          </div>
-          <div class="expertise-item">
-            <span class="expertise-item-icon">🔬</span>
-            <div>
-              <h4>Ingenieurskompetenz</h4>
-              <p>Fundiertes technisches Wissen aus Studium und Praxis: Umweltmanagement &amp; Ingenieurswissenschaften (Tampere University).</p>
-            </div>
-          </div>
-          <div class="expertise-item">
-            <span class="expertise-item-icon">🌍</span>
-            <div>
-              <h4>Internationale Perspektive</h4>
-              <p>Mehrsprachig (DE/EN/FI/ES) und mit europäischer Perspektive auf Energiewende, Regulatorik und internationale Best Practices.</p>
-            </div>
-          </div>
-          <div class="expertise-item">
-            <span class="expertise-item-icon">📈</span>
-            <div>
-              <h4>Digitalisierung &amp; Automatisierung</h4>
-              <p>KI-gestützte KPI-Dashboards, automatisiertes ESG-Reporting und digitale Projektverwaltung für effizientere Entscheidungen.</p>
-            </div>
-          </div>
-        </div>
+        <a href="/" class="footer-logo">PLAN<span>EGY</span></a>
+        <p>Technologieoffene Energieplanung für Kommunen, Stadtwerke sowie Industrie und Gewerbe – von der Analyse bis zur Umsetzung.</p>
       </div>
-      <div class="expertise-visual fade-up fade-up-delay-2">
-        <div class="expertise-stat-row">
-          <div>
-            <div class="expertise-stat-top">
-              <span class="expertise-stat-name">Kommunale Wärmeplanung</span>
-              <span class="expertise-stat-val">95%</span>
-            </div>
-            <div class="expertise-stat-bar"><div class="expertise-stat-fill" style="width:95%"></div></div>
-          </div>
-          <div>
-            <div class="expertise-stat-top">
-              <span class="expertise-stat-name">Genehmigungsverfahren</span>
-              <span class="expertise-stat-val">90%</span>
-            </div>
-            <div class="expertise-stat-bar"><div class="expertise-stat-fill" style="width:90%"></div></div>
-          </div>
-          <div>
-            <div class="expertise-stat-top">
-              <span class="expertise-stat-name">ESG / CSRD Reporting</span>
-              <span class="expertise-stat-val">88%</span>
-            </div>
-            <div class="expertise-stat-bar"><div class="expertise-stat-fill" style="width:88%"></div></div>
-          </div>
-          <div>
-            <div class="expertise-stat-top">
-              <span class="expertise-stat-name">Förderservice &amp; Akquise</span>
-              <span class="expertise-stat-val">92%</span>
-            </div>
-            <div class="expertise-stat-bar"><div class="expertise-stat-fill" style="width:92%"></div></div>
-          </div>
-          <div>
-            <div class="expertise-stat-top">
-              <span class="expertise-stat-name">Strategie &amp; Go-to-Market</span>
-              <span class="expertise-stat-val">85%</span>
-            </div>
-            <div class="expertise-stat-bar"><div class="expertise-stat-fill" style="width:85%"></div></div>
-          </div>
-        </div>
-        <div class="expertise-highlight">
-          <div class="expertise-highlight-item">
-            <div class="expertise-highlight-num">20<span>+</span></div>
-            <div class="expertise-highlight-label">Jahre Erfahrung</div>
-          </div>
-          <div class="expertise-highlight-item">
-            <div class="expertise-highlight-num"><span>€</span>1,2M</div>
-            <div class="expertise-highlight-label">Förderung max.</div>
-          </div>
-          <div class="expertise-highlight-item">
-            <div class="expertise-highlight-num">4</div>
-            <div class="expertise-highlight-label">Sprachen</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FÖRDERUNG -->
-<section id="foerderung">
-  <div class="section-inner">
-    <div class="section-head centered">
-      <span class="section-label fade-up">Fördermittel</span>
-      <h2 class="section-title fade-up fade-up-delay-1">Bis zu 1,2 Millionen Euro Förderung sichern</h2>
-      <p class="section-sub fade-up fade-up-delay-2">Wir kennen alle relevanten Förderprogramme und begleiten Sie von der Erstberatung bis zur erfolgreichen Bewilligung.</p>
-    </div>
-    <div class="foerderung-banner fade-up">
-      <div class="foerderung-amount">
-        1,2 Mio. €
-        <small>Maximale Fördersumme</small>
-      </div>
-      <div class="foerderung-text">
-        <h3>Vollständige Förderbegleitung aus einer Hand</h3>
-        <p>Von der Identifikation geeigneter Förderprogramme über die Antragsstellung bis zum erfolgreichen Abschluss – PLANEGY übernimmt die gesamte Förderabwicklung für Ihr Energie- oder Wärmeprojekt.</p>
-        <ul class="foerderung-list">
-          <li>Bundesförderung effiziente Wärmenetze (BEW)</li>
-          <li>KfW-Programme für kommunale Infrastruktur</li>
-          <li>BAFA-Förderungen für Energieeffizienz</li>
-          <li>Länderspezifische Förderprogramme</li>
-          <li>EU-Fonds und Klimaschutzprogramme</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ESG -->
-<section class="esg" id="esg">
-  <div class="section-inner">
-    <div class="esg-grid">
       <div>
-        <span class="section-label fade-up">ESG &amp; CSRD</span>
-        <h2 class="section-title fade-up fade-up-delay-1">Automatisiertes Nachhaltigkeits-Reporting nach europäischem Standard</h2>
-        <p class="section-sub fade-up fade-up-delay-2">Die CSRD-Richtlinie betrifft ab 2025 tausende Unternehmen. Wir strukturieren Ihre Nachhaltigkeitsdaten und erstellen automatisierte KPI-Dashboards – compliant und zukunftssicher.</p>
-        <div style="margin-top:2rem" class="fade-up fade-up-delay-3">
-          <div class="ueber-values">
-            <div class="ueber-value">
-              <span class="ueber-value-icon">📊</span>
-              <div>
-                <h4>Automatisierte KPI-Dashboards</h4>
-                <p>Echtzeit-Übersicht aller relevanten Nachhaltigkeitskennzahlen nach CSRD/ESRS.</p>
-              </div>
-            </div>
-            <div class="ueber-value">
-              <span class="ueber-value-icon">🔗</span>
-              <div>
-                <h4>Datensystemintegration</h4>
-                <p>Nahtlose Anbindung an bestehende ERP- und Energiemanagementsysteme.</p>
-              </div>
-            </div>
-            <div class="ueber-value">
-              <span class="ueber-value-icon">📝</span>
-              <div>
-                <h4>CSRD-konformer Bericht</h4>
-                <p>Vollständige Berichtserstellung nach den neuen europäischen Nachhaltigkeitsstandards ESRS.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="fade-up fade-up-delay-2">
-        <div class="esg-card">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem">
-            <span style="font-size:.85rem;font-weight:700;color:var(--navy)">ESG Dashboard – Übersicht</span>
-            <span style="font-size:.75rem;color:var(--slate)">2024</span>
-          </div>
-          <div class="esg-kpi-row">
-            <div class="esg-kpi">
-              <div class="esg-kpi-val green">−42%</div>
-              <div class="esg-kpi-label">CO₂-Emissionen</div>
-            </div>
-            <div class="esg-kpi">
-              <div class="esg-kpi-val amber">78%</div>
-              <div class="esg-kpi-label">Erneuerbare</div>
-            </div>
-            <div class="esg-kpi">
-              <div class="esg-kpi-val green">A+</div>
-              <div class="esg-kpi-label">ESG-Rating</div>
-            </div>
-          </div>
-          <div style="margin-bottom:1rem">
-            <div style="font-size:.78rem;font-weight:600;color:var(--navy);margin-bottom:.6rem">Zielerreichung 2024</div>
-            <div class="esg-chart"><div class="esg-chart-fill" style="width:78%;background:linear-gradient(to right,var(--green),var(--green-l))"></div></div>
-            <div style="display:flex;justify-content:space-between;font-size:.72rem;color:var(--slate);margin-top:.2rem">
-              <span>0%</span><span style="color:var(--green);font-weight:600">78% erreicht</span><span>100%</span>
-            </div>
-          </div>
-          <div class="esg-items">
-            <div class="esg-item">
-              <span class="esg-item-label">CSRD-Berichtspflicht</span>
-              <span class="esg-item-status status-ok">Erfüllt ✓</span>
-            </div>
-            <div class="esg-item">
-              <span class="esg-item-label">Scope 1 Emissionen</span>
-              <span class="esg-item-status status-ok">Erfasst ✓</span>
-            </div>
-            <div class="esg-item">
-              <span class="esg-item-label">Scope 3 Emissionen</span>
-              <span class="esg-item-status status-warn">In Bearbeitung</span>
-            </div>
-            <div class="esg-item">
-              <span class="esg-item-label">EU-Taxonomie</span>
-              <span class="esg-item-status status-ok">Konform ✓</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BioLPG -->
-<section class="biolpg" id="biolpg">
-  <div class="section-inner">
-    <span class="section-label fade-up">BioLPG &amp; Wärmewende</span>
-    <h2 class="section-title fade-up fade-up-delay-1">Die Brücke zur erneuerbaren<br>Wärmeversorgung</h2>
-    <p class="section-sub fade-up fade-up-delay-2">BioLPG ist die emissionsarme Alternative für Bestandsanlagen und Neubau. Als sofort verfügbarer, erneuerbarer Energieträger ermöglicht er den schrittweisen Umstieg ohne aufwendigen Netzausbau.</p>
-    <div class="biolpg-grid">
-      <div class="biolpg-cards fade-up fade-up-delay-1">
-        <div class="biolpg-card">
-          <span class="biolpg-card-icon">🌿</span>
-          <div>
-            <h4>Bis zu 90% CO₂-Reduktion</h4>
-            <p>Im Vergleich zu konventionellem LPG reduziert BioLPG den CO₂-Fußabdruck drastisch – ohne Umbau bestehender Anlagen.</p>
-          </div>
-        </div>
-        <div class="biolpg-card">
-          <span class="biolpg-card-icon">🔄</span>
-          <div>
-            <h4>Drop-in-Lösung</h4>
-            <p>100% kompatibel mit bestehenden Flüssiggasanlagen. Keine Investitionen in neue Infrastruktur erforderlich.</p>
-          </div>
-        </div>
-        <div class="biolpg-card">
-          <span class="biolpg-card-icon">🏗️</span>
-          <div>
-            <h4>Ideal für ländliche Gebiete</h4>
-            <p>Wo kein Gasnetz oder Fernwärme verfügbar ist, bietet BioLPG eine sofort umsetzbare klimafreundliche Lösung.</p>
-          </div>
-        </div>
-        <div class="biolpg-card">
-          <span class="biolpg-card-icon">📜</span>
-          <div>
-            <h4>GEG-konform</h4>
-            <p>BioLPG erfüllt die Anforderungen des Gebäudeenergiegesetzes und der kommunalen Wärmeplanung.</p>
-          </div>
-        </div>
-      </div>
-      <div class="biolpg-stat-card fade-up fade-up-delay-2">
-        <div class="biolpg-big-num">90%</div>
-        <div class="biolpg-big-label">CO₂-Reduktion gegenüber fossilem LPG</div>
-        <div class="biolpg-bar-row">
-          <div class="biolpg-bar-item">
-            <label><span>Fossiles LPG</span><span>100%</span></label>
-            <div class="biolpg-bar"><div class="biolpg-bar-fill" style="width:100%;background:rgba(239,68,68,.6)"></div></div>
-          </div>
-          <div class="biolpg-bar-item">
-            <label><span>BioLPG (Mischung)</span><span>45%</span></label>
-            <div class="biolpg-bar"><div class="biolpg-bar-fill" style="width:45%;background:rgba(245,158,11,.7)"></div></div>
-          </div>
-          <div class="biolpg-bar-item">
-            <label><span>100% BioLPG</span><span>10%</span></label>
-            <div class="biolpg-bar"><div class="biolpg-bar-fill" style="width:10%"></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ÜBER UNS -->
-<section id="ueber">
-  <div class="section-inner">
-    <div class="ueber-grid">
-      <div class="fade-up">
-        <div class="ueber-img-card">
-          <div class="ueber-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
-          <div class="ueber-name">Alexios Donas</div>
-          <div class="ueber-role">Inhaber &amp; Energieinfrastruktur Experte, PLANEGY</div>
-          <div class="ueber-langs">
-            <span class="lang-badge">🇩🇪 Deutsch</span>
-            <span class="lang-badge">🇬🇧 Englisch</span>
-            <span class="lang-badge">🇫🇮 Finnisch</span>
-            <span class="lang-badge">🇬🇷 Griechisch</span>
-          </div>
-          <div class="ueber-credentials">
-            <div class="ueber-cred">
-              <span>🎓</span>
-              <span class="ueber-cred-text">Ingenieurswesen, Tampere University of Applied Sciences, Finnland</span>
-            </div>
-            <div class="ueber-cred">
-              <span>🏅</span>
-              <span class="ueber-cred-text">EUREM – European Energy Manager (IHK Stuttgart)</span>
-            </div>
-            <div class="ueber-cred">
-              <span>🏅</span>
-              <span class="ueber-cred-text">Kommunaler Wärmemanager (Öko-Zentrum NRW)</span>
-            </div>
-            <div class="ueber-cred">
-              <span>🏅</span>
-              <span class="ueber-cred-text">Fachingenieur Energieeffizienz · Umweltauditor ISO 14001</span>
-            </div>
-            <div class="ueber-cred">
-              <span>📍</span>
-              <span class="ueber-cred-text">Im Raisger 22, 71336 Waiblingen</span>
-            </div>
-            <div class="ueber-cred">
-              <span>⚡</span>
-              <span class="ueber-cred-text">20+ Jahre Ingenieur- &amp; Projektmanagementpraxis im Energiesektor</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="fade-up fade-up-delay-2">
-        <span class="section-label">Über PLANEGY</span>
-        <h2 class="section-title">Ganzheitliches Denken.<br>Strategische Umsetzung.</h2>
-        <p class="section-sub" style="margin-bottom:1.5rem">
-          Alexios Donas ist Inhaber von PLANEGY, einem Einzelunternehmen mit Sitz in Waiblingen. Mit über 20 Jahren Ingenieur- und Projektmanagementpraxis im Energiesektor bietet er praxisnahe, technologieoffene Energieberatung für Industrie, Gewerbe und Kommunen.
-        </p>
-        <p style="font-size:.9rem;color:var(--slate);line-height:1.7;margin-bottom:1.5rem">
-          Seine Schwerpunkte liegen in der Kommunalen Wärmeplanung (WPG – vereinfachtes und vollständiges Verfahren), der Anlagenplanung (BHKW, KWK, Biogas, Bio-LPG, Photovoltaik, Wärmepumpen) sowie im Compliance-Management nach BetrSichV, BImSchG, DVGW und DVFG.
-        </p>
-        <div class="ueber-values">
-          <div class="ueber-value">
-            <span class="ueber-value-icon">🎯</span>
-            <div>
-              <h4>Technologieoffen &amp; Praxisnah</h4>
-              <p>Neutrale Bewertung aller Technologien – von Wärmepumpen über BHKW bis Bio-LPG. Stets die Lösung, die wirklich passt.</p>
-            </div>
-          </div>
-          <div class="ueber-value">
-            <span class="ueber-value-icon">🛡️</span>
-            <div>
-              <h4>Compliance aus einer Hand</h4>
-              <p>ESD, GBU, PVI, BImSchG-Anträge und Einweisungen nach 29b BImSchG – vollständig und rechtskonform.</p>
-            </div>
-          </div>
-          <div class="ueber-value">
-            <span class="ueber-value-icon">💶</span>
-            <div>
-              <h4>Förderung &amp; Wirtschaftlichkeit</h4>
-              <p>Fördermittelberatung BAFA, KfW, KWKG, EEG – und vollständige Wirtschaftlichkeitsanalysen für Ihre Investition.</p>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:2rem">
-          <a href="https://de.linkedin.com/in/alexios-donas-49a590193" target="_blank" rel="noopener" class="btn-primary">
-            LinkedIn Profil ansehen →
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROJEKTZIELE & TECHNOLOGIEN -->
-<section style="background:var(--off);padding:80px 5%">
-  <div class="section-inner">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem">
-
-      <!-- Projektziele -->
-      <div class="fade-up">
-        <span class="section-label">Projektziele</span>
-        <h2 class="section-title" style="font-size:1.6rem;margin-bottom:1.5rem">Was wir gemeinsam erreichen</h2>
-        <div style="display:flex;flex-wrap:wrap;gap:.5rem">
-          <span style="background:#fff;border:1px solid var(--border);padding:.35rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:var(--navy)">🎯 Klimaschutzstrategie</span>
-          <span style="background:#fff;border:1px solid var(--border);padding:.35rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:var(--navy)">📋 ISO 50001 Zertifizierung</span>
-          <span style="background:#fff;border:1px solid var(--border);padding:.35rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:var(--navy)">🌿 EMAS Zertifizierung</span>
-          <span style="background:#fff;border:1px solid var(--border);padding:.35rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:var(--navy)">🔍 Energieaudit EN 16247</span>
-          <span style="background:#fff;border:1px solid var(--border);padding:.35rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:var(--navy)">📊 Nachhaltigkeitsbericht</span>
-          <span style="background:#fff;border:1px solid var(--border);padding:.35rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:var(--navy)">✅ Richtlinienerfüllung</span>
-          <span style="background:#fff;border:1px solid var(--border);padding:.35rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:var(--navy)">💶 BAFA Förderantrag</span>
-          <span style="background:#fff;border:1px solid var(--border);padding:.35rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:var(--navy)">🏦 KfW Kredit</span>
-          <span style="background:#fff;border:1px solid var(--border);padding:.35rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:var(--navy)">🔌 Contracting</span>
-          <span style="background:#fff;border:1px solid var(--border);padding:.35rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:var(--navy)">💡 Innovation</span>
-          <span style="background:#fff;border:1px solid var(--border);padding:.35rem .8rem;border-radius:20px;font-size:.8rem;font-weight:600;color:var(--navy)">🏗️ Erweiterung / Neu-Anschaffung</span>
-        </div>
-      </div>
-
-      <!-- Technologien -->
-      <div class="fade-up fade-up-delay-2">
-        <span class="section-label">Technologien &amp; Themen</span>
-        <h2 class="section-title" style="font-size:1.6rem;margin-bottom:1.5rem">Unsere Fachgebiete</h2>
-        <div style="display:flex;flex-direction:column;gap:1rem">
-          <div>
-            <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:.5rem">⚡ Energieerzeugung &amp; Speicherung</div>
-            <div style="display:flex;flex-wrap:wrap;gap:.4rem">
-              <span style="background:#eff6ff;color:#1e40af;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Photovoltaik</span>
-              <span style="background:#eff6ff;color:#1e40af;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Solarthermie</span>
-              <span style="background:#eff6ff;color:#1e40af;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">BHKW</span>
-              <span style="background:#eff6ff;color:#1e40af;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Biogas</span>
-              <span style="background:#eff6ff;color:#1e40af;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Biomasse</span>
-              <span style="background:#eff6ff;color:#1e40af;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Wärmepumpen</span>
-              <span style="background:#eff6ff;color:#1e40af;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Grüner Wasserstoff</span>
-              <span style="background:#eff6ff;color:#1e40af;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Power-to-X</span>
-              <span style="background:#eff6ff;color:#1e40af;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Wärmenetze</span>
-              <span style="background:#eff6ff;color:#1e40af;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Speichertechnologien</span>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:.5rem">🌍 Klimaschutz &amp; Nachhaltigkeit</div>
-            <div style="display:flex;flex-wrap:wrap;gap:.4rem">
-              <span style="background:#f0fdf4;color:#166534;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">CO₂-Bilanz</span>
-              <span style="background:#f0fdf4;color:#166534;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Scope 1 / 2 / 3</span>
-              <span style="background:#f0fdf4;color:#166534;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Ökobilanz</span>
-              <span style="background:#f0fdf4;color:#166534;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">ESG / CSRD</span>
-              <span style="background:#f0fdf4;color:#166534;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Kreislaufwirtschaft</span>
-              <span style="background:#f0fdf4;color:#166534;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">Energetische Verwertung</span>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--blue);margin-bottom:.5rem">🛡️ Compliance &amp; Normen</div>
-            <div style="display:flex;flex-wrap:wrap;gap:.4rem">
-              <span style="background:#fef2f2;color:#991b1b;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">ISO 50001</span>
-              <span style="background:#fef2f2;color:#991b1b;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">ISO 14001</span>
-              <span style="background:#fef2f2;color:#991b1b;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">BetrSichV</span>
-              <span style="background:#fef2f2;color:#991b1b;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">BImSchG</span>
-              <span style="background:#fef2f2;color:#991b1b;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">DVGW / DVFG</span>
-              <span style="background:#fef2f2;color:#991b1b;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;font-weight:500">EN 16247</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BANNER -->
-<section class="cta-banner">
-  <div class="section-inner">
-    <span class="section-label fade-up">Jetzt starten</span>
-    <h2 class="section-title fade-up fade-up-delay-1" style="max-width:600px;margin:0 auto 1rem">Bereit für Ihre<br>Energiewende?</h2>
-    <p class="fade-up fade-up-delay-2">Kontaktieren Sie uns für ein kostenfreies Erstgespräch. Wir analysieren Ihre Situation und zeigen konkrete Möglichkeiten auf.</p>
-    <div class="cta-banner-actions fade-up fade-up-delay-3">
-      <a href="#kontakt" class="btn-primary">Kostenfreies Erstgespräch →</a>
-      <a href="mailto:kontakt@planegy.de" class="btn-white">kontakt@planegy.de</a>
-    </div>
-  </div>
-</section>
-
-<!-- KONTAKT -->
-<section class="kontakt" id="kontakt">
-  <div class="section-inner">
-    <div class="section-head">
-      <span class="section-label fade-up">Kontakt</span>
-      <h2 class="section-title fade-up fade-up-delay-1">Sprechen wir über Ihr Projekt</h2>
-      <p class="section-sub fade-up fade-up-delay-2">Kostenfreies Erstgespräch – wir melden uns innerhalb von 24 Stunden.</p>
-    </div>
-    <div class="kontakt-grid">
-      <div class="fade-up">
-        <div class="kontakt-info">
-          <h3>Direkt Kontakt aufnehmen</h3>
-          <p>Ob Kommunen, Stadtwerke oder Industriebetriebe – wir freuen uns auf Ihre Anfrage und beraten Sie individuell.</p>
-        </div>
-        <div class="kontakt-links">
-          <a href="mailto:kontakt@planegy.de" class="kontakt-link">
-            <div class="kontakt-link-icon">✉️</div>
-            <div>
-              <div class="kontakt-link-label">E-Mail</div>
-              <div class="kontakt-link-val">kontakt@planegy.de</div>
-            </div>
-          </a>
-          <a href="tel:+4915678513470" class="kontakt-link">
-            <div class="kontakt-link-icon">📞</div>
-            <div>
-              <div class="kontakt-link-label">Telefon</div>
-              <div class="kontakt-link-val">+49 15678 513470</div>
-            </div>
-          </a>
-          <a href="https://de.linkedin.com/in/alexios-donas-49a590193" target="_blank" rel="noopener" class="kontakt-link">
-            <div class="kontakt-link-icon">💼</div>
-            <div>
-              <div class="kontakt-link-label">LinkedIn</div>
-              <div class="kontakt-link-val">Alexios Donas</div>
-            </div>
-          </a>
-          <a href="https://www.planegy.de" target="_blank" rel="noopener" class="kontakt-link">
-            <div class="kontakt-link-icon">🌐</div>
-            <div>
-              <div class="kontakt-link-label">Website</div>
-              <div class="kontakt-link-val">www.planegy.de</div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div class="kontakt-form fade-up fade-up-delay-2">
-        <form name="kontakt" method="POST" netlify action="/">
-          <input type="hidden" name="form-name" value="kontakt">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Name *</label>
-              <input type="text" id="name" name="name" placeholder="Ihr Name" required="">
-            </div>
-            <div class="form-group">
-              <label for="email">E-Mail *</label>
-              <input type="email" id="email" name="email" placeholder="ihre@email.de" required="">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="org">Organisation</label>
-            <input type="text" id="org" name="organisation" placeholder="Gemeinde, Stadtwerk, Unternehmen...">
-          </div>
-          <div class="form-group">
-            <label for="thema">Thema *</label>
-            <select id="thema" name="thema" required="">
-              <option value="">Bitte wählen...</option>
-              <option>Kommunale Wärmeplanung</option>
-              <option>Anlagenkonzeption / BHKW / PV</option>
-              <option>Compliance (ESD, GBU, BImSchG)</option>
-              <option>Genehmigungsverfahren</option>
-              <option>Förderservice (BAFA, KfW, KWKG)</option>
-              <option>ESG / CSRD / ISO 50001</option>
-              <option>BioLPG &amp; Wärmewende</option>
-              <option>Energieaudit EN 16247</option>
-              <option>Sonstiges</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="nachricht">Nachricht</label>
-            <textarea id="nachricht" name="nachricht" placeholder="Beschreiben Sie kurz Ihr Projekt oder Ihre Frage..."></textarea>
-          </div>
-          <button type="submit" class="btn-form">Anfrage senden →</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="footer-logo">PLAN<span>EGY</span></a>
-        <p>Ihr Partner für Energie, Daten &amp; Strategie. Technologieoffene Energieberatung für Kommunen, Stadtwerke und Industrie.</p>
-        <div class="footer-social">
-          <a href="https://de.linkedin.com/in/alexios-donas-49a590193" target="_blank" rel="noopener" title="LinkedIn">💼</a>
-          <a href="mailto:kontakt@planegy.de" title="E-Mail">✉️</a>
-          <a href="tel:+4915678513470" title="Telefon">📞</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Leistungen</h4>
+        <h2>Leistungen</h2>
         <ul>
-          <li><a href="#leistungen">Kommunale Wärmeplanung</a></li>
-          <li><a href="#leistungen">Anlagenkonzeption</a></li>
-          <li><a href="#leistungen">Genehmigungsverfahren</a></li>
-          <li><a href="#foerderung">Förderservice</a></li>
-          <li><a href="#esg">ESG / CSRD Reporting</a></li>
-          <li><a href="#biolpg">BioLPG &amp; Wärmewende</a></li>
+          <li><a href="/leistungen#kommunale-waermeplanung">Kommunale Wärmeplanung</a></li>
+          <li><a href="/leistungen#energieanlagen">Energieanlagen</a></li>
+          <li><a href="/leistungen#energietraeger">Energieträger</a></li>
+          <li><a href="/leistungen#genehmigung">Genehmigung</a></li>
+          <li><a href="/leistungen#energieeffizienz">Energieeffizienz</a></li>
+          <li><a href="/leistungen#esg">ESG &amp; Nachhaltigkeit</a></li>
+          <li><a href="/waermetechnik-rechner">Wärmetechnik-Rechner</a></li>
+          <li><a href="/klimamanager-service">Klimamanager Service</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Unternehmen</h4>
+      <div>
+        <h2>Für wen</h2>
         <ul>
-          <li><a href="#ueber">Über uns</a></li>
-          <li><a href="#expertise">Expertise</a></li>
-          <li><a href="#prozess">Unser Vorgehen</a></li>
-          <li><a href="waermetechnik-rechner.html">Wärmetechnik Rechner</a></li>
-          <li><a href="blog.html">Energie-Blog</a></li>
-          <li><a href="klimamanager-service.html">Klimamanager Service</a></li>
+          <li><a href="/kommunen">Kommunen</a></li>
+          <li><a href="/stadtwerke">Stadtwerke &amp; EVU</a></li>
+          <li><a href="/industrie">Industrie &amp; Gewerbe</a></li>
+          <li><a href="/projekte">Projekte</a></li>
+          <li><a href="/ueber-planegy">Über PLANEGY</a></li>
+          <li><a href="/fachwissen">Fachwissen</a></li>
+          <li><a href="/blog">Blog</a></li>
         </ul>
       </div>
-      <div class="footer-col">
-        <h4>Kontakt</h4>
+      <div>
+        <h2>Kontakt</h2>
         <ul>
           <li><a href="mailto:kontakt@planegy.de">kontakt@planegy.de</a></li>
           <li><a href="tel:+4915678513470">+49 15678 513470</a></li>
-          <li><a href="#">Waiblingen, Baden-Württemberg</a></li>
-          <li><a href="https://www.planegy.de" target="_blank">www.planegy.de</a></li>
-          <li style="margin-top:.5rem"><a href="/impressum">Impressum</a></li>
-          <li><a href="/datenschutz">Datenschutz</a></li>
+          <li>Im Raisger 22<br />71336 Waiblingen</li>
+          <li><a href="https://de.linkedin.com/in/alexios-donas-49a590193" target="_blank" rel="noopener">LinkedIn</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2024 PLANEGY – Alexios Donas. Alle Rechte vorbehalten.</span>
-      <div style="display:flex;gap:1.5rem">
+      <span>&copy; 2026 PLANEGY – Alexios Donas</span>
+      <nav aria-label="Rechtliches">
         <a href="/impressum">Impressum</a>
         <a href="/datenschutz">Datenschutz</a>
-      </div>
+      </nav>
     </div>
   </div>
 </footer>
 
-<script>
-  // Sticky nav
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
-  });
+<div class="mobile-cta">
+  <a href="/kontakt" class="btn btn--primary">Projekt besprechen</a>
+</div>
 
-  // Mobile menu
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileClose = document.getElementById('mobileClose');
-  hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-  mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  document.querySelectorAll('.mobile-link').forEach(l => {
-    l.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  });
+<script src="/assets/planegy.js" defer></script>
 
-  // Intersection Observer fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  // Form submit
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.btn-form');
-    btn.textContent = '✓ Anfrage gesendet!';
-    btn.style.background = '#1565b0';
-    setTimeout(() => {
-      btn.textContent = 'Anfrage senden →';
-      btn.style.background = '';
-      e.target.reset();
-    }, 3000);
-  }
-</script>
-
-<!-- ── OTTI CHATBOT (iframe) ── -->
+<!-- Otti – Chat-Assistent (bestehende Botpress-Integration, unverändert) -->
 <style>
   #otti-btn {
-    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
-    width: 60px; height: 60px; border-radius: 50%; border: none; cursor: pointer;
-    background: linear-gradient(135deg, #1a7fd4, #0d2b5e);
-    box-shadow: 0 4px 20px rgba(26,127,212,.5);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem; transition: transform .2s, box-shadow .2s;
+    position: fixed; bottom: 24px; right: 24px; z-index: 140;
+    width: 56px; height: 56px; border-radius: 50%; border: none; cursor: pointer;
+    background: var(--navy); color: #fff;
+    box-shadow: 0 6px 22px rgba(13,43,94,.35);
+    display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+    transition: transform .18s;
   }
-  #otti-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(26,127,212,.6); }
+  #otti-btn:hover { transform: scale(1.06); }
   #otti-frame {
-    position: fixed; bottom: 96px; right: 24px; z-index: 9998;
-    width: 400px; height: 600px; border: none; border-radius: 16px;
-    box-shadow: 0 8px 40px rgba(13,43,94,.3);
-    display: none; overflow: hidden;
-    transition: opacity .2s;
+    position: fixed; bottom: 92px; right: 24px; z-index: 139;
+    width: 400px; height: 600px; max-height: calc(100vh - 140px);
+    border: none; border-radius: 14px;
+    box-shadow: 0 12px 44px rgba(13,43,94,.28);
+    display: none;
   }
   #otti-frame.open { display: block; }
-  .otti-hint {
-    position: fixed; bottom: 94px; right: 96px; z-index: 9997;
-    background: #0d2b5e; color: #fff;
-    font-family: 'Inter', sans-serif; font-size: .82rem; font-weight: 600;
-    padding: .45rem .9rem; border-radius: 20px;
-    box-shadow: 0 4px 14px rgba(13,43,94,.3);
-    animation: hintIn .4s ease 3s both; cursor: pointer; white-space: nowrap;
-  }
-  .otti-hint::after {
-    content: ""; position: absolute; right: -5px; top: 50%; transform: translateY(-50%);
-    border: 5px solid transparent; border-left-color: #0d2b5e; border-right: none;
-  }
-  @keyframes hintIn { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
-  @media(max-width:480px){
-    #otti-frame{ width:calc(100vw - 16px); height:70vh; right:8px; bottom:88px; }
+  @media (max-width: 480px) {
+    #otti-frame { width: calc(100vw - 16px); height: 68vh; right: 8px; }
   }
 </style>
 
+<button id="otti-btn" type="button" aria-label="Chat öffnen" aria-expanded="false" aria-controls="otti-frame">&#128172;</button>
 
-
-<button id="otti-btn" onclick="toggleOtti()" aria-label="Chat öffnen">💬</button>
-
-<iframe id="otti-frame" src="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2025/07/06/17/20250706175149-BHIYGBTF.json" allow="microphone; clipboard-write" title="Otti – Planegy Assistent"></iframe>
+<!-- Der Chat wird erst beim ersten Klick geladen. Ohne Interaktion findet keine
+     Verbindung zu Botpress statt (Datenschutz und Ladezeit). -->
+<iframe id="otti-frame" data-src="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2025/07/06/17/20250706175149-BHIYGBTF.json" allow="microphone; clipboard-write" title="Otti – PLANEGY Assistent" loading="lazy"></iframe>
 
 <script>
-  function toggleOtti() {
-    const frame = document.getElementById('otti-frame');
-    const btn   = document.getElementById('otti-btn');
-    const hint  = document.getElementById('ottiHint');
-    const open  = frame.classList.toggle('open');
-    btn.textContent = open ? '✕' : '💬';
-    if (hint) hint.remove();
-  }
-  setTimeout(() => { const h = document.getElementById('ottiHint'); if(h) h.remove(); }, 10000);
+  (function () {
+    var btn = document.getElementById('otti-btn');
+    var frame = document.getElementById('otti-frame');
+    btn.addEventListener('click', function () {
+      // Erst beim ersten Oeffnen tatsaechlich laden.
+      if (!frame.src && frame.dataset.src) { frame.src = frame.dataset.src; }
+      var open = frame.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      btn.innerHTML = open ? '&#10005;' : '&#128172;';
+      btn.setAttribute('aria-label', open ? 'Chat schließen' : 'Chat öffnen');
+    });
+  })();
 </script>
-
-<!-- Hinweis-Bubble über Chat-Button -->
-<style>
-  .bp-hint {
-    position: fixed; bottom: 90px; right: 20px; z-index: 9999;
-    background: #0d2b5e; color: #fff;
-    font-family: 'Inter', sans-serif; font-size: .82rem; font-weight: 600;
-    padding: .5rem 1rem; border-radius: 20px;
-    box-shadow: 0 4px 16px rgba(13,43,94,.35);
-    animation: hintIn .4s ease 3s both;
-    cursor: pointer; white-space: nowrap;
-  }
-  .bp-hint::after {
-    content: ""; position: absolute;
-    bottom: -5px; right: 20px;
-    border: 5px solid transparent;
-    border-top-color: #0d2b5e; border-bottom: none;
-  }
-  @keyframes hintIn {
-    from { opacity:0; transform: translateY(6px); }
-    to   { opacity:1; transform: translateY(0); }
-  }
-</style>
-
-<script>setTimeout(()=>{const h=document.getElementById('bpHint');if(h)h.remove();},9000);</script>
-
-
-
-</body></html>
+</body>
+</html>

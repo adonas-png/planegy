@@ -1,0 +1,5 @@
+Inter – Copyright (c) 2016 The Inter Project Authors (https://github.com/rsms/inter)
+DM Sans – Copyright (c) 2014-2017 Indian Type Foundry, Colophon Foundry, Jonny Pinhorn
+
+Beide Schriften stehen unter der SIL Open Font License, Version 1.1.
+Volltext: https://scripts.sil.org/OFL

@@ -8,3 +8,48 @@
     Access-Control-Allow-Origin = "https://app.babylovegrowth.ai"
     Access-Control-Allow-Methods = "POST, OPTIONS"
     Access-Control-Allow-Headers = "Content-Type, Authorization, X-BLG-Secret"
+
+# Der Quellordner der Functions wird durch "netlify deploy --dir=." als statische
+# Datei mitveroeffentlicht. Direkter Abruf des Quellcodes wird hier unterbunden.
+# Die ausgefuehrten Functions liegen unter /.netlify/functions/* (fuehrender Punkt)
+# und sind von dieser Regel nicht betroffen.
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404"
+  status = 404
+  force = true
+
+# ── Sicherheits-Header ──────────────────────────────────────────────────────
+# microphone ist bewusst NICHT eingeschraenkt: der Chat-Assistent (Botpress)
+# wird per allow="microphone" eingebunden und wuerde sonst blockiert.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), camera=(), payment=(), usb=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# ── Caching ────────────────────────────────────────────────────────────────
+# Schriften und OG-Bild aendern sich nicht mehr: lange Cachezeit.
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/og-planegy.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# CSS und JS koennen sich aendern – kurz cachen, im Hintergrund erneuern.
+[[headers]]
+  for = "/assets/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/assets/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
