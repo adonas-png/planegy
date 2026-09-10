@@ -1,4 +1,4 @@
-# PLANEGY – Energieplanung, die in der Realität funktioniert
+# PLANEGY – Planung, die Energie freisetzt
 
 > PLANEGY entwickelt technologieoffene Energieprojekte von der Analyse über die technische und
 > wirtschaftliche Planung bis zur Genehmigung und Umsetzung – für Kommunen, Stadtwerke sowie
