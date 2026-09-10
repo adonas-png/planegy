@@ -6,6 +6,7 @@
   <title>Ingenieurbüro für Energieplanung | PLANEGY, Waiblingen</title>
   <meta name="description" content="Technologieoffene Energieplanung für Kommunen, Stadtwerke und Industrie – Analyse, Wirtschaftlichkeit, Genehmigung, Umsetzung. Über 20 Jahre Erfahrung." />
   <meta name="author" content="Alexios Donas – PLANEGY" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href="https://planegy.de/" />
   <meta property="og:site_name" content="PLANEGY" />
   <meta property="og:locale" content="de_DE" />
@@ -29,41 +30,134 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "PLANEGY",
-    "description": "Ingenieurbüro für technologieoffene Energieplanung: kommunale Wärmeplanung, Energieanlagen, Genehmigungsverfahren, Energieeffizienz und ESG.",
-    "url": "https://planegy.de",
-    "email": "kontakt@planegy.de",
-    "telephone": "+4915678513470",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Im Raisger 22",
-      "addressLocality": "Waiblingen",
-      "postalCode": "71336",
-      "addressRegion": "Baden-Württemberg",
-      "addressCountry": "DE"
-    },
-    "founder": {
-      "@type": "Person",
-      "name": "Alexios Donas",
-      "jobTitle": "Inhaber und Energieinfrastruktur-Experte"
-    },
-    "areaServed": { "@type": "Country", "name": "Deutschland" },
-    "sameAs": [
-      "https://de.linkedin.com/in/alexios-donas-49a590193",
-      "https://www.expertenatlas-bw.de/de/experten/alexios-donas"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Leistungen",
-      "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kommunale Wärmeplanung" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Planung von Energieanlagen" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Genehmigungsverfahren nach BImSchG" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Energieeffizienz und Energiemanagement" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ESG und Nachhaltigkeitsberatung" } }
-      ]
-    }
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://planegy.de/#organization",
+        "name": "PLANEGY",
+        "alternateName": "PLANEGY – Ingenieurbüro für Energieplanung",
+        "description": "Ingenieurbüro für technologieoffene Energieplanung in Waiblingen: kommunale Wärmeplanung nach WPG, Planung von Energieanlagen, Genehmigungsverfahren nach BImSchG, Energieeffizienz und ESG – für Kommunen, Stadtwerke sowie Industrie und Gewerbe.",
+        "url": "https://planegy.de/",
+        "image": "https://planegy.de/assets/og-planegy.png",
+        "email": "kontakt@planegy.de",
+        "telephone": "+4915678513470",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Im Raisger 22",
+          "addressLocality": "Waiblingen",
+          "postalCode": "71336",
+          "addressRegion": "Baden-Württemberg",
+          "addressCountry": "DE"
+        },
+        "founder": { "@id": "https://planegy.de/#alexios-donas" },
+        "employee": { "@id": "https://planegy.de/#alexios-donas" },
+        "areaServed": { "@type": "Country", "name": "Deutschland" },
+        "knowsAbout": [
+          "Kommunale Wärmeplanung",
+          "Wärmeplanungsgesetz (WPG)",
+          "Wärmenetze und Nahwärme",
+          "Kraft-Wärme-Kopplung (KWK, BHKW)",
+          "Wärmepumpen",
+          "BioLPG und LPG",
+          "Genehmigungsverfahren nach BImSchG",
+          "Energiemanagement nach ISO 50001",
+          "Energieaudits nach DIN EN 16247-1",
+          "ESG und CSRD"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Leistungen",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kommunale Wärmeplanung", "url": "https://planegy.de/leistungen#kommunale-waermeplanung" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Planung von Energieanlagen", "url": "https://planegy.de/leistungen#energieanlagen" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Energieträger (LNG, LPG, BioLPG, Biogas, Wasserstoff)", "url": "https://planegy.de/leistungen#energietraeger" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Genehmigungsverfahren nach BImSchG", "url": "https://planegy.de/leistungen#genehmigung" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Energieeffizienz und Energiemanagement", "url": "https://planegy.de/leistungen#energieeffizienz" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ESG und Nachhaltigkeitsberatung", "url": "https://planegy.de/leistungen#esg" } }
+          ]
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://planegy.de/#alexios-donas",
+        "name": "Alexios Donas",
+        "jobTitle": "Inhaber und Energieinfrastruktur-Experte",
+        "url": "https://planegy.de/ueber-planegy",
+        "image": "https://planegy.de/alexios-donas.jpg",
+        "worksFor": { "@id": "https://planegy.de/#organization" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Tampere University of Applied Sciences" },
+        "hasCredential": [
+          { "@type": "EducationalOccupationalCredential", "name": "EUREM – European Energy Manager", "recognizedBy": { "@type": "Organization", "name": "IHK Stuttgart" } },
+          { "@type": "EducationalOccupationalCredential", "name": "Kommunaler Wärmemanager", "recognizedBy": { "@type": "Organization", "name": "Öko-Zentrum NRW" } },
+          { "@type": "EducationalOccupationalCredential", "name": "Umweltauditor ISO 14001" }
+        ],
+        "knowsLanguage": ["de", "en", "fi", "el"],
+        "knowsAbout": ["Kommunale Wärmeplanung", "Energieinfrastruktur", "Kraft-Wärme-Kopplung", "Genehmigungsverfahren nach BImSchG", "Energiemanagement"],
+        "sameAs": [
+          "https://de.linkedin.com/in/alexios-donas-49a590193",
+          "https://www.expertenatlas-bw.de/de/experten/alexios-donas"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://planegy.de/#website",
+        "url": "https://planegy.de/",
+        "name": "PLANEGY",
+        "inLanguage": "de-DE",
+        "publisher": { "@id": "https://planegy.de/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://planegy.de/#webpage",
+        "url": "https://planegy.de/",
+        "name": "Ingenieurbüro für Energieplanung | PLANEGY, Waiblingen",
+        "description": "Technologieoffene Energieplanung für Kommunen, Stadtwerke und Industrie – Analyse, Wirtschaftlichkeit, Genehmigung, Umsetzung. Über 20 Jahre Erfahrung.",
+        "inLanguage": "de-DE",
+        "isPartOf": { "@id": "https://planegy.de/#website" },
+        "about": { "@id": "https://planegy.de/#organization" },
+        "author": { "@id": "https://planegy.de/#alexios-donas" },
+        "primaryImageOfPage": { "@type": "ImageObject", "url": "https://planegy.de/assets/og-planegy.png", "width": 1200, "height": 630 },
+        "dateModified": "2026-09-10"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://planegy.de/#faq",
+        "isPartOf": { "@id": "https://planegy.de/#webpage" },
+        "inLanguage": "de-DE",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was macht ein Ingenieurbüro für Energieplanung?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ein Ingenieurbüro für Energieplanung entwickelt Energieversorgungen technisch und bewertet sie wirtschaftlich – von der Bestandsanalyse über Variantenvergleich und Wirtschaftlichkeitsrechnung bis zu Genehmigungsunterlagen und Umsetzungsbegleitung. PLANEGY übernimmt diese Aufgaben für Kommunen, Stadtwerke sowie Industrie- und Gewerbebetriebe und ist dabei an keinen Hersteller und keine bestimmte Technologie gebunden." }
+          },
+          {
+            "@type": "Question",
+            "name": "Bis wann brauchen Kommunen einen Wärmeplan?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Nach § 4 Wärmeplanungsgesetz (WPG) mussten Gemeindegebiete mit mehr als 100.000 Einwohnern ihren Wärmeplan bis zum 30. Juni 2026 vorlegen. Für alle übrigen Gemeindegebiete gilt der 30. Juni 2028. Maßgeblich ist die Einwohnerzahl zum 1. Januar 2024. Für Gemeinden mit weniger als 10.000 Einwohnern können die Länder ein vereinfachtes Verfahren nach § 22 WPG vorsehen." }
+          },
+          {
+            "@type": "Question",
+            "name": "Warum ist die kommunale Wärmeplanung so wichtig?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Wärme macht nach Angaben des Umweltbundesamts mehr als die Hälfte des gesamten Endenergieverbrauchs in Deutschland aus, der Anteil erneuerbarer Energien an der Wärme lag 2025 erst bei 19,0 %. Die Wärmeplanung zeigt, welche Gebiete sich für ein Wärmenetz eignen und wo dezentrale Lösungen wie Wärmepumpen sinnvoller sind. Damit schafft sie Planungssicherheit für Kommune, Versorger und Gebäudeeigentümer." }
+          },
+          {
+            "@type": "Question",
+            "name": "Was bedeutet technologieoffene Energieplanung?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Technologieoffen heißt: Die Lösung ergibt sich aus den Projektbedingungen, nicht aus einer Vorliebe für eine Technik. PLANEGY vergleicht Wärmepumpe, Wärmenetz, KWK, Biomasse, BioLPG, Abwärmenutzung und Speicher anhand von Wärmebedarf, Siedlungs- oder Standortstruktur, Investitions- und Betriebskosten sowie Fördermöglichkeiten. Im Wärmeplan für die Gemeinde Grafenwiesen führte das zu dezentralen Wärmepumpen statt eines Wärmenetzes." }
+          },
+          {
+            "@type": "Question",
+            "name": "Braucht meine Energieanlage eine Genehmigung nach BImSchG?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Das hängt von Anlagenart, Brennstoff und Leistung ab. Welche Anlagen immissionsschutzrechtlich genehmigungsbedürftig sind und ob ein förmliches oder vereinfachtes Verfahren gilt, regelt Anhang 1 der 4. BImSchV. PLANEGY prüft die Genehmigungsbedürftigkeit, erstellt die technischen Antragsunterlagen und begleitet das Verfahren nach dem Bundes-Immissionsschutzgesetz (BImSchG)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wo ist PLANEGY tätig und wie beginnt ein Projekt?",
+            "acceptedAnswer": { "@type": "Answer", "text": "PLANEGY hat seinen Sitz in Waiblingen (Baden-Württemberg) und arbeitet bundesweit, Referenzprojekte gibt es unter anderem in Bayern. Ein Projekt beginnt mit einem Gespräch über die Ausgangssituation. Danach lässt sich einschätzen, welche Leistungen nötig sind und welche Unterlagen bereits vorliegen. Kontakt: kontakt@planegy.de oder +49 15678 513470." }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -146,8 +240,9 @@
       <span class="eyebrow">Ingenieurbüro für Energieplanung</span>
       <h1>Energieplanung, die in der Realität funktioniert.</h1>
       <p class="lead">
-        PLANEGY entwickelt technologieoffene Energielösungen für Kommunen, Stadtwerke und Industrie –
-        von der Analyse und Planung bis zu Wirtschaftlichkeit, Genehmigung und Umsetzung.
+        PLANEGY ist ein Ingenieurbüro für Energieplanung in Waiblingen (Baden-Württemberg). Wir
+        entwickeln technologieoffene Energielösungen für Kommunen, Stadtwerke und Industrie – von der
+        Analyse und Planung bis zu Wirtschaftlichkeit, Genehmigung und Umsetzung.
       </p>
       <div class="btn-row">
         <a href="/kontakt" class="btn btn--primary">Projekt besprechen</a>
@@ -188,17 +283,19 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Für wen wir arbeiten</span>
-        <h2>Energieprojekte brauchen unterschiedliche Lösungen.</h2>
+        <h2>Für wen plant PLANEGY Energieprojekte?</h2>
         <p class="lead">
-          Eine Kommune, ein Stadtwerk und ein Industriebetrieb stehen vor jeweils anderen technischen,
-          wirtschaftlichen und regulatorischen Fragen. Wir arbeiten entlang dieser Unterschiede.
+          PLANEGY arbeitet für drei Gruppen von Auftraggebern: Kommunen, Stadtwerke und
+          Energieversorger sowie Industrie und Gewerbe. Jede Gruppe steht vor anderen technischen,
+          wirtschaftlichen und regulatorischen Fragen – deshalb unterscheiden sich auch Vorgehen
+          und Ergebnis.
         </p>
       </div>
 
       <div class="grid grid--3 reveal">
         <a class="card" href="/kommunen">
           <span class="card-kicker">Kommunen</span>
-          <h3>Von der Wärmeplanung zur Umsetzung</h3>
+          <h3>Kommunale Wärmeplanung bis zur Umsetzung</h3>
           <p>Kommunale Wärmeplanung, Potenzialanalysen und konkrete Maßnahmen für eine wirtschaftliche Wärmeversorgung.</p>
           <span class="textlink">Mehr über kommunale Wärmeplanung</span>
         </a>
@@ -224,10 +321,12 @@
       <div class="split">
         <div class="reveal">
           <span class="eyebrow">Vorgehen</span>
-          <h2>Vom Problem zum umsetzbaren Energieprojekt.</h2>
+          <h2>Wie läuft ein Energieprojekt mit PLANEGY ab?</h2>
           <p class="lead">
-            Jede Projektphase liefert eine belastbare Entscheidungsgrundlage für die nächste –
-            technisch, wirtschaftlich und regulatorisch geprüft.
+            Ein Projekt durchläuft fünf Phasen: Analyse, Konzept, Wirtschaftlichkeit, Genehmigung und
+            Umsetzung. Jede Phase endet mit einer belastbaren Entscheidungsgrundlage – technisch,
+            wirtschaftlich und regulatorisch geprüft –, bevor der Auftraggeber über den nächsten
+            Schritt entscheidet.
           </p>
           <p class="statement" style="margin-top:2rem">
             Wir verkaufen keine bestimmte Technologie. Wir entwickeln die Lösung, die technisch,
@@ -283,10 +382,12 @@
       <div class="split">
         <div class="reveal">
           <span class="eyebrow">Unterschied</span>
-          <h2>Warum PLANEGY?</h2>
+          <h2>Was unterscheidet PLANEGY von einer reinen Energieberatung?</h2>
           <p class="lead">
-            Energieprojekte scheitern selten an der Idee, sondern an der Lücke zwischen Konzept,
-            Wirtschaftlichkeit und Genehmigungsfähigkeit. Genau dort arbeiten wir.
+            PLANEGY ist ein Ingenieurbüro, kein Technologieanbieter: Wir verkaufen keine Anlagen und
+            bevorzugen keine bestimmte Technik. Energieprojekte scheitern selten an der Idee, sondern
+            an der Lücke zwischen Konzept, Wirtschaftlichkeit und Genehmigungsfähigkeit. Genau dort
+            arbeiten wir.
           </p>
         </div>
         <ul class="facts reveal">
@@ -316,19 +417,22 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Referenz</span>
-        <h2>Aus Planung wird Realität.</h2>
+        <h2>Referenzprojekt: kommunaler Wärmeplan für Grafenwiesen</h2>
       </div>
       <div class="split reveal">
         <div>
           <span class="card-kicker">Kommunale Wärmeplanung</span>
-          <h3 style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Kommunaler Wärmeplan – Gemeinde Grafenwiesen</h3>
+          <h3 style="font-size:clamp(1.3rem,2.6vw,1.7rem)">Wärmeplan im vereinfachten Verfahren nach § 22 WPG</h3>
           <p class="lead" style="margin-top:.9rem">
             Für die Gemeinde Grafenwiesen (Landkreis Cham) hat PLANEGY den kommunalen Wärmeplan im
-            vereinfachten Verfahren nach § 22 WPG erstellt – von der Bestandsanalyse bis zum
-            priorisierten Maßnahmenkatalog.
+            vereinfachten Verfahren nach
+            <a href="https://www.gesetze-im-internet.de/wpg/__22.html" target="_blank" rel="noopener">§ 22 WPG</a>
+            erstellt – von der Bestandsanalyse bis zum priorisierten Maßnahmenkatalog.
           </p>
           <p style="color:var(--slate);font-size:.93rem;margin-top:1rem">
-            Die Eignungsprüfung nach § 14 WPG schloss eine leitungsgebundene Versorgung aus. Das
+            Die Eignungsprüfung nach
+            <a href="https://www.gesetze-im-internet.de/wpg/__14.html" target="_blank" rel="noopener">§ 14 WPG</a>
+            schloss eine leitungsgebundene Versorgung aus. Das
             Zielszenario 2040 setzt auf Bedarfsreduktion und Wärmepumpen als Leittechnologie – ein
             Ergebnis, das sich aus den Projektbedingungen ergab, nicht aus einer Technologievorliebe.
           </p>
@@ -372,10 +476,13 @@
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">Leistungen</span>
-        <h2>Unsere Leistungen</h2>
+        <h2>Welche Leistungen bietet PLANEGY?</h2>
         <p class="lead">
-          Sechs Arbeitsfelder, die sich in realen Projekten gegenseitig bedingen – von der
-          kommunalen Wärmeplanung bis zur Genehmigung einer Energieanlage.
+          PLANEGY deckt sechs Arbeitsfelder ab: kommunale Wärmeplanung, Energieanlagen,
+          Energieträger, Genehmigungsverfahren, Energieeffizienz sowie ESG und Nachhaltigkeit. In
+          realen Projekten greifen sie ineinander – etwa wenn aus einem Wärmeplan ein Wärmenetz mit
+          Heizzentrale wird, die geplant, wirtschaftlich bewertet und je nach Größe nach BImSchG
+          genehmigt werden muss.
         </p>
       </div>
 
@@ -408,7 +515,7 @@
           <span class="svc-item-num" aria-hidden="true">04</span>
           <div>
             <h3>Genehmigung</h3>
-            <p>BImSchG, 4. BImSchV und technische Genehmigungsverfahren.</p>
+            <p><a href="https://www.gesetze-im-internet.de/bimschg/" target="_blank" rel="noopener">BImSchG</a>, <a href="https://www.gesetze-im-internet.de/bimschv_4_2013/" target="_blank" rel="noopener">4. BImSchV</a> und technische Genehmigungsverfahren.</p>
           </div>
           <a class="textlink" href="/leistungen#genehmigung">Details</a>
         </div>
@@ -438,7 +545,7 @@
       <div class="split">
         <div class="reveal">
           <span class="eyebrow">Über PLANEGY</span>
-          <h2>Ingenieurkompetenz für komplexe Energieprojekte.</h2>
+          <h2>Wer steht hinter PLANEGY?</h2>
           <p class="lead">
             PLANEGY ist das Ingenieurbüro von Alexios Donas mit Sitz in Waiblingen – mit über
             20 Jahren Erfahrung im Energiesektor. Schwerpunkte sind kommunale Wärmeplanung nach WPG,
@@ -462,6 +569,47 @@
           </ul>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- FAQ (Inhalt identisch mit dem FAQPage-Schema im Kopf – bei Änderungen beides anpassen) -->
+  <section class="section section--off" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Häufige Fragen</span>
+        <h2>Häufige Fragen zu Energieplanung und Wärmeplanung</h2>
+        <p class="lead">Kurze Antworten auf die Fragen, die uns Kommunen, Stadtwerke und Unternehmen am häufigsten stellen.</p>
+      </div>
+      <div class="faq reveal">
+        <details class="faq-item">
+          <summary>Was macht ein Ingenieurbüro für Energieplanung?</summary>
+          <div class="faq-answer"><p>Ein Ingenieurbüro für Energieplanung entwickelt Energieversorgungen technisch und bewertet sie wirtschaftlich – von der Bestandsanalyse über Variantenvergleich und Wirtschaftlichkeitsrechnung bis zu Genehmigungsunterlagen und Umsetzungsbegleitung. PLANEGY übernimmt diese Aufgaben für Kommunen, Stadtwerke sowie Industrie- und Gewerbebetriebe und ist dabei an keinen Hersteller und keine bestimmte Technologie gebunden.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Bis wann brauchen Kommunen einen Wärmeplan?</summary>
+          <div class="faq-answer"><p>Nach <a href="https://www.gesetze-im-internet.de/wpg/__4.html" target="_blank" rel="noopener">§ 4 Wärmeplanungsgesetz (WPG)</a> mussten Gemeindegebiete mit mehr als 100.000 Einwohnern ihren Wärmeplan bis zum 30. Juni 2026 vorlegen. Für alle übrigen Gemeindegebiete gilt der 30. Juni 2028. Maßgeblich ist die Einwohnerzahl zum 1. Januar 2024. Für Gemeinden mit weniger als 10.000 Einwohnern können die Länder ein vereinfachtes Verfahren nach § 22 WPG vorsehen. Einen Überblick gibt das <a href="https://www.bmwsb.bund.de/DE/stadtentwicklung/klimagerechte-stadtentwicklung/kommunale-waermeplanung/kommunale-waermeplanung_node.html" target="_blank" rel="noopener">Bundesbauministerium (BMWSB)</a>.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Warum ist die kommunale Wärmeplanung so wichtig?</summary>
+          <div class="faq-answer"><p>Wärme macht nach Angaben des <a href="https://www.umweltbundesamt.de/daten/umweltzustand-trends/energie/energieverbrauch-fuer-fossile-erneuerbare-waerme" target="_blank" rel="noopener">Umweltbundesamts</a> mehr als die Hälfte des gesamten Endenergieverbrauchs in Deutschland aus, der Anteil erneuerbarer Energien an der Wärme lag 2025 erst bei 19,0 %. Die Wärmeplanung zeigt, welche Gebiete sich für ein Wärmenetz eignen und wo dezentrale Lösungen wie Wärmepumpen sinnvoller sind. Damit schafft sie Planungssicherheit für Kommune, Versorger und Gebäudeeigentümer.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Was bedeutet technologieoffene Energieplanung?</summary>
+          <div class="faq-answer"><p>Technologieoffen heißt: Die Lösung ergibt sich aus den Projektbedingungen, nicht aus einer Vorliebe für eine Technik. PLANEGY vergleicht Wärmepumpe, Wärmenetz, KWK, Biomasse, BioLPG, Abwärmenutzung und Speicher anhand von Wärmebedarf, Siedlungs- oder Standortstruktur, Investitions- und Betriebskosten sowie Fördermöglichkeiten. Im Wärmeplan für die Gemeinde Grafenwiesen führte das zu dezentralen Wärmepumpen statt eines Wärmenetzes.</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Braucht meine Energieanlage eine Genehmigung nach BImSchG?</summary>
+          <div class="faq-answer"><p>Das hängt von Anlagenart, Brennstoff und Leistung ab. Welche Anlagen immissionsschutzrechtlich genehmigungsbedürftig sind und ob ein förmliches oder vereinfachtes Verfahren gilt, regelt Anhang 1 der <a href="https://www.gesetze-im-internet.de/bimschv_4_2013/" target="_blank" rel="noopener">4. BImSchV</a>. PLANEGY prüft die Genehmigungsbedürftigkeit, erstellt die technischen Antragsunterlagen und begleitet das Verfahren nach dem Bundes-Immissionsschutzgesetz (BImSchG).</p></div>
+        </details>
+        <details class="faq-item">
+          <summary>Wo ist PLANEGY tätig und wie beginnt ein Projekt?</summary>
+          <div class="faq-answer"><p>PLANEGY hat seinen Sitz in Waiblingen (Baden-Württemberg) und arbeitet bundesweit, Referenzprojekte gibt es unter anderem in Bayern. Ein Projekt beginnt mit einem Gespräch über die Ausgangssituation. Danach lässt sich einschätzen, welche Leistungen nötig sind und welche Unterlagen bereits vorliegen. Kontakt: <a href="mailto:kontakt@planegy.de">kontakt@planegy.de</a> oder <a href="tel:+4915678513470">+49 15678 513470</a>.</p></div>
+        </details>
+      </div>
+      <p class="note" style="margin-top:1.75rem;max-width:82ch">
+        Stand: <time datetime="2026-09-10">10. September 2026</time>. Rechtsangaben nach dem aktuellen
+        Wortlaut auf gesetze-im-internet.de, Energiedaten nach Umweltbundesamt.
+      </p>
     </div>
   </section>
 
