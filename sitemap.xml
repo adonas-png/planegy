@@ -544,6 +544,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+    <url>
+    <loc>https://planegy.de/blog-fordermittel-kommunale-warmeplanung</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- SITEMAP_ARTICLES_END -->
 
 </urlset>
