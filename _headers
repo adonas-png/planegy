@@ -1,0 +1,23 @@
+# Übernommen aus netlify.toml.
+# microphone ist bewusst NICHT eingeschränkt: der Chat-Assistent (Botpress)
+# wird per allow="microphone" eingebunden und würde sonst blockiert.
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), payment=(), usb=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Schriften und OG-Bild ändern sich nicht mehr: lange Cachezeit.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/og-planegy.png
+  Cache-Control: public, max-age=31536000, immutable
+
+# CSS und JS können sich ändern – kurz cachen, im Hintergrund erneuern.
+/assets/*.css
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/assets/*.js
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400

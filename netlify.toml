@@ -19,6 +19,31 @@
   status = 404
   force = true
 
+# Cloudflare-Worker-Dateien (bis zur Umstellung liegt main auch auf Netlify)
+[[redirects]]
+  from = "/src/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/wrangler.jsonc"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package.json"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package-lock.json"
+  to = "/404"
+  status = 404
+  force = true
+
 # ── Sicherheits-Header ──────────────────────────────────────────────────────
 # microphone ist bewusst NICHT eingeschraenkt: der Chat-Assistent (Botpress)
 # wird per allow="microphone" eingebunden und wuerde sonst blockiert.
