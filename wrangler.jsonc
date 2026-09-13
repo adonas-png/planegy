@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "planegy",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-09-13",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+
+  // Die Seiten liegen im Repo-Root. Was nicht öffentlich sein darf,
+  // steht in .assetsignore.
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    // /blog liefert blog.html, /blog.html leitet auf /blog um (wie pretty_urls bei Netlify)
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none",
+    "run_worker_first": ["/.netlify/functions/*", "/api/*", "/danke", "/blog"]
+  },
+
+  "send_email": [{ "name": "EMAIL" }],
+
+  // Secrets (nicht hier eintragen): GITHUB_TOKEN, BLG_WEBHOOK_SECRET
+  "vars": {
+    "GITHUB_REPO": "adonas-png/planegy",
+    "GITHUB_BRANCH": "main",
+    "FORM_TO": "kontakt@planegy.de",
+    "FORM_FROM": "formular@planegy.de"
+  },
+
+  "observability": { "enabled": true }
+}
