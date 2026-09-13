@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gasturbine in der Kraft-Wärme-Kopplung: Wann sie sich lohnt – PLANEGY</title>
+  <meta name="description" content="Erfahren Sie, wann sich Gasturbinen in der Kraftwärmekopplung rechnen: 30 kW bis unter 25 MW, hohe Abgastemperaturen für Prozessdampf und Integration ins..." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Gasturbine in der Kraft-Wärme-Kopplung: Wann sie sich lohnt" />
+  <meta property="og:description" content="Erfahren Sie, wann sich Gasturbinen in der Kraftwärmekopplung rechnen: 30 kW bis unter 25 MW, hohe Abgastemperaturen für Prozessdampf und Integration ins..." />
+  <link rel="canonical" href="https://planegy.de/blog-gasturbine-kraftwarmekopplung" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gasturbine in der Kraft-Wärme-Kopplung: Wann sie sich lohnt",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-09-13",
+    "description": "Erfahren Sie, wann sich Gasturbinen in der Kraftwärmekopplung rechnen: 30 kW bis unter 25 MW, hohe Abgastemperaturen für Prozessdampf und Integration ins..."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Gasturbine in der Kraft-Wärme-Kopplung: Wann sie sich lohnt</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Gasturbine in der Kraft-Wärme-Kopplung: Wann sie sich lohnt</h1>
+    <div class="article-meta">
+      <span>📅 <strong>September 2026</strong></span>
+      <span>⏱ <strong>9 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="gasturbine-in-der-kraft-warme-kopplung-wann-sie-sich-lohnt" tabindex="-1">Gasturbine in der Kraft-Wärme-Kopplung: Wann sie sich lohnt</h1>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1789108595312_Gasturbinenanlage-in-industrieller-Energiezentrale.jpeg" alt="Gasturbinenanlage in einem industriellen Energiezentrum"></p>
+<p>Gasturbinen eignen sich für die Kraft-Wärme-Kopplung dort, wo hohe Abgastemperaturen für Prozessdampf oder eine GuD-Nutzung gefragt sind. Der Leistungsbereich reicht von Mikroanlagen mit 30 kW bis zu Industrieturbinen bis unterhalb von 25 MW. Elektrische Wirkungsgrade liegen dezentral meist bei 25 bis <a href="https://de.wikipedia.org/wiki/Blockheizkraftwerk" rel="nofollow noopener noreferrer" target="_blank">40 %</a>, in kombinierten Prozessen deutlich darüber. Ob sich die Technik rechnet, entscheidet am Ende die Integration ins Wärme- und Laststromsystem, nicht die Turbine allein.</p>
+<hr>
+<blockquote>
+<p><strong>Kurz gesagt:</strong></p>
+<ul>
+<li>Gasturbinen im KWK-Betrieb erreichen in der Praxis Gesamtwirkungsgrade bis zu 90 Prozent, wobei die tatsächliche Nutzung stark vom Nutzungsprofil abhängt.</li>
+<li>Für kleinere Anlagen unter 25 MW bietet der Einsatz von Biomethan und Wasserstoffbeimischungen Chancen, die Emissionen erheblich zu reduzieren.</li>
+<li>Die Wirtschaftlichkeit steigt, wenn die Anlagen flexibles Lastverhalten, Wärmespeicher und eine GuD-Kopplung optimal genutzt werden.</li>
+<li>Bei der Planung sind frühzeitige Genehmigungs- und Fördermittelfragen sowie technische Garantien für Wirkungsgrade entscheidend.</li>
+<li>Die Wahl des Anlagentyps – Mikrogasturbine, Industriegasturbine oder GuD – hängt vom Wärmebedarf, Dampfdruck und Flexibilitätsanforderungen ab.</li>
+</ul>
+</blockquote>
+<hr>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">KWK-Potenziale technologieoffen bewerten</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY analysiert Energieversorgung, Genehmigungen und Fördermöglichkeiten, damit Industrie und Gewerbe passende Lösungen für ihr KWK-Projekt entwickeln.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">PLANEGY kennenlernen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#technische-grundlagen-aufbau-und-kwk-varianten-von-gasturbinen">Technische Grundlagen: Aufbau und KWK-Varianten von Gasturbinen</a></li>
+<li><a href="#wirkungsgrade-und-leistungskennzahlen-richtig-lesen">Wirkungsgrade und Leistungskennzahlen richtig lesen</a></li>
+<li><a href="#brennstoffwahl-und-emissionen-optionen-und-grenzen">Brennstoffwahl und Emissionen: Optionen und Grenzen</a></li>
+<li><a href="#integration-in-anlagenverbunde-dampferzeugung-gud-und-speicher">Integration in Anlagenverbünde: Dampferzeugung, GuD und Speicher</a></li>
+<li><a href="#praxisfalle-industrieprozesse-fernwarme-und-dampferzeugung">Praxisfälle: Industrieprozesse, Fernwärme und Dampferzeugung</a></li>
+<li><a href="#praktischer-leitfaden-zur-projektauslegung-und-ausschreibung">Praktischer Leitfaden zur Projektauslegung und Ausschreibung</a></li>
+<li><a href="#fachliche-einordnung-und-wie-planegy-unterstutzt">Fachliche Einordnung und wie PLANEGY unterstützt</a></li>
+<li><a href="#was-bei-der-planung-wirklich-zahlt">Was bei der Planung wirklich zählt</a></li>
+<li><a href="#ihr-nachster-schritt-fur-ein-gasturbinen-kwk-projekt">Ihr nächster Schritt für ein Gasturbinen-KWK-Projekt</a></li>
+<li><a href="#primarquellen-zur-vertiefung">Primärquellen zur Vertiefung</a></li>
+<li><a href="#quellen">Quellen</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+<h2 id="technische-grundlagen-aufbau-und-kwk-varianten-von-gasturbinen" tabindex="-1">Technische Grundlagen: Aufbau und KWK-Varianten von Gasturbinen</h2>
+<p>Jede Gasturbine arbeitet nach dem Joule-Prozess: Ein Verdichter presst Luft zusammen, in der Brennkammer verbrennt sie mit Erdgas oder einem anderen Brennstoff, die heißen Abgase treiben die Turbine an, die wiederum Verdichter und Generator antreibt. Das Prinzip ist seit Jahrzehnten bewährt, die Feinheiten liegen in der Auslegung.</p>
+<p>Für die Kraft-Wärme-Kopplung ist eine Eigenschaft entscheidend: Die Abgase verlassen die Turbine mit <a href="https://www.hwk-leipzig.de/viewDocument?id=549&amp;onr=3" rel="nofollow noopener noreferrer" target="_blank">Temperaturen zwischen 250 und 500 Grad Celsius</a>, bei Eintritt in die Turbine sogar mit 800 bis 1.200 Grad. Diese Restwärme lässt sich fast verlustfrei in Dampf oder Prozesswärme umwandeln.</p>
+<p>Bei der Anlagenwahl unterscheiden sich drei Grundtypen deutlich:</p>
+<ul>
+<li><strong>Mikrogasturbinen</strong> mit Rekuperator: kompakt, für kleinere Wärmebedarfe, Abgastemperaturen meist niedriger durch interne Wärmerückgewinnung.</li>
+<li><strong>Industriegasturbinen</strong>: höhere Leistung, oft mit externem Abhitzekessel zur Dampferzeugung gekoppelt.</li>
+<li><strong>Kombikraftwerke (GuD)</strong>: Gasturbine treibt zusätzlich eine Dampfturbine an, dadurch deutlich höherer Gesamtwirkungsgrad.</li>
+</ul>
+<p>Welche Variante passt, hängt vom benötigten Dampfdruck und vom Verhältnis zwischen Strom- und Wärmebedarf ab.</p>
+<h2 id="wirkungsgrade-und-leistungskennzahlen-richtig-lesen" tabindex="-1">Wirkungsgrade und Leistungskennzahlen richtig lesen</h2>
+<p>Reine elektrische Wirkungsgrade sagen wenig über die tatsächliche Effizienz einer KWK-Anlage aus. Mikrogasturbinen kommen elektrisch auf etwa 25 bis 30 %, größere dezentrale Industrieturbinen erreichen bis zu 40 %, GuD-Anlagen in der Forschung sogar über 55 %.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1789108598254_Vergleich-elektrischer-und-thermischer-Wirkungsgrade.jpeg" alt="Vergleich des elektrischen und thermischen Wirkungsgrads"></p>
+<p><strong>Kennzahl im Fokus:</strong> KWK-Systeme erreichen in der Praxis Gesamtwirkungsgrade von bis zu 90 %, verbunden mit Primärenergieeinsparungen von rund 40 % gegenüber getrennter Strom- und Wärmeerzeugung.</p>
+<p>Diese <a href="https://www.heizung.de/bhkw/wissen/wirkungsgrad-im-bhkw-vergleich.html" rel="nofollow noopener noreferrer" target="_blank">90 %</a> täuschen allerdings, wenn man Strom und Wärme einfach addiert. Ein Kilowatt Strom ist energetisch mehr wert als ein Kilowatt Wärme, weil sich Strom vielseitiger nutzen lässt. Fachlich sinnvoller ist eine <a href="https://www.energie-lexikon.info/kraft_waerme_kopplung.html" rel="nofollow noopener noreferrer" target="_blank">exergetische Gewichtung</a>, die den Stromanteil höher bewertet. Für die Praxis heißt das: Prüfen Sie nicht nur den addierten Gesamtwirkungsgrad, sondern auch das tatsächliche Nutzungsprofil, also wie viele Stunden im Jahr Strom und Wärme wirklich gleichzeitig gebraucht werden.</p>
+<h2 id="brennstoffwahl-und-emissionen-optionen-und-grenzen" tabindex="-1">Brennstoffwahl und Emissionen: Optionen und Grenzen</h2>
+<p>Gasturbinen laufen klassisch mit Erdgas, sind aber nicht darauf festgelegt. Biomethan und Biogas lassen sich weitgehend ohne bauliche Änderungen einsetzen, synthetische Gase und eine Wasserstoffbeimischung rücken zunehmend in den Fokus.</p>
+<ul>
+<li><strong>Erdgas</strong>: Standardbrennstoff, hohe Verfügbarkeit, etablierte Ersatzteil- und Wartungsstruktur.</li>
+<li><strong>Biomethan/Biogas</strong>: reduziert die CO₂-Bilanz erheblich, meist ohne Turbinenumbau nutzbar.</li>
+<li><strong>Wasserstoffbeimischung</strong>: Forschungsprojekte zeigen <a href="https://www.energieforschung.de/de/aktuelles/projekteinblicke/2019/gasturbinen-ein-baustein-der-energiewende" rel="nofollow noopener noreferrer" target="_blank">Beimischungen bis rund 20 %</a> als realistisches Ziel für kompakte Industrieturbinen unter 25 MW.</li>
+</ul>
+<p>Bei den Emissionen steht NOx im Vordergrund. Dieselben Forschungsprojekte zielen auf eine Reduktion in den unteren Teillastbereichen, unterstützt durch verbesserte Brennkammertechnik.</p>
+<p><strong>Profi-Tipp:</strong> <em>Fragen Sie beim Turbinenhersteller schon in der Angebotsphase nach der zugesicherten NOx-Grenze bei Teillast, nicht nur bei Volllast. Genau dort liegen viele Anlagen im realen Betrieb.</em></p>
+<h2 id="integration-in-anlagenverbunde-dampferzeugung-gud-und-speicher" tabindex="-1">Integration in Anlagenverbünde: Dampferzeugung, GuD und Speicher</h2>
+<p>Der eigentliche Wert einer Gasturbine in der Kraft-Wärme-Kopplung entsteht nicht am Generator, sondern in der Systemintegration. Drei Hebel bestimmen, ob eine Anlage wirtschaftlich und systemdienlich läuft:</p>
+<ol>
+<li><strong>GuD-Kopplung</strong>: Die Abgaswärme treibt einen Abhitzekessel und darüber eine Dampfturbine an, wodurch der Gesamtwirkungsgrad deutlich über dem einer reinen Gasturbine liegt.</li>
+<li><strong>Wärmespeicher und Power-to-Heat</strong>: Das <a href="https://www.umweltbundesamt.de/themen/klima-energie/energieversorgung/kraft-waerme-kopplung-kwk-im-energiesystem" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt</a> empfiehlt ausdrücklich, KWK-Anlagen mit Wärmespeichern und marktorientierter Steuerung zu koppeln, damit sie in einem von erneuerbaren Energien geprägten Stromsystem wertstiftend bleiben. Ein <a href="https://planegy.de/blog-power-to-heat-anlage-warme-aus-strom-fur-kommunen" target="_blank" rel="noopener">Power-to-Heat-System</a> kann dabei Überschussstrom in Wärme umwandeln und den Speicher zusätzlich entlasten.</li>
+<li><strong>Start-Stopp- und Regelverhalten</strong>: Kompakte Industrieturbinen lassen sich zunehmend für schnelle Lastwechsel und Reserveleistung auslegen, was ihren Marktwert gegenüber reinem Grundlastbetrieb erhöht.</li>
+</ol>
+<p>Wer die Anlage nur für Volllastbetrieb plant, verschenkt genau diesen zusätzlichen Erlösmechanismus.</p>
+<h2 id="praxisfalle-industrieprozesse-fernwarme-und-dampferzeugung" tabindex="-1">Praxisfälle: Industrieprozesse, Fernwärme und Dampferzeugung</h2>
+<p>Ein Praxisbeispiel aus Bayern zeigt, wie konkret sich die Kopplung von Mikrogasturbine und Dampferzeugung rechnet: Die Kombination erzielte eine jährliche <a href="https://www.energieatlas.bayern.de/energieatlas/praxisbeispiele/interquell-gmbh-gekoppelte-strom-und-dampferzeugung-mit" rel="nofollow noopener noreferrer" target="_blank">CO₂-Einsparung von rund 530 Tonnen</a> bei einem Gesamtnutzungsgrad von über 95 %, weil Rauchgas- und Brennwertnutzung konsequent integriert wurden.</p>
+<p>Typische Einsatzfelder liegen dort, wo Prozessdampf oder Fernwärme kontinuierlich gebraucht werden:</p>
+<ul>
+<li>Lebensmittelindustrie mit Bedarf an Dampf bestimmter Druckstufen, etwa um 12 bar absolut.</li>
+<li>Fernwärmenetze in Kommunen mit stabiler Grundlast.</li>
+<li>Industrieprozesse mit paralleler Strom- und Wärmeabnahme, etwa in der Chemie oder Papierherstellung.</li>
+</ul>
+<p>Die Skalierbarkeit ist ein Vorteil, den viele Planer unterschätzen: Von der 30-kW-Mikroturbine bis zur mehrstelligen MW-Anlage lässt sich das Konzept nahezu identisch übertragen, nur die Peripherie wird größer. Wer industrielle Abwärme ohnehin schon nutzt, findet in der <a href="https://planegy.de/blog-abwarmenutzung-industrie" target="_blank" rel="noopener">Abwärmenutzung</a> oft den einfachsten Einstiegspunkt für ein Gasturbinenprojekt.</p>
+<h2 id="praktischer-leitfaden-zur-projektauslegung-und-ausschreibung" tabindex="-1">Praktischer Leitfaden zur Projektauslegung und Ausschreibung</h2>
+<p>Bevor eine Ausschreibung rausgeht, sollten drei Fragenblöcke geklärt sein: Wirtschaftlichkeit, Genehmigung und Fördermittel. Wer hier vorab saubere Antworten hat, spart sich später teure Nachverhandlungen.</p>
+<ol>
+<li><strong>Wirtschaftlichkeit rechnen</strong>: CAPEX, OPEX und Brennstoffkosten allein reichen nicht. Entscheidend sind Volllaststunden, Regelprämien und die Preisvolatilität des gewählten Brennstoffs über mehrere Szenarien hinweg.</li>
+<li><strong>Genehmigung früh klären</strong>: Anlagen ab bestimmten Leistungsgrenzen fallen unter die 4. BImSchV, was Fristen und Unterlagen für das Genehmigungsverfahren deutlich verlängert.</li>
+<li><strong>Fördermittel einplanen</strong>: Programme wie BEW, KfW oder BAFA decken je nach Projekt einen relevanten Anteil der Investition ab, verlangen aber meist eine Antragstellung vor Baubeginn.</li>
+<li><strong>Spezifikationsliste für die Ausschreibung</strong>: Nennleistung, Teillastverhalten, Brennstoffflexibilität (inklusive möglicher Wasserstoffbeimischung) und garantierte Wirkungsgrade über die Lebensdauer der Anlage gehören zwingend in jedes Lastenheft.</li>
+</ol>
+<p><strong>Profi-Tipp:</strong> <em>Lassen Sie sich vom Hersteller den garantierten Wirkungsgrad nicht nur im Neuzustand, sondern nach 10.000 Betriebsstunden zusichern. Die Degradation bei Gasturbinen wird in vielen Angeboten unterschlagen.</em></p>
+<p>Wer eine grobe Vorabschätzung zum Wärmebedarf braucht, findet mit dem <a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik-Rechner</a> einen schnellen Einstieg, bevor die eigentliche Detailplanung beginnt.</p>
+<h2 id="fachliche-einordnung-und-wie-planegy-unterstutzt" tabindex="-1">Fachliche Einordnung und wie PLANEGY unterstützt</h2>
+<p>Die Bewertung von Gasturbinen-KWK verlangt Erfahrung mit Genehmigungsverfahren, Fördermittelantrag und technischer Anlagenauslegung gleichermaßen. PLANEGY berät seit über 20 Jahren technologieoffen zu Energielösungen für Industrie, Gewerbe und Kommunen, ohne an einen bestimmten Turbinenhersteller gebunden zu sein.</p>
+<p>Das Leistungsportfolio deckt Machbarkeitsstudien, die Akquise von Fördermitteln, die Begleitung durch Genehmigungsverfahren und Energieaudits nach EN 16247 ab. Gerade bei Gasturbinenprojekten mit hohem Investitionsvolumen entscheidet oft die Qualität der Vorplanung darüber, ob eine Förderzusage überhaupt realistisch ist.</p>
+<h2 id="was-bei-der-planung-wirklich-zahlt" tabindex="-1">Was bei der Planung wirklich zählt</h2>
+<p>Die verbreitete Vorstellung, eine Gasturbine sei entweder für KWK geeignet oder nicht, greift zu kurz. Die eigentliche Weichenstellung liegt in der Frage, ob die Anlage für Grundlast oder für Flexibilität ausgelegt wird, und genau diese Entscheidung wird in vielen Projekten zu spät getroffen.</p>
+<p>Viele Planungsunterlagen, die ich gesehen habe, rechnen Gasturbinen-KWK noch wie vor zehn Jahren: Volllaststunden maximieren, Wirkungsgrad optimieren, fertig. Das ignoriert, dass der Strommarkt heute stärker schwankt und Anlagen mit guter Regelfähigkeit zusätzliche Erlöse über Reserveleistung erzielen können. Wer nur auf den höchsten addierten Gesamtwirkungsgrad schaut, übersieht leicht, dass eine Anlage mit etwas geringerem Wirkungsgrad, aber besserer Lastflexibilität, am Ende wirtschaftlicher läuft.</p>
+<p>Der zweite blinde Fleck ist die Brennstoffwahl. Wasserstoffbeimischung wird oft als ferne Zukunftsoption abgetan, dabei laufen bereits Testreihen mit spürbaren Anteilen. Eine Anlage, die dafür nicht vorbereitet ist, verliert in fünf bis zehn Jahren an Wert. Wer heute plant, sollte diese Option zumindest technisch offenhalten, auch wenn sie am ersten Betriebstag nicht genutzt wird.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="ihr-nachster-schritt-fur-ein-gasturbinen-kwk-projekt" tabindex="-1">Ihr nächster Schritt für ein Gasturbinen-KWK-Projekt</h2>
+<p>Die Planung einer Gasturbine für die Kraft-Wärme-Kopplung läuft in der Regel über vier Phasen: Machbarkeitsstudie, Ausschreibung, Fördermittelsicherung und Begleitung bis zur Inbetriebnahme. PLANEGY bietet Beratung über die gesamte Prozesskette und bewertet technologieoffen, welche Anlagenkombination für Ihren Standort sinnvoll ist.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Bei Fördermitteln liegt der praktische Unterschied oft im Detail: Das Unternehmen unterstützt bei der Sicherung von Fördermitteln aus Programmen wie BEW, KfW und BAFA und hilft bei der Einhaltung von Antragsfristen vor Baubeginn. Für Industriebetriebe mit eigenem Prozessdampfbedarf lohnt sich ein Blick auf die <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Leistungen für Industrieprojekte</a>, für Kommunen und Stadtwerke eher die <a href="https://planegy.de/stadtwerke" target="_blank" rel="noopener">Lösungen für Stadtwerke und Energieversorger</a>. Wer zunächst nur Fachwissen zu Wärmeplanung und BImSchG-Anforderungen sucht, findet einen guten Einstieg im <a href="https://planegy.de/fachwissen" target="_blank" rel="noopener">Fachwissen-Bereich</a>. Der nächste sinnvolle Schritt ist ein kurzes Erstgespräch, um Leistungsgröße, Standort und Förderoptionen grob abzustecken, bevor die eigentliche Ausschreibung beginnt.</p>
+<h2 id="primarquellen-zur-vertiefung" tabindex="-1">Primärquellen zur Vertiefung</h2>
+<p>Wer tiefer einsteigen will: Das Umweltbundesamt liefert die systemische Einordnung, der B.KWK den Technologieüberblick, der Energieatlas Bayern ein belastbares Praxisbeispiel und energieforschung.de die Forschungsperspektive zu Lastflexibilität und Wasserstoffbeimischung. Alle im Artikel genannten Kennzahlen stützen sich auf diese vier Quellen.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.umweltbundesamt.de/themen/klima-energie/energieversorgung/kraft-waerme-kopplung-kwk-im-energiesystem" rel="nofollow noopener noreferrer" target="_blank">Kraft-Wärme-Kopplung (KWK) im Energiesystem — Umweltbundesamt</a></li>
+<li><a href="https://www.energieatlas.bayern.de/energieatlas/praxisbeispiele/interquell-gmbh-gekoppelte-strom-und-dampferzeugung-mit" rel="nofollow noopener noreferrer" target="_blank">Gekoppelte Strom- und Dampferzeugung mit Mikrogasturbine — Energieatlas Bayern (Praxisbeispiel)</a></li>
+<li><a href="https://www.energieforschung.de/de/aktuelles/projekteinblicke/2019/gasturbinen-ein-baustein-der-energiewende" rel="nofollow noopener noreferrer" target="_blank">Energieforschung</a></li>
+</ul>
+<h2 id="faq" tabindex="-1">FAQ</h2>
+<h3 id="was-ist-die-kraft-warme-kopplung-genau" tabindex="-1">Was ist die Kraft-Wärme-Kopplung genau?</h3>
+<p>Kraft-Wärme-Kopplung bezeichnet die gleichzeitige Erzeugung von elektrischem Strom und nutzbarer Wärme in einer Anlage, wodurch Gesamtwirkungsgrade von bis zu 90 % erreichbar sind.</p>
+<h3 id="welche-beispiele-gibt-es-fur-kraft-warme-kopplungsanlagen" tabindex="-1">Welche Beispiele gibt es für Kraft-Wärme-Kopplungsanlagen?</h3>
+<p>Typische Beispiele sind Blockheizkraftwerke mit Verbrennungsmotor, Mikrogasturbinen mit Dampferzeugung wie im bayerischen Praxisprojekt und größere GuD-Kraftwerke für Fernwärmenetze.</p>
+<h3 id="welche-gasturbine-ist-die-leistungsstarkste" tabindex="-1">Welche Gasturbine ist die leistungsstärkste?</h3>
+<p>Industrielle Großgasturbinen für GuD-Kraftwerke erreichen die höchsten Einzelleistungen im dreistelligen MW-Bereich, während die im KWK-Kontext relevanten dezentralen Industrieturbinen meist unterhalb von 25 MW bleiben.</p>
+<h3 id="was-ist-der-unterschied-zwischen-einer-dampfturbine-und-einer-gasturbine" tabindex="-1">Was ist der Unterschied zwischen einer Dampfturbine und einer Gasturbine?</h3>
+<p>Eine Gasturbine nutzt heiße Verbrennungsgase direkt zum Antrieb, eine Dampfturbine dagegen wird durch Wasserdampf angetrieben, der oft erst aus der Abwärme der Gasturbine erzeugt wird, wie es im GuD-Prozess geschieht.</p>
+<h3 id="wie-flexibel-sind-gasturbinen-bei-der-brennstoffwahl" tabindex="-1">Wie flexibel sind Gasturbinen bei der Brennstoffwahl?</h3>
+<p>Neben Erdgas lassen sich Biomethan weitgehend ohne Umbau und Wasserstoff in Beimischungen bis rund 20 % einsetzen, abhängig vom Turbinenmodell.</p>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-biomasse-heizkraftwerk-planung-und-nutzen-fur-kommunen" target="_blank" rel="noopener">Biomasse-Heizkraftwerk: Planung und Nutzen für Kommunen</a></li>
+<li><a href="https://planegy.de/blog-nahwaermenetze-planung-wirtschaftlichkeit" target="_blank" rel="noopener">Nahwärmenetze: Planung und Wirtschaftlichkeit</a></li>
+<li><a href="https://planegy.de/blog-bhkw-wirtschaftlichkeit" target="_blank" rel="noopener">3 Szenarien für BHKW 2026: KWKG Folgen, Sensitivität und Förderung</a></li>
+<li><a href="https://planegy.de/blog-nahwarmenetz-kosten" target="_blank" rel="noopener">Nahwärmenetz Kosten: Investitionen, Förderung und Wirtschaftlichkeit</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar">👨‍💼</div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
