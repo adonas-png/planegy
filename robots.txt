@@ -1,4 +1,7 @@
+# Content signals (https://contentsignals.org): search indexing, use as input for AI answers
+# and AI training are allowed.
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /.netlify/
 
