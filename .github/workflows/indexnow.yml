@@ -1,0 +1,50 @@
+name: IndexNow
+# Cloudflare Workers Builds deployt main bei jedem Push. Danach meldet dieser Workflow die im Push
+# geänderten Seiten per IndexNow an Bing, Yandex, Seznam und Naver (auch neue Blogartikel).
+on:
+  push:
+    branches: [main]
+    paths: ['*.html']
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Wait for the Cloudflare deploy
+        run: sleep 180
+      - name: Notify IndexNow
+        continue-on-error: true
+        env:
+          INDEXNOW_KEY: 15e153760e91d65de2a24fc12c30dbba
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, urllib.request
+          before, after = os.environ['BEFORE'], os.environ['AFTER']
+          if set(before) == {'0'}:
+              before = after + '~1'
+          files = subprocess.run(['git', 'diff', '--name-only', f'{before}..{after}', '--', '*.html'],
+                                 capture_output=True, text=True, check=True).stdout.split()
+          urls = sorted({
+              'https://planegy.de/' if f == 'index.html' else 'https://planegy.de/' + f[:-5]
+              for f in files if '/' not in f and f != 'danke.html' and os.path.exists(f)
+          })
+          if not urls:
+              print('No changed pages')
+              raise SystemExit(0)
+          key = os.environ['INDEXNOW_KEY']
+          body = json.dumps({'host': 'planegy.de', 'key': key,
+                             'keyLocation': f'https://planegy.de/{key}.txt', 'urlList': urls}).encode()
+          req = urllib.request.Request('https://api.indexnow.org/indexnow', data=body,
+                                       headers={'Content-Type': 'application/json; charset=utf-8'})
+          with urllib.request.urlopen(req, timeout=20) as res:
+              print('IndexNow', res.status, len(urls), 'URLs')
+          for u in urls:
+              print(' ', u)
+          PY

@@ -18,9 +18,7 @@
     "run_worker_first": ["/.netlify/functions/*", "/api/*", "/danke", "/blog"]
   },
 
-  "send_email": [{ "name": "EMAIL" }],
-
-  // Secrets (nicht hier eintragen): GITHUB_TOKEN, BLG_WEBHOOK_SECRET
+  // Secrets (nicht hier eintragen): GITHUB_TOKEN, BLG_WEBHOOK_SECRET, BREVO_API_KEY
   "vars": {
     "GITHUB_REPO": "adonas-png/planegy",
     "GITHUB_BRANCH": "main",

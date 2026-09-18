@@ -7,6 +7,8 @@
 //   /api/blg-publish                 derselbe Webhook unter neuem Pfad
 //   /danke  (POST)                   Kontaktformular (ersetzt Netlify Forms)
 //   /blog   (POST)                   Newsletter-Formular (ersetzt Netlify Forms)
+//
+// Formular-Mails gehen über die Brevo-API (Secret BREVO_API_KEY) von FORM_FROM an FORM_TO.
 
 import { handleBlgPublish } from "./blg-publish.js";
 
@@ -119,14 +121,7 @@ async function handleForm(request, env) {
     `</table>`;
 
   try {
-    await env.EMAIL.send({
-      to: env.FORM_TO,
-      from: env.FORM_FROM,
-      replyTo: mail.replyTo,
-      subject: mail.subject,
-      text,
-      html,
-    });
+    await sendMail(env, { subject: mail.subject, replyTo: mail.replyTo, text, html });
   } catch (err) {
     console.error("Form mail failed:", formName, err.code, err.message);
     return errorPage(
@@ -136,6 +131,27 @@ async function handleForm(request, env) {
   }
 
   return thankYou;
+}
+
+// Versand über Brevo (Transaktions-API). Absender-Domain planegy.de ist in Brevo authentifiziert.
+async function sendMail(env, { subject, replyTo, text, html }) {
+  if (!env.BREVO_API_KEY) throw Object.assign(new Error("BREVO_API_KEY fehlt"), { code: "config" });
+  const res = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: { "api-key": env.BREVO_API_KEY, "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({
+      sender: { name: "PLANEGY Website", email: env.FORM_FROM },
+      to: [{ email: env.FORM_TO }],
+      replyTo: { email: replyTo },
+      subject,
+      textContent: text,
+      htmlContent: html,
+    }),
+  });
+  if (!res.ok) {
+    const body = await res.text();
+    throw Object.assign(new Error(`Brevo ${res.status}: ${body.slice(0, 300)}`), { code: res.status });
+  }
 }
 
 function isEmail(value) {
