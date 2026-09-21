@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wärmebedarfsprognose: Die richtige Methode für Kommunen – PLANEGY</title>
+  <meta name="description" content="Die Dreischrittmethode zur Wärmebedarfsprognose liefert Kommunen belastbare Zahlen für Netzplanung, Anlagenkonzeption und Förderanträge." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Wärmebedarfsprognose: Die richtige Methode für Kommunen" />
+  <meta property="og:description" content="Die Dreischrittmethode zur Wärmebedarfsprognose liefert Kommunen belastbare Zahlen für Netzplanung, Anlagenkonzeption und Förderanträge." />
+  <link rel="canonical" href="https://planegy.de/blog-warmebedarfsprognose-methode" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Wärmebedarfsprognose: Die richtige Methode für Kommunen",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-09-21",
+    "description": "Die Dreischrittmethode zur Wärmebedarfsprognose liefert Kommunen belastbare Zahlen für Netzplanung, Anlagenkonzeption und Förderanträge."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Wärmebedarfsprognose: Die richtige Methode für Kommunen</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Wärmebedarfsprognose: Die richtige Methode für Kommunen</h1>
+    <div class="article-meta">
+      <span>📅 <strong>September 2026</strong></span>
+      <span>⏱ <strong>9 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="warmebedarfsprognose-die-richtige-methode-fur-kommunen" tabindex="-1">Wärmebedarfsprognose: Die richtige Methode für Kommunen</h1>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1789796284334_Kommunale-Gebaudelandschaft-fur-Warmebedarfsprognose.jpeg" alt="Kommunale Gebäudestruktur zur Prognose des Wärmebedarfs"></p>
+<p>Für die kommunale und industrielle Wärmeplanung hat sich die Dreischritt-Methode etabliert: Bestandsanalyse, Potenzialanalyse und Zielszenario mit den Stützjahren 2030, 2035, 2040 und 2045. Diese Wärmebedarfsprognose-Methode erfüllt die Anforderungen des Wärmeplanungsgesetzes und liefert belastbare Zahlen für Netzplanung, Anlagenkonzeption und Förderanträge. Entscheidend ist dabei die saubere Harmonisierung der Datenquellen und die frühe Einbindung lokaler Akteure, denn ohne beides bleibt jede Prognose Theorie.</p>
+<hr>
+<blockquote>
+<p><strong>Kurz gesagt:</strong></p>
+<ul>
+<li>Für belastbare Wärmebedarfsprognosen sind eine gründliche Datenharmonisierung und frühzeitige Einbindung lokaler Akteure essenziell, um theoretische Prognosen in die Praxis umzusetzen.</li>
+<li>Die Wärmebedarfsanalyse basiert auf den Schritten Bestands-, Potenzial- und Zielszenarioanalyse, wobei Zieljahre 2030 bis 2045 eine Transformationsroute erfordern.</li>
+<li>Die verfügbaren erneuerbaren Wärmepotenziale übersteigen oftmals den prognostizierten Bedarf, doch Umsetzungsgeschwindigkeit stellt die wichtigste Limitierung dar.</li>
+<li>Regionen mit niedriger Wärmeliniendichte benötigen häufig nur eine vereinfachte Wärmeplanung, da ein wirtschaftliches Wärmenetz dort unwahrscheinlich ist.</li>
+<li>Industriebetriebe brauchen branchenspezifische Kennwerte für die Wärmeplanung, und bei fehlenden Betriebsdaten ermöglicht die konservative Fortschreibung bestehender Verbrauchswerte eine bessere Prognose.</li>
+</ul>
+</blockquote>
+<hr>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Wärmeplanung fundiert umsetzen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Kommunen mit technologieoffener Energieberatung, von der Analyse bis zur Umsetzung nachhaltiger Wärmelösungen.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">PLANEGY kennenlernen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#wie-funktioniert-die-warmebedarfsprognose-schritt-fur-schritt">Wie funktioniert die Wärmebedarfsprognose Schritt für Schritt?</a></li>
+<li><a href="#welche-datenquellen-brauchen-sie-fur-eine-belastbare-warmebedarfsanalyse">Welche Datenquellen brauchen Sie für eine belastbare Wärmebedarfsanalyse?</a></li>
+<li><a href="#wann-lohnt-sich-ein-warmenetz-statt-dezentraler-versorgung">Wann lohnt sich ein Wärmenetz statt dezentraler Versorgung?</a></li>
+<li><a href="#warum-brauchen-industriebetriebe-eigene-kennwerte">Warum brauchen Industriebetriebe eigene Kennwerte?</a></li>
+<li><a href="#wie-zuverlassig-ist-eine-langfristige-warmeprognose-wirklich">Wie zuverlässig ist eine langfristige Wärmeprognose wirklich?</a></li>
+<li><a href="#was-zeigt-die-praxis-bei-warmebedarfsprognosen-wirklich">Was zeigt die Praxis bei Wärmebedarfsprognosen wirklich?</a></li>
+<li><a href="#was-die-praxis-oft-ubersieht">Was die Praxis oft übersieht</a></li>
+<li><a href="#wie-unterstutzt-planegy-bei-der-warmebedarfsprognose">Wie unterstützt PLANEGY bei der Wärmebedarfsprognose?</a></li>
+<li><a href="#quellen">Quellen</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+<h2 id="wie-funktioniert-die-warmebedarfsprognose-schritt-fur-schritt" tabindex="-1">Wie funktioniert die Wärmebedarfsprognose Schritt für Schritt?</h2>
+<p>Jede belastbare Wärmebedarfsanalyse folgt einem klaren Ablauf. Die drei Kernschritte, <a href="https://klima-und-demokratie.de/wp-content/uploads/2023/06/Leitfaden_kommunaleWaermeplanung_Online.pdf" rel="nofollow noopener noreferrer" target="_blank">Bestandsanalyse, Potenzialanalyse und Zielszenario</a>, bauen aufeinander auf und benötigen jeweils eigene Eingabedaten und Methoden.</p>
+<ol>
+<li><strong>Bestandsanalyse.</strong> Hier werden Verbrauchsdaten, Netzinventare und GIS-Karten zusammengeführt. Praktisch heißt das: Gebäudedaten aus dem Liegenschaftskataster, Wärmeverbrauch aus Schornsteinfeger- und Netzbetreiberdaten, dazu ein Abgleich mit dem <a href="https://construpilot.fr/blog/chauffage-re2020-quel-choix" target="_blank" rel="noopener">Marktstammdatenregister für bestehende Erzeugungsanlagen</a>. Der Zeitrahmen liegt bei kleineren Kommunen meist bei vier bis acht Wochen, in größeren Städten deutlich länger.</li>
+<li><strong>Potenzialanalyse.</strong> Jetzt geht es um die Frage, welche erneuerbaren und Effizienzpotenziale vor Ort überhaupt realistisch sind. Solarthermie auf Freiflächen, oberflächennahe und tiefe Geothermie, industrielle Abwärme, Flusswasser als Wärmequelle, dazu das Sanierungspotenzial im Gebäudebestand. Wichtig ist die getrennte Prüfung zentraler Optionen wie Wärmenetze und dezentraler Lösungen wie Wärmepumpen, weil sich beide technologisch und wirtschaftlich stark unterscheiden.</li>
+<li><strong>Zielszenario.</strong> Am Ende steht die Gebietseinteilung mit Entscheidung, wo ein Wärmenetz sinnvoll ist und wo dezentrale Versorgung vorzuziehen ist. §18 des Wärmeplanungsgesetzes verlangt dafür eine Abwägung nach Wärmegestehungskosten, Realisierungsrisiko, Versorgungssicherheit und kumulierten Treibhausgasemissionen über die Stützjahre hinweg.</li>
+</ol>
+<p>Die Zieljahre 2030, 2035, 2040 und 2045 sind keine Formsache. Sie zwingen zur Darstellung eines Transformationspfads statt einer einzelnen Momentaufnahme, was bei Förderanträgen und Netzplanungsentscheidungen regelmäßig verlangt wird. Eine <a href="https://www.oeko.de/fileadmin/oekodoc/Kommunale-Waermeplanung-Deutschland-2025.pdf" rel="nofollow noopener noreferrer" target="_blank">aggregierte Auswertung des Öko-Instituts</a> zeigt, dass die mittlere Reduktion des Endenergiebedarfs Wärme in bereits erstellten Wärmeplänen bei etwa 32 % liegt, während die verfügbaren Potenziale für erneuerbare Wärme den prognostizierten Bedarf oft deutlich übersteigen. Das ist eine wichtige Erkenntnis für jede Kommune, die ihr eigenes Zielszenario kalibriert: Der limitierende Faktor ist selten das Potenzial, sondern die Umsetzungsgeschwindigkeit.</p>
+<h2 id="welche-datenquellen-brauchen-sie-fur-eine-belastbare-warmebedarfsanalyse" tabindex="-1">Welche Datenquellen brauchen Sie für eine belastbare Wärmebedarfsanalyse?</h2>
+<p>Eine Energiebedarfsermittlung steht und fällt mit der Datenqualität. In Deutschland kommen dafür mehrere Datengeber infrage, die selten von sich aus zusammenpassen.</p>
+<ul>
+<li>Netzbetreiber liefern Verbrauchsdaten auf Anschlussebene, oft aber mit unterschiedlicher räumlicher Auflösung.</li>
+<li>Schornsteinfeger führen die Kehrbücher, aus denen sich Heizungsbestand und Baujahr ableiten lassen.</li>
+<li>Die Deutsche Emissionshandelsstelle (DEHSt) liefert über den europäischen Emissionshandel (ETS) belastbare Verbrauchszahlen für emissionshandelspflichtige Industriebetriebe.</li>
+<li>Das Marktstammdatenregister zeigt bestehende Erzeugungsanlagen, von der Photovoltaikanlage bis zum BHKW.</li>
+<li>Untere Wasserbehörden liefern Daten zu Grundwasser- und Flusswassernutzung, relevant für Geothermie- und Flusswärmepotenziale.</li>
+</ul>
+<p>Diese Quellen sprechen selten dieselbe Sprache. Deshalb braucht jede Wärmebedarfsprognose einen Harmonisierungsschritt: einheitliche Abgrenzung der Energieträger, konsistente Leistungszahlen für Wärmepumpen und ein einheitlicher Referenzzeitraum. Bei fehlenden Jahreswerten hilft die <a href="https://www.ecornet.eu/news-einzelansicht/article/breitere-datenbasis-fuer-kommunale-waermeplaene-bestaetigt-zentrale-trends-waermepumpen-und-waermenetze-bilden-das-rueckgrat-der-waermewende" rel="nofollow noopener noreferrer" target="_blank">Interpolation zwischen bekannten Messpunkten</a>, solange die Lücke nicht mehrere Jahre umfasst und keine strukturellen Brüche wie eine Werksschließung überdeckt.</p>
+<p><strong>Statistik-Callout:</strong> Laut Öko-Institut liegen die bundesweit identifizierten Potenziale für erneuerbare Wärme bei rund 458 Terawattstunden, während der prognostizierte Bedarf im Jahr 2045 bei etwa 42 Terawattstunden liegt. Der Flaschenhals ist also nicht die Ressource, sondern das Tempo der Umsetzung vor Ort.</p>
+<p>Werkzeuge wie Hotmaps und regionale Wärmeatlanten liefern brauchbare Ausgangsdaten für die erste Grobabschätzung. Ein <a href="https://www.pd-g.de/assets/Drucksachen/2024_Leitfaden-kommunale-Waermeplanung-mit-Daten.pdf" rel="nofollow noopener noreferrer" target="_blank">Leitfaden mit Datenfokus</a> weist allerdings zu Recht darauf hin, dass diese Standarddaten immer lokal validiert werden müssen, bevor sie in eine Zielszenario-Rechnung einfließen. Personenbezogene oder betriebsbezogene Rohdaten dürfen dabei nur aggregiert veröffentlicht werden.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1789796351885_Welche-Datenquellen-brauchen-Sie-fur-eine-belastbare-Warmebedarfsanalyse-overview-diagram.jpeg" alt="Welche Datenquellen brauchen Sie für eine belastbare Wärmebedarfsanalyse? — overview diagram"></p>
+<h2 id="wann-lohnt-sich-ein-warmenetz-statt-dezentraler-versorgung" tabindex="-1">Wann lohnt sich ein Wärmenetz statt dezentraler Versorgung?</h2>
+<p>Ob sich ein Wärmenetz rechnet, entscheidet sich an zwei Kennzahlen: der Wärmebedarfsdichte in Kilowattstunden pro Quadratmeter und Jahr sowie der Wärmeliniendichte in Kilowatt pro Trassenmeter.</p>
+<ul>
+<li>Die Wärmebedarfsdichte zeigt, wie viel Wärme pro Fläche in einem Gebiet gebraucht wird, und lässt sich flächendeckend in GIS-Karten darstellen.</li>
+<li>Die Wärmeliniendichte bezieht den Bedarf auf die Länge einer möglichen Trasse und ist damit der praktischere Indikator für die Wirtschaftlichkeit eines Netzes.</li>
+<li>Beide Kennzahlen zusammen erlauben eine erste Eignungsprüfung, noch bevor eine detaillierte Netzplanung nötig wird.</li>
+</ul>
+<p>In dünn besiedelten Gebieten mit niedriger Liniendichte reicht häufig eine verkürzte Wärmeplanung, weil ein Wärmenetz von vornherein unwirtschaftlich wäre. Die Grobplanung mit diesen Kennzahlen entscheidet also, wo überhaupt eine Detailplanung mit Trassenführung und Anschlussquote sinnvoll ist.</p>
+<p><strong>Profi-Tipp:</strong> <em>Rechnen Sie die Wärmeliniendichte immer mit dem realistischen Anschlussgrad, nicht mit dem theoretischen Maximum. Eine Straße mit hoher Bebauungsdichte, aber niedriger Anschlussbereitschaft, kippt schnell unter die Wirtschaftlichkeitsschwelle.</em></p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1789796282799_Illustration-von-Warmenetz-und-Anschlussgrad.jpeg" alt="Darstellung des Wärmenetzes und des Anschlussgrads"></p>
+<h2 id="warum-brauchen-industriebetriebe-eigene-kennwerte" tabindex="-1">Warum brauchen Industriebetriebe eigene Kennwerte?</h2>
+<p>Wohnflächenkennwerte taugen für Industrie und Gewerbe wenig. Ein Krankenhaus, eine Schule und eine Gießerei haben völlig unterschiedliche Wärmeprofile, selbst bei gleicher Grundfläche.</p>
+<ul>
+<li>Branchenspezifische Kennwerte wie Megawattstunden pro Schüler oder Kilowattstunden pro Quadratmeter Verkaufsfläche liefern belastbarere Schätzungen als pauschale Flächenwerte.</li>
+<li>Wo keine Firmendaten vorliegen, hilft eine <a href="https://www.bmwsb.bund.de/error_path/400.html?al_req_id=aq4LomHk_xdK0PP20Onb9gAAA8U" rel="nofollow noopener noreferrer" target="_blank">konservative Fortschreibung bestehender Verbrauchswerte</a> mit einer angenommenen Effizienzsteigerung von etwa 1 bis 1,4 % pro Jahr.</li>
+<li>Als Ersatzdaten dienen ETS-Meldungen, Kehrbuchdaten und Einträge im Marktstammdatenregister, wenn betriebsspezifische Werte fehlen.</li>
+<li>Bei sensiblen Firmendaten empfiehlt sich der Weg über Ankerkunden und Vertraulichkeitsvereinbarungen statt einer flächendeckenden Datenabfrage.</li>
+</ul>
+<p>Regionale Studien zur Prozesswärme zeigen zudem, dass sich Industriebetriebe räumlich konzentrieren, oft genau in Gebieten, die später an ein Wasserstoffnetz angebunden werden sollen. Das macht die Prozesswärmeprognose zu einer wichtigen Randbedingung für die Infrastrukturplanung, nicht zu einer Randnotiz.</p>
+<h2 id="wie-zuverlassig-ist-eine-langfristige-warmeprognose-wirklich" tabindex="-1">Wie zuverlässig ist eine langfristige Wärmeprognose wirklich?</h2>
+<p>Jede langfristige Wärmeprognose ruht auf Annahmen, die sich über 20 Jahre ändern können: Energiepreise, Sanierungsraten, Anschlussdichten. Wer diese Unsicherheit ignoriert, präsentiert eine Scheingenauigkeit.</p>
+<ol>
+<li>Identifizieren Sie die drei bis fünf Annahmen mit dem größten Hebel auf das Ergebnis, meist Sanierungsrate und Energiepreisentwicklung.</li>
+<li>Rechnen Sie für jede dieser Annahmen ein pessimistisches und ein optimistisches Sensitivitätsszenario durch, ohne das gesamte Modell neu aufzubauen.</li>
+<li>Setzen Sie aufwendigere Monte-Carlo-Simulationen nur dort ein, wo tatsächlich hohe Investitionssummen oder Fördermittelentscheidungen davon abhängen.</li>
+</ol>
+<p>Der Wärmeplan bleibt ohnehin kein statisches Dokument. Er ist ein rollierender Prozess mit vorgeschriebener Fortschreibung, der Veröffentlichung und Monitoring verlangt. <strong>Statistik-Callout:</strong> Ein jährliches Monitoring mit standardisierten Datenformaten und einem Dashboard reduziert den Aufwand jeder Fortschreibung erheblich, weil die Datenbasis nicht bei jedem Zyklus neu aufgebaut werden muss.</p>
+<h2 id="was-zeigt-die-praxis-bei-warmebedarfsprognosen-wirklich" tabindex="-1">Was zeigt die Praxis bei Wärmebedarfsprognosen wirklich?</h2>
+<p>Technologieoffene Bewertung reduziert das größte Risiko in der Wärmeplanung: die vorschnelle Festlegung auf eine Technologie, bevor alle lokalen Potenziale geprüft sind. PLANEGY begleitet Kommunen und Industriebetriebe genau an diesem Punkt, von der Bestandsanalyse bis zur Umsetzung.</p>
+<ul>
+<li>Projektergebnisse können CO₂-Reduktionen beim Einsatz von BioLPG als Brückentechnologie umfassen sowie die Sicherung von Fördermitteln aus verschiedenen Programmen.</li>
+<li>Der <a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik-Rechner</a> hilft dabei, verschiedene Heizsysteme technisch und wirtschaftlich zu vergleichen, bevor eine Investitionsentscheidung fällt.</li>
+<li>Für Kommunen mit laufendem Wärmeplanungsprozess bietet die <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">Leistungsseite für kommunale Wärmeplanung</a> einen strukturierten Einstieg in Bestands- und Potenzialanalyse.</li>
+</ul>
+<blockquote>
+<p>Eine Wärmebedarfsprognose ist nur so gut wie ihre schwächste Datenquelle. Wer hier spart, zahlt später bei der Umsetzung drauf, meist in Form von Fehlinvestitionen in die falsche Technologie.</p>
+</blockquote>
+<h2 id="was-die-praxis-oft-ubersieht" tabindex="-1">Was die Praxis oft übersieht</h2>
+<p>Die verbreitete Annahme, eine Wärmebedarfsprognose sei vor allem eine Rechenaufgabe, hält der Praxis nicht stand. Kommunale Wärmeplanung ist ein strategischer Prozess, bei dem Akteursbindung und Transparenz über die Umsetzbarkeit entscheiden, nicht die dritte Nachkommastelle einer Bedarfsberechnung.</p>
+<p>Viele Leitfäden betonen die Methodik der drei Schritte, sagen aber wenig darüber, wie man mit lückenhaften oder widersprüchlichen Daten umgeht, wie sie in fast jeder deutschen Kommune vorliegen. Genau hier entscheidet sich, ob ein Wärmeplan Papier bleibt oder tatsächlich Investitionen auslöst. Wer zu früh auf eine einzige Technologie setzt, etwa aus politischem Druck heraus ein Wärmenetz für ein Gebiet mit eigentlich zu niedriger Liniendichte, produziert Zahlen, die später vor Fördermittelgebern oder im Stadtrat nicht standhalten.</p>
+<p>Meine Empfehlung: Investieren Sie die meiste Zeit in die Datenharmonisierung und die Potenzialanalyse, nicht in die Feinjustierung des Zielszenarios. Ein robustes Zielszenario mit groben, aber sauber hergeleiteten Zahlen schlägt ein elegantes Modell auf wackliger Datenbasis fast immer. Und binden Sie industrielle Ankerkunden früh ein, denn deren Prozesswärmebedarf entscheidet in vielen Gemeinden über die Wirtschaftlichkeit des gesamten Wärmenetzes.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="wie-unterstutzt-planegy-bei-der-warmebedarfsprognose" tabindex="-1">Wie unterstützt PLANEGY bei der Wärmebedarfsprognose?</h2>
+<p>PLANEGY ist der technologieoffene Partner für Kommunen und Unternehmen, die eine Wärmebedarfsprognose nicht nur rechnen, sondern auch genehmigungsfähig und förderfähig umsetzen wollen. Der Unterschied zu vielen Planungsbüros: PLANEGY bewertet Nahwärme, Wärmepumpen, BHKW und BioLPG neutral gegeneinander und begleitet anschließend das komplette Genehmigungs- und Fördermittelverfahren, statt nach der Prognose auszusteigen.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Das Leistungsspektrum reicht von der kommunalen Wärmeplanung nach WPG über die Fördermittelakquise bis zu automatisierten ESG-Dashboards für laufendes Monitoring. Für einen ersten technischen Überblick eignet sich der <a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik-Rechner</a>, für Kommunen mit konkretem Planungsauftrag die <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Übersicht der Leistungen</a>. Wer bereits die Zielgerade der Wärmeplanung erreicht hat und laufende Betreuung sucht, findet im <a href="https://planegy.de/klimamanager-service" target="_blank" rel="noopener">Klimaschutzmanagement im Abo</a> eine Option für die kontinuierliche Fortschreibung. Fordern Sie einen Projektcheck an und klären Sie in einem Erstgespräch, welche Methode und welche Fördertöpfe für Ihr Gebiet infrage kommen.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://klima-und-demokratie.de/wp-content/uploads/2023/06/Leitfaden_kommunaleWaermeplanung_Online.pdf" rel="nofollow noopener noreferrer" target="_blank">Klima-und-demokratie</a></li>
+<li><a href="https://www.oeko.de/fileadmin/oekodoc/Kommunale-Waermeplanung-Deutschland-2025.pdf" rel="nofollow noopener noreferrer" target="_blank">Kommunale Wärmeplanung Deutschland 2025 (Öko‑Institut)</a></li>
+<li><a href="https://www.pd-g.de/assets/Drucksachen/2024_Leitfaden-kommunale-Waermeplanung-mit-Daten.pdf" rel="nofollow noopener noreferrer" target="_blank">Leitfaden kommunale Wärmeplanung mit Daten (PD‑G, 2024)</a></li>
+</ul>
+<h2 id="faq" tabindex="-1">FAQ</h2>
+<h3 id="was-ist-die-standardmethode-zur-warmebedarfsprognose" tabindex="-1">Was ist die Standardmethode zur Wärmebedarfsprognose?</h3>
+<p>Die anerkannte Methode besteht aus Bestandsanalyse, Potenzialanalyse und Zielszenario mit den Stützjahren 2030, 2035, 2040 und 2045. Diese Dreischritt-Methode bildet die Grundlage für WPG-konforme kommunale Wärmepläne.</p>
+<h3 id="wie-berechnet-man-den-warmebedarf-fur-prozesswarme-in-der-industrie" tabindex="-1">Wie berechnet man den Wärmebedarf für Prozesswärme in der Industrie?</h3>
+<p>Wohnflächenkennwerte sind hier ungeeignet, stattdessen braucht es branchenspezifische Kennwerte wie Kilowattstunden pro Quadratmeter Verkaufsfläche. Fehlen Firmendaten, hilft eine konservative Fortschreibung bestehender Verbrauchswerte mit jährlicher Effizienzsteigerung.</p>
+<h3 id="ab-welcher-warmeliniendichte-lohnt-sich-ein-warmenetz" tabindex="-1">Ab welcher Wärmeliniendichte lohnt sich ein Wärmenetz?</h3>
+<p>Eine pauschale Schwelle gibt es nicht, Wärmebedarfsdichte und Wärmeliniendichte dienen aber als erste Eignungsindikatoren. Bei niedriger Liniendichte reicht oft eine verkürzte Wärmeplanung ohne Netzausbau.</p>
+<h3 id="welche-datenquellen-nutzt-man-bei-fehlenden-verbrauchsdaten" tabindex="-1">Welche Datenquellen nutzt man bei fehlenden Verbrauchsdaten?</h3>
+<p>Netzbetreiberdaten, Kehrbuchdaten der Schornsteinfeger, das Marktstammdatenregister und die Emissionshandelsdaten der Deutschen Emissionshandelsstelle dienen als Ersatz- oder Ergänzungsdaten. Fehlende Jahreswerte lassen sich häufig durch Interpolation zwischen bekannten Messpunkten schließen.</p>
+<h3 id="was-kostet-eine-warmebedarfsprognose-bei-planegy" tabindex="-1">Was kostet eine Wärmebedarfsprognose bei PLANEGY?</h3>
+<p>Die Preise für die kommunale Wärmeplanung und weitere Leistungen sind nicht pauschal veröffentlicht und richten sich nach Projektumfang. Details zu den Leistungen von PLANEGY und ein individuelles Angebot erhalten Sie im Erstgespräch.</p>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-kommunale-warmeplanung-leitfaden-fur-kommunen-2026" target="_blank" rel="noopener">Kommunale Wärmeplanung: Leitfaden für Kommunen 2026</a></li>
+<li><a href="https://planegy.de/blog-kommunale-waermeplanung" target="_blank" rel="noopener">Kommunale Wärmeplanung 2025 – Was Gemeinden wissen müssen</a></li>
+<li><a href="https://planegy.de/blog-warmeplanung-koln-leitfaden-fur-kommunen" target="_blank" rel="noopener">Wärmeplanung Köln: Leitfaden für Kommunen</a></li>
+<li><a href="https://planegy.de/blog-kommunale-warmeplanung-bayern" target="_blank" rel="noopener">Kommunale Wärmeplanung Bayern: Leitfaden für Kommunen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
