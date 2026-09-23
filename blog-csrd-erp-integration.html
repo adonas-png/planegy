@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSRD-ERP-Integration: So wird das ERP zur Datenbasis – PLANEGY</title>
+  <meta name="description" content="So wird Ihr ERP zur prüfungssicheren Datenbasis für CSRD: direkte Schnittstellen, angereicherte Stammdaten, Prüfpfade und XBRL Auszeichnung." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="CSRD-ERP-Integration: So wird das ERP zur Datenbasis" />
+  <meta property="og:description" content="So wird Ihr ERP zur prüfungssicheren Datenbasis für CSRD: direkte Schnittstellen, angereicherte Stammdaten, Prüfpfade und XBRL Auszeichnung." />
+  <link rel="canonical" href="https://planegy.de/blog-csrd-erp-integration" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "CSRD-ERP-Integration: So wird das ERP zur Datenbasis",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-09-23",
+    "description": "So wird Ihr ERP zur prüfungssicheren Datenbasis für CSRD: direkte Schnittstellen, angereicherte Stammdaten, Prüfpfade und XBRL Auszeichnung."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#3b0764,#7c3aed); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"📊"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#7c3aed; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">CSRD-ERP-Integration: So wird das ERP zur Datenbasis</span>
+    </div>
+    <div class="article-cat">ESG / CSRD</div>
+    <h1>CSRD-ERP-Integration: So wird das ERP zur Datenbasis</h1>
+    <div class="article-meta">
+      <span>📅 <strong>September 2026</strong></span>
+      <span>⏱ <strong>8 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="csrd-erp-integration-so-wird-das-erp-zur-datenbasis" tabindex="-1">CSRD-ERP-Integration: So wird das ERP zur Datenbasis</h1>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1789971300285_ESG-Lieferantenstatus-wird-im-ERP-gepflegt.jpeg" alt="Der ESG-Lieferantenstatus wird im ERP-System verwaltet."></p>
+<p>Das ERP-System sollte die zentrale Datenquelle für CSRD-Berichte sein, doch allein reicht es fast nie. Wer ESRS-Kennzahlen zuverlässig und prüfungssicher berichten will, verbindet ERP-Stammdaten mit einer spezialisierten Reporting-Schicht für regulatorische Logik und XBRL-Tagging. Technisch bedeutet das: native Konnektoren oder offene APIs statt manueller Exporte, dazu Audit-Trails und angereicherte Stammdaten. Der erste sinnvolle Schritt ist immer eine Dateninventur.</p>
+<hr>
+<blockquote>
+<p><strong>Kurz gesagt:</strong></p>
+<ul>
+<li>Das ERP-System enthält viele relevante Daten für die CSRD, doch für eine prüfungssichere Berichterstattung sind zusätzliche regulatorische Logiken und Tagging erforderlich.</li>
+<li>Eine umfassende Dateninventur ist der erste Schritt, um Lücken zu erkennen, beispielsweise bei Scope-3-Daten oder externen Referenzwerten, die oft im ERP fehlen.</li>
+<li>Native Konnektoren oder offene APIs sind bei der technischen Anbindung den Batch-Exporte vorzuziehen, da sie Aktualität und Revisionssicherheit gewährleisten.</li>
+<li>Die Umsetzung einer CSRD-Integration dauert meist zwischen acht und sechzehn Wochen bei SAP-Systemen, wobei Scope-3-Modelle den Zeitaufwand signifikant erhöhen.</li>
+<li>Für größere Unternehmen oder komplexen Scope-3-Bereich sind zusätzliche Spezialtools meist notwendig, die automatisiertes Tagging und regulatorische Updates bieten.</li>
+</ul>
+</blockquote>
+<hr>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">CSRD-Daten verlässlich strukturieren</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Unternehmen mit technologieoffener Energieberatung und automatisierten ESG-Reporting-Dashboards bei nachhaltigen Lösungen.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">PLANEGY kennenlernen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#welche-rolle-spielt-das-erp-bei-csrd-und-esrs">Welche Rolle spielt das ERP bei CSRD und ESRS?</a></li>
+<li><a href="#wie-funktioniert-das-datenmapping-der-esrs-datenpunkte-im-erp">Wie funktioniert das Datenmapping der ESRS-Datenpunkte im ERP?</a></li>
+<li><a href="#native-konnektoren-api-oder-batch-export-welches-muster-passt">Native Konnektoren, API oder Batch-Export: Welches Muster passt?</a></li>
+<li><a href="#wie-sieht-die-roadmap-von-der-analyse-zum-report-aus">Wie sieht die Roadmap von der Analyse zum Report aus?</a></li>
+<li><a href="#welche-governance-anforderungen-erwarten-auditoren">Welche Governance-Anforderungen erwarten Auditoren?</a></li>
+<li><a href="#reicht-das-erp-allein-oder-braucht-es-ein-esg-tool">Reicht das ERP allein oder braucht es ein ESG-Tool?</a></li>
+<li><a href="#wie-unterstutzt-planegy-bei-der-csrd-erp-integration">Wie unterstützt PLANEGY bei der CSRD-ERP-Integration?</a></li>
+<li><a href="#csrd-als-chance-zur-datengetriebenen-steuerung">CSRD als Chance zur datengetriebenen Steuerung</a></li>
+<li><a href="#direkte-unterstutzung-fur-ihre-csrd-integration">Direkte Unterstützung für Ihre CSRD-Integration</a></li>
+<li><a href="#quellen">Quellen</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+<h2 id="welche-rolle-spielt-das-erp-bei-csrd-und-esrs" tabindex="-1">Welche Rolle spielt das ERP bei CSRD und ESRS?</h2>
+<p>Ihr ERP-System kennt bereits einen Großteil der Zahlen, die CSRD verlangt. Es verwaltet Energie- und Verbrauchsrechnungen, Materialmengen, Einkaufsdaten und HR-Kernzahlen wie Kopfzahl oder Fluktuation. Das macht es zum natürlichen Ausgangspunkt für die CSRD-ERP-Integration, weil diese Daten dort ohnehin täglich entstehen und nicht erst zusammengetragen werden müssen.</p>
+<p>Die Konsolidierung im ERP verbessert die Nachvollziehbarkeit erheblich, weil jede Kennzahl bis zur Ursprungsbuchung zurückverfolgt werden kann. Genau diese Rückverfolgbarkeit verlangen Prüfer später bei der Assurance. Trotzdem bleiben Grenzen: Viele ESRS-Datenpunkte entstehen zwar im Tagesgeschäft, liegen aber verstreut über mehrere Module oder sogar mehrere Systeme.</p>
+<p>Typische Lücken, die ein ERP allein nicht schließt:</p>
+<ul>
+<li>Lieferantendaten zu Scope-3-Emissionen, die selten strukturiert im ERP hinterlegt sind</li>
+<li>Qualitative Angaben zu Governance, Sozialstandards oder Doppelter Wesentlichkeit</li>
+<li>Externe Referenzwerte wie aktuelle Emissionsfaktoren oder Branchenbenchmarks</li>
+</ul>
+<p>Für diese Bereiche braucht es entweder manuelle Ergänzung oder eine vorgeschaltete Datenerhebung, bevor überhaupt etwas ins ERP fließt.</p>
+<h2 id="wie-funktioniert-das-datenmapping-der-esrs-datenpunkte-im-erp" tabindex="-1">Wie funktioniert das Datenmapping der ESRS-Datenpunkte im ERP?</h2>
+<p>Am Anfang jeder CSRD-Datenintegration steht eine nüchterne Bestandsaufnahme. Ohne sie integrieren Sie am Ende Daten, die niemand wirklich braucht, und übersehen die, die fehlen.</p>
+<ol>
+<li><strong>Datenpunkte katalogisieren</strong>: Alle relevanten ESRS-Datenpunkte aus der doppelten Wesentlichkeitsanalyse auflisten und einem ERP-Modul zuordnen.</li>
+<li><strong>Quellen benennen</strong>: Für jeden Datenpunkt festhalten, ob er im ERP, in einem Nebensystem oder gar nicht existiert.</li>
+<li><strong>Lücken priorisieren</strong>: Die Punkte mit größter Berichtspflicht und größter Datenlücke zuerst angehen, nicht die einfachsten.</li>
+<li><strong>Stammdaten erweitern</strong>: Felder für Lieferanten, Kostenstellen, Standorte und die verwendete Emissionsfaktor-Version im ERP ergänzen.</li>
+</ol>
+<p>Die Emissionsfaktor-Version ist dabei kein Detail, sondern ein Kernpunkt der Nachvollziehbarkeit. Wenn sich der Umrechnungsfaktor zwischen zwei Berichtsjahren ändert, muss im System erkennbar bleiben, welcher Wert wann galt. Gleiches gilt für den Transaktionsbezug: Jede berichtete Kennzahl braucht einen Beleg, auf den ein Auditor zeigen kann.</p>
+<p><strong>Profi-Tipp:</strong> <em>Legen Sie ein eigenes Stammdatenfeld für den „ESG-Status“ eines Lieferanten oder Standorts an, statt CSRD-Informationen in Freitextfeldern zu verstecken. Das spart Ihnen Monate an Nacharbeit, wenn der Prüfer nach der Datenherkunft fragt.</em></p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1789971384268_Illustration-des-ESRS-Datenmappings-im-ERP.jpeg" alt="Darstellung des ESRS-Datenmappings im ERP-System"></p>
+<h2 id="native-konnektoren-api-oder-batch-export-welches-muster-passt" tabindex="-1">Native Konnektoren, API oder Batch-Export: Welches Muster passt?</h2>
+<p>Bei der technischen Integration von ERP und CSRD-Lösungen stehen drei Muster zur Wahl, und sie unterscheiden sich deutlich in Aufwand und Aktualität.</p>
+<ul>
+<li><strong>Native Konnektoren</strong>: Vorkonfigurierte Verbindungen zwischen ERP und Reporting-Tool, oft vom Softwareanbieter selbst gepflegt. Geringster Implementierungsaufwand, aber nur verfügbar, wenn beide Systeme zueinander passen.</li>
+<li><strong>API-Integration</strong>: Individuell aufgebaute, aber offene Schnittstellen. Mehr Entwicklungsaufwand am Anfang, dafür maximale Flexibilität und Echtzeit- oder Near-Echtzeit-Datenflüsse.</li>
+<li><strong>Batch- beziehungsweise ETL-Export</strong>: Periodische Datenexporte, meist quartalsweise. Am schnellsten eingerichtet, aber Experten warnen ausdrücklich davor, dass solche <a href="https://erp-software.org/glossar/csrd/" rel="nofollow noopener noreferrer" target="_blank">manuellen Quartalsexporte schnell veralten</a> und Audit-Trails fehlen.</li>
+</ul>
+<p>Native Datenflüsse sind gegenüber kundenspezifischer Middleware oder Batch-Exporten klar zu bevorzugen, weil sie Aktualität und Revisionssicherheit gleichzeitig sichern. Für die Praxis empfiehlt sich ein einfacher Entscheidungsweg: Existiert ein nativer Konnektor zwischen Ihrem ERP und der gewählten Reporting-Plattform, nutzen Sie ihn. Fehlt er, bauen Sie eine API-Anbindung, sofern Ihr ERP offene Schnittstellen anbietet. Nur wenn beides nicht möglich ist, greifen Sie übergangsweise auf strukturierte Batch-Exporte zurück, mit dem klaren Ziel, sie später zu ersetzen.</p>
+<h2 id="wie-sieht-die-roadmap-von-der-analyse-zum-report-aus" tabindex="-1">Wie sieht die Roadmap von der Analyse zum Report aus?</h2>
+<p>Eine CSRD-ERP-Integration lässt sich in fünf Phasen strukturieren, die aufeinander aufbauen und selten parallel laufen sollten.</p>
+<ol>
+<li><strong>Doppelte Wesentlichkeitsanalyse</strong>: Festlegen, welche ESRS-Themen für Ihr Unternehmen überhaupt berichtspflichtig sind.</li>
+<li><strong>Dateninventur</strong>: Datenpunkte den ERP-Modulen zuordnen, Lücken identifizieren.</li>
+<li><strong>ERP-Konfiguration</strong>: Stammdaten erweitern, Felder für Emissionsfaktoren und Audit-Trails anlegen.</li>
+<li><strong>Integration</strong>: Konnektor oder API-Verbindung zur Reporting-Plattform aufbauen und testen.</li>
+<li><strong>Trockenlauf und Auditor-Review</strong>: Einen vollständigen Berichtszyklus simulieren und mit dem Prüfer gegen einen Beispieldatensatz abgleichen.</li>
+</ol>
+<p>Praxiswerte aus SAP-nativen Projekten zeigen, dass ein erstes CSRD-konformes Reporting auf Basis SAP S/4HANA rund 8 bis 16 Wochen dauern kann. Umfassendere Scope-3-Modellierung verlängert diesen Zeitraum deutlich, weil die Lieferantenintegration oft der kritische Pfad im gesamten Projekt ist.</p>
+<p><strong>Profi-Tipp:</strong> <em>Binden Sie Ihren Auditor nicht erst zum fertigen Report, sondern schon beim ersten Trockenlauf ein. Das deckt Lücken auf, während sie noch billig zu schließen sind.</em></p>
+<h2 id="welche-governance-anforderungen-erwarten-auditoren" tabindex="-1">Welche Governance-Anforderungen erwarten Auditoren?</h2>
+<p>Ein CSRD-Bericht muss dieselbe Prüfungsdisziplin aushalten wie ein Finanzbericht. CSRD hebt Nachhaltigkeitsdaten formal auf das gleiche Niveau wie Finanzdaten, und das verlangt entsprechende Governance-Strukturen im Unternehmen.</p>
+<p>Konkret erwarten Prüfer:</p>
+<ul>
+<li>Einen Audit-Trail, der jede Kennzahl bis zur Ursprungsbuchung im ERP zurückverfolgt</li>
+<li>Klare Data Owner pro Datenpunkt oder Modul, keine diffuse Gesamtverantwortung</li>
+<li>Versionierte Änderungsprotokolle, besonders bei Emissionsfaktoren und Berechnungsmethoden</li>
+<li>Reconciliation-Prozesse mit regelmäßigen Stichproben-Kontrollen zwischen Quellsystem und Report</li>
+</ul>
+<p>Für die Berechnungsmethodik selbst lohnt sich ein Blick auf das <a href="https://ghgprotocol.org/" rel="nofollow noopener noreferrer" target="_blank">GHG Protocol</a>, das als internationale Referenz für Scope-Berechnungen in vielen Tool-Implementierungen bereits mitgedacht ist.</p>
+<h2 id="reicht-das-erp-allein-oder-braucht-es-ein-esg-tool" tabindex="-1">Reicht das ERP allein oder braucht es ein ESG-Tool?</h2>
+<p>Die Antwort hängt stark von der Komplexität Ihres Berichtsumfangs ab. Ein reines ERP-Setup reicht oft für kleinere Unternehmen mit überschaubarem Scope-1- und Scope-2-Anteil.</p>
+<p>Ein spezialisiertes Tool wird nötig, sobald einer dieser Punkte zutrifft:</p>
+<ul>
+<li>Umfangreiche Scope-3-Lieferantendaten müssen strukturiert eingebunden werden</li>
+<li>XBRL-Tagging für die digitale Einreichung ist gefordert</li>
+<li>Regulatorische Updates zu ESRS erscheinen häufiger, als Ihre IT-Abteilung sie im ERP nachpflegen kann</li>
+<li>Mehrere Standorte oder Tochtergesellschaften mit unterschiedlichen ERP-Instanzen müssen konsolidiert werden</li>
+</ul>
+<p>Plattformen wie <a href="https://www.workiva.com/solutions/csrd-reporting" rel="nofollow noopener noreferrer" target="_blank">Workiva</a> bringen dafür über 60 vorkonfigurierte Konnektoren und iXBRL-Unterstützung mit, während <a href="https://novisto.com/solutions/csrd-software" rel="nofollow noopener noreferrer" target="_blank">Novisto</a> das Tag-Mapping automatisiert und regulatorische Updates synchron hält. Für einen mittelständischen Betrieb mit einem ERP-System reicht häufig eine schlanke Erweiterung, für einen Konzern mit mehreren Werken ist eine dedizierte Reporting-Schicht kaum vermeidbar.</p>
+<h2 id="wie-unterstutzt-planegy-bei-der-csrd-erp-integration" tabindex="-1">Wie unterstützt PLANEGY bei der CSRD-ERP-Integration?</h2>
+<p>PLANEGY berät seit über 20 Jahren technologieoffen im Energiesektor und bringt diese Erfahrung direkt in CSRD-Projekte ein, ohne bestimmte Softwareanbieter zu bevorzugen. Das Leistungsspektrum reicht von der ersten Dateninventur bis zur laufenden Betreuung.</p>
+<p>Typische Arbeitspakete umfassen:</p>
+<ul>
+<li>Datenmapping bestehender ERP-Strukturen gegen die relevanten ESRS-Datenpunkte</li>
+<li>Implementierung von Schnittstellen zwischen ERP und Reporting-Ebene</li>
+<li>Aufbau automatisierter KPI-Dashboards für laufendes Monitoring</li>
+<li>Begleitung bei der Fördermittelakquise, etwa für Investitionen in Energieeffizienzmaßnahmen, die aus den CSRD-Daten sichtbar werden</li>
+</ul>
+<p>Ein zentraler Vorteil dieses Ansatzes: Die technologieoffene Bewertung sorgt dafür, dass die Integrationsempfehlung sich am tatsächlichen ERP-Bestand orientiert und nicht an einem bevorzugten Produkt.</p>
+<h2 id="csrd-als-chance-zur-datengetriebenen-steuerung" tabindex="-1">CSRD als Chance zur datengetriebenen Steuerung</h2>
+<p>CSRD wird oft als reine Pflichtübung betrachtet, dabei zwingt sie Unternehmen zu einer Daten-Governance, die vorher oft nur auf dem Papier existierte. Wer Stammdaten jetzt für ESG-Attribute erweitert und Audit-Trails auf kritischen Feldern erzwingt, gewinnt nebenbei eine bessere interne Steuerung.</p>
+<p>Frühzeitige Auditor-Einbindung und iterative Trockenläufe kosten Zeit, sparen aber am Ende deutlich mehr davon. Der langfristige Nutzen reicht über die reine Berichtspflicht hinaus: Saubere ESG-Daten verbessern häufig auch die Förderfähigkeit für Effizienzmaßnahmen und schaffen operative Transparenz, die vorher schlicht nicht vorhanden war.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="direkte-unterstutzung-fur-ihre-csrd-integration" tabindex="-1">Direkte Unterstützung für Ihre CSRD-Integration</h2>
+<p>Es gibt technologieoffene Beratungsangebote, die bestehende ERP-Systeme bewerten, passende Integrationsarchitekturen festlegen und Fördermittel für begleitende Investitionen identifizieren.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Konkret können Sie folgende Schritte direkt anfragen: eine Erstdiagnose Ihrer ERP-Datenlage, einen Workshop zur Datenpunkt-Inventur, ein vollständiges Implementierungsprojekt für die Schnittstelle oder den begleitenden Fördermittel-Service für anschließende Maßnahmen. Wer laufendes Reporting sucht, statt eines einmaligen Projekts, findet mit dem <a href="https://planegy.de/klimamanager-service" target="_blank" rel="noopener">Klimaschutzmanagement im Abo</a> einen fortlaufenden Service inklusive automatisierter ESG-Dashboards.</p>
+<p>Der nächste Schritt ist einfach: Fordern Sie über die <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungsübersicht von PLANEGY</a> eine Erstdiagnose an und klären Sie in einem ersten Gespräch, welches Integrationsmuster zu Ihrem ERP passt.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://erp-software.org/glossar/csrd/" rel="nofollow noopener noreferrer" target="_blank">CSRD: Sustainability-Reporting &amp; ERP-Implikationen 2026</a></li>
+<li><a href="https://www.workiva.com/solutions/csrd-reporting" rel="nofollow noopener noreferrer" target="_blank">Workiva — CSRD Reporting</a></li>
+<li><a href="https://novisto.com/solutions/csrd-software" rel="nofollow noopener noreferrer" target="_blank">Novisto — CSRD Software</a></li>
+</ul>
+<h2 id="faq" tabindex="-1">FAQ</h2>
+<h3 id="was-versteht-man-unter-csrd" tabindex="-1">Was versteht man unter CSRD?</h3>
+<p>Die CSRD ist die EU-Richtlinie zur Nachhaltigkeitsberichterstattung, die betroffene Unternehmen zur strukturierten Offenlegung von ESG-Kennzahlen nach den ESRS-Standards verpflichtet. Details zu Pflichten und Fristen liefert die EU-Kommission direkt.</p>
+<h3 id="welche-erp-systeme-eignen-sich-fur-csrd-reporting" tabindex="-1">Welche ERP-Systeme eignen sich für CSRD-Reporting?</h3>
+<p>Grundsätzlich eignet sich jedes ERP-System, das strukturierte Stammdaten und offene Schnittstellen bietet, unabhängig vom Hersteller. Entscheidend ist weniger die Marke als die Frage, ob native Konnektoren oder APIs zur gewählten Reporting-Plattform bestehen.</p>
+<h3 id="was-ist-eine-erp-einfuhrung-im-kontext-von-csrd" tabindex="-1">Was ist eine ERP-Einführung im Kontext von CSRD?</h3>
+<p>Eine ERP-Einführung im CSRD-Kontext bedeutet meist keine komplette Neuinstallation, sondern eine gezielte Erweiterung: neue Stammdatenfelder, Audit-Trail-Funktionen und eine Integrationsschicht zur Reporting-Plattform. Bei bestehenden Systemen wie SAP ECC lassen sich solche Ergänzungen oft ohne vollständige Migration realisieren.</p>
+<h3 id="was-sind-typische-beispiele-fur-erp-datenquellen-bei-csrd" tabindex="-1">Was sind typische Beispiele für ERP-Datenquellen bei CSRD?</h3>
+<p>Typische Beispiele sind Energie- und Verbrauchsrechnungen, Materialflussdaten aus der Beschaffung und HR-Kennzahlen wie Personalstand oder Fluktuation. Diese Daten liegen bereits im ERP vor, müssen aber häufig erst um ESG-Attribute und Emissionsfaktoren ergänzt werden.</p>
+<h3 id="was-kostet-eine-csrd-erp-integration-durch-planegy" tabindex="-1">Was kostet eine CSRD-ERP-Integration durch PLANEGY?</h3>
+<p>Die Kosten richten sich nach Umfang und Ausgangslage des jeweiligen Projekts und werden individuell festgelegt. Details zu den einzelnen Leistungen finden Sie auf der Leistungsseite von PLANEGY.</p>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-csrd-datenpunkte" target="_blank" rel="noopener">CSRD Datenpunkte: Praxis-Roadmap für Fach- und Führungskräfte</a></li>
+<li><a href="https://planegy.de/blog-csrd-pflichten-unternehmen" target="_blank" rel="noopener">CSRD-Pflichten für Unternehmen: Was jetzt zu tun ist</a></li>
+<li><a href="https://planegy.de/blog-csrd-umsetzung-schritte" target="_blank" rel="noopener">CSRD-Umsetzung: Schritte, die Sie jetzt priorisieren sollten</a></li>
+<li><a href="https://planegy.de/blog-csrd-pflicht-2025" target="_blank" rel="noopener">CSRD-Pflicht 2025: Was Unternehmen jetzt wissen müssen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
