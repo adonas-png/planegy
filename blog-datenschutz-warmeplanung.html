@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutz Wärmeplanung: Was Kommunen wirklich beachten müssen – PLANEGY</title>
+  <meta name="description" content="Erfahren Sie, wie Kommunen Datenschutz in der Wärmeplanung sicher umsetzen: zulässige Daten, §10/§12 WPG, DSGVO und Aggregation nach FAGA." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Datenschutz Wärmeplanung: Was Kommunen wirklich beachten müssen" />
+  <meta property="og:description" content="Erfahren Sie, wie Kommunen Datenschutz in der Wärmeplanung sicher umsetzen: zulässige Daten, §10/§12 WPG, DSGVO und Aggregation nach FAGA." />
+  <link rel="canonical" href="https://planegy.de/blog-datenschutz-warmeplanung" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Datenschutz Wärmeplanung: Was Kommunen wirklich beachten müssen",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-09-29",
+    "description": "Erfahren Sie, wie Kommunen Datenschutz in der Wärmeplanung sicher umsetzen: zulässige Daten, §10/§12 WPG, DSGVO und Aggregation nach FAGA."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Datenschutz Wärmeplanung: Was Kommunen wirklich beachten müssen</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Datenschutz Wärmeplanung: Was Kommunen wirklich beachten müssen</h1>
+    <div class="article-meta">
+      <span>📅 <strong>September 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="datenschutz-warmeplanung-was-kommunen-wirklich-beachten-mussen" tabindex="-1">Datenschutz Wärmeplanung: Was Kommunen wirklich beachten müssen</h1>
+
+<p>Kommunen dürfen für die Potenzialanalyse ohne personenbezogene Daten arbeiten, für die Bestandsanalyse nur eingeschränkt und mit Aggregation oder Anonymisierung. Rechtsgrundlage sind §10 und §12 WPG in Verbindung mit Art. 6, 13 und 14 DSGVO. Wer diese Vorgaben ernst nimmt, setzt auf FAGA-Aggregation und Privacy by Design, statt Datenschutz als nachträgliche Formalie zu behandeln.</p>
+<hr>
+<blockquote>
+<p><strong>Kurz gesagt:</strong></p>
+<ul>
+<li>Kommunen dürfen für die Bestandsanalyse personenbezogene Daten nur mit Aggregation oder Anonymisierung verwenden, während die Potenzialanalyse keine personenbezogenen Daten enthalten darf.</li>
+<li>Die Verarbeitung personenbezogener Daten muss stets auf eine rechtliche Grundlage nach WPG und DSGVO gestützt werden, inklusive Zweckbindung und Löschung nach Zweckerfüllung.</li>
+<li>Für die Organisation der Datenübergabe von Versorgern und Netzbetreibern sind verschlüsselte Wege, klare Formate und Übergabeprotokolle verpflichtend.</li>
+<li>Bei externen Dienstleistern ist ein detaillierter Auftragsverarbeitungsvertrag notwendig, der technische, organisatorische und Löschfristen regelt.</li>
+<li>Frühzeitige rechtliche Prüfung, konsequente Anwendung der FAGA-Aggregation und ein unterschriebener AVV vor Datenbeginn sind essenziell, um Datenschutzrisiken zu minimieren.</li>
+</ul>
+</blockquote>
+<hr>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Wärmeplanung datenschutzkonform umsetzen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Kommunen mit technologieoffener Energieberatung und umfassendem Service von der Analyse bis zur Umsetzung.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">PLANEGY kennenlernen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#gesetzliche-grundlage-wpg-und-die-rolle-der-dsgvo">Gesetzliche Grundlage: WPG und die Rolle der DSGVO</a></li>
+<li><a href="#anonymisierung-pseudonymisierung-und-technische-schutzmassnahmen">Anonymisierung, Pseudonymisierung und technische Schutzmaßnahmen</a></li>
+<li><a href="#informationspflichten-ortsubliche-bekanntmachung-statt-einzelbrief">Informationspflichten: Ortsübliche Bekanntmachung statt Einzelbrief</a></li>
+<li><a href="#auftragsverarbeitung-vertrage-mit-planungsburos-richtig-gestalten">Auftragsverarbeitung: Verträge mit Planungsbüros richtig gestalten</a></li>
+<li><a href="#it-sicherheit-smart-meter-daten-und-zugriffskontrolle">IT-Sicherheit, Smart-Meter-Daten und Zugriffskontrolle</a></li>
+<li><a href="#datenaustausch-mit-netzbetreibern-und-versorgern-organisieren">Datenaustausch mit Netzbetreibern und Versorgern organisieren</a></li>
+<li><a href="#praxiseinblick-datenschutzgerechte-umsetzung-in-der-warmeplanung">Praxiseinblick: Datenschutzgerechte Umsetzung in der Wärmeplanung</a></li>
+<li><a href="#redaktionelle-perspektive-was-in-den-nachsten-90-tagen-wirklich-zahlt">Redaktionelle Perspektive: Was in den nächsten 90 Tagen wirklich zählt</a></li>
+<li><a href="#planegy-als-partner-fur-datenschutzkonforme-warmeplanung">PLANEGY als Partner für datenschutzkonforme Wärmeplanung</a></li>
+<li><a href="#primarquellen-fur-rechts-und-praxisnachweis">Primärquellen für Rechts- und Praxisnachweis</a></li>
+<li><a href="#quellen">Quellen</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+<h2 id="gesetzliche-grundlage-wpg-und-die-rolle-der-dsgvo" tabindex="-1">Gesetzliche Grundlage: WPG und die Rolle der DSGVO</h2>
+<p>Das Wärmeplanungsgesetz regelt in § 10 Abs. 1, dass die planungsverantwortliche Stelle die für Bestands- und Potenzialanalyse erforderlichen Daten erheben darf. Die Ermächtigung gilt aber nicht grenzenlos: Die Potenzialanalyse selbst darf keine personenbezogenen Daten enthalten, heißt es in der Rechtsgrundlage des WPG. Das ist der Kernpunkt, an dem viele Planungsprozesse ins Stolpern geraten, weil Verbrauchsdaten oder Gebäudedaten schnell einen Personenbezug herstellen, wenn sie zu kleinteilig vorliegen.</p>
+<p>Die DSGVO tritt ergänzend hinzu, nicht als Gegenspieler. Art. 6 Abs. 1 lit. e DSGVO liefert die Rechtsgrundlage für die Verarbeitung, soweit sie zur Wahrnehmung einer öffentlichen Aufgabe erforderlich ist, und das WPG konkretisiert diese Aufgabe für die Wärmeplanung. § 10 WPG und Art. 6 DSGVO wirken damit wie zwei Schlösser an derselben Tür: Das eine öffnet die fachliche Befugnis, das andere sichert die datenschutzrechtliche Legitimation ab.</p>
+<p>Für die Praxis heißt das: Löschung, Veröffentlichung und Zweckbindung sind keine Kür, sondern Pflicht. § 12 WPG verlangt die Pseudonymisierung oder Anonymisierung personenbezogener Daten und schreibt deren Löschung vor, sobald der Zweck erfüllt ist. Eine Kommune, die Bestandsdaten über die Planungsphase hinaus aufbewahrt, ohne dafür einen tragfähigen Zweck zu benennen, verstößt gegen genau diese Zweckbindung, unabhängig davon, wie gut die Daten sonst gesichert sind.</p>
+<h2 id="anonymisierung-pseudonymisierung-und-technische-schutzmassnahmen" tabindex="-1">Anonymisierung, Pseudonymisierung und technische Schutzmaßnahmen</h2>
+<p>Anonymisierung entfernt den Personenbezug endgültig, Pseudonymisierung ersetzt ihn durch ein Kennzeichen, das sich mit einem separaten Schlüssel wieder zuordnen lässt. Für die Potenzialanalyse reicht nur die vollständige Anonymisierung, weil das WPG hier keinen Personenbezug zulässt. Für Teile der Bestandsanalyse kann Pseudonymisierung ausreichen, wenn der Zugriff auf den Schlüssel eng begrenzt bleibt.</p>
+
+<p>Die FAGA-Praxis zeigt, dass eine Mindestaggregation, meist auf Ebene mehrerer Gebäude oder eines Straßenzugs, das Re-Identifizierungsrisiko deutlich senkt. Wird zu granular aggregiert, etwa auf ein einzelnes Gebäude mit nur einem Haushalt, bleibt der Personenbezug faktisch erhalten, auch wenn formal ein Aggregat vorliegt.</p>
+<p>Praktisch bedeutet das:</p>
+<ul>
+<li>Aggregationsschwellen vor Datenübermittlung mit dem FAGA-Tool prüfen, nicht erst danach.</li>
+<li>Zugriff auf Rohdaten und Schlüssel organisatorisch trennen, etwa durch getrennte Rollen bei PVS und Dienstleister.</li>
+<li>Jede Aggregations- und Anonymisierungsentscheidung dokumentieren, damit sie gegenüber der Aufsicht nachweisbar bleibt.</li>
+</ul>
+<p>Ergänzend lassen sich Verfahren wie Differential Privacy einsetzen, um statistische Auswertungen zu ermöglichen, ohne einzelne Datensätze offenzulegen. Solche Verfahren bleiben aber Ergänzung, nicht Ersatz für eine saubere Aggregation nach FAGA-Empfehlung.</p>
+<p><strong>Profi-Tipp:</strong> <em>Legen Sie vor Projektstart eine schriftliche Aggregationsschwelle fest und prüfen Sie jede Datenlieferung dagegen, statt Aggregation erst am Ende des Prozesses zu bewerten.</em></p>
+<h2 id="informationspflichten-ortsubliche-bekanntmachung-statt-einzelbrief" tabindex="-1">Informationspflichten: Ortsübliche Bekanntmachung statt Einzelbrief</h2>
+<p>§ 12 Abs. 3 WPG erlaubt es Kommunen, die Informationspflichten aus Art. 13 und 14 DSGVO durch eine <a href="https://www.gesetze-im-internet.de/" rel="nofollow noopener noreferrer" target="_blank">ortsübliche Bekanntmachung</a> zu erfüllen, statt jeden Betroffenen einzeln anzuschreiben. Das ist eine erhebliche Erleichterung, denn eine individuelle Ansprache wäre bei flächendeckender Wärmeplanung kaum praktikabel.</p>
+<p>Eine ortsübliche Bekanntmachung sollte folgende Punkte enthalten:</p>
+<ul>
+<li>Zweck der Datenverarbeitung und Rechtsgrundlage nach WPG und DSGVO.</li>
+<li>Kategorien der verarbeiteten Daten und deren Herkunft.</li>
+<li>Speicherdauer beziehungsweise Kriterien für die Löschung.</li>
+<li>Kontaktdaten der verantwortlichen Stelle und des Datenschutzbeauftragten.</li>
+<li>Hinweis auf Betroffenenrechte, insbesondere Auskunft, Berichtigung und Löschung.</li>
+</ul>
+<p>Wichtig ist die Dokumentation: Wann und wo wurde die Bekanntmachung veröffentlicht, welche Inhalte enthielt sie, und wie lange blieb sie einsehbar. Diese Nachweise braucht die Kommune, sollte eine Aufsichtsbehörde nach der Rechtmäßigkeit der Informationspflicht fragen. Eine mündliche Bekanntmachung im Gemeinderat reicht dafür nicht, es braucht ein dokumentierbares, ortsübliches Format wie das Amtsblatt oder die kommunale Website.</p>
+<h2 id="auftragsverarbeitung-vertrage-mit-planungsburos-richtig-gestalten" tabindex="-1">Auftragsverarbeitung: Verträge mit Planungsbüros richtig gestalten</h2>
+<p>Sobald eine Kommune ein externes Planungsbüro oder einen IT-Dienstleister mit der Verarbeitung personenbezogener Daten beauftragt, verlangt Art. 28 DSGVO einen Auftragsverarbeitungsvertrag, kurz AVV. Ohne diesen Vertrag bleibt die Kommune als verantwortliche Stelle allein haftbar für Verstöße des Dienstleisters, auch wenn dieser den Fehler verursacht hat.</p>
+<p>Ein tragfähiger AVV sollte folgende Punkte regeln:</p>
+<ol>
+<li>Gegenstand und Dauer der Verarbeitung, konkret bezogen auf die Wärmeplanung.</li>
+<li>Weisungsbefugnis der Kommune und Pflicht des Dienstleisters, nur nach Weisung zu handeln.</li>
+<li>Bedingungen für die Einbindung von Unterauftragsverarbeitern, inklusive Zustimmungspflicht.</li>
+<li>Technische und organisatorische Maßnahmen, die der Dienstleister nachweislich umsetzt.</li>
+<li>Löschfristen für die Daten nach Abschluss der Planung.</li>
+<li>Auditrechte der Kommune, um die Einhaltung der Vereinbarung zu prüfen.</li>
+</ol>
+<p>Der <a href="https://www.bfdi.bund.de/SharedDocs/Downloads/DE/Muster/Muster_zur_Auftragsverarbeitung.pdf?__blob=publicationFile&amp;v=2" rel="nofollow noopener noreferrer" target="_blank">BfDI stellt eine Vorlage</a> zur Verfügung, die Kommunen als Ausgangspunkt für eigene AVV mit Planungsbüros nutzen können. In der Praxis fehlen solchen Verträgen oft konkrete Ergänzungen wie Zugriffslogs, eine aktuelle Liste der Unterauftragsverarbeiter oder ein klarer Meldeprozess bei Datenschutzverletzungen, wie die FAGA-Empfehlungen des KWW betonen.</p>
+<p>Bevor eine Kommune ein Planungsbüro beauftragt, lohnt sich eine klare Rollenklärung: Wer ist planungsverantwortliche Stelle, wer Auftragsverarbeiter, und wer erhält Daten nur als Dritter mit eigener Rechtsgrundlage. Diese drei Rollen bringen unterschiedliche Pflichten mit sich und werden in der Praxis häufig vermischt.</p>
+<h2 id="it-sicherheit-smart-meter-daten-und-zugriffskontrolle" tabindex="-1">IT-Sicherheit, Smart-Meter-Daten und Zugriffskontrolle</h2>
+<p>§ 12 WPG verlangt die Verarbeitung nach dem Stand der Technik, Art. 32 DSGVO konkretisiert das mit Verschlüsselung, Protokollierung und Authentifizierung als Mindestmaßnahmen. Für Verbrauchsdaten aus intelligenten Messsystemen gelten zusätzlich die Vorgaben des Messstellenbetriebsgesetzes und die Schutzprofile des BSI für das Smart-Meter-Gateway. Der BfDI weist darauf hin, dass Privacy by Design hier nicht optional ist, sondern die technische Grundvoraussetzung für eine datenschutzgerechte Übermittlung von Messdaten bildet.</p>
+<p>Für die Zugriffssteuerung bedeutet das konkret: Rollen so schneiden, dass niemand Zugriff auf mehr Daten hat, als seine Aufgabe erfordert. Wer Aggregationsstufen prüft, braucht keinen Zugriff auf Einzeldatensätze, und wer Verträge verwaltet, braucht keinen Zugriff auf Rohdaten. Jede Zugriffshandlung sollte protokolliert werden, damit die Kommune im Bedarfsfall gegenüber der Aufsicht nachweisen kann, wer wann auf welche Daten zugegriffen hat. Diese Auditfähigkeit ist am Ende oft der Unterschied zwischen einem Datenschutzkonzept auf Papier und einem, das im Ernstfall trägt.</p>
+
+<h2 id="datenaustausch-mit-netzbetreibern-und-versorgern-organisieren" tabindex="-1">Datenaustausch mit Netzbetreibern und Versorgern organisieren</h2>
+<p>Neben der Kommune selbst liefern vor allem Netzbetreiber, Energieversorger und Schornsteinfegerinnungen die Rohdaten für die Bestandsanalyse. Jede dieser Stellen hat eigene Datenschutzpflichten, und eine unkoordinierte Datenübergabe per E-Mail-Anhang gilt nicht als sichere Schnittstelle.</p>
+<p>Für die Abstimmung empfiehlt sich:</p>
+<ul>
+<li>Verschlüsselte Übertragungswege statt unverschlüsselter Dateianhänge vereinbaren.</li>
+<li>Datenformat und Aggregationsstufe vorab mit dem Versorger klären, idealerweise unter Verweis auf das FAGA-Tool.</li>
+<li>Übergabeprotokolle führen, die Datum, Umfang und Empfänger jeder Lieferung festhalten.</li>
+</ul>
+<p>Als Orientierung dient der <a href="https://www.kww-halle.de/waermeplanung/daten" rel="nofollow noopener noreferrer" target="_blank">Datenkompass des Kompetenzzentrums Kommunale Wärmewende</a>, der typische Datenquellen und deren rechtliche Einordnung zusammenfasst. Kommunen, die frühzeitig mit dem FAGA-Tool arbeiten, verhandeln mit Versorgern auf Augenhöhe, weil beide Seiten dieselbe Aggregationslogik verwenden.</p>
+<h2 id="praxiseinblick-datenschutzgerechte-umsetzung-in-der-warmeplanung" tabindex="-1">Praxiseinblick: Datenschutzgerechte Umsetzung in der Wärmeplanung</h2>
+<p>Ein Ingenieurbüro kann kommunale Wärmeplanung von der Bestandsanalyse bis zur Umsetzung begleiten und dabei technische, wirtschaftliche und regulatorische Expertise zusammenbringen, ohne einzelne Technologien oder Anbieter zu bevorzugen. Ein Beispiel aus der Praxis ist der <a href="https://planegy.de/projekte" target="_blank" rel="noopener">kommunale Wärmeplan für Grafenwiesen</a>, bei dem Bestands- und Potenzialanalyse unter Berücksichtigung der WPG-Vorgaben zur Datenverarbeitung erstellt wurden.</p>
+<p>Zu den Unterlagen, die Kommunen im Rahmen einer solchen Begleitung typischerweise erhalten, können ein projektspezifisches Datenschutzkonzept, eine AVV-Vorlage für Dienstleister und Netzbetreiber sowie ein IT-Sicherheitscheck für die verwendeten Datenquellen gehören. Die <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">Leistungen zur Kommunalen Wärmeplanung</a> sind darauf ausgelegt, die rechtlichen Anforderungen aus WPG und DSGVO direkt in den Planungsprozess einzubetten, statt sie als nachträgliche Prüfung anzuhängen.</p>
+<h2 id="redaktionelle-perspektive-was-in-den-nachsten-90-tagen-wirklich-zahlt" tabindex="-1">Redaktionelle Perspektive: Was in den nächsten 90 Tagen wirklich zählt</h2>
+<p>Viele Kommunen behandeln Datenschutz als letzten Schritt vor der Veröffentlichung des Wärmeplans. Das ist die falsche Reihenfolge. Wer zuerst plant und danach fragt, welche Daten eigentlich zulässig waren, riskiert eine Bestandsanalyse, die neu aufgesetzt werden muss.</p>
+<p>Drei Prioritäten verdienen Vorrang: erstens eine Rechtsprüfung von § 10 und § 12 WPG vor dem ersten Datenabruf, zweitens die konsequente Anwendung der FAGA-Aggregation auf jede eingehende Datenlieferung, drittens ein unterschriebener AVV, bevor der erste Datensatz das Haus verlässt. Das größte Risiko liegt dabei nicht in böser Absicht, sondern in zu granularen Aggregationsstufen, die formal als Aggregat gelten, faktisch aber Einzelpersonen erkennbar lassen.</p>
+<p>Eine 90-Tage-Checkliste sollte deshalb schlank bleiben: Rechtsgrundlage klären, Aggregationsschwelle festlegen, AVV mit allen Dienstleistern abschließen, Zugriffsrollen definieren, Bekanntmachung vorbereiten. Wer diese fünf Punkte vor dem ersten Datenaustausch erledigt, spart sich später aufwendige Nachbesserungen.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="planegy-als-partner-fur-datenschutzkonforme-warmeplanung" tabindex="-1">PLANEGY als Partner für datenschutzkonforme Wärmeplanung</h2>
+<p>Wer die Wärmeplanung selbst umsetzt, trägt das volle Risiko für jede Aggregations- und Vertragsentscheidung allein. PLANEGY übernimmt diese Aufgaben als festen Bestandteil der kommunalen Wärmeplanung nach WPG und verbindet dabei technische Anlagenkonzeption mit rechtlicher und regulatorischer Begleitung, einschließlich der Förderakquise für passende Fördermittel.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Konkret können Anbieter Kommunen bei folgenden Schritten unterstützen:</p>
+<ul>
+<li>Erstellung eines projektspezifischen Datenschutzkonzepts für Bestands- und Potenzialanalyse.</li>
+<li>Begleitung bei der AVV-Gestaltung mit Netzbetreibern und Planungsbüros.</li>
+<li>IT-Sicherheitscheck der verwendeten Datenquellen und Schnittstellen.</li>
+</ul>
+<p>Die vollständige <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungsübersicht</a> zeigt, welche Schritte von der Analyse bis zur Umsetzung dazugehören. Kommunen, die ihre Wärmeplanung dauerhaft begleiten lassen möchten, finden im <a href="https://planegy.de/klimamanager-service" target="_blank" rel="noopener">Klimaschutzmanagement im Abo</a> ein passendes Format. Wer jetzt ein Erstgespräch vereinbaren möchte, findet über die Leistungsseite den passenden Einstieg in ein konkretes Projektangebot.</p>
+<h2 id="primarquellen-fur-rechts-und-praxisnachweis" tabindex="-1">Primärquellen für Rechts- und Praxisnachweis</h2>
+<p>Für die Rechtsgrundlage lohnt sich der direkte Blick in das Wärmeplanungsgesetz. Technische Mindestanforderungen an Messdaten erklärt der BfDI zur Digitalisierung der Energiewende, während das Kompetenzzentrum Kommunale Wärmewende das FAGA-Tool zur Aggregation bereitstellt. Für Vertragsfragen hilft das Muster zur Auftragsverarbeitung des BfDI, für die praktische Zusammenfassung die <a href="https://www.stmwi.bayern.de/fileadmin/user_upload/stmwi/Energie/Energiewende/Kommunale_Waermeplanung/2025-05_19_Handreichung_Datenschutz_im_Rahmen_der_kommunalen_W%C3%A4rmeplanung.pdf" rel="nofollow noopener noreferrer" target="_blank">bayerische Handreichung Datenschutz</a>.</p>
+<p>Dieser Artikel enthält allgemeine Informationen und ersetzt nicht die Beratung durch einen qualifizierten Anwalt. Wenden Sie sich an eine qualifizierte Rechtsfachperson zu Ihrer persönlichen Lage, bevor Sie auf Grundlage dieses Inhalts handeln.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<p>Die Bestandsanalyse bildet den heutigen Zustand ab: Gebäude, Wärmebedarf, vorhandene Netze. Die Potenzialanalyse blickt nach vorn und untersucht, welche Wärmequellen künftig nutzbar sind, etwa Abwärme, Geothermie oder Biomasse. Nur die Potenzialanalyse verlangt nach dem WPG einen vollständigen Verzicht auf personenbezogene Daten. Die Bestandsanalyse darf mit personenbezogenen Daten arbeiten, muss diese aber aggregieren oder anonymisieren, sobald eine Rückverfolgung auf Einzelpersonen möglich wäre.</p>
+<p>Für die tägliche Arbeit sind folgende Datentypen und Quellen relevant:</p>
+<ul>
+<li><a href="https://www.gesetze-im-internet.de/" rel="nofollow noopener noreferrer" target="_blank">Gesetze im Internet — WPG</a></li>
+<li><a href="https://www.stmwi.bayern.de/fileadmin/user_upload/stmwi/Energie/Energiewende/Kommunale_Waermeplanung/2025-05_19_Handreichung_Datenschutz_im_Rahmen_der_kommunalen_W%C3%A4rmeplanung.pdf" rel="nofollow noopener noreferrer" target="_blank">Handreichung Datenschutz im Rahmen der kommunalen Wärmeplanung — Bayerisches Staatsministerium</a></li>
+<li><a href="https://www.bfdi.bund.de/SharedDocs/Downloads/DE/Muster/Muster_zur_Auftragsverarbeitung.pdf?__blob=publicationFile&amp;v=2" rel="nofollow noopener noreferrer" target="_blank">BfDI — Muster zur Auftragsverarbeitung</a></li>
+</ul>
+<p>Als Maßstab für die Granularität gelten die Empfehlungen der Facharbeitsgruppe Aggregation, kurz FAGA, die Mindestaggregationsstufen definiert und damit verhindert, dass sich aus wenigen Datenpunkten auf einzelne Haushalte schließen lässt. Haushaltsumfragen oder direkte Befragungen von Privatpersonen sind dagegen nicht automatisch durch das WPG gedeckt; hierfür ist eine eigenständige Rechtsgrundlage erforderlich, beispielsweise eine informierte Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO.</p>
+<h2 id="faq" tabindex="-1">FAQ</h2>
+<h3 id="durfen-kommunen-verbrauchsdaten-einzelner-haushalte-verarbeiten" tabindex="-1">Dürfen Kommunen Verbrauchsdaten einzelner Haushalte verarbeiten?</h3>
+<p>Nur eingeschränkt und mit Aggregation oder Anonymisierung, wie § 10 WPG festlegt. Für die Potenzialanalyse ist ein Personenbezug ausgeschlossen, für Teile der Bestandsanalyse gelten die Mindestaggregationsstufen der FAGA-Empfehlungen des Kompetenzzentrums Kommunale Wärmewende.</p>
+<h3 id="was-muss-eine-ortsubliche-bekanntmachung-enthalten" tabindex="-1">Was muss eine ortsübliche Bekanntmachung enthalten?</h3>
+<p>Sie muss Zweck, Rechtsgrundlage, Datenkategorien, Speicherdauer und Betroffenenrechte nennen, wie es § 12 Abs. 3 WPG in Verbindung mit Art. 13 und 14 DSGVO vorsieht. Eine mündliche Ankündigung reicht nicht, notwendig ist ein dokumentierbares Format wie das Amtsblatt.</p>
+<h3 id="braucht-jede-kommune-einen-avv-mit-ihrem-planungsburo" tabindex="-1">Braucht jede Kommune einen AVV mit ihrem Planungsbüro?</h3>
+<p>Ja, sobald ein externer Dienstleister personenbezogene Daten im Auftrag der Kommune verarbeitet, verlangt Art. 28 DSGVO einen Auftragsverarbeitungsvertrag. Der BfDI stellt dafür eine Musterlage bereit, die Kommunen als Grundlage nutzen können.</p>
+<h3 id="wie-unterscheiden-sich-anonymisierung-und-pseudonymisierung-in-der-warmeplanung" tabindex="-1">Wie unterscheiden sich Anonymisierung und Pseudonymisierung in der Wärmeplanung?</h3>
+<p>Anonymisierung entfernt den Personenbezug endgültig und ist für die Potenzialanalyse zwingend, Pseudonymisierung ersetzt ihn durch ein wieder zuordenbares Kennzeichen und kann für Teile der Bestandsanalyse ausreichen. Welche Methode passt, hängt von der Aggregationsstufe ab, die die FAGA-Empfehlungen des KWW als Maßstab vorgeben.</p>
+<h3 id="kann-planegy-kommunen-bei-der-datenschutzkonformen-umsetzung-unterstutzen" tabindex="-1">Kann PLANEGY Kommunen bei der datenschutzkonformen Umsetzung unterstützen?</h3>
+<p>PLANEGY begleitet kommunale Wärmeplanung nach WPG von der Bestandsanalyse bis zur Umsetzung, einschließlich Datenschutzkonzept und AVV-Begleitung, wie die Leistungen zur Kommunalen Wärmeplanung zeigen. Ein konkretes Beispiel ist der kommunale Wärmeplan Grafenwiesen.</p>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-kommunale-warmeplanung-leitfaden-fur-kommunen-2026" target="_blank" rel="noopener">Kommunale Wärmeplanung: Leitfaden für Kommunen 2026</a></li>
+<li><a href="https://planegy.de/blog-kommunale-waermeplanung.html" target="_blank" rel="noopener">Kommunale Wärmeplanung 2025: Was Gemeinden jetzt wissen müssen</a></li>
+<li><a href="https://planegy.de/blog-stakeholder-beteiligung-warmeplanung" target="_blank" rel="noopener">Stakeholder-Beteiligung Wärmeplanung: So gelingt sie Kommunen</a></li>
+<li><a href="https://planegy.de/blog-kommunale-warmeplanung-bayern" target="_blank" rel="noopener">Kommunale Wärmeplanung Bayern: Leitfaden für Kommunen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
