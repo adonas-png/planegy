@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wärmebedarfsanalyse Kommune: Schritt für Schritt zum rechtssicheren Plan – PLANEGY</title>
+  <meta name="description" content="Praktischer Leitfaden: So erstellen Sie als Kommune eine rechtssichere Wärmebedarfsanalyse mit Wärmebedarfskarte, Eignungsprüfung für Wärmenetze und..." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Wärmebedarfsanalyse Kommune: Schritt für Schritt zum rechtssicheren Plan" />
+  <meta property="og:description" content="Praktischer Leitfaden: So erstellen Sie als Kommune eine rechtssichere Wärmebedarfsanalyse mit Wärmebedarfskarte, Eignungsprüfung für Wärmenetze und..." />
+  <link rel="canonical" href="https://planegy.de/blog-warmebedarfsanalyse-kommune" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Wärmebedarfsanalyse Kommune: Schritt für Schritt zum rechtssicheren Plan",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-07",
+    "description": "Praktischer Leitfaden: So erstellen Sie als Kommune eine rechtssichere Wärmebedarfsanalyse mit Wärmebedarfskarte, Eignungsprüfung für Wärmenetze und..."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Wärmebedarfsanalyse Kommune: Schritt für Schritt zum rechtssicheren Plan</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Wärmebedarfsanalyse Kommune: Schritt für Schritt zum rechtssicheren Plan</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="warmebedarfsanalyse-kommune-schritt-fur-schritt-zum-rechtssicheren-plan" tabindex="-1">Wärmebedarfsanalyse Kommune: Schritt für Schritt zum rechtssicheren Plan</h1>
+
+<p>Eine Wärmebedarfsanalyse liefert Ihrer Kommune am Ende eine Wärmebedarfskarte, konkrete Kennwerte zur Wärmebedarfsdichte, die Verteilung der Energieträger sowie ein Ergebnis aus der Eignungsprüfung, das zeigt, welche Gebiete sich für ein Wärmenetz eignen. Rechtliche Grundlage sind die §§ 14 bis 20 <a href="https://www.gesetze-im-internet.de/wpg/BJNR18A0B0023.html" rel="nofollow noopener noreferrer" target="_blank">Wärmeplanungsgesetz</a>, die den Ablauf von der Eignungsprüfung bis zur Umsetzungsstrategie vorgeben. Der erste praktische Schritt ist fast immer die Eignungsprüfung, gefolgt von der Datenanforderung bei den Netzbetreibern und einem Kickoff mit den wichtigsten Akteuren vor Ort.</p>
+<hr>
+<blockquote>
+<p><strong>Kurz gesagt:</strong></p>
+<ul>
+<li>Die Eignungsprüfung filtert Gebiete nach Wärmebedarfsdichte und unterstützt die Entscheidung, ob Netzausbau oder dezentrale Versorgung sinnvoller ist.</li>
+<li>Für die Bestandsaufnahme sind datenschutzkonforme, gebäudescharfe und gebäudesbündige Datenquellen sowie automatisierte Workflows bei größeren Gemeinden notwendig.</li>
+<li>Das Zielszenario beinhaltet prognostizierten Wärmeverbrauch, Treibhausgasemissionen und den Anteil erneuerbarer Energien bis 2045, um spezifische Gebietszuteilungen zu treffen.</li>
+<li>Der Bedarf wird durch den Abgleich mit realen Verbrauchsdaten gemäß DIN V 18599 Beiblatt 1 angepasst, um Fehldimensionierung zu vermeiden.</li>
+<li>Frühzeitige Stakeholder-Beteiligung, automatisierte Datenschutzkonzepte und eine klare Fristplanung sind entscheidend, um Kosten zu senken und Akzeptanz zu sichern.</li>
+</ul>
+</blockquote>
+<hr>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Wärmeplanung rechtssicher vorbereiten</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Kommunen mit technologieoffener Energieberatung bei nachhaltigen Wärmeplanungslösungen und der Umsetzung gesetzlicher Anforderungen.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">PLANEGY kennenlernen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#bestandsanalyse-pflichtinhalte-datenquellen-und-qualitatsstufen-nach-15-wpg">Bestandsanalyse: Pflichtinhalte, Datenquellen und Qualitätsstufen nach § 15 WPG</a></li>
+<li><a href="#eignungsprufung-und-warmebedarfsdichte-als-grobsieb-nach-14-wpg">Eignungsprüfung und Wärmebedarfsdichte als Grobsieb nach § 14 WPG</a></li>
+<li><a href="#zielszenario-gebietseinteilung-und-umsetzungsstrategie-nach-17-bis-20-wpg">Zielszenario, Gebietseinteilung und Umsetzungsstrategie nach §§ 17 bis 20 WPG</a></li>
+<li><a href="#methodik-bedarf-verbrauch-und-der-abgleich-nach-din-v-18599-beiblatt-1">Methodik: Bedarf, Verbrauch und der Abgleich nach DIN V 18599 Beiblatt 1</a></li>
+<li><a href="#datenschutz-und-datenaggregation-bei-kommunalen-verbrauchsdaten">Datenschutz und Datenaggregation bei kommunalen Verbrauchsdaten</a></li>
+<li><a href="#kostenrahmen-fristen-und-vereinfachte-verfahren-fur-die-warmeplanung">Kostenrahmen, Fristen und vereinfachte Verfahren für die Wärmeplanung</a></li>
+<li><a href="#stakeholder-einbindung-wer-mitentscheiden-muss-und-wie-akzeptanz-entsteht">Stakeholder-Einbindung: Wer mitentscheiden muss und wie Akzeptanz entsteht</a></li>
+<li><a href="#praxis-checkliste-so-priorisieren-kommunen-die-nachsten-schritte">Praxis-Checkliste: So priorisieren Kommunen die nächsten Schritte</a></li>
+<li><a href="#strategische-prioritaten-fur-kommunale-entscheider">Strategische Prioritäten für kommunale Entscheider</a></li>
+<li><a href="#wie-wir-kommunen-bei-der-warmebedarfsanalyse-unterstutzen">Wie wir Kommunen bei der Wärmebedarfsanalyse unterstützen</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="bestandsanalyse-pflichtinhalte-datenquellen-und-qualitatsstufen-nach-15-wpg" tabindex="-1">Bestandsanalyse: Pflichtinhalte, Datenquellen und Qualitätsstufen nach § 15 WPG</h2>
+<p>Die Bestandsanalyse bildet das Fundament jeder Wärmeplanung. Nach <a href="https://www.anwalt.de/gesetze/wpg/anlage_1" rel="nofollow noopener noreferrer" target="_blank">§ 15 WPG und Anlage 1</a> müssen Kommunen den aktuellen Wärmebedarf und Wärmeverbrauch räumlich aufgelöst erfassen, zusammen mit den eingesetzten Energieträgern, dem Bestand an Wärmeerzeugern und der vorhandenen Infrastruktur. Als Datengrundlage dienen die Verbrauchswerte der letzten drei Jahre, die bei Netzbetreibern angefordert werden dürfen.</p>
+<p>Für die praktische Umsetzung zählt die Auflösungstiefe. Bei Mehrfamilienhäusern reicht häufig eine Gebäudescharfe Erfassung, weil die Fallzahl pro Gebäude für eine datenschutzkonforme Aggregation ausreicht. Bei Einfamilienhäusern dagegen muss meist auf Straßenzug- oder Baublockebene aggregiert werden, weil einzelne Werte sonst Rückschlüsse auf einzelne Haushalte zulassen würden.</p>
+<p>Folgende Quellen liefern die Rohdaten für diese Bestandsaufnahme:</p>
+<ul>
+<li>Netzbetreiberdaten zu Gas- und Stromverbrauch der letzten drei Jahre</li>
+<li>Kehrbuchdaten der Schornsteinfeger zu installierten Feuerungsanlagen und Energieträgern</li>
+<li>Kommunale und landesweite Wärmeatlanten als ergänzende Orientierung</li>
+<li>GIS- und Katasterdaten zur Gebäudegeometrie und Flächennutzung</li>
+</ul>
+<p>Kleine Gemeinden kommen oft mit einer gröberen Auflösung auf Baublockebene aus, während größere Städte detailliertere, gebäudescharfe Modelle benötigen, um Netzausbauentscheidungen fundiert treffen zu können. Datenschutzkonforme Aggregation bleibt dabei meist die größte Hürde: Statt Daten manuell zusammenzuführen, empfiehlt sich ein automatisierter Workflow über Netzbetreiber-Schnittstellen und Aggregationstools, der Nachvollziehbarkeit und Datenschutz gleichzeitig sicherstellt.</p>
+<h2 id="eignungsprufung-und-warmebedarfsdichte-als-grobsieb-nach-14-wpg" tabindex="-1">Eignungsprüfung und Wärmebedarfsdichte als Grobsieb nach § 14 WPG</h2>
+<p>Die Eignungsprüfung nach § 14 WPG gehört an den Anfang des Prozesses, nicht ans Ende. Sie filtert grob vor, welche Gebiete überhaupt als Kandidaten für ein Wärmenetz taugen, bevor aufwendige Detailanalysen überhaupt beginnen.</p>
+<ol>
+<li>Zuerst wird die Wärmebedarfsdichte je Baublock in MWh pro Hektar und Jahr berechnet.</li>
+<li>Gebiete mit einer Dichte von deutlich unter dem oft genannten Richtwert von etwa 70 MWh je Hektar und Jahr gelten meist als wenig netztauglich, wie <a href="https://www.kea-bw.de/fileadmin/user_upload/Klimaschutz_konkret_online/2025/250527_Waermeatlas_klimaschutzkonkret.pdf" rel="nofollow noopener noreferrer" target="_blank">Praxiserfahrungen aus Baden-Württemberg</a> zeigen.</li>
+<li>Für diese Gebiete prüft die Kommune direkt dezentrale Lösungen, statt Zeit in eine Netz-Machbarkeitsstudie zu investieren.</li>
+<li>Nur Gebiete oberhalb der Schwelle wandern in die vertiefte Potenzialanalyse für Wärmenetze.</li>
+</ol>
+<p>Baublockscharfe Karten reichen für diese erste Weichenstellung meist aus. Sie liefern genug Aussagekraft, um zwischen Netzausbau und dezentraler Versorgung zu unterscheiden, ohne dass eine gebäudescharfe Modellierung nötig wäre. Eine saubere Eignungsprüfung spart deshalb oft mehr Budget als jede spätere Optimierung der Wärmeversorgungsvarianten, weil sie unnötige Machbarkeitsstudien für zu dünn besiedelte Gebiete von vornherein ausschließt. Für kleinere Kommunen kann das Ergebnis der Eignungsprüfung sogar den Weg zu einer verkürzten Wärmeplanung eröffnen, wenn sich zeigt, dass ein Wärmenetz im gesamten Gemeindegebiet unwirtschaftlich wäre.</p>
+<h2 id="zielszenario-gebietseinteilung-und-umsetzungsstrategie-nach-17-bis-20-wpg" tabindex="-1">Zielszenario, Gebietseinteilung und Umsetzungsstrategie nach §§ 17 bis 20 WPG</h2>
+<p>Aus Bestands- und Potenzialanalyse entsteht das Zielszenario nach § 17 WPG. Es übersetzt Rohdaten in eine verbindliche Richtung für die Kommune und muss dafür bestimmte Indikatoren ausweisen.</p>
+<ul>
+<li>Prognostizierter Jahreswärmeverbrauch im Zieljahr, meist 2040 oder 2045</li>
+<li>Erwartete Treibhausgasemissionen der Wärmeversorgung im Zieljahr</li>
+<li>Anteil leitungsgebundener Wärmeversorgung gegenüber dezentralen Lösungen</li>
+<li>Anteil erneuerbarer Energien am gesamten Wärmemix</li>
+</ul>
+<p>Auf Basis dieses Szenarios erfolgt die Gebietseinteilung nach §§ 18 und 19 WPG: Jedes Teilgebiet wird als voraussichtliches Wärmenetzgebiet, Gebiet für dezentrale Wärmeversorgung oder als Prüfgebiet ohne eindeutige Zuordnung ausgewiesen. Die Kriterien folgen direkt aus der Eignungsprüfung und der Potenzialanalyse: Bebauungsdichte, verfügbare lokale Quellen und bestehende Infrastruktur.</p>
+<p>Die Umsetzungsstrategie nach § 20 WPG bricht das Zielszenario dann in konkrete Bausteine herunter, etwa den zeitlichen Ablauf für Netzausbau, begleitende Sanierungsprogramme für den Gebäudebestand und eine Anschlussstrategie, die Eigentümer frühzeitig informiert. Unsere <a href="https://planegy.de/blog-warmebedarfsprognose-methode" target="_blank" rel="noopener">Erläuterungen zur passenden Prognosemethode</a> gehen auf einzelne Modellierungsansätze für dieses Szenario näher ein.</p>
+<h2 id="methodik-bedarf-verbrauch-und-der-abgleich-nach-din-v-18599-beiblatt-1" tabindex="-1">Methodik: Bedarf, Verbrauch und der Abgleich nach DIN V 18599 Beiblatt 1</h2>
+<p>Berechneter Wärmebedarf und gemessener Wärmeverbrauch fallen in der Praxis selten zusammen. Abweichungen entstehen durch Witterungseinflüsse, individuelles Nutzerverhalten oder veraltete Annahmen zum Gebäudezustand. Wer eine Anlage allein auf Basis theoretischer Bedarfswerte dimensioniert, läuft Gefahr, deutlich über oder unter dem tatsächlichen Bedarf zu planen.</p>
+<p><a href="https://www.gmodg.bund.de/GEGPortal/DE/Praxishilfen/Abgleich/abgleich-node.html" rel="nofollow noopener noreferrer" target="_blank">DIN V 18599 Beiblatt 1</a> beschreibt dafür ein Verfahren, mit dem berechnete Bedarfswerte an witterungsbereinigte, reale Verbrauchsdaten angepasst werden. Der Abgleich läuft in mehreren Schritten: Zunächst werden die vorhandenen Verbrauchsdaten auf Plausibilität geprüft, dann wird die Witterungsbereinigung vorgenommen, bevor die berechneten Bedarfswerte schrittweise kalibriert werden.</p>
+
+<p>Für Kommunen heißt das konkret: Verbrauchsdaten prüfen und bereinigen, bevor überhaupt eine Anlage geplant wird. Wer diesen Schritt überspringt, riskiert eine Fehldimensionierung, die sich erst nach der Inbetriebnahme zeigt und dann teuer zu korrigieren ist.</p>
+<p><strong>Profi-Tipp:</strong> <em>Eine Re-Kalibrierung des Bedarfsmodells lohnt sich immer dann, wenn sich der Gebäudebestand seit der letzten Datenerhebung durch Sanierungen oder Neubau sichtbar verändert hat.</em></p>
+<h2 id="datenschutz-und-datenaggregation-bei-kommunalen-verbrauchsdaten" tabindex="-1">Datenschutz und Datenaggregation bei kommunalen Verbrauchsdaten</h2>
+<p>Verbrauchsdaten einzelner Haushalte sind personenbezogene Daten im Sinne der DSGVO, sobald sie sich einer Adresse zuordnen lassen. Anlage 1 WPG regelt deshalb, in welcher Granularität Daten aggregiert werden müssen, bevor sie in die Planung einfließen dürfen.</p>
+<ul>
+<li>Werte werden grundsätzlich erst ab einer Mindestanzahl von Gebäuden je Aggregationseinheit weitergegeben, nie auf Einzeladressebene.</li>
+<li>Automatisierte Aggregationstools, etwa die von der FAGA empfohlenen Excel-Hilfsmittel, reduzieren den manuellen Aufwand deutlich gegenüber einer händischen Verarbeitung.</li>
+<li>Jede Anforderung bei Netzbetreibern sollte schriftlich dokumentiert werden, inklusive der verwendeten Aggregationsstufe und des Zeitraums.</li>
+<li>Die Nachweisführung über die angewandte Aggregationsmethode gehört in die Projektdokumentation, damit eine spätere Prüfung nachvollziehbar bleibt.</li>
+</ul>
+<p>Wer diesen Prozess von Beginn an sauber dokumentiert, vermeidet spätere Rückfragen und hält die Grundsätze der Datenminimierung und Zweckbindung durchgehend ein.</p>
+<h2 id="kostenrahmen-fristen-und-vereinfachte-verfahren-fur-die-warmeplanung" tabindex="-1">Kostenrahmen, Fristen und vereinfachte Verfahren für die Wärmeplanung</h2>
+<p>Die Fristen aus dem <a href="https://www.bmwsb.bund.de/SharedDocs/faqs/DE/kwp/kwp.html" rel="nofollow noopener noreferrer" target="_blank">WPG sind nach Gemeindegröße gestaffelt</a>: Gemeinden ab 100.000 Einwohnern müssen ihren Wärmeplan bis zum 30. Juni 2026 vorlegen, kleinere Gemeinden haben bis zum 30. Juni 2028 Zeit. Länder können für Gemeinden unter 10.000 Einwohnern zusätzlich vereinfachte Verfahren vorsehen.</p>
+<ol>
+<li>Prüfen Sie zuerst, welche Fristklasse für Ihre Gemeinde gilt und ob Ihr Bundesland ein vereinfachtes Verfahren anbietet.</li>
+<li>Kalkulieren Sie den Aufwand realistisch: Das Difu nennt einen Mindestaufwand als Kostenindikator, der je nach Gemeindegröße und Datenlage deutlich variieren kann.</li>
+<li>Prüfen Sie Konvoi-Modelle mit Nachbargemeinden, bei denen sich Ausschreibung und Datenerhebung über mehrere Kommunen teilen lassen.</li>
+<li>Nutzen Sie ein strukturiertes Leistungsverzeichnis für die Ausschreibung, orientiert an den Praxisvorlagen der KEA-BW, um Angebote vergleichbar zu machen.</li>
+</ol>
+<p>Wer früh mit der Fristprüfung beginnt, hat deutlich mehr Spielraum bei der Wahl des Planungsbüros und bei der Verhandlung über den Leistungsumfang.</p>
+<h2 id="stakeholder-einbindung-wer-mitentscheiden-muss-und-wie-akzeptanz-entsteht" tabindex="-1">Stakeholder-Einbindung: Wer mitentscheiden muss und wie Akzeptanz entsteht</h2>
+<p>Eine Wärmeplanung, die am Stadtwerk oder am Gemeinderat vorbeigeplant wird, scheitert fast immer an der Umsetzung, selbst wenn die Datenlage einwandfrei ist. Der Erfolg hängt oft weniger von der Datentiefe als von der frühen, strategischen Einbindung der richtigen Akteure.</p>
+<ul>
+<li>Stadtwerke und Netzbetreiber liefern nicht nur Daten, sondern entscheiden auch über die technische Machbarkeit von Netzausbauten.</li>
+<li>Der Gemeinderat benötigt eine klare Argumentation zu Kosten, Klimaschutzwirkung und Förderchancen, bevor er Beschlüsse fasst.</li>
+<li>Lokale Unternehmen und größere Wärmeabnehmer sollten frühzeitig in Fachworkshops eingebunden werden, nicht erst bei der Umsetzung.</li>
+<li>Die Öffentlichkeit erwartet verständliche Informationsveranstaltungen und die Möglichkeit schriftlicher Stellungnahmen.</li>
+</ul>
+<p>Unser <a href="https://planegy.de/blog-stakeholder-beteiligung-warmeplanung" target="_blank" rel="noopener">Leitfaden zur Stakeholder-Beteiligung</a> in der Wärmeplanung geht auf passende Formate für einzelne Gemeindegrößen genauer ein.</p>
+<h2 id="praxis-checkliste-so-priorisieren-kommunen-die-nachsten-schritte" tabindex="-1">Praxis-Checkliste: So priorisieren Kommunen die nächsten Schritte</h2>
+<p>Aus unserer Beratungspraxis hat sich eine Reihenfolge bewährt, die unnötige Kosten vermeidet und Doppelarbeit reduziert.</p>
+<ol>
+<li>Datenanforderung bei Netzbetreibern und Schornsteinfegern frühzeitig stellen, idealerweise parallel zur Ausschreibung.</li>
+<li>Eignungsprüfung als erstes Analyseergebnis durchführen, um Netzgebiete grob einzugrenzen.</li>
+<li>Kartierung der Wärmebedarfsdichte auf Baublockebene erstellen und mit dem Planungsgremium abstimmen.</li>
+<li>Potenziale priorisieren, beginnend mit Abwärmequellen in Netznähe vor flächigen erneuerbaren Potenzialen.</li>
+<li>Zielszenario mit konkreten Indikatoren festlegen und politisch beschließen lassen.</li>
+<li>Umsetzungsplanung mit Netzausbau, Sanierungsprogrammen und Förderakquise verknüpfen.</li>
+</ol>
+<p>Im <a href="https://planegy.de/projekte" target="_blank" rel="noopener">Projekt Grafenwiesen</a> zeigt sich, wie sich diese Reihenfolge in einem kommunalen Wärmeplan konkret niederschlägt, von der ersten Datenanforderung bis zum abgestimmten Zielszenario. Gerade bei der Genehmigungsbegleitung, der Förderakquise und bei komplexeren GIS-Modellen lohnt sich externe Unterstützung oft, weil diese Schritte spezifisches Fachwissen zu Antragsverfahren und Fördermittelprogrammen erfordern, das kommunale Planungsämter selten im Tagesgeschäft aufbauen.</p>
+<h2 id="strategische-prioritaten-fur-kommunale-entscheider" tabindex="-1">Strategische Prioritäten für kommunale Entscheider</h2>
+
+<p>Nach Jahren in der technologieoffenen Energieberatung für Kommunen und Industrie sehe ich immer wieder denselben Fehler: Gemeinden stecken zu viel Zeit in die Detailtiefe der Bestandsanalyse, bevor überhaupt die Eignungsprüfung geklärt ist. Das kostet Budget, das später für die Umsetzung fehlt.</p>
+<p>Drei Prioritäten machen den Unterschied. Erstens die Eignungsprüfung ganz an den Anfang stellen, nicht als Kontrollschritt am Ende. Zweitens Datenschutz und Aggregation von Beginn an automatisiert denken, nicht als nachgelagerte Compliance-Übung. Drittens die politische Einbindung parallel zur technischen Analyse starten, damit der Gemeinderat am Ende keine Überraschung erlebt. Wer diese drei Punkte konsequent in dieser Reihenfolge angeht, spart gegenüber einem rein datengetriebenen Vorgehen regelmäßig Zeit und Budget.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="wie-wir-kommunen-bei-der-warmebedarfsanalyse-unterstutzen" tabindex="-1">Wie wir Kommunen bei der Wärmebedarfsanalyse unterstützen</h2>
+<p>Wir begleiten Kommunen durch den gesamten Prozess der Wärmeplanung nach WPG, von der ersten Eignungsprüfung über die Bestands- und Potenzialanalyse bis zur Umsetzungsstrategie. Dabei achten wir auf eine neutrale Bewertung aller technischen Optionen und verbinden die technische Planung mit der Genehmigungsbegleitung und der Fördermittelakquise.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Gerade bei komplexen GIS-Modellen, bei der datenschutzkonformen Aggregation großer Datenmengen oder bei der Abstimmung mit mehreren Netzbetreibern zahlt sich eine externe Begleitung meist aus, weil sie Planungsämter von Aufgaben entlastet, die selten zum Tagesgeschäft gehören. Einen Überblick über unsere <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen zur kommunalen Wärmeplanung</a> finden Sie auf unserer Leistungsseite, und wer eine laufende Begleitung über die reine Planung hinaus sucht, findet mit unserem <a href="https://planegy.de/klimamanager-service" target="_blank" rel="noopener">Klimaschutzmanagement im Abo</a> eine Option für die kontinuierliche Umsetzung. Sprechen Sie uns auf unserer <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">Seite für Kommunen</a> an, um den passenden Einstiegspunkt für Ihr Gemeindegebiet zu besprechen.</p>
+<h2 id="faq" tabindex="-1">FAQ</h2>
+<h3 id="was-genau-umfasst-eine-warmebedarfsanalyse-nach-wpg" tabindex="-1">Was genau umfasst eine Wärmebedarfsanalyse nach WPG?</h3>
+<p>Sie umfasst die Bestandsanalyse nach § 15 WPG mit Wärmebedarf, Energieträgern und Wärmeerzeugern sowie die Potenzialanalyse nach § 16 WPG zu erneuerbaren Quellen und Abwärme. Beide Bausteine fließen zusammen mit der Eignungsprüfung in das Zielszenario und die Gebietseinteilung der kommunalen Wärmeplanung ein.</p>
+<h3 id="welche-fristen-gelten-fur-die-kommunale-warmeplanung" tabindex="-1">Welche Fristen gelten für die kommunale Wärmeplanung?</h3>
+<p>Gemeinden ab 100.000 Einwohnern müssen ihren Wärmeplan bis zum 30. Juni 2026 vorlegen, kleinere Gemeinden haben bis zum 30. Juni 2028 Zeit. Einzelne Länder können für Gemeinden unter 10.000 Einwohnern zusätzlich vereinfachte Verfahren vorsehen.</p>
+<h3 id="wie-unterscheiden-sich-warmebedarf-und-warmeverbrauch" tabindex="-1">Wie unterscheiden sich Wärmebedarf und Wärmeverbrauch?</h3>
+<p>Der Wärmebedarf ist ein berechneter, theoretischer Wert, während der Wärmeverbrauch die tatsächlich gemessenen Energiemengen abbildet. Abweichungen entstehen durch Witterung und Nutzerverhalten, weshalb ein Abgleich nach DIN V 18599 Beiblatt 1 vor der Anlagenplanung sinnvoll ist.</p>
+<h3 id="welche-daten-durfen-kommunen-bei-netzbetreibern-anfordern" tabindex="-1">Welche Daten dürfen Kommunen bei Netzbetreibern anfordern?</h3>
+<p>Kommunen dürfen die Verbrauchsdaten der letzten drei Jahre anfordern, allerdings nur in datenschutzkonform aggregierter Form, nie auf Einzeladressebene. Die genaue Aggregationsstufe richtet sich nach der Bebauungsdichte des jeweiligen Gebiets.</p>
+<h3 id="was-unterstutzt-planegy-konkret-bei-der-warmebedarfsanalyse" tabindex="-1">Was unterstützt PLANEGY konkret bei der Wärmebedarfsanalyse?</h3>
+<p>Wir begleiten Kommunen von der Eignungsprüfung über die Bestands- und Potenzialanalyse bis zur Umsetzungsstrategie, einschließlich Genehmigungsbegleitung und Förderakquise. Details zum Leistungsumfang finden sich auf unserer Leistungsseite für Kommunen.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<p>Nach der Eignungsprüfung folgt die Potenzialanalyse gemäß § 16 WPG. Sie bewertet, welche lokalen Quellen künftig Wärme liefern können, und das systematisch und räumlich differenziert, nicht als grobe Schätzung.</p>
+<ul>
+<li><a href="https://www.anwalt.de/gesetze/wpg/anlage_1" rel="nofollow noopener noreferrer" target="_blank">Anlage 1 WPG – Daten und Informationen für die Bestandsanalyse</a></li>
+<li><a href="https://www.gesetze-im-internet.de/wpg/BJNR18A0B0023.html" rel="nofollow noopener noreferrer" target="_blank">Wärmeplanungsgesetz (WPG) §§ 14–20</a></li>
+<li><a href="https://www.gmodg.bund.de/GEGPortal/DE/Praxishilfen/Abgleich/abgleich-node.html" rel="nofollow noopener noreferrer" target="_blank">DIN V 18599 Beiblatt 1 – Bedarfs‑/Verbrauchsabgleich</a></li>
+<li><a href="https://www.bmwsb.bund.de/SharedDocs/faqs/DE/kwp/kwp.html" rel="nofollow noopener noreferrer" target="_blank">BMWSB – Fragen und Antworten zur Kommunalen Wärmeplanung</a></li>
+</ul>
+<p>Die Priorisierung entscheidet, welche Potenziale in eine vertiefende Machbarkeitsuntersuchung münden. Ein großes Abwärmepotenzial aus einem Industriebetrieb in Netznähe wiegt praktisch meist schwerer als ein verteiltes, kleinteiliges Solarpotenzial, selbst wenn die Flächensumme ähnlich aussieht. Genau an dieser Stelle zeigt sich, ob die vorherige Eignungsprüfung die richtigen Gebiete überhaupt in den Fokus gerückt hat.</p>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-kommunale-warmeplanung-leitfaden-fur-kommunen-2026" target="_blank" rel="noopener">Kommunale Wärmeplanung: Leitfaden für Kommunen 2026</a></li>
+<li><a href="https://planegy.de/blog-kommunale-waermeplanung.html" target="_blank" rel="noopener">Kommunale Wärmeplanung 2025: Was Gemeinden jetzt wissen müssen</a></li>
+<li><a href="https://planegy.de/blog-warmebedarfsprognose-methode" target="_blank" rel="noopener">Wärmebedarfsprognose: Die richtige Methode für Kommunen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
