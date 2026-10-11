@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wärmeplanung Datenquellen: Checkliste für Kommunen in Deutschland – PLANEGY</title>
+  <meta name="description" content="Die passenden Datenquellen für die Wärmeplanung finden Kommunen im KWW-Datenkompass: Checkliste zu Netzbetreibern, ALKIS, Zensus und weiteren Pflichtdaten." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Wärmeplanung Datenquellen: Checkliste für Kommunen in Deutschland" />
+  <meta property="og:description" content="Die passenden Datenquellen für die Wärmeplanung finden Kommunen im KWW-Datenkompass: Checkliste zu Netzbetreibern, ALKIS, Zensus und weiteren Pflichtdaten." />
+  <link rel="canonical" href="https://planegy.de/blog-warmeplanung-datenquellen" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Wärmeplanung Datenquellen: Checkliste für Kommunen in Deutschland",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-11",
+    "description": "Die passenden Datenquellen für die Wärmeplanung finden Kommunen im KWW-Datenkompass: Checkliste zu Netzbetreibern, ALKIS, Zensus und weiteren Pflichtdaten."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Wärmeplanung Datenquellen: Checkliste für Kommunen in Deutschland</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Wärmeplanung Datenquellen: Checkliste für Kommunen in Deutschland</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>7 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="warmeplanung-datenquellen-checkliste-fur-kommunen-in-deutschland" tabindex="-1">Wärmeplanung Datenquellen: Checkliste für Kommunen in Deutschland</h1>
+
+<p>Starten Sie mit dem <a href="https://www.kww-halle.de/news/artikel/jetzt-vollstaendig-kww-datenkompass" rel="nofollow noopener noreferrer" target="_blank">KWW-Datenkompass</a>: Er ordnet die elf Datengruppen aus <a href="https://www.gesetze-im-internet.de/wpg/anlage_1.html" rel="nofollow noopener noreferrer" target="_blank">Anlage 1 des Wärmeplanungsgesetzes</a> bundeslandspezifisch Auskunftsstellen zu. Die unverzichtbaren Kernquellen sind Netzbetreiber, Kehrbuch beim Schornsteinfeger, ALKIS, Marktstammdatenregister und Zensus. Wer diese fünf Stränge frühzeitig anfragt, kann den Prozess der Bestandsanalyse effizienter gestalten.</p>
+<hr>
+<blockquote>
+<p><strong>Kurz gesagt:</strong></p>
+<ul>
+<li>Anlage 1 verlangt elf Datengruppen, georeferenzierte Darstellungen und Aggregation; Einfamilienhäuser dürfen wegen möglicher Rückschlüsse auf Bewohner nicht direkt einzeln ausgewertet werden.</li>
+<li>ALKIS und Bauämter liefern Gebäudedaten, Netzbetreiber Verbrauchswerte und das Kehrbuch Heizungsart sowie Leistung; dessen Angaben unterliegen vor der Weitergabe strengen Aggregationsregeln.</li>
+<li>Dokumentieren Sie für jede Erhebung die Rechtsgrundlage nach § 10 WPG und klären Sie den Veröffentlichungsumfang gemäß Anlage 2 vorab mit der zuständigen Stelle.</li>
+<li>Wärmedichtekarten und HotMaps zeigen erste räumliche Muster, ersetzen jedoch keine gebäudescharfe Bestandsanalyse; Gebietszuschnitte müssen für weitere Berechnungen vor der Kartierung feststehen.</li>
+<li>Planen Sie Zeit und Personal mit Puffer ein, denn Rückmeldungen von Netzbetreibern und Schornsteinfegern folgen bei der Erhebung selten einem festen Rhythmus.</li>
+</ul>
+</blockquote>
+<hr>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Wärmeplanung rechtssicher vorbereiten</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Kommunen mit technologieoffener Energieberatung und begleitet sie von der Analyse bis zur Umsetzung ihrer Wärmelösungen.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">PLANEGY kennenlernen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#kww-datenkompass-nutzung-inhalte-und-bundeslandspezifische-hinweise">KWW-Datenkompass: Nutzung, Inhalte und bundeslandspezifische Hinweise</a></li>
+<li><a href="#wpg-und-anlage-1-gesetzliche-datenerfordernisse-kurz-erklart">WPG und Anlage 1: Gesetzliche Datenerfordernisse kurz erklärt</a></li>
+<li><a href="#konkrete-datenquellen-nach-thema-wer-liefert-was-in-deutschland">Konkrete Datenquellen nach Thema: Wer liefert was in Deutschland?</a></li>
+<li><a href="#datenaggregation-und-datenschutz-praktische-regeln-fur-die-pvs">Datenaggregation und Datenschutz: Praktische Regeln für die PVS</a></li>
+<li><a href="#karten-warmedichte-tools-und-gis-daten-welche-visualisierungen-bringen-sie-weiter">Karten, Wärmedichte-Tools und GIS-Daten: Welche Visualisierungen bringen Sie weiter?</a></li>
+<li><a href="#praxischeck-und-insider-tipps-aufwand-qualitatssicherung-musterunterlagen">Praxischeck und Insider-Tipps: Aufwand, Qualitätssicherung, Musterunterlagen</a></li>
+<li><a href="#nachste-schritte-priorisierte-to-dos-fur-die-ersten-3-bis-6-monate">Nächste Schritte: Priorisierte To-Dos für die ersten 3 bis 6 Monate</a></li>
+<li><a href="#wie-wir-kommunen-bei-der-datenarbeit-konkret-unterstutzen">Wie wir Kommunen bei der Datenarbeit konkret unterstützen</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="kww-datenkompass-nutzung-inhalte-und-bundeslandspezifische-hinweise" tabindex="-1">KWW-Datenkompass: Nutzung, Inhalte und bundeslandspezifische Hinweise</h2>
+<p>Der KWW-Datenkompass ordnet die elf Datengruppen des WPG bundeslandspezifisch Auskunftsstellen und Granularitäten zu und enthält Vorlagen für Datenanfragen. Das macht ihn zum sinnvollsten ersten Anlaufpunkt für jede Verwaltung, die mit der Bestandsanalyse beginnt. Statt elf einzelne Rechtsgrundlagen zu prüfen, sehen Sie auf einen Blick, welche Stelle in Ihrem Bundesland für welche Angabe zuständig ist.</p>
+<p>Praktisch bedeutet das: Sie klären zuerst, welche Landesregelung für Ihre Kommune gilt, und leiten daraus die Reihenfolge der Anfragen ab. Für die Nutzung hat sich folgende Reihenfolge bewährt:</p>
+<ul>
+<li>Zuständige Auskunftsstellen je Datengruppe im Datenkompass identifizieren</li>
+<li>Musteranschreiben aus der KWW-Werkzeugsammlung anpassen und versenden</li>
+<li>Fristen und Zuständigkeiten innerhalb der Verwaltung dokumentieren, bevor Rückfragen entstehen</li>
+</ul>
+<p><strong>Profi-Tipp:</strong> <em>Benennen Sie eine einzige Ansprechperson für alle Datenanfragen, damit Netzbetreiber und Schornsteinfeger nicht mehrfach kontaktiert werden.</em></p>
+<h2 id="wpg-und-anlage-1-gesetzliche-datenerfordernisse-kurz-erklart" tabindex="-1">WPG und Anlage 1: Gesetzliche Datenerfordernisse kurz erklärt</h2>
+<p>Anlage 1 des Wärmeplanungsgesetzes listet elf zentrale Datengruppen für die Bestandsanalyse und legt zugleich Aggregationsregeln sowie die Pflicht zu georeferenzierten Darstellungen fest. Diese Vorgaben sind keine Empfehlung, sondern Grundlage der gesetzlich geforderten Bestandsanalyse nach dem WPG.</p>
+<p>Zu den wichtigsten Datenfeldern zählen:</p>
+<ul>
+<li>Energieverbrauch und Energieträger je Gebäude oder Gebäudegruppe</li>
+<li>Gebäudedaten wie Baualter, Nutzungsart und beheizte Fläche</li>
+<li>Bestehende Wärmenetze mit Trassenverlauf und Anschlussleistung</li>
+<li>Prozesswärme aus Industrie und Gewerbe</li>
+<li>Bauleitpläne und geplante Neubaugebiete</li>
+</ul>
+<p>Ein Einfamilienhaus wird dabei anders behandelt als ein Mehrfamilienhaus: Bei Einzelgebäuden mit wenigen Wohneinheiten greifen Aggregationsschwellen, um Rückschlüsse auf einzelne Haushalte auszuschließen, während bei größeren Mehrfamilienhäusern feinere Auswertungen möglich sind. Der <a href="https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Publikationen/Energie/leitfaden-waermeplanung-kompakt.pdf?__blob=publicationFile&amp;v=1" rel="nofollow noopener noreferrer" target="_blank">Leitfaden Wärmeplanung</a> beschreibt diese Phasen und nennt typische Quellen wie ALKIS, Netzbetreiber, Kehrbuch und Wärmedichtekarten für die praktische Umsetzung.</p>
+<h2 id="konkrete-datenquellen-nach-thema-wer-liefert-was-in-deutschland" tabindex="-1">Konkrete Datenquellen nach Thema: Wer liefert was in Deutschland?</h2>
+<p>Jede Datengruppe aus der Anlage hat in der Praxis eine typische Auskunftsstelle. Eine geordnete Abarbeitung spart Zeit und verhindert doppelte Anfragen:</p>
+<ol>
+<li>Gebäudedaten holen Sie über ALKIS beim Katasteramt oder direkt beim Bauamt, meist als Shapefile oder GeoJSON.</li>
+<li>Verbrauchsdaten für Gas und Wärme liefern Netzbetreiber und Wärmenetzbetreiber, ergänzt um Angaben zu KWK-Anlagen aus dem Marktstammdatenregister.</li>
+<li>Das Kehrbuch beim Schornsteinfeger zeigt Heizungsart und thermische Leistung je Gebäude, unterliegt aber strengen Aggregationsanforderungen vor der Weitergabe.</li>
+<li>Zensus und Statistikämter liefern Haushaltszahlen, Bevölkerungsstruktur und Rasterdaten für die Flächenplanung.</li>
+<li>Für Industrie und Prozesswärme helfen Emissionsregister, direkte Unternehmensanfragen und regionale Plattformen für Abwärmenutzung weiter.</li>
+<li>Abwasser und Kläranlagen liefern über ihre Betreiber Kennzahlen zu Abwärmepotenzialen, die in vielen Wärmeplänen bislang zu selten abgefragt werden.</li>
+<li>Stromnetzbetreiber geben Auskunft über Netzanschlusskapazitäten und mögliche Engpässe, relevant für die spätere Standortwahl von Großwärmepumpen.</li>
+</ol>
+<p>Für die geothermische Einschätzung und ergänzende Flurkartendaten nennt der Leitfaden Wärmeplanung zusätzlich regionale Informationssysteme und Abwärmeplattformen als sinnvolle Ergänzung zur Potenzialanalyse.</p>
+<h2 id="datenaggregation-und-datenschutz-praktische-regeln-fur-die-pvs" tabindex="-1">Datenaggregation und Datenschutz: Praktische Regeln für die PVS</h2>
+<p>Einfamilienhäuser dürfen nur aggregiert ausgewertet werden, da Einzelwerte Rückschlüsse auf Bewohner zulassen würden. Der KWW-Fokusbereich zu Daten in der kommunalen Wärmeplanung beschreibt FAGA-Empfehlungen zur Datenaggregation und verweist auf Tools, die die automatisierte Aggregation von Verbrauchsdaten unterstützen.</p>
+<p>Für die verantwortliche Stelle in Ihrer Kommune empfiehlt sich:</p>
+<ul>
+<li>Rechtsgrundlage nach §10 WPG für jede Datenerhebung schriftlich dokumentieren</li>
+<li>Veröffentlichungsumfang gemäß Anlage 2 vorab mit der zuständigen Stelle klären</li>
+<li>Anonymisierung durch Aggregation von Beginn an in die Datenstruktur einplanen, statt sie nachträglich zu ergänzen</li>
+</ul>
+<p><strong>Profi-Tipp:</strong> <em>Verwenden Sie das FAGA-Aggregationstool als Standardreferenz in Ihrer Anfrage an Netzbetreiber, viele akzeptieren diesen Verweis als technische Spezifikation.</em></p>
+<h2 id="karten-warmedichte-tools-und-gis-daten-welche-visualisierungen-bringen-sie-weiter" tabindex="-1">Karten, Wärmedichte-Tools und GIS-Daten: Welche Visualisierungen bringen Sie weiter?</h2>
+
+<p>Freie Wärmedichtekarten und Tools wie HotMaps liefern einen ersten Überblick über räumliche Verbrauchsmuster, ersetzen aber keine belastbare Bestandsanalyse auf Gebäudeebene. Ihr Nutzen liegt vor allem in der frühen Priorisierung von Gebieten mit hoher Wärmeliniendichte.</p>
+<p>Für die eigentliche Kartenarbeit greifen Kommunen typischerweise auf:</p>
+<ul>
+<li>ALKIS-Exporte und digitale Flurkarten als Basis für Liegenschaftsgrenzen</li>
+<li>OpenStreetMap-Daten zur Ergänzung fehlender Infrastrukturinformationen</li>
+<li>Aktuelle Luftbilder zur Plausibilisierung von Gebäudenutzung und Bebauungsdichte</li>
+</ul>
+<p>Definieren Sie Gebietszuschnitte für die Aggregation, bevor Sie mit der Kartierung beginnen: Nachträgliche Anpassungen der Gebietsgrenzen erzwingen oft eine komplette Neuberechnung der Wärmeliniendichten.</p>
+<h2 id="praxischeck-und-insider-tipps-aufwand-qualitatssicherung-musterunterlagen" tabindex="-1">Praxischeck und Insider-Tipps: Aufwand, Qualitätssicherung, Musterunterlagen</h2>
+<p>Planen Sie realistische Zeit- und Personalpuffer für die Datenaufbereitung ein, denn Rückläufe von Netzbetreibern und Schornsteinfegern folgen selten einem festen Rhythmus. Musteranschreiben aus dem KWW-Datenkompass beschleunigen die Abstimmung, besonders wenn Sie parallel Landesenergieagenturen einbeziehen.</p>
+<ul>
+<li>Mehrere Datenquellen gegeneinander plausibilisieren, bevor Sie Werte in die Bestandsanalyse übernehmen</li>
+<li>Gemeinsame Gebietszuschnitte früh mit Nachbarkommunen oder Zweckverbänden abstimmen</li>
+<li>Eingangsdaten versionieren, damit spätere Aktualisierungen nachvollziehbar bleiben</li>
+</ul>
+<p><strong>Profi-Tipp:</strong> <em>Vereinbaren Sie mit dem Schornsteinfeger von Anfang an ein festes Datenformat, das spart beim zweiten Abgleich erheblich Zeit.</em></p>
+<h2 id="nachste-schritte-priorisierte-to-dos-fur-die-ersten-3-bis-6-monate" tabindex="-1">Nächste Schritte: Priorisierte To-Dos für die ersten 3 bis 6 Monate</h2>
+<p>Prüfen Sie zuerst den KWW-Datenkompass und benennen Sie eine verantwortliche Person für die Datenerhebung. Bereiten Sie anschließend Anfragen an Netzbetreiber und Schornsteinfeger vor und legen Sie parallel die GIS-Gebietszuschnitte fest, bevor erste Rückläufe eintreffen.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="wie-wir-kommunen-bei-der-datenarbeit-konkret-unterstutzen" tabindex="-1">Wie wir Kommunen bei der Datenarbeit konkret unterstützen</h2>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Wir begleiten Kommunen bei der <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">kommunalen Wärmeplanung nach WPG</a> von der ersten Datenanfrage bis zur fertigen Potenzialanalyse, inklusive rechtssicherer Aggregation und Aufbereitung für Anlage 2. Unsere <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen</a> reichen von der Datenaufbereitung über die Anlagenkonzeption bis zur Begleitung bei Fördermitteln aus Programmen wie BEW, KfW oder BAFA. Lassen Sie uns besprechen, wo Ihre Verwaltung in der Bestandsanalyse steht, und wie wir die nächsten Schritte gemeinsam strukturieren.</p>
+<h2 id="faq" tabindex="-1">FAQ</h2>
+<h3 id="welche-kommunen-mussen-eine-warmeplanung-erstellen" tabindex="-1">Welche Kommunen müssen eine Wärmeplanung erstellen?</h3>
+<p>Die Pflicht zur kommunalen Wärmeplanung betrifft Städte und Gemeinden in ganz Deutschland, mit gestaffelten Fristen nach Einwohnerzahl gemäß Wärmeplanungsgesetz. Details zu Schwellenwerten und Terminen regelt das WPG selbst, bundeslandspezifische Umsetzungshinweise liefert der KWW-Datenkompass.</p>
+<h3 id="welche-energiequellen-pragen-die-deutsche-warmeversorgung" tabindex="-1">Welche Energiequellen prägen die deutsche Wärmeversorgung?</h3>
+<p>Die Wärmeversorgung in Deutschland stützt sich auf einen Mix aus Erdgas, Fernwärme, Strom für Wärmepumpen, Biomasse und zunehmend auf Abwärme aus Industrie und Abwasser. Welche Quelle in einer Kommune dominiert, zeigt die Bestandsanalyse anhand der Daten von Netzbetreibern und dem Kehrbuch.</p>
+<h3 id="was-regelt-das-warmeplanungsgesetz-konkret" tabindex="-1">Was regelt das Wärmeplanungsgesetz konkret?</h3>
+<p>Das Wärmeplanungsgesetz verpflichtet Kommunen zur Erstellung eines Wärmeplans und legt in Anlage 1 fest, welche Datengruppen für die Bestandsanalyse erhoben werden müssen. Eine Novelle aus dem Jahr 2026 sieht zudem vereinfachte Verfahren für kleinere Kommunen vor, etwa die Nutzung errechneter Wärmebedarfsdaten als Alternative zur vollständigen Erhebung.</p>
+<h3 id="ist-die-kommunale-warmeplanung-in-bayern-verpflichtend" tabindex="-1">Ist die kommunale Wärmeplanung in Bayern verpflichtend?</h3>
+<p>Ja, das Wärmeplanungsgesetz gilt bundesweit und damit auch für bayerische Kommunen, mit denselben gestaffelten Fristen wie in anderen Bundesländern. Bayernspezifische Zuständigkeiten für einzelne Datengruppen finden Sie im KWW-Datenkompass, der die Auskunftsstellen je Bundesland auflistet.</p>
+<h3 id="wie-finde-ich-zuverlassige-daten-zu-gebauden-und-energieausweisen" tabindex="-1">Wie finde ich zuverlässige Daten zu Gebäuden und Energieausweisen?</h3>
+<p>Gebäudedaten stammen in erster Linie aus ALKIS und dem Bauamt, ergänzt durch vorhandene Energieausweise der Eigentümer. Ein <a href="https://david-breuer-immobilien.com/fakten/energieausweis" target="_blank" rel="noopener">Faktencheck zum Energieausweis</a> erklärt, welche Angaben ein Energieausweis enthält und wie diese Daten die Einschätzung des Gebäudebestands unterstützen können.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.kww-halle.de/news/artikel/jetzt-vollstaendig-kww-datenkompass" rel="nofollow noopener noreferrer" target="_blank">Jetzt vollständig: KWW‑Datenkompass</a></li>
+<li><a href="https://www.gesetze-im-internet.de/wpg/anlage_1.html" rel="nofollow noopener noreferrer" target="_blank">Wärmeplanungsgesetz (WPG) — Anlage 1</a></li>
+<li><a href="https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Publikationen/Energie/leitfaden-waermeplanung-kompakt.pdf?__blob=publicationFile&amp;v=1" rel="nofollow noopener noreferrer" target="_blank">Leitfaden Wärmeplanung (kompakt)</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-warmebedarfsanalyse-kommune" target="_blank" rel="noopener">Wärmebedarfsanalyse Kommune: Schritt für Schritt zum rechtssicheren Plan</a></li>
+<li><a href="https://planegy.de/blog-kommunale-warmeplanung-leitfaden-fur-kommunen-2026" target="_blank" rel="noopener">Kommunale Wärmeplanung: Leitfaden für Kommunen 2026</a></li>
+<li><a href="https://planegy.de/blog-datenschutz-warmeplanung" target="_blank" rel="noopener">Datenschutz Wärmeplanung: Was Kommunen wirklich beachten müssen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
