@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sensible vs. latente Wärmespeicherung: Der Unterschied erklärt – PLANEGY</title>
+  <meta name="description" content="Erfahren Sie, worin sich sensible und latente Wärmespeicherung unterscheiden. Vergleichen Sie Temperaturänderung, Energiedichte und Einsatzbereiche." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Sensible vs. latente Wärmespeicherung: Der Unterschied erklärt" />
+  <meta property="og:description" content="Erfahren Sie, worin sich sensible und latente Wärmespeicherung unterscheiden. Vergleichen Sie Temperaturänderung, Energiedichte und Einsatzbereiche." />
+  <link rel="canonical" href="https://planegy.de/blog-sensible-vs-latente-warmespeicherung" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Sensible vs. latente Wärmespeicherung: Der Unterschied erklärt",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-13",
+    "description": "Erfahren Sie, worin sich sensible und latente Wärmespeicherung unterscheiden. Vergleichen Sie Temperaturänderung, Energiedichte und Einsatzbereiche."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Sensible vs. latente Wärmespeicherung: Der Unterschied erklärt</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Sensible vs. latente Wärmespeicherung: Der Unterschied erklärt</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>8 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="sensible-vs-latente-warmespeicherung-der-unterschied-erklart" tabindex="-1">Sensible vs. latente Wärmespeicherung: Der Unterschied erklärt</h1>
+
+<p>Sensible Speicherung ändert die Temperatur eines Materials und speichert Wärme über dessen Wärmekapazität. Latente Speicherung nutzt dagegen einen Phasenwechsel und bringt dadurch deutlich mehr Energie pro Volumen unter, nahezu ohne Temperaturänderung. Für die Praxis heißt das: Wer wenig Platz hat, denkt an latente Systeme. Wer einen großen Temperaturbereich abdecken muss, bleibt meist bei sensiblen Lösungen. Die folgenden Abschnitte zeigen, warum.</p>
+<hr>
+<blockquote>
+<p><strong>Kurz gesagt:</strong></p>
+<ul>
+<li>Ein Kubikmeter Wasser speichert bei einer Erwärmung um 40 Kelvin rund 46,6 Kilowattstunden; dafür braucht es jedoch mehr Volumen als ein Phasenwechselspeicher.</li>
+<li>Ein Kilogramm Eis nimmt beim Schmelzen 334 Kilojoule auf; sensible Speicherung derselben Energiemenge in Wasser erfordert eine Erwärmung um knapp 80 Kelvin.</li>
+<li>Phasenwechselmaterialien passen nur, wenn ihre feste Umwandlungstemperatur zum Bedarf passt; zusätzliche Wärmeübertragungsflächen und eine stabile Verkapselung sind oft nötig, um Volumenänderungen aufzufangen.</li>
+<li>Für Fernwärme und saisonale Speicherung kommen meist sensible Tanks oder Erdbeckenspeicher und Aquiferspeicher infrage; industrielle Festbetten und Flüssigsalzspeicher arbeiten auch über 500 Grad Celsius.</li>
+<li>Latentspeicher kosten meist mehr pro gespeicherter Kilowattstunde, sparen aber Bauraum; rechnen Sie Mehrkosten gegen Platzbedarf, Zyklenzahl und Wartung des jeweiligen Projekts auf.</li>
+</ul>
+</blockquote>
+<hr>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="split" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="display:flex;flex-wrap:wrap;"><div style="flex:1 0 36%;min-width:220px;box-sizing:border-box;padding:30px 76px 30px 26px;color:#ffffff;background:linear-gradient(104deg,#0c3c65 0%,#07233a 82%,rgba(0,0,0,0) 82.15%);"><div style="margin:0 0 14px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#ffffff;color:#0f4b7e;">PLANEGY</span></div><div style="font-size:12px;opacity:0.75;">planegy.de</div></div><div style="flex:999 1 300px;min-width:0;padding:30px 28px;"><div style="font-size:23px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Wärmespeicher technologieoffen bewerten</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 22px;">PLANEGY prüft die Machbarkeit und Wirtschaftlichkeit passender Wärmespeichertechnologien und berücksichtigt mögliche Fördermöglichkeiten.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Energieberatung entdecken<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div></div>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#sensible-warmespeicherung-prinzipien-materialien-und-formeln">Sensible Wärmespeicherung: Prinzipien, Materialien und Formeln</a></li>
+<li><a href="#latente-warmespeicherung-phasenwechselmaterialien-und-ihre-eigenschaften">Latente Wärmespeicherung: Phasenwechselmaterialien und ihre Eigenschaften</a></li>
+<li><a href="#vergleich-nach-energiedichte-temperatur-und-reifegrad">Vergleich nach Energiedichte, Temperatur und Reifegrad</a></li>
+<li><a href="#anwendungsfalle-gebaude-fernwarme-und-industrie">Anwendungsfälle: Gebäude, Fernwärme und Industrie</a></li>
+<li><a href="#auswahlkriterien-und-checkliste-fur-planer">Auswahlkriterien und Checkliste für Planer</a></li>
+<li><a href="#wir-bewerten-warmespeichertechnologien-technologieoffen-ohne-eine-bauart-von-vornherein-zu-bevorzugen-zunachst-wird-die-machbarkeit-gepruft-danach-die-wirtschaftlichkeit-und-schliesslich-mogliche-fordermoglichkeiten-bevor-eine-technik-konkret-ausgelegt-wird">Wir bewerten Wärmespeichertechnologien technologieoffen, ohne eine Bauart von vornherein zu bevorzugen. Zunächst wird die Machbarkeit geprüft, danach die Wirtschaftlichkeit und schließlich mögliche Fördermöglichkeiten, bevor eine Technik konkret ausgelegt wird.</a></li>
+<li><a href="#fazit-zwischen-platzbedarf-und-temperaturbreite-entscheiden">Fazit: Zwischen Platzbedarf und Temperaturbreite entscheiden</a></li>
+<li><a href="#planegy-angebot-beratung-warmeplanung-und-forderbegleitung">PLANEGY-Angebot: Beratung, Wärmeplanung und Förderbegleitung</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="sensible-warmespeicherung-prinzipien-materialien-und-formeln" tabindex="-1">Sensible Wärmespeicherung: Prinzipien, Materialien und Formeln</h2>
+<p>Sensible Speicherung beruht auf der Wärmekapazität eines Materials. Je mehr Energie zugeführt wird, desto stärker steigt die Temperatur, und genau diese Temperaturänderung ist die gespeicherte Größe. Die Grundformel lautet Q = m · c · ΔT, wobei Q die gespeicherte Wärmemenge ist, m die Masse, c die spezifische Wärmekapazität und ΔT die Temperaturdifferenz.</p>
+<p>Zum Rechnen: Wasser hat eine spezifische Wärmekapazität von rund 4,19 kJ/(kg·K). Ein Kubikmeter Wasser, um 40 Kelvin erwärmt, speichert also etwa 1.000 kg × 4,19 kJ/(kg·K) × 40 K, das sind rund 167.600 kJ oder knapp 46,6 Kilowattstunden.</p>
+<p>Typische Speichermedien:</p>
+<ol>
+<li>Wasser in Pufferspeichern und Tanks, wegen hoher spezifischer Wärmekapazität und geringer Kosten.</li>
+<li>Beton und Gestein für Feststoffspeicher bei höheren Temperaturen.</li>
+<li>Sand und Erdreich für saisonale Erdspeicher.</li>
+</ol>
+<p>Der Vorteil liegt in der Robustheit: Diese Materialien sind ausgereift, günstig und über einen breiten Temperaturbereich nutzbar, <a href="https://www.fvee.de/wp-content/uploads/2023/06/th2022_04_02.pdf" rel="nofollow noopener noreferrer" target="_blank">wie der FVEE festhält</a>. Der Nachteil ist die vergleichsweise geringe Energiedichte: Für dieselbe Wärmemenge braucht man mehr Volumen als bei einem Phasenwechselspeicher.</p>
+<h2 id="latente-warmespeicherung-phasenwechselmaterialien-und-ihre-eigenschaften" tabindex="-1">Latente Wärmespeicherung: Phasenwechselmaterialien und ihre Eigenschaften</h2>
+<p>Latente Speicherung nutzt nicht die fühlbare Temperaturänderung, sondern die Energie, die bei einem Phasenwechsel aufgenommen oder abgegeben wird, also beim Schmelzen, Erstarren oder Verdampfen. Während dieses Übergangs bleibt die Temperatur des Materials weitgehend konstant, weil die zugeführte Energie in die Umwandlungsenthalpie fließt statt in eine Temperaturerhöhung, <a href="https://de.wikipedia.org/wiki/Latentw%C3%A4rmespeicher" rel="nofollow noopener noreferrer" target="_blank">wie die Erklärung zum Latentwärmespeicher zeigt</a>.</p>
+<p>Typische Phasenwechselmaterialien, kurz PCM genannt:</p>
+<ul>
+<li>Eis und Wasser, mit einer Schmelzenthalpie von 334 kJ/kg, einem Vielfachen der spezifischen Wärmekapazität von Wasser mit rund 4,19 kJ/(kg·K), wie Wikipedia zum Latentwärmespeicher darlegt.</li>
+<li>Paraffine, mit Schmelzpunkten meist zwischen 20 und 60 Grad Celsius, verbreitet in Baustoffen und kleineren Pufferlösungen.</li>
+<li>Salzhydrate, mit höheren Enthalpien pro Volumen, aber oft anfällig für Unterkühlung und Entmischung.</li>
+<li>Metallische PCM, für Hochtemperaturanwendungen, bislang mit geringerer technischer Reife.</li>
+</ul>
+<p>Das Rechenbeispiel verdeutlicht den Unterschied: Ein Kilogramm Eis, das vollständig schmilzt, nimmt 334 Kilojoule auf, ohne dass sich die Temperatur ändert. Um dieselbe Energiemenge sensibel in Wasser zu speichern, müsste man es um knapp 80 Kelvin erwärmen, eine Spanne, die in der Praxis kaum nutzbar ist.</p>
+<p>Der Vorteil liegt in der hohen volumetrischen Dichte und der kompakten Bauweise. Die Herausforderung liegt in der Wärmeübertragung, der Materialstabilität über viele Zyklen und der Volumenänderung beim Phasenwechsel, die eine stabile Verkapselung erfordert.</p>
+<h2 id="vergleich-nach-energiedichte-temperatur-und-reifegrad" tabindex="-1">Vergleich nach Energiedichte, Temperatur und Reifegrad</h2>
+<p>Der direkte Vergleich zeigt, warum die Wahl der Technik stark von der Aufgabe abhängt und nicht allein von der Energiedichte.</p>
+<ul>
+<li><strong>Energiedichte:</strong> Latentwärmespeicher können im gleichen Temperaturbereich ein Vielfaches der volumetrischen Speicherkapazität eines sensiblen Wassertanks erreichen, etwa wenn Eis gegenüber Wasser bei einer Spreizung von 6 bis 12 Grad verglichen wird, laut einer Analyse des FVEE.</li>
+<li><strong>Temperaturbereich:</strong> Sensible Speicher decken praktisch jeden Bereich ab, von Niedertemperaturheizung bis zu Hochtemperatur-Prozesswärme, während latente Speicher an die feste Umwandlungstemperatur ihres Materials gebunden sind.</li>
+<li><strong>Wärmeübertragungsleistung:</strong> Sensible Speicher geben Wärme über Konvektion im Medium selbst gut ab. Latente Speicher benötigen oft zusätzliche Flächen, etwa Platten, Schläuche oder Kapselungen, um die Wärmeleitung im festen PCM zu verbessern.</li>
+<li><strong>Technische Reife:</strong> Wasserspeicher und Feststoffspeicher sind seit Jahrzehnten im Einsatz. PCM-Systeme sind technisch weiterentwickelt, aber bei Materialstabilität und Langzeitverhalten noch Gegenstand aktiver Forschung, wie das Projekt zu <a href="https://www.ict.fraunhofer.de/content/dam/ict/de/documents/projekte/231124_IRES_Poster_NewHeatFokus_final.pdf" rel="nofollow noopener noreferrer" target="_blank">schaltbaren Latentwärmespeichern am Fraunhofer ICT</a> zeigt. Dieses Projekt beschreibt ein System mit zwei PCM-Phasenwechselpunkten bei rund 58 und 35 Grad Celsius und einer Volumenreduktion von etwa 66 Prozent gegenüber einem sensiblen Tank gleicher Speicherkapazität.</li>
+</ul>
+<p>Kostenseitig gilt grob: Sensible Speicher sind meist günstiger pro Kilowattstunde Investition, latente Speicher sparen dafür Bauraum, was bei beengten Standorten den Ausschlag geben kann.</p>
+<h2 id="anwendungsfalle-gebaude-fernwarme-und-industrie" tabindex="-1">Anwendungsfälle: Gebäude, Fernwärme und Industrie</h2>
+<p>Die Wahl der Speichertechnik hängt stark vom Einsatzort ab.</p>
+<ol>
+<li>In Gebäuden dienen Warmwasser-Pufferspeicher der kurzfristigen Entkopplung von Erzeugung und Verbrauch, während Eisspeicher für Klimatisierung und PCM-Elemente in Wänden oder Decken die Temperaturspitzen dämpfen.</li>
+<li>In Fernwärmenetzen und bei saisonaler Speicherung kommen meist sensible Lösungen zum Einsatz, etwa große Tanks, Erdbecken- oder Aquiferspeicher, <a href="https://planegy.de/blog-fernwarme-warmwasserspeicher" target="_blank" rel="noopener">wie ein Technikvergleich zu Fernwärme-Warmwasserspeichern zeigt</a>. PCM-Ansätze spielen hier bislang eher bei kompakten, mobilen Speicherlösungen eine Rolle.</li>
+<li>In der Industrie werden für Hochtemperaturprozesse Festbettspeicher aus Keramik oder Gestein sowie Flüssigsalzspeicher eingesetzt, die auch über 500 Grad Celsius stabil arbeiten.</li>
+</ol>
+<p>Speicher dieser Art spielen zudem eine Rolle bei der Flexibilisierung von erneuerbarem Strom, weil sie überschüssige Erzeugung in Wärme umwandeln und bei Bedarf wieder abgeben können, ein Punkt, den die <a href="https://www.iea.org/reports/renewables-for-industry/executive-summary" rel="nofollow noopener noreferrer" target="_blank">IEA in ihrer Analyse zu Industriewärme</a> hervorhebt. Forschungsprojekte wie das schaltbare Latentwärmespeichersystem am Fraunhofer ICT zeigen, wie mehrstufige PCM-Lösungen künftig kompaktere Speicher für Industrie und Nahwärme ermöglichen könnten.</p>
+<h2 id="auswahlkriterien-und-checkliste-fur-planer" tabindex="-1">Auswahlkriterien und Checkliste für Planer</h2>
+<p>Bevor man sich für sensible oder latente Speicherung entscheidet, lohnt sich ein Blick auf die eigentlichen Betriebsbedingungen.</p>
+<ul>
+<li>Welches Temperaturniveau muss der Speicher abdecken, und passt ein PCM mit fester Umwandlungstemperatur dazu?</li>
+<li>Wie hoch ist die geforderte Wärmeleistung, also wie schnell muss Energie ein- und ausgespeichert werden können?</li>
+<li>Wie oft wird der Speicher be- und entladen, und wie wirkt sich das auf Materialverträglichkeit und Lebensdauer aus?</li>
+<li>Wie viel Platz steht zur Verfügung, und rechtfertigt der Platzgewinn die höheren Kosten eines Latentwärmespeichers?</li>
+<li>Welche Wartung ist nötig, insbesondere bei PCM-Kapselungen, die Volumenänderungen ausgleichen müssen?</li>
+<li>Sind vorgelagerte Effizienzmaßnahmen umgesetzt, denn ein kleinerer Wärmebedarf verringert auch den nötigen Speicherbedarf, wie die IEA in ihrer Einordnung industrieller Dekarbonisierung betont?</li>
+</ul>
+<p><strong>Profi-Tipp:</strong> <em>Legen Sie die Speichergröße erst nach einer Wirtschaftlichkeitsprüfung fest, orientierende Richtwerte wie Liter pro Kilowatt helfen bei der <a href="https://planegy.de/blog-warmespeicher-dimensionierung" target="_blank" rel="noopener">ersten Dimensionierung</a>.</em></p>
+<h2 id="wir-bewerten-warmespeichertechnologien-technologieoffen-ohne-eine-bauart-von-vornherein-zu-bevorzugen-zunachst-wird-die-machbarkeit-gepruft-danach-die-wirtschaftlichkeit-und-schliesslich-mogliche-fordermoglichkeiten-bevor-eine-technik-konkret-ausgelegt-wird" tabindex="-1">Wir bewerten Wärmespeichertechnologien technologieoffen, ohne eine Bauart von vornherein zu bevorzugen. Zunächst wird die Machbarkeit geprüft, danach die Wirtschaftlichkeit und schließlich mögliche Fördermöglichkeiten, bevor eine Technik konkret ausgelegt wird.</h2>
+<p>Für erste Abschätzungen zur Dimensionierung von Speichern und Heizsystemen nutzen wir unseren <a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik Rechner</a>, der schnelle Vergleichswerte liefert, bevor es in die Detailplanung geht. Bei kommunalen Projekten verbinden wir diese technische Bewertung direkt mit der <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen-Übersicht</a> für Wärmeplanung, Anlagenkonzeption und Genehmigungsverfahren.</p>
+
+<h2 id="fazit-zwischen-platzbedarf-und-temperaturbreite-entscheiden" tabindex="-1">Fazit: Zwischen Platzbedarf und Temperaturbreite entscheiden</h2>
+<p>Wer Platz sparen will, setzt auf latente Speicherung. Wer Temperaturbreite braucht, bleibt bei sensibler Technik. Forschung an mehrstufigen PCM-Systemen dürfte diese Grenze in den kommenden Jahren etwas verschieben.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="planegy-angebot-beratung-warmeplanung-und-forderbegleitung" tabindex="-1">PLANEGY-Angebot: Beratung, Wärmeplanung und Förderbegleitung</h2>
+<p>Wärmespeicher sind selten eine Insellösung, sie entfalten ihren Wert erst im Zusammenspiel mit Erzeugungsanlagen, Netz und Förderlandschaft. Genau dort unterstützen wir Kommunen, Industriebetriebe und Stadtwerke.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Leistungen rund um Wärmespeicherprojekte umfassen:</p>
+<ul>
+<li>Kommunale Wärmeplanung inklusive Integration von Speicherkonzepten in Nahwärmesysteme.</li>
+<li>Bewertung von sensiblen, latenten und weiteren Speicherlösungen für Projekte.</li>
+<li>Begleitung bei Genehmigungsverfahren sowie Identifizierung und Beantragung passender Fördermittel.</li>
+</ul>
+<p>Eine professionelle Beratung lohnt sich besonders, sobald ein Speicherprojekt mehrere Technologien, Genehmigungsschritte oder Förderquellen gleichzeitig betrifft. Einen Überblick über unsere Leistungen finden Sie auf unserer Leistungen-Seite.</p>
+<h2 id="faq" tabindex="-1">FAQ</h2>
+<h3 id="was-sind-die-besten-warmespeicher" tabindex="-1">Was sind die besten Wärmespeicher?</h3>
+<p>Es gibt keine pauschal beste Technik, die Wahl hängt vom Temperaturniveau, der benötigten Leistung und dem verfügbaren Platz ab. Sensible Speicher wie Wassertanks sind ausgereift und über breite Temperaturbereiche einsetzbar, latente Speicher bieten dafür eine höhere volumetrische Dichte bei begrenztem Temperaturfenster, <a href="https://www.geothermie.de/bibliothek/lexikon-der-geothermie/w/waermespeicher" rel="nofollow noopener noreferrer" target="_blank">wie der Bundesverband Geothermie erläutert</a>.</p>
+<h3 id="was-ist-die-latente-warme" tabindex="-1">Was ist die latente Wärme?</h3>
+<p>Latente Wärme ist die Energie, die bei einem Phasenwechsel wie Schmelzen oder Verdampfen aufgenommen oder abgegeben wird, ohne dass sich die Temperatur des Materials dabei ändert. Beim Schmelzen von Eis beträgt diese Umwandlungsenthalpie 334 Kilojoule pro Kilogramm, wie die Erklärung zum Latentwärmespeicher zeigt.</p>
+<h3 id="wie-berechnet-man-die-warme-q" tabindex="-1">Wie berechnet man die Wärme Q?</h3>
+<p>Für sensible Wärme gilt Q = m · c · ΔT, also Masse mal spezifische Wärmekapazität mal Temperaturänderung. Für latente Wärme gilt stattdessen Q = m · L, wobei L die spezifische Umwandlungsenthalpie des Materials ist, etwa 334 kJ/kg für das Schmelzen von Eis.</p>
+<h3 id="welche-3-arten-von-warmeubertragung-gibt-es" tabindex="-1">Welche 3 Arten von Wärmeübertragung gibt es?</h3>
+<p>Wärme wird durch Wärmeleitung, Konvektion und Wärmestrahlung übertragen. In Wärmespeichern spielt vor allem die Wärmeleitung im Speichermaterial eine Rolle, weshalb latente Speicher oft zusätzliche Übertragungsflächen wie Platten oder Kapselungen benötigen.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.fvee.de/wp-content/uploads/2023/06/th2022_04_02.pdf" rel="nofollow noopener noreferrer" target="_blank">Wärmespeicher als integrierte und nicht integrierte Bauteile (FVEE)</a></li>
+<li><a href="https://de.wikipedia.org/wiki/Latentw%C3%A4rmespeicher" rel="nofollow noopener noreferrer" target="_blank">Latentwärmespeicher — Wikipedia</a></li>
+<li><a href="https://www.ict.fraunhofer.de/content/dam/ict/de/documents/projekte/231124_IRES_Poster_NewHeatFokus_final.pdf" rel="nofollow noopener noreferrer" target="_blank">Switchable Latent Heat Storage (sLHTES) — Fraunhofer ICT (Projektposter)</a></li>
+<li><a href="https://www.iea.org/reports/renewables-for-industry/executive-summary" rel="nofollow noopener noreferrer" target="_blank">Renewables for Industry — IEA (Executive Summary)</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-fernwarme-warmwasserspeicher" target="_blank" rel="noopener">Fernwärme-Warmwasserspeicher: Technik, Typen und Einbau</a></li>
+<li><a href="https://planegy.de/blog-warmespeicher-dimensionierung" target="_blank" rel="noopener">20 l/kW als Richtwert: Wärmespeicherdimensionierung für Planer</a></li>
+<li><a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik Rechner – Heizsysteme vergleichen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
