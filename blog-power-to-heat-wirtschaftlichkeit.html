@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power-to-Heat-Wirtschaftlichkeit: Wann sich die Anlage rechnet – PLANEGY</title>
+  <meta name="description" content="Was Power-to-Heat kostet und wann es sich rechnet: Strompreis, Speicher, Fahrweise, Förderung und ein Rechenbeispiel für Kommunen, Stadtwerke und Industrie." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Power-to-Heat-Wirtschaftlichkeit: Wann sich die Anlage rechnet" />
+  <meta property="og:description" content="Was Power-to-Heat kostet und wann es sich rechnet: Strompreis, Speicher, Fahrweise, Förderung und ein Rechenbeispiel für Kommunen, Stadtwerke und Industrie." />
+  <link rel="canonical" href="https://planegy.de/blog-power-to-heat-wirtschaftlichkeit" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Power-to-Heat-Wirtschaftlichkeit: Wann sich die Anlage rechnet",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-19",
+    "description": "Was Power-to-Heat kostet und wann es sich rechnet: Strompreis, Speicher, Fahrweise, Förderung und ein Rechenbeispiel für Kommunen, Stadtwerke und Industrie."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"⚡"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Power-to-Heat-Wirtschaftlichkeit: Wann sich die Anlage rechnet</span>
+    </div>
+    <div class="article-cat">Energie</div>
+    <h1>Power-to-Heat-Wirtschaftlichkeit: Wann sich die Anlage rechnet</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="power-to-heat-wirtschaftlichkeit-wann-sich-die-anlage-rechnet" tabindex="-1">Power-to-Heat-Wirtschaftlichkeit: Wann sich die Anlage rechnet</h1>
+
+<p>Ob sich eine Power-to-Heat-Anlage rechnet, hängt weniger von der Technik ab als von den Stunden, in denen sie läuft. Wer Wärme aus Strom zum Durchschnittstarif erzeugt, zahlt fast immer drauf. Wer günstige oder negative Börsenstunden nutzt, einen Wärmespeicher hat und Wärmepumpe und Elektrokessel sinnvoll kombiniert, kann fossile Wärme dagegen schon heute unterbieten. Das gilt besonders, wenn Förderung und Erlöse aus Flexibilität in die Rechnung eingehen. In diesem Beitrag sehen Sie, welche Kosten anfallen und wie Sie die Wärmegestehungskosten selbst überschlagen. Außerdem zeigen wir, an welchen Stellschrauben Kommunen, Stadtwerke und Industriebetriebe drehen sollten.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Power-to-Heat fundiert bewerten</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY entwickelt technologieoffene Energielösungen für Industrie, Gewerbe und Kommunen und begleitet Sie von der Analyse bis zur Umsetzung.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Energielösungen ansehen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="tldr" tabindex="-1">TL;DR</h2>
+<ul>
+<li>Ein Heizstab oder Elektrodenkessel macht aus 1 kWh Strom etwa 1 kWh Wärme. Wirtschaftlich ist er nur in Stunden mit sehr niedrigen oder negativen Strompreisen.</li>
+<li>Eine Wärmepumpe mit einer Jahresarbeitszahl um 3 braucht für dieselbe Wärme nur ein Drittel des Stroms. Deshalb deckt sie ein viel breiteres Preisfenster ab.</li>
+<li>Ohne Wärmespeicher und strompreisgeführte Steuerung bleibt Power-to-Heat meist ein teurer Reservekessel.</li>
+<li>Netzentgelte, Umlagen und Steuern entscheiden oft stärker über die Rendite als der Börsenpreis selbst.</li>
+<li>Förderprogramme wie die BEW und Erlöse aus Netzdienstleistungen können eine knappe Rechnung ins Positive drehen.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-power-to-heat-kostet-investition-und-betrieb">Was Power-to-Heat kostet: Investition und Betrieb</a></li>
+<li><a href="#die-kernrechnung-warmegestehungskosten-aus-strom">Die Kernrechnung: Wärmegestehungskosten aus Strom</a></li>
+<li><a href="#funf-hebel-die-uber-die-rendite-entscheiden">Fünf Hebel, die über die Rendite entscheiden</a></li>
+<li><a href="#rechenbeispiel-elektrodenkessel-im-kommunalen-warmenetz">Rechenbeispiel: Elektrodenkessel im kommunalen Wärmenetz</a></li>
+<li><a href="#kleine-anlagen-heizstab-oder-brauchwasser-warmepumpe">Kleine Anlagen: Heizstab oder Brauchwasser-Wärmepumpe</a></li>
+<li><a href="#in-sieben-schritten-zur-belastbaren-wirtschaftlichkeitsrechnung">In sieben Schritten zur belastbaren Wirtschaftlichkeitsrechnung</a></li>
+<li><a href="#unsere-sicht-power-to-heat-ist-ein-baustein-kein-selbstzweck">Unsere Sicht: Power-to-Heat ist ein Baustein, kein Selbstzweck</a></li>
+<li><a href="#wirtschaftlichkeit-prufen-lassen">Wirtschaftlichkeit prüfen lassen</a></li>
+<li><a href="#haufige-fragen-zur-wirtschaftlichkeit-von-power-to-heat">Häufige Fragen zur Wirtschaftlichkeit von Power-to-Heat</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-power-to-heat-kostet-investition-und-betrieb" tabindex="-1">Was Power-to-Heat kostet: Investition und Betrieb</h2>
+<p>Zu Power-to-Heat (PtH) gehören drei Technikfamilien: Widerstandsheizer (Heizstäbe, Elektroheizkessel), Elektrodenkessel für große Leistungen und Wärmepumpen. Die ersten beiden sind günstig in der Anschaffung und schnell regelbar. Sie wandeln Strom aber nur eins zu eins in Wärme. Wärmepumpen kosten mehr, nutzen dafür zusätzlich Umweltwärme aus Luft, Wasser, Abwasser oder Abwärme.</p>
+<table>
+<thead>
+<tr>
+<th>Technik</th>
+<th>Wirkungsgrad bzw. Arbeitszahl</th>
+<th>Investition</th>
+<th>Typischer Einsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heizstab / Elektroheizkessel</td>
+<td>ca. 1 (100 %)</td>
+<td>niedrig</td>
+<td>Spitzenlast, Überschussstrom, kleine Leistungen</td>
+</tr>
+<tr>
+<td>Elektrodenkessel</td>
+<td>ca. 1 (100 %)</td>
+<td>laut <a href="https://sw-wiki.de/wp-content/uploads/2024/06/Technologie_Elektrodenkessel.pdf" rel="nofollow noopener noreferrer" target="_blank">Technologie-Steckbrief ca. 125 bis 350 €/kW</a></td>
+<td>Fernwärme, Industrie-Dampf, Megawattbereich</td>
+</tr>
+<tr>
+<td>Großwärmepumpe</td>
+<td>JAZ ca. 3 und mehr, je nach Quelle und Vorlauf</td>
+<td>deutlich höher, stark projektabhängig</td>
+<td>Grundlast in Wärmenetzen, Prozesswärme bis mittlere Temperatur</td>
+</tr>
+</tbody>
+</table>
+<p>Zur Investition kommen Posten, die in Angeboten gern fehlen: der Netzanschluss mit Trafo und Baukostenzuschuss, die hydraulische Einbindung, der Wärmespeicher, die Leittechnik und gegebenenfalls Genehmigungen. Gerade der Netzanschluss ist bei mehreren Megawatt oft der größte Unsicherheitsfaktor, weil am Standort nicht selbstverständlich Kapazität frei ist. Die Bundesnetzagentur weist in einer <a href="https://www.bundesnetzagentur.de/DE/Beschlusskammern/GBK/GBK_Termine/Downloads/2026/05_2026/1_Bundesnetzagentur.pdf?__blob=publicationFile&amp;v=5" rel="nofollow noopener noreferrer" target="_blank">Präsentation vom Mai 2026</a> auf den erheblichen Zuwachs neuer Netznutzer hin, unter anderem durch die nachhaltige Wärmeversorgung in Industrie und Haushalten. Klären Sie die Anschlussfrage deshalb früh mit Ihrem Netzbetreiber, bevor Sie Zeit in die Detailplanung stecken.</p>
+<p>Die Betriebskosten sind bei PtH im Kern Stromkosten. Wartung und Personal fallen beim Elektrokessel gering aus, bei Wärmepumpen etwas höher. Wie stark der Strom zu Buche schlägt, entscheidet nicht der Durchschnittstarif, sondern der Preis in genau den Stunden, in denen die Anlage läuft.</p>
+
+<h2 id="die-kernrechnung-warmegestehungskosten-aus-strom" tabindex="-1">Die Kernrechnung: Wärmegestehungskosten aus Strom</h2>
+<p>Für eine erste Einschätzung genügt eine einfache Gleichung:</p>
+<p><strong>Wärmekosten (ct/kWh Wärme) = Strompreis (ct/kWh) ÷ Arbeitszahl + Kapital- und Wartungskosten je kWh Wärme</strong></p>
+<p>Der Vergleich mit Ihrem heutigen Kessel lautet entsprechend: Brennstoffpreis ÷ Kesselwirkungsgrad + CO₂-Kosten + Kapital- und Wartungskosten.</p>
+<p>Ein Blick auf die Durchschnittspreise zeigt, warum ein Heizstab im Dauerbetrieb selten aufgeht. Laut <a href="https://www.bdew.de/service/daten-und-grafiken/bdew-strompreisanalyse/" rel="nofollow noopener noreferrer" target="_blank">BDEW-Strompreisanalyse Herbst 2026</a> zahlen kleine bis mittlere Industriebetriebe 2026 bislang im Schnitt 17,2 ct/kWh. Daraus folgt:</p>
+<ul>
+<li><strong>Elektrokessel (Wirkungsgrad 1):</strong> 17,2 ct je kWh Wärme, nur für den Strom.</li>
+<li><strong>Wärmepumpe (JAZ 3):</strong> rund 5,7 ct je kWh Wärme, nur für den Strom.</li>
+</ul>
+<p>Die Wärmepumpe kommt damit schon zum Durchschnittstarif in einen Bereich, in dem sie mit Gaswärme konkurrieren kann. Der Elektrokessel braucht Strom, der ein Vielfaches günstiger ist. Solche Stunden gibt es: Bei Stromüberschuss fallen die Day-Ahead-Preise zeitweise unter null. Davon geht eine <a href="https://www.fh-westkueste-ite.de/wp-content/uploads/2026/05/ite_sief_heft002.pdf" rel="nofollow noopener noreferrer" target="_blank">Studie der FH Westküste zur Fernwärme</a> aus, die Direktheizung und Wärmepumpe vergleicht. Ihr Ergebnis: Beide Technologien bedienen unterschiedliche Preisfenster. Der Direktheizer lohnt sich in den extremen Stunden, die Wärmepumpe auch bei moderaten Preisen.</p>
+<p>Wichtig: Der Börsenpreis ist nicht Ihr Strompreis. Auch bei einem Börsenpreis von null zahlen Sie in der Regel Netzentgelte, Umlagen und Steuern. Wie viel das ausmacht, zeigt der BDEW am Beispiel der Haushalte: Von 37,0 ct/kWh entfallen dort 9,2 ct auf Netzentgelte und 12,6 ct auf Steuern, Abgaben und Umlagen. Für Ihren Standort müssen Sie diese Bestandteile mit Ihrem tatsächlichen Netzentgelt und Ihren Entlastungsmöglichkeiten durchrechnen.</p>
+<h2 id="funf-hebel-die-uber-die-rendite-entscheiden" tabindex="-1">Fünf Hebel, die über die Rendite entscheiden</h2>
+<h3 id="1-die-strompreisbestandteile" tabindex="-1">1. Die Strompreisbestandteile</h3>
+<p>Die KWKG-Umlage beträgt 2026 laut <a href="https://www.bundesnetzagentur.de/SharedDocs/A_Z_Glossar/K/KWKG_Umlage.html" rel="nofollow noopener noreferrer" target="_blank">Bundesnetzagentur 0,446 ct/kWh</a> und wird auf die Netzentgelte aufgeschlagen. Das klingt nach wenig. Zusammen mit Netzentgelt, Stromsteuer und weiteren Umlagen entsteht aber ein Sockel, der auf jede bezogene Kilowattstunde fällt. Beim Elektrokessel, der Strom eins zu eins umsetzt, schlägt dieser Sockel voll auf die Wärmekosten durch. Bei der Wärmepumpe drittelt er sich. Prüfen Sie deshalb drei Dinge: welche Entlastungen für Ihren Betrieb gelten, ob ein Anschluss auf höherer Spannungsebene günstigere Entgelte bringt und wie die Leistungsspitzen der neuen Anlage Ihr Netzentgelt verändern.</p>
+<h3 id="2-die-fahrweise" tabindex="-1">2. Die Fahrweise</h3>
+<p>Eine PtH-Anlage, die konstant läuft, verschenkt ihren größten Vorteil. Wirtschaftlich wird sie erst, wenn ein Energiemanagement sie automatisch nach Day-Ahead- oder Intraday-Preisen einsetzt. Die <a href="https://www.dena.de/fileadmin/dena/Publikationen/PDFs/2026/Analyse_Elektrifizierung_der_Fernwaerme.pdf" rel="nofollow noopener noreferrer" target="_blank">dena-Analyse zur Elektrifizierung der Fernwärme</a> kommt zu dem Ergebnis, dass eine flexible, am Strommarkt ausgerichtete Fahrweise die Wärmegestehungskosten deutlich senkt. Als bestimmende Faktoren für die Wirtschaftlichkeit nennt sie Strommarktdesign, Netzentgeltregulierung und CO₂-Bepreisung.</p>
+<h3 id="3-der-warmespeicher" tabindex="-1">3. Der Wärmespeicher</h3>
+<p>Günstiger Strom fällt oft mittags oder nachts an, Wärme wird morgens und abends gebraucht. Ohne Speicher kann die Anlage diesen Versatz nicht ausgleichen: Sie läuft entweder zu teuren Zeiten oder gar nicht. Das <a href="https://www.dena.de/fileadmin/dena/Dokumente/Projektportrait/Energiepolitische_Beratung_des_Bundesministeriums_fuer_Wirtschaft_und_Klimaschutz/Gutachten_zur_Waermespeicherstrategie.pdf" rel="nofollow noopener noreferrer" target="_blank">dena-Gutachten zur Wärmespeicherstrategie</a> beschreibt Speicher als zentrales Element, um Strom- und Wärmesystem zu koppeln. Erst mit Speicher wird aus PtH eine planbare Wärmequelle statt einer Notfalloption. Die Speichergröße ist dabei eine eigene Optimierungsaufgabe. Ist der Speicher zu klein, verpassen Sie lange Niedrigpreisphasen. Ist er zu groß, frisst das gebundene Kapital den Vorteil auf.</p>
+<h3 id="4-die-kombination-der-techniken" tabindex="-1">4. Die Kombination der Techniken</h3>
+<p>Die wirtschaftlichste Lösung ist selten eine einzelne Technik. Das österreichische Forschungsprojekt <a href="https://nachhaltigwirtschaften.at/de/sdz/projekte/p2h-pot-potentiale-wirtschaftlichkeit-und-systemloesungen-fuer-power-to-heat.php" rel="nofollow noopener noreferrer" target="_blank">P2H-Pot zu Potenzialen und Wirtschaftlichkeit von Power-to-Heat</a> untersucht PtH ausdrücklich als Teil von Systemlösungen. In der Praxis bewährt sich folgende Aufteilung: Die Wärmepumpe trägt die Grundlast, der Elektrokessel übernimmt Spitzen und Überschussstunden, dazu kommen ein Speicher und ein Bestandskessel als Absicherung. So reagiert das System gleichzeitig auf Preissignale und auf schwankenden Wärmebedarf. Wenn Sie als Kommune ein <a href="https://planegy.de/blog-nahwaermenetze-planung-wirtschaftlichkeit" target="_blank" rel="noopener">Nahwärmenetz auf Wirtschaftlichkeit prüfen</a>, gehört diese Erzeugerkombination in jede Variantenrechnung. Dasselbe gilt für den Vergleich mit KWK, den wir in unseren <a href="https://planegy.de/blog-bhkw-wirtschaftlichkeit" target="_blank" rel="noopener">drei Szenarien zur BHKW-Wirtschaftlichkeit</a> durchspielen.</p>
+<h3 id="5-zusatzerlose-und-forderung" tabindex="-1">5. Zusatzerlöse und Förderung</h3>
+<p>PtH kann mehr einbringen als vermiedene Brennstoffkosten. Zwei Quellen sind besonders relevant:</p>
+<ul>
+<li><strong>Nutzen statt Abregeln:</strong> Die Übertragungsnetzbetreiber haben sich gegenüber der <a href="https://bundesnetzagentur.de/DE/Beschlusskammern/BK08/BK8_05_EOG/59_BesonderhUENB/NutzenAbregeln/start.html" rel="nofollow noopener noreferrer" target="_blank">Bundesnetzagentur freiwillig verpflichtet</a>, Strom, der sonst abgeregelt würde, über KWK-Anlagen mit PtH zu nutzen. Dabei werden Kosten erstattet. Das kann den Betrieb auch dann tragen, wenn die reine Wärmeerzeugung knapp wäre. Ob Ihr Standort infrage kommt, hängt von der Netzsituation in Ihrer Region ab.</li>
+<li><strong>Regelleistung und Flexibilität:</strong> Die dena-Analyse nennt Einnahmen aus Systemdienstleistungen als Faktor, der die Rentabilität spürbar verbessert. Ein Elektrodenkessel lässt sich in Sekunden hoch- und herunterfahren und eignet sich technisch gut dafür.</li>
+</ul>
+<p>Auf der Investitionsseite greift vor allem die Bundesförderung für effiziente Wärmenetze. Welche Quoten gelten, erklären wir im Beitrag zur <a href="https://planegy.de/blog-bew-forderquote" target="_blank" rel="noopener">BEW-Förderquote 2026</a>. Für Wärmepumpen im Megawattbereich lohnt der Blick auf die <a href="https://planegy.de/blog-forderung-grosswarmepumpe" target="_blank" rel="noopener">Förderung von Großwärmepumpen</a>. Der Investitionsbedarf bleibt hoch: Für Wärmenetze bis 2045 schätzt die dena-Analyse rund 74 Mrd. €. Die Förderung soll helfen, kurzfristige Kostennachteile elektrischer Wärme gegenüber fossilen Kesseln auszugleichen, während der steigende CO₂-Preis Erdgas schrittweise verteuert.</p>
+<h2 id="rechenbeispiel-elektrodenkessel-im-kommunalen-warmenetz" tabindex="-1">Rechenbeispiel: Elektrodenkessel im kommunalen Wärmenetz</h2>
+
+<p>Die folgenden Werte sind Annahmen zur Veranschaulichung, keine Marktdaten. Sie zeigen, wie empfindlich das Ergebnis auf wenige Größen reagiert.</p>
+<p><strong>Annahmen:</strong></p>
+<ul>
+<li>Elektrodenkessel mit 5 MW thermischer Leistung, ergänzt durch einen vorhandenen Speicher</li>
+<li>Investition inklusive Einbindung: 1,0 Mio. €</li>
+<li>1.500 Volllaststunden pro Jahr in Niedrigpreisphasen, das ergibt 7.500 MWh Wärme</li>
+<li>Wärme aus dem bestehenden Gaskessel inklusive CO₂-Kosten: 8 ct/kWh</li>
+<li>Effektiver Strompreis in den Einsatzstunden inklusive Netzentgelten und Umlagen: 6 ct/kWh</li>
+</ul>
+<p><strong>Ergebnis:</strong> Jede Kilowattstunde Wärme aus dem Elektrokessel ist 2 ct günstiger als aus dem Gaskessel. Bei 7.500 MWh sind das 150.000 € im Jahr. Die einfache Amortisation liegt damit bei knapp sieben Jahren, vor Förderung und ohne Zusatzerlöse.</p>
+<p><strong>Sensitivität:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Veränderung</th>
+<th>Ersparnis pro Jahr</th>
+<th>Einfache Amortisation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Basisfall</td>
+<td>150.000 €</td>
+<td>ca. 6,7 Jahre</td>
+</tr>
+<tr>
+<td>Effektiver Strompreis 7 ct statt 6 ct</td>
+<td>75.000 €</td>
+<td>ca. 13 Jahre</td>
+</tr>
+<tr>
+<td>Nur 1.000 statt 1.500 Volllaststunden</td>
+<td>100.000 €</td>
+<td>10 Jahre</td>
+</tr>
+<tr>
+<td>40 % Investitionsförderung</td>
+<td>150.000 €</td>
+<td>4 Jahre</td>
+</tr>
+<tr>
+<td>Zusatzerlöse aus Flexibilität 50.000 €/Jahr</td>
+<td>200.000 €</td>
+<td>5 Jahre</td>
+</tr>
+</tbody>
+</table>
+<p>Die Tabelle zeigt das Grundmuster: Ein Cent mehr beim effektiven Strompreis halbiert hier die Ersparnis. Wer Netzentgelte und die Zahl günstiger Stunden nicht sauber ermittelt, kann mit einer scheinbar soliden Anlage Geld verlieren. Umgekehrt machen Förderung und Flexibilitätserlöse aus einem Grenzfall eine robuste Investition. Für einen schnellen Vergleich verschiedener Erzeuger können Sie unseren <a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik-Rechner</a> nutzen. Für eine Investitionsentscheidung brauchen Sie Lastgänge und Preiszeitreihen aus mindestens einem vollen Jahr.</p>
+<h2 id="kleine-anlagen-heizstab-oder-brauchwasser-warmepumpe" tabindex="-1">Kleine Anlagen: Heizstab oder Brauchwasser-Wärmepumpe</h2>
+<p>Im Kleingewerbe stellt sich die Frage meist im Zusammenhang mit der eigenen Photovoltaikanlage. Hier verschiebt sich die Rechnung: Den Strom bewerten Sie nicht zum Netztarif, sondern mit der Einspeisevergütung, die Ihnen entgeht. Ein <a href="https://klima-geld.tech/photovoltaik/pv-warmwasser-heizstab-oder-waermepumpe" rel="nofollow noopener noreferrer" target="_blank">Vergleich von PV-Heizstab und Brauchwasser-Wärmepumpe</a> beziffert die Investition für ein stufenlos geregeltes Heizstabsystem auf etwa 900 bis 2.000 €, bei einer Amortisation von meist drei bis fünf Jahren. Die Brauchwasser-Wärmepumpe kostet vor Förderung etwa 2.800 bis 4.700 € und braucht fünf bis sieben Jahre. Dank einer Arbeitszahl von 3 bis 4 arbeitet sie aber auch im Winter effizient. Das Muster ist dasselbe wie bei großen Anlagen: Der Heizstab ist billig und nutzt Überschüsse, die Wärmepumpe spart dauerhaft.</p>
+<h2 id="in-sieben-schritten-zur-belastbaren-wirtschaftlichkeitsrechnung" tabindex="-1">In sieben Schritten zur belastbaren Wirtschaftlichkeitsrechnung</h2>
+<ol>
+<li><strong>Wärmebedarf erfassen:</strong> stündlicher Lastgang, Temperaturniveaus, Jahresdauerlinie. Ohne diese Daten bleibt jede Rechnung eine Schätzung.</li>
+<li><strong>Netzanschluss klären:</strong> verfügbare Leistung, Spannungsebene, Kosten und Zeitrahmen beim Netzbetreiber anfragen.</li>
+<li><strong>Strompreis realistisch abbilden:</strong> historische Day-Ahead-Zeitreihen plus alle standortbezogenen Entgelte, Umlagen und Steuern sowie mögliche Entlastungen.</li>
+<li><strong>Varianten bilden:</strong> Elektrokessel, Wärmepumpe und Kombination, jeweils mit unterschiedlichen Speichergrößen, daneben die fossile oder KWK-Referenz.</li>
+<li><strong>Fahrweise simulieren:</strong> stündliche Einsatzoptimierung über ein ganzes Jahr, nicht mit Durchschnittswerten.</li>
+<li><strong>Förderung und Zusatzerlöse prüfen:</strong> BEW, KfW, BAFA, Nutzen statt Abregeln, Regelleistung. Die Fördervoraussetzungen beeinflussen oft schon die Auslegung.</li>
+<li><strong>Sensitivitäten rechnen:</strong> Strompreis, Volllaststunden, CO₂-Preis, Zinsen. Belastbar ist eine Entscheidung erst, wenn sie auch in den ungünstigen Szenarien nicht kippt.</li>
+</ol>
+<p>Bei Anlagen im Megawattbereich kommen Genehmigungsfragen hinzu, etwa beim Umbau bestehender Kesselanlagen. Wie Fristen und Abläufe aussehen, beschreiben wir im Beitrag zum <a href="https://planegy.de/blog-genehmigungsprozess-energieanlagen" target="_blank" rel="noopener">Genehmigungsprozess für Energieanlagen</a>.</p>
+<h2 id="unsere-sicht-power-to-heat-ist-ein-baustein-kein-selbstzweck" tabindex="-1">Unsere Sicht: Power-to-Heat ist ein Baustein, kein Selbstzweck</h2>
+<p>Wir begleiten seit über 20 Jahren Projekte im Energiesektor, und eine Erfahrung wiederholt sich: Die Frage „Rechnet sich Power-to-Heat?“ ist zu eng gestellt. Die richtige Frage lautet, welche Erzeugerkombination Ihre Wärme über 20 Jahre am günstigsten, sichersten und klimafreundlichsten liefert. Und welche Rolle Strom darin spielt.</p>
+<p>Wir verkaufen keine eigenen Produkte und sind an keinen Hersteller gebunden. Deshalb bewerten wir alle Optionen nebeneinander: Großwärmepumpe, Elektrodenkessel, BHKW, Biomasse, BioLPG als Brückentechnologie oder Abwärme. In vielen Netzen ist PtH der flexible Partner, der günstige Stunden abschöpft, während eine andere Technik die Grundlast trägt. In anderen Fällen ist die Wärmepumpe selbst die Grundlast und der Elektrokessel deckt nur die Spitze. Und manchmal zeigt die ehrliche Rechnung, dass ein Standort wegen fehlender Netzkapazität erst später für PtH bereit ist.</p>
+<p>Was wir immer empfehlen: Rechnen Sie die Förderung von Anfang an mit, nicht als nachträglichen Bonus. Förderbedingungen prägen die Auslegung, und eine Anlage, die nicht förderfähig geplant wurde, lässt sich selten nachträglich passend machen. In unseren Projekten haben wir Förderungen von bis zu 1,2 Millionen Euro gesichert. Ein Betrag in dieser Größenordnung entscheidet bei Wärmeprojekten oft darüber, ob gebaut wird.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="wirtschaftlichkeit-prufen-lassen" tabindex="-1">Wirtschaftlichkeit prüfen lassen</h2>
+<p>Sie planen ein Wärmenetz, möchten einen Bestandskessel elektrifizieren oder stehen vor der kommunalen Wärmeplanung? PLANEGY erstellt technologieoffene Anlagenkonzepte und rechnet Varianten mit Speicher und Fahrweise durch. Wir begleiten Genehmigungsverfahren und übernehmen die Förderakquise aus BEW, KfW, BAFA und EU-Programmen. Als Stadtwerk finden Sie unser Angebot unter <a href="https://planegy.de/stadtwerke" target="_blank" rel="noopener">Lösungen für Stadtwerke und Energieversorger</a>, als Industriebetrieb unter <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieberatung für die Industrie</a>. Alle Leistungen im Überblick finden Sie auf unserer Seite zu <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Energieberatung, Anlagenkonzeption und Förderservice</a>.</p>
+<h2 id="haufige-fragen-zur-wirtschaftlichkeit-von-power-to-heat" tabindex="-1">Häufige Fragen zur Wirtschaftlichkeit von Power-to-Heat</h2>
+<h3 id="was-kostet-eine-power-to-heat-anlage" tabindex="-1">Was kostet eine Power-to-Heat-Anlage?</h3>
+<p>Das hängt stark von Technik und Leistung ab. Ein Technologie-Steckbrief nennt für Elektrodenkessel 125 bis 350 € je Kilowatt, Großwärmepumpen liegen deutlich darüber. Netzanschluss, Speicher, Einbindung und Steuerung kommen hinzu und können die Gesamtkosten erheblich erhöhen.</p>
+<h3 id="ab-welchem-strompreis-lohnt-sich-ein-elektrokessel" tabindex="-1">Ab welchem Strompreis lohnt sich ein Elektrokessel?</h3>
+<p>Ein Elektrokessel lohnt sich, wenn Ihr effektiver Strompreis inklusive Netzentgelten und Umlagen unter Ihren Wärmekosten aus dem bestehenden Kessel liegt. Weil er Strom eins zu eins umsetzt, gelingt das meist nur in Stunden mit sehr niedrigen oder negativen Börsenpreisen. Eine Wärmepumpe mit Arbeitszahl 3 darf dagegen etwa dreimal so viel für den Strom zahlen.</p>
+<h3 id="rechnet-sich-power-to-heat-ohne-warmespeicher" tabindex="-1">Rechnet sich Power-to-Heat ohne Wärmespeicher?</h3>
+<p>Nur selten. Ohne Speicher muss die Anlage laufen, wenn Wärme gebraucht wird, und nicht dann, wenn Strom günstig ist. Der Speicher entkoppelt beides und ist deshalb meist der wichtigste wirtschaftliche Hebel.</p>
+<h3 id="welche-forderung-gibt-es-fur-power-to-heat" tabindex="-1">Welche Förderung gibt es für Power-to-Heat?</h3>
+<p>Für Wärmenetze ist die Bundesförderung für effiziente Wärmenetze (BEW) das zentrale Programm. Für Unternehmen kommen je nach Vorhaben Programme von KfW und BAFA infrage. Welche Quote erreichbar ist, hängt von Technik, Netz und Antragsteller ab. Prüfen Sie die Voraussetzungen vor der Auslegung, nicht danach.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.bdew.de/service/daten-und-grafiken/bdew-strompreisanalyse/" rel="nofollow noopener noreferrer" target="_blank">BDEW-Strompreisanalyse Herbst 2026</a></li>
+<li><a href="https://www.bundesnetzagentur.de/SharedDocs/A_Z_Glossar/K/KWKG_Umlage.html" rel="nofollow noopener noreferrer" target="_blank">Bundesnetzagentur: KWKG-Umlage</a></li>
+<li><a href="https://bundesnetzagentur.de/DE/Beschlusskammern/BK08/BK8_05_EOG/59_BesonderhUENB/NutzenAbregeln/start.html" rel="nofollow noopener noreferrer" target="_blank">Bundesnetzagentur: Nutzen statt Abregeln</a></li>
+<li><a href="https://www.bundesnetzagentur.de/DE/Beschlusskammern/GBK/GBK_Termine/Downloads/2026/05_2026/1_Bundesnetzagentur.pdf?__blob=publicationFile&amp;v=5" rel="nofollow noopener noreferrer" target="_blank">Bundesnetzagentur: Präsentation Mai 2026</a></li>
+<li><a href="https://www.dena.de/fileadmin/dena/Publikationen/PDFs/2026/Analyse_Elektrifizierung_der_Fernwaerme.pdf" rel="nofollow noopener noreferrer" target="_blank">dena: Analyse zur Elektrifizierung der Fernwärme</a></li>
+<li><a href="https://www.dena.de/fileadmin/dena/Dokumente/Projektportrait/Energiepolitische_Beratung_des_Bundesministeriums_fuer_Wirtschaft_und_Klimaschutz/Gutachten_zur_Waermespeicherstrategie.pdf" rel="nofollow noopener noreferrer" target="_blank">dena: Gutachten zur Wärmespeicherstrategie</a></li>
+<li><a href="https://www.fh-westkueste-ite.de/wp-content/uploads/2026/05/ite_sief_heft002.pdf" rel="nofollow noopener noreferrer" target="_blank">FH Westküste: Überschussstrom für Fernwärme, Direktwandlung oder Wärmepumpe?</a></li>
+<li><a href="https://nachhaltigwirtschaften.at/de/sdz/projekte/p2h-pot-potentiale-wirtschaftlichkeit-und-systemloesungen-fuer-power-to-heat.php" rel="nofollow noopener noreferrer" target="_blank">P2H-Pot: Potenziale, Wirtschaftlichkeit und Systemlösungen für Power-to-Heat</a></li>
+<li><a href="https://sw-wiki.de/wp-content/uploads/2024/06/Technologie_Elektrodenkessel.pdf" rel="nofollow noopener noreferrer" target="_blank">Technologie-Steckbrief Elektrodenkessel</a></li>
+<li><a href="https://klima-geld.tech/photovoltaik/pv-warmwasser-heizstab-oder-waermepumpe" rel="nofollow noopener noreferrer" target="_blank">KlimaGeld.tech: PV-Warmwasser, Heizstab oder Wärmepumpe</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik Rechner – Heizsysteme vergleichen</a></li>
+<li><a href="https://planegy.de/blog-elektrifizierung-prozesswarme" target="_blank" rel="noopener">Elektrifizierung Prozesswärme: Was Entscheider wissen müssen</a></li>
+<li><a href="https://planegy.de/blog-power-to-heat-anlage-warme-aus-strom-fur-kommunen" target="_blank" rel="noopener">Power-to-Heat-Anlage: Wärme aus Strom für Kommunen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
