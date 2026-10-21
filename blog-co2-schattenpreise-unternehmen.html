@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CO₂-Schattenpreise für Unternehmen: Höhe wählen und richtig rechnen – PLANEGY</title>
+  <meta name="description" content="CO₂-Schattenpreis im Unternehmen: welche Höhe 2026 sinnvoll ist, wie Sie Investitionen damit bewerten und den internen CO₂-Preis in sechs Schritten einführen." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="CO₂-Schattenpreise für Unternehmen: Höhe wählen und richtig rechnen" />
+  <meta property="og:description" content="CO₂-Schattenpreis im Unternehmen: welche Höhe 2026 sinnvoll ist, wie Sie Investitionen damit bewerten und den internen CO₂-Preis in sechs Schritten einführen." />
+  <link rel="canonical" href="https://planegy.de/blog-co2-schattenpreise-unternehmen" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "CO₂-Schattenpreise für Unternehmen: Höhe wählen und richtig rechnen",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-21",
+    "description": "CO₂-Schattenpreis im Unternehmen: welche Höhe 2026 sinnvoll ist, wie Sie Investitionen damit bewerten und den internen CO₂-Preis in sechs Schritten einführen."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"⚡"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">CO₂-Schattenpreise für Unternehmen: Höhe wählen und richtig rechnen</span>
+    </div>
+    <div class="article-cat">Energie</div>
+    <h1>CO₂-Schattenpreise für Unternehmen: Höhe wählen und richtig rechnen</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>12 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="co-schattenpreise-fur-unternehmen-hohe-wahlen-und-richtig-rechnen" tabindex="-1">CO₂-Schattenpreise für Unternehmen: Höhe wählen und richtig rechnen</h1>
+
+<p>Ein CO₂-Schattenpreis ist ein interner Rechenwert pro Tonne CO₂. Mit ihm bewerten Sie Investitionen, Beschaffung und Projekte so, als hätten die Emissionen schon heute einen spürbaren Preis. Es fließt kein Geld, aber die Entscheidung ändert sich. Eine Anlage, die über 15 Jahre viel Erdgas verbrennt, sieht mit 150 € oder 350 € pro Tonne in der Wirtschaftlichkeitsrechnung anders aus als mit 0 €. Für Unternehmen in Deutschland ist das 2026 keine Theorie mehr. Der gesetzliche CO₂-Preis auf Brennstoffe steigt, und weitere Sektoren kommen in die Bepreisung. Wer heute eine Heizzentrale, einen Dampferzeuger oder eine Fahrzeugflotte plant, legt die Emissionen für ein bis zwei Jahrzehnte fest. Hier lesen Sie, welche Preishöhe sinnvoll ist, wie Sie rechnen und woran die Einführung in der Praxis meist scheitert.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">CO₂-Kosten fundiert in Entscheidungen einbeziehen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Unternehmen mit technologieoffener Energieberatung dabei, maßgeschneiderte Energielösungen von der Analyse bis zur Umsetzung zu entwickeln.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Energieberatung entdecken<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="tldr" tabindex="-1">TL;DR</h2>
+<ul>
+<li>Ein Schattenpreis ist ein <strong>Bewertungspreis</strong>, keine Abgabe: Er geht in Investitionsrechnungen und Vergaben ein, ohne dass Budgets belastet werden.</li>
+<li>Der gesetzliche Preis nach BEHG liegt 2026 in einem Korridor von <strong>55 bis 65 € pro Tonne</strong>. Das Umweltbundesamt beziffert die Klimaschadenskosten für 2026 dagegen auf <strong>350 bzw. 1.000 € pro Tonne</strong>.</li>
+<li>Ein brauchbarer Schattenpreis liegt zwischen diesen Polen und folgt einem <strong>ansteigenden Preispfad</strong>, der zur Laufzeit der Investition passt.</li>
+<li>Ohne belastbare Treibhausgasbilanz für Scope 1, 2 und 3 bleibt jeder interne CO₂-Preis wirkungslos.</li>
+<li>Den größten Hebel hat der Schattenpreis bei langlebigen Entscheidungen: Wärmeerzeugung, Prozessenergie, Gebäude, Flotte.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-ein-co-schattenpreis-ist-und-was-nicht">Was ein CO₂-Schattenpreis ist und was nicht</a></li>
+<li><a href="#welche-hohe-ist-sinnvoll-die-referenzwerte-fur">Welche Höhe ist sinnvoll? Die Referenzwerte für 2026</a></li>
+<li><a href="#rechenbeispiel-warmeerzeugung-mit-und-ohne-schattenpreis">Rechenbeispiel: Wärmeerzeugung mit und ohne Schattenpreis</a></li>
+<li><a href="#in-sechs-schritten-zum-internen-co-preis">In sechs Schritten zum internen CO₂-Preis</a></li>
+<li><a href="#haufige-fehler-in-der-praxis">Häufige Fehler in der Praxis</a></li>
+<li><a href="#wo-schattenpreise-schon-angewendet-werden">Wo Schattenpreise schon angewendet werden</a></li>
+<li><a href="#unsere-sicht-der-schattenpreis-ist-ein-planungswerkzeug-kein-etikett">Unsere Sicht: Der Schattenpreis ist ein Planungswerkzeug, kein Etikett</a></li>
+<li><a href="#von-der-zahl-zur-entscheidung-unterstutzung-durch-planegy">Von der Zahl zur Entscheidung: Unterstützung durch PLANEGY</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-ein-co-schattenpreis-ist-und-was-nicht" tabindex="-1">Was ein CO₂-Schattenpreis ist und was nicht</h2>
+<p>Ein interner Kohlenstoffpreis weist jeder emittierten Tonne einen Geldwert zu und erzeugt damit ein Preissignal im Unternehmen, so beschreibt es die <a href="https://allianz-entwicklung-klima.de/toolbox/was-ist-ein-interner-kohlenstoffpreis/" rel="nofollow noopener noreferrer" target="_blank">Stiftung Allianz für Entwicklung und Klima</a>. In der Praxis gibt es zwei Grundformen, wie ein <a href="https://cbey.yale.edu/sites/default/files/2019-09/Internal%20Carbon%20Pricing%20Report%20Feb%202019.pdf" rel="nofollow noopener noreferrer" target="_blank">Bericht des Yale Center for Business and the Environment</a> zeigt: die interne CO₂-Abgabe (Carbon Charge) und den Schattenpreis (Shadow Price). Beide setzen einen festen Preis pro Tonne, wirken aber unterschiedlich.</p>
+<p>Bei der <strong>internen Abgabe</strong> zahlen die Geschäftsbereiche tatsächlich: Die Emissionen werden ihrem Budget belastet, und das eingesammelte Geld fließt oft in einen internen Klimafonds. Beim <strong>Schattenpreis</strong> passiert das nicht. Er taucht nur dort auf, wo entschieden wird: in der Kapitalwertrechnung, im Angebotsvergleich, in der Lebenszykluskostenbetrachtung.</p>
+<table>
+<thead>
+<tr>
+<th>Instrument</th>
+<th>Fließt Geld?</th>
+<th>Wo wirkt es?</th>
+<th>Typischer Einsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CO₂-Schattenpreis</td>
+<td>Nein</td>
+<td>Investitions- und Vergabeentscheidungen</td>
+<td>Anlagen, Gebäude, Großprojekte</td>
+</tr>
+<tr>
+<td>Interne CO₂-Abgabe</td>
+<td>Ja, zwischen Bereichen</td>
+<td>Laufende Budgets, Verhalten</td>
+<td>Reisen, Energieverbrauch der Standorte</td>
+</tr>
+<tr>
+<td>Impliziter CO₂-Preis</td>
+<td>Nein</td>
+<td>Rückblickende Auswertung</td>
+<td>Kosten je vermiedener Tonne bisheriger Maßnahmen</td>
+</tr>
+<tr>
+<td>Gesetzlicher CO₂-Preis (BEHG, EU-ETS)</td>
+<td>Ja, an den Staat</td>
+<td>Energie- und Brennstoffkosten</td>
+<td>Pflicht für erfasste Brennstoffe und Anlagen</td>
+</tr>
+</tbody>
+</table>
+<p>Wichtig für die Abgrenzung: Den gesetzlichen Preis zahlen Sie ohnehin über Ihre Brennstoffrechnung, er ist ein realer Kostenblock. Der Schattenpreis ergänzt ihn dort, wo der gesetzliche Preis künftige Kosten und Risiken noch nicht abbildet. Wie sich der heutige Brennstoffpreis in Ihrer Kalkulation niederschlägt, zeigt unser Beitrag zum <a href="https://planegy.de/blog-co2-preis-deutschland" target="_blank" rel="noopener">CO₂-Preis in Deutschland mit Rechenbeispielen</a>.</p>
+<h2 id="welche-hohe-ist-sinnvoll-die-referenzwerte-fur" tabindex="-1">Welche Höhe ist sinnvoll? Die Referenzwerte für 2026</h2>
+<p>Die schwierigste Frage ist die nach dem Betrag. Einen „richtigen“ Schattenpreis gibt es nicht. Es gibt aber belastbare Ankerpunkte, zwischen denen Sie sich bewegen können.</p>
+<h3 id="untergrenze-der-gesetzliche-preis-nach-behg" tabindex="-1">Untergrenze: der gesetzliche Preis nach BEHG</h3>
+<p>Das <a href="https://www.gesetze-im-internet.de/behg/BJNR272800019.html" rel="nofollow noopener noreferrer" target="_blank">Brennstoffemissionshandelsgesetz</a> legt fest, was Inverkehrbringer von Brennstoffen pro Zertifikat zahlen. Diese Kosten geben sie über den Energiepreis an Sie weiter. 2025 galt ein Festpreis von 55 € pro Tonne, für 2026 gilt ein Preiskorridor von 55 bis 65 €. Ab 2027 ist der Übergang zu einer marktbasierten Preisbildung vorgesehen. Wie hoch der Preis dann liegt, kann heute niemand verbindlich sagen. Genau diese Unsicherheit spricht für einen Schattenpreis: Wer nur mit 65 € rechnet, unterstellt stillschweigend, dass der Preis bis 2040 nicht steigt.</p>
+
+<h3 id="obergrenze-die-klimaschadenskosten-des-umweltbundesamts" tabindex="-1">Obergrenze: die Klimaschadenskosten des Umweltbundesamts</h3>
+<p>Das <a href="https://www.umweltbundesamt.de/system/files/medien/479/publikationen/2026-02/UBA_Handbuch%20Umweltkosten_Methodenkonvention%204.0.pdf" rel="nofollow noopener noreferrer" target="_blank">Handbuch Umweltkosten, Methodenkonvention 4.0 des Umweltbundesamts</a> von Februar 2026 empfiehlt für 2026 Kostensätze von 1.000 € pro Tonne CO₂-Äquivalent bei einer reinen Zeitpräferenzrate von 0 % und 350 € bei 1 %. Für 2025 sind es 990 € bzw. 345 €. Das sind Schätzungen der gesamtwirtschaftlichen Schäden, keine Marktpreise. Sie zeigen, was eine Tonne die Gesellschaft kostet. Deshalb eignen sie sich vor allem für öffentliche Auftraggeber und für Unternehmen mit ehrgeizigen Klimazielen.</p>
+<h3 id="der-korridor-dazwischen" tabindex="-1">Der Korridor dazwischen</h3>
+<table>
+<thead>
+<tr>
+<th>Ankerpunkt</th>
+<th>Wert 2026 pro Tonne</th>
+<th>Was er abbildet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BEHG-Mindestpreis</td>
+<td>55 €</td>
+<td>Heutige Mindestkosten auf Brennstoffe</td>
+</tr>
+<tr>
+<td>BEHG-Höchstpreis</td>
+<td>65 €</td>
+<td>Heutige Obergrenze des Korridors</td>
+</tr>
+<tr>
+<td>UBA-Kostensatz bei 1 % Zeitpräferenz</td>
+<td>350 €</td>
+<td>Klimaschäden, Gegenwart leicht höher gewichtet</td>
+</tr>
+<tr>
+<td>UBA-Kostensatz bei 0 % Zeitpräferenz</td>
+<td>1.000 €</td>
+<td>Klimaschäden, alle Generationen gleich gewichtet</td>
+</tr>
+</tbody>
+</table>
+<p>Für die meisten mittelständischen Unternehmen bewährt sich ein <strong>gestufter Preispfad</strong> statt eines festen Werts. Sie starten oberhalb des gesetzlichen Preises und erhöhen den Satz jährlich bis zu einem Zielwert, der zur Lebensdauer Ihrer Anlagen passt. Ein Industriebetrieb, der einen Dampferzeuger für 20 Jahre plant, sollte das Ende dieser Laufzeit einpreisen, nicht das Jahr der Inbetriebnahme. Entscheidend ist weniger die genaue Zahl als drei Eigenschaften: Der Pfad ist dokumentiert, er gilt für alle Bereiche gleich, und er wird regelmäßig überprüft.</p>
+<p>Drei Leitfragen helfen bei der Festlegung:</p>
+<ol>
+<li><strong>Was ist Ihr Klimaziel?</strong> Wer bis 2040 klimaneutral sein will, braucht einen Preis, der die nötigen Maßnahmen tatsächlich wirtschaftlich macht. Die Kosten je vermiedener Tonne Ihrer geplanten Maßnahmen geben einen guten Hinweis.</li>
+<li><strong>Wie lange laufen Ihre Investitionen?</strong> Je länger die Nutzungsdauer, desto stärker zählt der künftige Preis.</li>
+<li><strong>Welches Risiko tragen Sie?</strong> Energieintensive Betriebe mit hohem Brennstoffeinsatz sind stärker betroffen als ein Dienstleister mit Büroflächen.</li>
+</ol>
+<h2 id="rechenbeispiel-warmeerzeugung-mit-und-ohne-schattenpreis" tabindex="-1">Rechenbeispiel: Wärmeerzeugung mit und ohne Schattenpreis</h2>
+<p>Wie stark ein Schattenpreis eine Entscheidung verschiebt, zeigt ein vereinfachtes, ausgedachtes Beispiel. Ein Produktionsbetrieb muss seine Wärmeerzeugung erneuern und vergleicht zwei Varianten:</p>
+<ul>
+<li><strong>Variante A:</strong> Ersatz des Gaskessels durch einen neuen Gaskessel. Mehrinvestition: 0 €. Emissionen: 500 t CO₂ pro Jahr.</li>
+<li><strong>Variante B:</strong> Hybridlösung mit Wärmepumpe und Spitzenlastkessel. Mehrinvestition gegenüber A: 260.000 €. Emissionen: 150 t CO₂ pro Jahr.</li>
+</ul>
+<p>Die Differenz beträgt 350 t CO₂ pro Jahr. Mit unterschiedlichen Schattenpreisen bewertet ergibt sich folgendes Bild, der Einfachheit halber ohne Abzinsung, ohne Förderung und ohne Unterschiede bei den Energiekosten:</p>
+<table>
+<thead>
+<tr>
+<th>Schattenpreis pro Tonne</th>
+<th>Bewertete CO₂-Ersparnis pro Jahr</th>
+<th>Über 15 Jahre</th>
+<th>Amortisation der Mehrinvestition allein über CO₂</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>65 €</td>
+<td>22.750 €</td>
+<td>341.250 €</td>
+<td>rund 11,4 Jahre</td>
+</tr>
+<tr>
+<td>150 €</td>
+<td>52.500 €</td>
+<td>787.500 €</td>
+<td>rund 5,0 Jahre</td>
+</tr>
+<tr>
+<td>350 €</td>
+<td>122.500 €</td>
+<td>1.837.500 €</td>
+<td>rund 2,1 Jahre</td>
+</tr>
+</tbody>
+</table>
+<p>Mit dem heutigen gesetzlichen Höchstpreis ist Variante B gerade noch vertretbar. Mit einem Schattenpreis von 150 € wird sie zur klar besseren Wahl, mit 350 € zur einzig sinnvollen. In einer echten Rechnung kommen Energiekosten, Wartung, Förderung und Abzinsung hinzu, die das Ergebnis in beide Richtungen verschieben können. Wie wir solche Szenarien mit Sensitivitäten aufbauen, zeigen wir am Beispiel der <a href="https://planegy.de/blog-bhkw-wirtschaftlichkeit" target="_blank" rel="noopener">BHKW-Wirtschaftlichkeit 2026</a>.</p>
+<p>Wichtig: Schlagen Sie den Schattenpreis nicht zusätzlich auf den gesetzlichen Preis auf, der schon in Ihrem Gaspreis steckt. Sauber ist eine von zwei Varianten: Entweder Sie verwenden den Schattenpreis als Gesamtwert und rechnen den BEHG-Anteil heraus, oder Sie setzen nur die Differenz zwischen Schattenpreis und gesetzlichem Preis als Aufschlag an. Sonst zählen Sie dieselbe Tonne doppelt.</p>
+<h2 id="in-sechs-schritten-zum-internen-co-preis" tabindex="-1">In sechs Schritten zum internen CO₂-Preis</h2>
+<p>Die Einführung scheitert selten am Preis, meist an der Datenbasis. <a href="https://www.haufe.de/sustainability/umwelt/interner-co2-preis-in-unternehmen_575774_626766.html" rel="nofollow noopener noreferrer" target="_blank">Haufe Sustainability</a> beschreibt, dass weitere Sektoren absehbar in die gesetzliche Bepreisung kommen und Unternehmen sich auf steigende Kosten einstellen müssen. Ohne genaue Emissionsdaten bleibt ein interner Preis aber ein Modell, das nichts steuert.</p>
+<ol>
+<li><strong>Treibhausgasbilanz aufstellen.</strong> Erfassen Sie Scope 1 (eigene Verbrennung), Scope 2 (eingekaufte Energie) und die wichtigen Kategorien aus Scope 3. Wie das geht, erklären wir in unserem Leitfaden zur <a href="https://planegy.de/blog-co2-bilanz-unternehmen" target="_blank" rel="noopener">CO₂-Bilanz für Unternehmen</a> und im Überblick zu <a href="https://planegy.de/blog-scope-1-2-3" target="_blank" rel="noopener">Scope 1, 2 und 3</a>.</li>
+<li><strong>Anwendungsbereich festlegen.</strong> Starten Sie mit Investitionen über einer Schwelle, etwa ab 50.000 €, und mit Anlagen, die länger als zehn Jahre laufen. Dort wirkt der Preis am stärksten.</li>
+<li><strong>Preispfad beschließen.</strong> Leiten Sie den Pfad aus Ihrem Reduktionsziel und den Referenzwerten ab. Lassen Sie ihn von der Geschäftsführung freigeben, damit er für alle Bereiche verbindlich ist.</li>
+<li><strong>Methodik verankern.</strong> Ergänzen Sie Ihre Vorlagen für Investitionsanträge und Angebotsvergleiche um eine Zeile für bewertete CO₂-Kosten. Legen Sie fest, welche Emissionsfaktoren gelten und ob Sie Lebenszyklusemissionen einbeziehen.</li>
+<li><strong>Systeme anbinden.</strong> Wirksame Systeme ordnen Emissionen automatisch den Verursachern zu, also Standorten, Kostenstellen oder Projekten. Das gelingt nur mit einer Anbindung an das ERP-System. Welche Kennzahlen Sie dafür im Dashboard brauchen, steht in unserem Beitrag zu <a href="https://planegy.de/blog-esg-dashboard-kpis" target="_blank" rel="noopener">ESG-Dashboard-KPIs</a>.</li>
+<li><strong>Überprüfen und nachschärfen.</strong> Prüfen Sie den Pfad jährlich: Hat sich der gesetzliche Preis verändert? Wurden Entscheidungen tatsächlich anders getroffen? Ein Schattenpreis, der nie eine Entscheidung gekippt hat, ist zu niedrig.</li>
+</ol>
+<h2 id="haufige-fehler-in-der-praxis" tabindex="-1">Häufige Fehler in der Praxis</h2>
+<p><strong>Der Preis ist zu niedrig.</strong> Wer den Schattenpreis auf das Niveau des aktuellen BEHG-Preises setzt, bildet nur ab, was ohnehin in der Energierechnung steckt. Eine Lenkungswirkung entsteht erst darüber.</p>
+<p><strong>Der Preis gilt nur für Scope 1.</strong> Bei vielen Betrieben liegen die größten Emissionen in der eingekauften Energie oder in der Lieferkette. Ein Preis, der nur die eigene Verbrennung erfasst, lenkt Entscheidungen im Zweifel auf Varianten mit höheren Emissionen in der Vorkette.</p>
+<p><strong>Keine Verbindlichkeit.</strong> Ein Schattenpreis, der „zur Information“ neben der eigentlichen Rechnung steht, wird ignoriert. Er gehört in die Kennzahl, nach der entschieden wird, also in Kapitalwert oder Lebenszykluskosten.</p>
+<p><strong>Doppelzählung.</strong> Wie im Rechenbeispiel beschrieben: Gesetzlicher und interner Preis dürfen sich nicht addieren.</p>
+<p><strong>Fehlende Kommunikation.</strong> Einkauf, Technik und Controlling müssen verstehen, warum eine teurere Anlage plötzlich gewinnt. Sonst entsteht der Eindruck, Nachhaltigkeit verteuere Projekte willkürlich.</p>
+
+<h2 id="wo-schattenpreise-schon-angewendet-werden" tabindex="-1">Wo Schattenpreise schon angewendet werden</h2>
+<p>Schattenpreise sind kein Nischeninstrument. Die <a href="https://documents1.worldbank.org/curated/en/099553203142424068/pdf/IDU1c94753bb1819e14c781831215580060675b1.pdf" rel="nofollow noopener noreferrer" target="_blank">Weltbank</a> hat sich verpflichtet, CO₂-Schattenpreise in der ökonomischen Analyse aller Investitionsprojektfinanzierungen von IBRD und IDA zu verwenden. Die <a href="https://www.ebrd.com/home/news-and-events/news/2019/what-is-shadow-carbon-pricing.html" rel="nofollow noopener noreferrer" target="_blank">Europäische Bank für Wiederaufbau und Entwicklung</a> bewertet damit Kraftwerke und Anlagen der Schwerindustrie, die sie finanzieren könnte. Wer Projekte mit Entwicklungs- oder Förderbanken plant, begegnet dem Konzept also ohnehin.</p>
+<p>In Deutschland nutzt die öffentliche Hand das Instrument zunehmend. Baden-Württemberg hat den <a href="https://um.baden-wuerttemberg.de/de/klima-energie/klimaschutz/klimagesetz-baden-wuerttemberg/co2-schattenpreis" rel="nofollow noopener noreferrer" target="_blank">CO₂-Schattenpreis im Klimaschutzgesetz</a> verankert, damit die Kosten von Emissionen bei Entscheidungen des Landes sichtbar werden. Die Einzelheiten regelt eine eigene Verordnung. Auch Vergabestellen beziehen Klimakosten in Lebenszykluskostenvergleiche ein. Für Unternehmen, die an öffentliche Auftraggeber liefern, heißt das: Emissionsarme Angebote können sich bei der Wertung durchsetzen, auch wenn sie im reinen Preis höher liegen. Wer die eigenen Emissionen kennt und belegen kann, ist hier im Vorteil.</p>
+<p>Für Kommunen gilt das doppelt. Bei der kommunalen Wärmeplanung und bei Investitionen in Nahwärme entscheidet die Bewertung der CO₂-Kosten mit darüber, welche Versorgungsvariante als wirtschaftlich gilt.</p>
+<h2 id="unsere-sicht-der-schattenpreis-ist-ein-planungswerkzeug-kein-etikett" tabindex="-1">Unsere Sicht: Der Schattenpreis ist ein Planungswerkzeug, kein Etikett</h2>
+<p>Wir begleiten seit über 20 Jahren Industriebetriebe, Mittelständler, Stadtwerke und Kommunen bei Energieentscheidungen. Unsere Erfahrung: Der interne CO₂-Preis wirkt dort am stärksten, wo er auf eine ehrliche Bewertung aller Technologien trifft. Ein hoher Schattenpreis hilft wenig, wenn von Anfang an nur eine Technik auf dem Tisch liegt.</p>
+<p>Deshalb rechnen wir technologieoffen. Wir vergleichen Wärmepumpe, Nahwärme, BHKW, Gasturbine, Dampferzeuger und erneuerbare Brennstoffe wie BioLPG nebeneinander, ohne eigene Produkte oder Herstellerinteressen. Gerade in Betrieben, in denen eine vollständige Elektrifizierung kurzfristig nicht machbar ist, kann eine Brückentechnologie mit deutlich geringeren Emissionen die bessere Wahl sein: Mit BioLPG haben wir CO₂-Reduktionen von bis zu 90 % erreicht. Ob das an Ihrem Standort funktioniert, hängt auch von der <a href="https://planegy.de/blog-biolpg-verfugbarkeit-deutschland" target="_blank" rel="noopener">Verfügbarkeit von BioLPG in Deutschland</a> ab.</p>
+<p>Den zweiten Punkt sehen wir in jedem Projekt: Schattenpreis und Fördermittel gehören in dieselbe Rechnung. Eine Variante, die mit CO₂-Bewertung knapp vorne liegt, wird mit einer Förderung aus BEW, KfW, BAFA oder EU-Programmen oft eindeutig. Wir haben für Kunden Förderungen von bis zu 1,2 Millionen Euro gesichert. Wer den Schattenpreis einführt, ohne die Förderlandschaft mitzudenken, verschenkt einen Teil der Wirkung. Und schließlich muss der Preis in einen <a href="https://planegy.de/blog-co2-reduktionspfad-industrie" target="_blank" rel="noopener">CO₂-Reduktionspfad</a> eingebettet sein, sonst bleibt er eine Zahl im Controlling.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="von-der-zahl-zur-entscheidung-unterstutzung-durch-planegy" tabindex="-1">Von der Zahl zur Entscheidung: Unterstützung durch PLANEGY</h2>
+<p>Sie wollen einen internen CO₂-Preis einführen oder eine konkrete Investition mit Schattenpreis bewerten? Dann unterstützen wir Sie von der Bilanz bis zur Umsetzung: mit Treibhausgasbilanzierung, technologieoffenen Variantenvergleichen, Fördermittelakquise und automatisiertem ESG-Reporting mit ERP-Anbindung. Für Unternehmen und Kommunen, die das Thema dauerhaft betreuen lassen möchten, bieten wir <a href="https://planegy.de/klimamanager-service" target="_blank" rel="noopener">Klimaschutzmanagement im Abo</a> an. Einen Überblick über alle Bereiche finden Sie auf unserer Seite zu den <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen von PLANEGY</a>. Für produzierende Betriebe gibt es eine eigene Seite zur <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieberatung für die Industrie</a>.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="wie-hoch-ist-der-co-preis-aktuell" tabindex="-1">Wie hoch ist der CO₂-Preis aktuell?</h3>
+<p>Für Brennstoffe nach dem BEHG gilt 2026 ein Preiskorridor von 55 bis 65 € pro Tonne CO₂. Ab 2027 ist eine marktbasierte Preisbildung vorgesehen. Ein interner Schattenpreis liegt in der Regel deutlich darüber, weil er künftige Preise und Klimaschäden abbilden soll.</p>
+<h3 id="ist-ein-interner-co-preis-fur-unternehmen-pflicht" tabindex="-1">Ist ein interner CO₂-Preis für Unternehmen Pflicht?</h3>
+<p>Eine allgemeine gesetzliche Pflicht, einen internen CO₂-Preis anzuwenden, gibt es für Unternehmen in Deutschland nicht. Banken, Investoren und Großkunden fragen aber zunehmend nach, wie Unternehmen Klimarisiken in ihren Entscheidungen berücksichtigen, und auch in Nachhaltigkeitsberichten wird das Thema wichtiger. Ob Ihr Bericht dazu Angaben enthalten muss, klären Sie am besten mit Ihrem Wirtschaftsprüfer oder Ihrer CSRD-Beratung.</p>
+<h3 id="was-ist-der-unterschied-zwischen-schattenpreis-und-interner-co-abgabe" tabindex="-1">Was ist der Unterschied zwischen Schattenpreis und interner CO₂-Abgabe?</h3>
+<p>Der Schattenpreis ist ein reiner Rechenwert für Entscheidungen, es fließt kein Geld. Die interne Abgabe belastet die Budgets der Geschäftsbereiche tatsächlich, die Einnahmen fließen oft in einen Klimafonds. Viele Unternehmen starten mit dem Schattenpreis, weil er sich leichter einführen lässt.</p>
+<h3 id="fur-welche-emissionen-sollte-der-schattenpreis-gelten" tabindex="-1">Für welche Emissionen sollte der Schattenpreis gelten?</h3>
+<p>Mindestens für Scope 1 und Scope 2, also für die eigene Verbrennung und die eingekaufte Energie. Wo die Datenlage es erlaubt, sollten Sie wesentliche Scope-3-Kategorien wie eingekaufte Materialien einbeziehen. So verhindern Sie, dass Entscheidungen Emissionen in die Lieferkette verschieben.</p>
+<h3 id="wie-oft-sollte-der-schattenpreis-angepasst-werden" tabindex="-1">Wie oft sollte der Schattenpreis angepasst werden?</h3>
+<p>Mindestens einmal im Jahr, am besten abgestimmt auf Ihren Budgetprozess. Anlass für eine Überprüfung sind auch Änderungen beim gesetzlichen CO₂-Preis oder neue Klimaziele des Unternehmens.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://allianz-entwicklung-klima.de/toolbox/was-ist-ein-interner-kohlenstoffpreis/" rel="nofollow noopener noreferrer" target="_blank">Stiftung Allianz für Entwicklung und Klima: Was ist ein interner Kohlenstoffpreis?</a></li>
+<li><a href="https://cbey.yale.edu/sites/default/files/2019-09/Internal%20Carbon%20Pricing%20Report%20Feb%202019.pdf" rel="nofollow noopener noreferrer" target="_blank">Yale Center for Business and the Environment: Internal Carbon Pricing</a></li>
+<li><a href="https://www.gesetze-im-internet.de/behg/BJNR272800019.html" rel="nofollow noopener noreferrer" target="_blank">Brennstoffemissionshandelsgesetz (BEHG)</a></li>
+<li><a href="https://www.umweltbundesamt.de/system/files/medien/479/publikationen/2026-02/UBA_Handbuch%20Umweltkosten_Methodenkonvention%204.0.pdf" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt: Handbuch Umweltkosten, Methodenkonvention 4.0</a></li>
+<li><a href="https://www.haufe.de/sustainability/umwelt/interner-co2-preis-in-unternehmen_575774_626766.html" rel="nofollow noopener noreferrer" target="_blank">Haufe Sustainability: Interner CO₂-Preis in Unternehmen</a></li>
+<li><a href="https://documents1.worldbank.org/curated/en/099553203142424068/pdf/IDU1c94753bb1819e14c781831215580060675b1.pdf" rel="nofollow noopener noreferrer" target="_blank">Weltbank: The Shadow Price of Carbon in Economic Analysis</a></li>
+<li><a href="https://www.ebrd.com/home/news-and-events/news/2019/what-is-shadow-carbon-pricing.html" rel="nofollow noopener noreferrer" target="_blank">EBRD: What is shadow carbon pricing?</a></li>
+<li><a href="https://um.baden-wuerttemberg.de/de/klima-energie/klimaschutz/klimagesetz-baden-wuerttemberg/co2-schattenpreis" rel="nofollow noopener noreferrer" target="_blank">Umweltministerium Baden-Württemberg: CO₂-Schattenpreis</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-co2-preis-deutschland" target="_blank" rel="noopener">CO2-Preis 55–65 €/t in Deutschland: Praxis, Rechenbeispiele</a></li>
+<li><a href="https://planegy.de/blog-co2-bilanz-unternehmen" target="_blank" rel="noopener">CO₂-Bilanz für Unternehmen: So erstellen Sie Ihren CCF</a></li>
+<li><a href="https://planegy.de/blog-scope-1-2-3" target="_blank" rel="noopener">Scope 1, 2 und 3: Definition und Reduktion für Unternehmen</a></li>
+<li><a href="https://planegy.de/blog-co2-reduktionspfad-industrie" target="_blank" rel="noopener">CO2-Reduktionspfad für die Industrie: So gelingt die Umsetzung</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
