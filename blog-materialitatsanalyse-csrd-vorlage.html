@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materialitätsanalyse nach CSRD: Vorlage, Ablauf und Matrix 2026 – PLANEGY</title>
+  <meta name="description" content="Vorlage für die doppelte Wesentlichkeitsanalyse nach CSRD: Spalten, Bewertungsskalen, Schwellenwerte, Matrix und die Dokumentation, die Prüfer 2026 sehen wollen." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Materialitätsanalyse nach CSRD: Vorlage, Ablauf und Matrix 2026" />
+  <meta property="og:description" content="Vorlage für die doppelte Wesentlichkeitsanalyse nach CSRD: Spalten, Bewertungsskalen, Schwellenwerte, Matrix und die Dokumentation, die Prüfer 2026 sehen wollen." />
+  <link rel="canonical" href="https://planegy.de/blog-materialitatsanalyse-csrd-vorlage" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Materialitätsanalyse nach CSRD: Vorlage, Ablauf und Matrix 2026",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-22",
+    "description": "Vorlage für die doppelte Wesentlichkeitsanalyse nach CSRD: Spalten, Bewertungsskalen, Schwellenwerte, Matrix und die Dokumentation, die Prüfer 2026 sehen wollen."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#3b0764,#7c3aed); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"📊"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#7c3aed; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Materialitätsanalyse nach CSRD: Vorlage, Ablauf und Matrix 2026</span>
+    </div>
+    <div class="article-cat">ESG / CSRD</div>
+    <h1>Materialitätsanalyse nach CSRD: Vorlage, Ablauf und Matrix 2026</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>12 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="materialitatsanalyse-nach-csrd-vorlage-ablauf-und-matrix" tabindex="-1">Materialitätsanalyse nach CSRD: Vorlage, Ablauf und Matrix 2026</h1>
+
+<p>Eine gute Vorlage für die Materialitätsanalyse nach CSRD ist kein hübsches Diagramm. Sie ist eine Tabelle, die jede Auswirkung, jedes Risiko und jede Chance (IRO) einzeln erfasst, sie getrennt nach Auswirkungs- und finanzieller Wesentlichkeit bewertet, einen begründeten Schwellenwert anlegt und für jedes Thema festhält, warum es berichtet wird oder nicht. Auf dieser Seite finden Sie den Aufbau einer solchen Vorlage Spalte für Spalte, den Ablauf in drei Schritten, Beispielskalen, die richtige Darstellung als Matrix und die Fehler, an denen Prüfungen scheitern. Dazu kommt der Regelstand im Oktober 2026 mit den vereinfachten ESRS.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="split" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="display:flex;flex-wrap:wrap;"><div style="flex:1 0 36%;min-width:220px;box-sizing:border-box;padding:30px 76px 30px 26px;color:#ffffff;background:linear-gradient(104deg,#0c3c65 0%,#07233a 82%,rgba(0,0,0,0) 82.15%);"><div style="margin:0 0 14px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#ffffff;color:#0f4b7e;">PLANEGY</span></div><div style="font-size:12px;opacity:0.75;">planegy.de</div></div><div style="flex:999 1 300px;min-width:0;padding:30px 28px;"><div style="font-size:23px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">ESG-Reporting mit Energiedaten fundieren</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 22px;">PLANEGY unterstützt Unternehmen mit technologieoffener Energieberatung und automatisierten ESG-Reporting-Dashboards bei nachhaltigen Energielösungen.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">PLANEGY kennenlernen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li><strong>Materialitätsanalyse und Wesentlichkeitsanalyse meinen dasselbe.</strong> Die CSRD verlangt die doppelte Wesentlichkeit: Ihre Auswirkungen auf Mensch und Umwelt (Inside-Out) und die finanziellen Folgen von Nachhaltigkeitsthemen für Ihr Unternehmen (Outside-In).</li>
+<li><strong>Ein Thema ist wesentlich, wenn es in einer der beiden Perspektiven die Schwelle überschreitet.</strong> Beide Bewertungen bleiben getrennt und werden nie zu einem Gesamtscore verrechnet.</li>
+<li><strong>Die Matrix ist keine Pflicht.</strong> Prüfer wollen den dokumentierten IRO-Prozess, die Begründung jeder Einstufung und die Herleitung der Schwellenwerte sehen.</li>
+<li><strong>Für das Geschäftsjahr 2026 dürfen Sie zwischen altem und vereinfachtem ESRS-Regelwerk wählen</strong>, ab 2027 gelten die vereinfachten Standards verbindlich.</li>
+<li><strong>Jede Vorlage muss angepasst werden.</strong> Die EFRAG betont, dass es keine Einheitslösung für Methode und Schwellenwerte gibt.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-eine-csrd-vorlage-wirklich-leisten-muss">Was eine CSRD-Vorlage wirklich leisten muss</a></li>
+<li><a href="#regelstand-oktober-vereinfachte-esrs">Regelstand Oktober 2026: vereinfachte ESRS</a></li>
+<li><a href="#die-vorlage-aufbau-spalte-fur-spalte">Die Vorlage: Aufbau Spalte für Spalte</a></li>
+<li><a href="#der-ablauf-in-drei-schritten">Der Ablauf in drei Schritten</a></li>
+<li><a href="#skalen-und-schwellenwerte-ein-beispiel">Skalen und Schwellenwerte: ein Beispiel</a></li>
+<li><a href="#die-materialitatsmatrix-richtig-darstellen">Die Materialitätsmatrix richtig darstellen</a></li>
+<li><a href="#fehler-an-denen-vorlagen-scheitern">Fehler, an denen Vorlagen scheitern</a></li>
+<li><a href="#unsere-sicht-aus-der-energieberatung">Unsere Sicht aus der Energieberatung</a></li>
+<li><a href="#wesentlichkeitsanalyse-und-esg-reporting-mit-planegy">Wesentlichkeitsanalyse und ESG-Reporting mit PLANEGY</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-eine-csrd-vorlage-wirklich-leisten-muss" tabindex="-1">Was eine CSRD-Vorlage wirklich leisten muss</h2>
+<p>Die Wesentlichkeitsanalyse entscheidet, welche Themenstandards der ESRS Sie überhaupt berichten. Pflichtangaben nach ESRS 1 und ESRS 2 gelten immer, alles Weitere hängt vom Ergebnis der Analyse ab. Das fasst der <a href="https://aktuar.de/content/PDF/Fachwissen/2024-02-26_DAV_Ergebnisbericht_%C3%9Cberblick_%C3%BCber_die_Wesentlichkeitsanalyse_gem%C3%A4%C3%9F_CSRD.pdf" rel="nofollow noopener noreferrer" target="_blank">Ergebnisbericht der Deutschen Aktuarvereinigung zur Wesentlichkeitsanalyse</a> knapp zusammen: Die Offenlegung einzelner Nachhaltigkeitsaspekte hängt von ihrer Bedeutung für das Unternehmen ab. Die Analyse bestimmt also den Umfang Ihres gesamten Berichts und damit auch den Aufwand für Datenerhebung und Prüfung.</p>
+<p>Daraus folgt, was eine Vorlage können muss:</p>
+<ol>
+<li><strong>Vollständigkeit belegen.</strong> Sie zeigt, dass alle ESRS-Themen geprüft wurden, einschließlich der vor- und nachgelagerten Wertschöpfungskette.</li>
+<li><strong>Zwei Bewertungen getrennt führen.</strong> Auswirkungswesentlichkeit und finanzielle Wesentlichkeit stehen in eigenen Spalten mit eigenen Skalen.</li>
+<li><strong>Schwellenwerte offenlegen.</strong> Wo die Grenze liegt und warum, steht in der Vorlage selbst, nicht im Kopf der Projektleitung.</li>
+<li><strong>Begründungen und Quellen festhalten.</strong> Jede Einstufung verweist auf Daten, Gespräche oder Dokumente.</li>
+<li><strong>Fortschreibbar sein.</strong> Die Analyse wird jährlich überprüft, Änderungen müssen nachvollziehbar bleiben.</li>
+</ol>
+<p>Wer den Hintergrund der beiden Perspektiven vertiefen will, findet ihn in unserem <a href="https://planegy.de/blog-doppelwesentlichkeit-analyse" target="_blank" rel="noopener">Praxisleitfaden zur doppelten Wesentlichkeitsanalyse</a>.</p>
+<h2 id="regelstand-oktober-vereinfachte-esrs" tabindex="-1">Regelstand Oktober 2026: vereinfachte ESRS</h2>
+<p>Am 21. September 2026 wurde die <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=intcom%3AC%282026%295010" rel="nofollow noopener noreferrer" target="_blank">Delegierte Verordnung (EU) 2026/5010</a> mit vereinfachten ESRS veröffentlicht. Sie gilt verbindlich für Geschäftsjahre ab dem 1. Januar 2027. Für das Geschäftsjahr 2026 dürfen berichtspflichtige Unternehmen wählen, ob sie schon die vereinfachten Standards oder das bisherige Regelwerk anwenden.</p>
+<p>Für die Wesentlichkeitsanalyse sind zwei Punkte praktisch relevant:</p>
+<ul>
+<li><strong>Top-down statt kleinteilig.</strong> Die vereinfachten Standards erlauben einen Top-Down-Ansatz (ESRS 1, AR 16). Sie müssen nicht jedes Unter-Unterthema von unten nach oben durchprüfen, sofern Sie die strategische Relevanz anders begründen können. Gerade im Mittelstand spart das viele Workshop-Stunden.</li>
+<li><strong>Kein Anspruch auf Vollbedienung jedes Nutzers.</strong> Der Text stellt klar, dass Unternehmen nicht die spezifischen Informationsbedürfnisse jedes einzelnen Berichtsnutzers erfüllen müssen.</li>
+</ul>
+<p>Die Grundlogik bleibt aber: doppelte Wesentlichkeit, IRO-basierte Bewertung, dokumentierte Schwellenwerte. Eine Vorlage, die Sie 2025 sauber aufgebaut haben, müssen Sie nicht verwerfen. Prüfen Sie aber, ob Sie für 2026 bewusst und dokumentiert eines der beiden Regelwerke gewählt haben. Ob und ab wann Ihr Unternehmen überhaupt berichtspflichtig ist, klären wir in unserem Beitrag zu den <a href="https://planegy.de/blog-csrd-pflichten-unternehmen" target="_blank" rel="noopener">CSRD-Pflichten für Unternehmen</a>.</p>
+<h2 id="die-vorlage-aufbau-spalte-fur-spalte" tabindex="-1">Die Vorlage: Aufbau Spalte für Spalte</h2>
+<p>Die folgende Struktur können Sie direkt in Excel oder Ihr Reporting-Tool übernehmen. Jede Zeile ist ein IRO, nicht ein Thema. Ein Thema wie Klimawandel (ESRS E1) hat in einem Industriebetrieb typischerweise mehrere Zeilen: die Emissionen der eigenen Anlagen, das Risiko steigender CO₂-Preise, die Chance auf Effizienzgewinne.</p>
+<table>
+<thead>
+<tr>
+<th>Spalte</th>
+<th>Inhalt</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>Eindeutige Nummer</td>
+<td>E1-03</td>
+</tr>
+<tr>
+<td>ESRS-Thema / Unterthema</td>
+<td>Zuordnung zu E1 bis E5, S1 bis S4, G1</td>
+<td>E1 Klimawandel / Energie</td>
+</tr>
+<tr>
+<td>IRO-Typ</td>
+<td>Auswirkung (positiv/negativ, tatsächlich/potenziell), Risiko oder Chance</td>
+<td>Risiko</td>
+</tr>
+<tr>
+<td>Beschreibung</td>
+<td>Ein bis zwei Sätze, konkret</td>
+<td>Steigende Kosten für fossile Prozesswärme</td>
+</tr>
+<tr>
+<td>Ort in der Wertschöpfungskette</td>
+<td>Vorgelagert, eigener Betrieb, nachgelagert</td>
+<td>Eigener Betrieb</td>
+</tr>
+<tr>
+<td>Zeithorizont</td>
+<td>Kurz-, mittel-, langfristig</td>
+<td>Mittelfristig</td>
+</tr>
+<tr>
+<td>Auswirkung: Ausmaß</td>
+<td>Skala 1 bis 5</td>
+<td>entfällt bei Risiko</td>
+</tr>
+<tr>
+<td>Auswirkung: Umfang</td>
+<td>Skala 1 bis 5</td>
+<td>entfällt</td>
+</tr>
+<tr>
+<td>Auswirkung: Unumkehrbarkeit</td>
+<td>Skala 1 bis 5 (nur negative Auswirkungen)</td>
+<td>entfällt</td>
+</tr>
+<tr>
+<td>Auswirkung: Wahrscheinlichkeit</td>
+<td>Skala 1 bis 5 (nur potenzielle)</td>
+<td>entfällt</td>
+</tr>
+<tr>
+<td>Finanziell: Größenordnung</td>
+<td>Skala 1 bis 5, an Umsatz oder EBIT gekoppelt</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Finanziell: Wahrscheinlichkeit</td>
+<td>Skala 1 bis 5</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Score Auswirkung / Score finanziell</td>
+<td>Zwei getrennte Werte</td>
+<td>– / 16</td>
+</tr>
+<tr>
+<td>Schwellenwert erreicht?</td>
+<td>Ja/Nein je Perspektive</td>
+<td>Finanziell: ja</td>
+</tr>
+<tr>
+<td>Begründung</td>
+<td>Warum diese Einstufung</td>
+<td>Energiekostenanteil, Preisszenarien</td>
+</tr>
+<tr>
+<td>Quellen / Stakeholder</td>
+<td>Daten, Interviews, Dokumente</td>
+<td>Energieaudit, Einkauf</td>
+</tr>
+<tr>
+<td>Verantwortlich, Datum, Version</td>
+<td>Für die Prüfspur</td>
+<td>Controlling, 09/2026, v2</td>
+</tr>
+</tbody>
+</table>
+<p>Die Bewertungskriterien für Auswirkungen, also Ausmaß, Umfang und Unumkehrbarkeit sowie bei potenziellen Auswirkungen die Wahrscheinlichkeit, und für die finanzielle Seite Wahrscheinlichkeit und Größenordnung, erläutert die <a href="https://www.efrag.org/sites/default/files/sites/webpublishing/SiteAssets/IG%201%20Materiality%20Assessment_final.pdf" rel="nofollow noopener noreferrer" target="_blank">EFRAG Implementation Guidance IG 1 zur Wesentlichkeitsanalyse</a> ausführlich. Ein Detail, das Vorlagen oft übersehen: Bei potenziellen negativen Auswirkungen auf Menschenrechte hat die Schwere Vorrang vor der Wahrscheinlichkeit. Ein seltenes, aber gravierendes Risiko in der Lieferkette darf in Ihrer Tabelle also nicht durch eine niedrige Wahrscheinlichkeit unter die Schwelle rutschen.</p>
+<p>Wer keine eigene Tabelle aufbauen will, kann mit öffentlich bereitgestellten Werkzeugen starten. Das <a href="https://www.umweltpakt.bayern.de/management/aktuelles/3908/izu-excel-tool-zur-durchfuehrung-doppelten-wesentlichkeitsanalyse" rel="nofollow noopener noreferrer" target="_blank">IZU-Excel-Tool zur doppelten Wesentlichkeitsanalyse</a> ist in Kooperation mit den bayerischen IHKs entstanden und knüpft an die <a href="https://www.ihk.de/blueprint/servlet/resource/blob/6182926/d9584b1b521a77216f09eaf31f1b122c/handlungshilfe-10-schritte-zur-csrd-data.pdf" rel="nofollow noopener noreferrer" target="_blank">IHK-Handlungshilfe „10 Schritte zur CSRD“</a> an. Beide sind ein solider Ausgangspunkt, ersetzen aber nicht die Anpassung an Ihr Geschäftsmodell.</p>
+<h2 id="der-ablauf-in-drei-schritten" tabindex="-1">Der Ablauf in drei Schritten</h2>
+
+<p>Die ESRS gliedern die Analyse in drei Schritte, wie der <a href="https://www.wwf.at/wp-content/uploads/2024/09/WWF_CSRD_Quick_Guide_Update2024.pdf" rel="nofollow noopener noreferrer" target="_blank">CSRD Quick Guide des WWF</a> übersichtlich darstellt. In der Praxis sieht das so aus:</p>
+<h3 id="schritt-1-kontext-verstehen-und-iros-sammeln" tabindex="-1">Schritt 1: Kontext verstehen und IROs sammeln</h3>
+<p>Beschreiben Sie Geschäftsmodell, Standorte, Produkte und die Wertschöpfungskette: Wer liefert Rohstoffe, Energie, Verpackung? Wer nutzt Ihre Produkte, was passiert am Ende ihres Lebens? Nutzen Sie vorhandene Unterlagen: Energieaudit nach EN 16247, Umwelt- oder Energiemanagement nach ISO 50001 oder EMAS, Gefährdungsbeurteilungen, Lieferantenbewertungen, Risikoregister. Daraus entsteht die lange Liste möglicher IROs.</p>
+<p>Ein Beispiel aus der vorgelagerten Kette: Verpackungsmaterial taucht bei vielen Produktions- und Logistikbetrieben unter ESRS E5 (Ressourcennutzung und Kreislaufwirtschaft) auf. Ob es wesentlich ist, hängt von Mengen und Materialwahl ab. Wie sich etwa Stretchfolien in Recyclinganteil und Materialeinsatz unterscheiden, zeigt ein Überblick zur <a href="https://billiger-stretchfolien.de/stretchfolie-nachhaltigkeit" target="_blank" rel="noopener">Nachhaltigkeit von Stretchfolie</a>. Für Ihre Vorlage zählt vor allem, dass Lieferantenerklärungen und technische Datenblätter als Beleg in der Quellenspalte landen. Genau solche Dokumente machen eine Einstufung prüfbar, die Matrix allein tut es nicht.</p>
+<h3 id="schritt-2-auswirkungen-risiken-und-chancen-ermitteln" tabindex="-1">Schritt 2: Auswirkungen, Risiken und Chancen ermitteln</h3>
+<p>Jetzt wird die lange Liste geschärft, und zwar im Austausch mit Stakeholdern. Das sind intern Einkauf, Produktion, Vertrieb, Personal, Controlling und Geschäftsführung, extern je nach Branche Kunden, Lieferanten, Beschäftigtenvertretung, Banken oder Anwohner. Halten Sie fest, wen Sie wann wie befragt haben. Interviews mit fünf gut gewählten Gesprächspartnern sind wertvoller als eine Online-Umfrage mit geringem Rücklauf, solange Auswahl und Ergebnis dokumentiert sind.</p>
+<h3 id="schritt-3-wesentlichkeit-bewerten" tabindex="-1">Schritt 3: Wesentlichkeit bewerten</h3>
+<p>Bewerten Sie jedes IRO nach Ihren Skalen und legen Sie unternehmensspezifische Schwellenwerte an. Die <a href="https://knowledgehub.efrag.org/eng/interactive/ig/ig1/09-2025/2-the-esrs-approach-to-materiality" rel="nofollow noopener noreferrer" target="_blank">EFRAG IG 1</a> stellt klar, dass die Standards prinzipienbasiert sind: Sie müssen eigenes Urteilsvermögen einsetzen, um Schwellen festzulegen, die zu Geschäftsmodell, Komplexität und Umständen passen. Anschließend aggregieren Sie die IROs auf Themenebene und ordnen die wesentlichen Themen den Angabepflichten zu. Für E1 erklären wir die Folgepflichten in unserem Beitrag zu den <a href="https://planegy.de/blog-esrs-e1-anforderungen" target="_blank" rel="noopener">Anforderungen nach ESRS E1</a>, für die Ableitung der Datenpunkte gibt es unsere <a href="https://planegy.de/blog-csrd-datenpunkte" target="_blank" rel="noopener">Roadmap zu CSRD-Datenpunkten</a>.</p>
+<h2 id="skalen-und-schwellenwerte-ein-beispiel" tabindex="-1">Skalen und Schwellenwerte: ein Beispiel</h2>
+<p>Die folgenden Werte sind ein Muster, kein Standard. Sie zeigen, wie eine nachvollziehbare Herleitung aussehen kann.</p>
+<p><strong>Finanzielle Größenordnung (Beispiel für einen Betrieb mit 80 Mio. € Umsatz):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Stufe</th>
+<th>Wirkung auf das EBIT pro Jahr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>unter 100.000 €</td>
+</tr>
+<tr>
+<td>2</td>
+<td>100.000 bis 500.000 €</td>
+</tr>
+<tr>
+<td>3</td>
+<td>500.000 bis 1,5 Mio. €</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1,5 bis 4 Mio. €</td>
+</tr>
+<tr>
+<td>5</td>
+<td>über 4 Mio. €</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wahrscheinlichkeit:</strong> 1 = sehr unwahrscheinlich, 3 = eher wahrscheinlich, 5 = nahezu sicher oder bereits eingetreten.</p>
+<p><strong>Schwellenwert:</strong> Ein IRO gilt finanziell als wesentlich ab einem Produkt von 12 (zum Beispiel Größenordnung 4 × Wahrscheinlichkeit 3). Bei Auswirkungen setzen Sie die Schwelle analog, etwa ab einem Schweregrad von 3 im Mittel aus Ausmaß, Umfang und Unumkehrbarkeit, und für potenzielle Auswirkungen zusätzlich gewichtet mit der Wahrscheinlichkeit.</p>
+<p>Entscheidend ist der Satz, der darunter steht: Warum 12 und nicht 9? Eine gute Begründung koppelt die Stufen an bestehende Steuerungsgrößen, etwa die Wesentlichkeitsgrenze des Risikomanagements oder die Budgetgrenze, ab der die Geschäftsführung entscheidet. So passt die Nachhaltigkeitsbewertung zu dem, was im Haus ohnehin als bedeutend gilt.</p>
+<h2 id="die-materialitatsmatrix-richtig-darstellen" tabindex="-1">Die Materialitätsmatrix richtig darstellen</h2>
+<p>Die Wesentlichkeitsmatrix ist das bekannteste Bild der Analyse, aber keine Vorgabe der CSRD oder der ESRS. Gefordert ist ein dokumentierter, IRO-basierter Prozess. Die Matrix ist eine freiwillige Darstellungshilfe am Ende einer belegten Argumentationskette.</p>
+<p>Wenn Sie eine Matrix zeigen, dann richtig:</p>
+<ul>
+<li><strong>X-Achse:</strong> finanzielle Wesentlichkeit, <strong>Y-Achse:</strong> Auswirkungswesentlichkeit, jeweils mit eingezeichneter Schwelle.</li>
+<li><strong>Es entstehen vier Felder</strong>, und drei davon bedeuten „wesentlich“: nur finanziell, nur Auswirkung, beides. Viele Vorlagen färben nur das Feld oben rechts. Das ist falsch und führt dazu, dass Themen fehlen, die nur in einer Perspektive die Schwelle reißen.</li>
+<li><strong>Keine Diagonale als Grenze.</strong> Eine Linie, die beide Achsen verrechnet, entspricht einem kombinierten Score und widerspricht der getrennten Bewertung.</li>
+<li><strong>Themen statt Einzel-IROs</strong> abbilden und auf die Tabelle verweisen, in der jede Einstufung begründet ist.</li>
+</ul>
+<p>Alternativ zur Matrix funktioniert eine einfache Liste: Thema, wesentlich nach Auswirkung ja/nein, wesentlich finanziell ja/nein, Verweis auf die IRO-Zeilen. Ein Beispiel für eine veröffentlichte, ausführlich dokumentierte Analyse eines Großkonzerns ist das <a href="https://www.holcim.com/sites/holcim/files/docs/28022025-holcim-double-materiality-assessment-2024.pdf" rel="nofollow noopener noreferrer" target="_blank">Double Materiality Assessment 2024 von Holcim</a>. Für den Mittelstand ist der Umfang dort zu groß, die Gliederung in Methode, Stakeholder und Ergebnisse ist aber lehrreich.</p>
+<h2 id="fehler-an-denen-vorlagen-scheitern" tabindex="-1">Fehler, an denen Vorlagen scheitern</h2>
+<ol>
+<li><strong>Kombinierter Score.</strong> Auswirkung und finanzielle Wirkung werden addiert oder gemittelt. Ein Thema mit hoher Umweltwirkung, aber geringer finanzieller Folge fällt so aus dem Bericht.</li>
+<li><strong>Themen statt IROs bewerten.</strong> „Wasser: 3“ ist keine Bewertung. Prüfbar wird es erst mit konkreten Auswirkungen, Risiken und Chancen.</li>
+<li><strong>Wertschöpfungskette ausgeblendet.</strong> Nur der eigene Betrieb wird betrachtet, obwohl die Einbindung der Kette verlangt ist.</li>
+<li><strong>Schwellenwerte ohne Herleitung.</strong> Eine Zahl ohne Begründung wirkt willkürlich und lädt zu Nachfragen ein.</li>
+<li><strong>Stakeholder nicht dokumentiert.</strong> Workshops fanden statt, aber niemand hat festgehalten, wer teilgenommen hat und was herauskam.</li>
+<li><strong>Fremde Vorlage unverändert übernommen.</strong> Branchentypische Themenlisten sind ein Startpunkt. Ohne Anpassung fehlen Ihre tatsächlichen Besonderheiten, etwa ein energieintensiver Prozess oder ein kritischer Rohstoff.</li>
+<li><strong>Kein Versionsstand.</strong> Im Folgejahr weiß niemand, warum sich eine Einstufung geändert hat.</li>
+</ol>
+<p>Wie Sie die Analyse und den gesamten Bericht so aufbauen, dass sie einer Prüfung standhalten, beschreiben wir im Beitrag zur <a href="https://planegy.de/blog-csrd-pruffahigkeit-sichern" target="_blank" rel="noopener">CSRD-Prüffähigkeit</a>.</p>
+<h2 id="unsere-sicht-aus-der-energieberatung" tabindex="-1">Unsere Sicht aus der Energieberatung</h2>
+<p>In unseren Projekten mit Industrie, Mittelstand und Energieversorgern sehen wir immer wieder dasselbe Muster: Die Wesentlichkeitsanalyse wird als Kommunikationsaufgabe behandelt, mit Fokus auf eine ansprechende Matrix. Die Zahlen für das in vielen Betrieben gewichtigste Thema, Energie und Emissionen nach ESRS E1, kommen dann später und passen nicht zur Einstufung.</p>
+
+<p>Wir gehen andersherum vor. Für energieintensive Unternehmen liegen die belastbarsten Belege meist schon vor: Energieaudit nach EN 16247, Daten aus ISO 50001 oder EMAS, Genehmigungsunterlagen nach BImSchG, Lastgänge und Brennstoffverbräuche. Wer diese Daten zuerst sortiert, kann Auswirkungen und finanzielle Risiken der Energieversorgung quantifizieren, statt sie im Workshop zu schätzen. Gleichzeitig wird sichtbar, welche Maßnahmen die Wirkung senken, vom Brennstoffwechsel bis zur Effizienzsteigerung an Dampferzeugern, und welche Fördermittel dafür infrage kommen.</p>
+<p>Deshalb bewerten wir technologieoffen: Eine Wesentlichkeitsanalyse darf keine bestimmte Lösung vorwegnehmen, sie soll ehrlich zeigen, wo Ihr Unternehmen wirkt und wo es verwundbar ist. Und wir automatisieren die Fortschreibung, damit die Analyse im nächsten Jahr nicht wieder bei null beginnt, sondern aus laufenden KPI-Dashboards gespeist wird.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="wesentlichkeitsanalyse-und-esg-reporting-mit-planegy" tabindex="-1">Wesentlichkeitsanalyse und ESG-Reporting mit PLANEGY</h2>
+<p>Sie wollen die Vorlage nicht allein befüllen? Wir begleiten die doppelte Wesentlichkeitsanalyse von der IRO-Sammlung über Stakeholder-Gespräche bis zur dokumentierten Schwellenwert-Herleitung und verbinden sie mit automatisiertem ESG- und CSRD-Reporting: KPI-Dashboards, Berichterstellung und ERP-Integration. Weil wir zugleich Energieaudits, Anlagenkonzepte und Förderanträge betreuen, wird aus der Analyse direkt ein Maßnahmenplan. Alle Leistungen finden Sie unter <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Energieberatung und ESG-Services von PLANEGY</a>. Wer Klimaschutz dauerhaft betreuen lassen will, findet bei uns das <a href="https://planegy.de/klimamanager-service" target="_blank" rel="noopener">Klimaschutzmanagement im Abo</a>.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="gibt-es-eine-offizielle-vorlage-fur-die-wesentlichkeitsanalyse-nach-csrd" tabindex="-1">Gibt es eine offizielle Vorlage für die Wesentlichkeitsanalyse nach CSRD?</h3>
+<p>Nein, die EU schreibt kein Formular vor. Die EFRAG stellt mit der Implementation Guidance IG 1 eine methodische Hilfe bereit und betont, dass es keine Einheitslösung gibt. Öffentliche Werkzeuge wie das Excel-Tool des IZU in Bayern sind ein guter Start, müssen aber an Ihr Unternehmen angepasst werden.</p>
+<h3 id="ist-die-materialitatsmatrix-fur-den-csrd-bericht-pflicht" tabindex="-1">Ist die Materialitätsmatrix für den CSRD-Bericht Pflicht?</h3>
+<p>Nein. Verlangt sind ein dokumentierter IRO-basierter Prozess, die Begründung der Einstufungen und die Herleitung der Schwellenwerte. Eine Matrix kann das Ergebnis veranschaulichen, ersetzt aber keine dieser Angaben.</p>
+<h3 id="muss-ein-thema-in-beiden-dimensionen-wesentlich-sein-damit-ich-es-berichte" tabindex="-1">Muss ein Thema in beiden Dimensionen wesentlich sein, damit ich es berichte?</h3>
+<p>Nein. Ein Thema ist berichtspflichtig, sobald es in der Auswirkungs- oder in der finanziellen Perspektive die Schwelle überschreitet. Beide Perspektiven werden deshalb getrennt bewertet und nie zu einem Gesamtwert verrechnet.</p>
+<h3 id="welches-esrs-regelwerk-gilt-fur-das-geschaftsjahr" tabindex="-1">Welches ESRS-Regelwerk gilt für das Geschäftsjahr 2026?</h3>
+<p>Nach der Delegierten Verordnung (EU) 2026/5010 dürfen Sie für 2026 wählen: bisherige ESRS oder schon die vereinfachten Standards. Ab Geschäftsjahren, die am oder nach dem 1. Januar 2027 beginnen, gelten die vereinfachten ESRS verbindlich. Halten Sie Ihre Wahl für 2026 schriftlich fest.</p>
+<h3 id="wie-oft-muss-die-wesentlichkeitsanalyse-wiederholt-werden" tabindex="-1">Wie oft muss die Wesentlichkeitsanalyse wiederholt werden?</h3>
+<p>Die Analyse wird für jeden Berichtszeitraum überprüft. Eine vollständige Neuerhebung ist nicht jedes Jahr nötig, wenn sich Geschäftsmodell und Wertschöpfungskette kaum ändern. Dokumentieren Sie dann, was Sie geprüft haben und warum die Einstufungen weiter gelten.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=intcom%3AC%282026%295010" rel="nofollow noopener noreferrer" target="_blank">Delegierte Verordnung (EU) 2026/5010, EUR-Lex</a></li>
+<li><a href="https://knowledgehub.efrag.org/eng/interactive/ig/ig1/09-2025/2-the-esrs-approach-to-materiality" rel="nofollow noopener noreferrer" target="_blank">EFRAG Knowledge Hub: IG 1, The ESRS approach to materiality</a></li>
+<li><a href="https://www.efrag.org/sites/default/files/sites/webpublishing/SiteAssets/IG%201%20Materiality%20Assessment_final.pdf" rel="nofollow noopener noreferrer" target="_blank">EFRAG IG 1 Materiality Assessment (PDF)</a></li>
+<li><a href="https://www.wwf.at/wp-content/uploads/2024/09/WWF_CSRD_Quick_Guide_Update2024.pdf" rel="nofollow noopener noreferrer" target="_blank">WWF: CSRD Quick Guide, Update 2024 (PDF)</a></li>
+<li><a href="https://aktuar.de/content/PDF/Fachwissen/2024-02-26_DAV_Ergebnisbericht_%C3%9Cberblick_%C3%BCber_die_Wesentlichkeitsanalyse_gem%C3%A4%C3%9F_CSRD.pdf" rel="nofollow noopener noreferrer" target="_blank">Deutsche Aktuarvereinigung: Überblick über die Wesentlichkeitsanalyse gemäß CSRD (PDF)</a></li>
+<li><a href="https://www.ihk.de/blueprint/servlet/resource/blob/6182926/d9584b1b521a77216f09eaf31f1b122c/handlungshilfe-10-schritte-zur-csrd-data.pdf" rel="nofollow noopener noreferrer" target="_blank">IHK-Handlungshilfe: 10 Schritte zur CSRD (PDF)</a></li>
+<li><a href="https://www.umweltpakt.bayern.de/management/aktuelles/3908/izu-excel-tool-zur-durchfuehrung-doppelten-wesentlichkeitsanalyse" rel="nofollow noopener noreferrer" target="_blank">Umweltpakt Bayern: IZU-Excel-Tool zur doppelten Wesentlichkeitsanalyse</a></li>
+<li><a href="https://www.holcim.com/sites/holcim/files/docs/28022025-holcim-double-materiality-assessment-2024.pdf" rel="nofollow noopener noreferrer" target="_blank">Holcim: Double Materiality Assessment 2024 (PDF)</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-doppelwesentlichkeit-analyse" target="_blank" rel="noopener">Doppelte Wesentlichkeitsanalyse: Praxisleitfaden für Unternehmen</a></li>
+<li><a href="https://planegy.de/blog-csrd-pruffahigkeit-sichern" target="_blank" rel="noopener">CSRD-Prüffähigkeit sichern: So bestehen Berichte die Prüfung</a></li>
+<li><a href="https://planegy.de/blog-csrd-umsetzung-schritte" target="_blank" rel="noopener">CSRD-Umsetzung: Schritte, die Sie jetzt priorisieren sollten</a></li>
+<li><a href="https://planegy.de/blog-csrd-pflichten-unternehmen" target="_blank" rel="noopener">CSRD-Pflichten für Unternehmen: Was jetzt zu tun ist</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
