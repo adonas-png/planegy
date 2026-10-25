@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wärmeplanung ausschreiben: Leitfaden für Kommunen 2026 – PLANEGY</title>
+  <meta name="description" content="So schreiben Kommunen die Wärmeplanung nach WPG aus: Leistungsbeschreibung, Auftragswert, Verfahren, Zuschlagskriterien und typische Fehler im Überblick." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Wärmeplanung ausschreiben: Leitfaden für Kommunen 2026" />
+  <meta property="og:description" content="So schreiben Kommunen die Wärmeplanung nach WPG aus: Leistungsbeschreibung, Auftragswert, Verfahren, Zuschlagskriterien und typische Fehler im Überblick." />
+  <link rel="canonical" href="https://planegy.de/blog-warmeplanung-ausschreibung" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Wärmeplanung ausschreiben: Leitfaden für Kommunen 2026",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-25",
+    "description": "So schreiben Kommunen die Wärmeplanung nach WPG aus: Leistungsbeschreibung, Auftragswert, Verfahren, Zuschlagskriterien und typische Fehler im Überblick."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Wärmeplanung ausschreiben: Leitfaden für Kommunen 2026</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Wärmeplanung ausschreiben: Leitfaden für Kommunen 2026</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="warmeplanung-ausschreiben-leitfaden-fur-kommunen" tabindex="-1">Wärmeplanung ausschreiben: Leitfaden für Kommunen 2026</h1>
+
+<p>Wer die kommunale Wärmeplanung ausschreibt, entscheidet früh über die Qualität des fertigen Plans. Eine gute Ausschreibung beschreibt alle Phasen nach Wärmeplanungsgesetz (WPG) vollständig, schätzt den Auftragswert sauber, wählt das passende Vergabeverfahren und vergibt den Zuschlag nach Methodik und Beteiligungskonzept, nicht allein nach dem Preis. Dieser Leitfaden zeigt Ihnen Schritt für Schritt, wie Ihre Gemeinde dabei vorgeht, welche Unterlagen Sie brauchen und welche Fehler Angebote unvergleichbar machen. Er richtet sich an Bürgermeisterinnen, Klimaschutzmanager, Bauämter und Vergabestellen, die 2026 vor dieser Aufgabe stehen.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Wärmeplanung rechtssicher angehen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Kommunen mit technologieoffener Energieberatung dabei, gesetzeskonforme Wärmeplanungen zu entwickeln und umzusetzen.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Wärmeplanung mit PLANEGY ansehen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li>Gemeinden mit 100.000 Einwohnern oder weniger müssen ihren Wärmeplan laut WPG bis zum 30. Juni 2028 vorlegen. Wer jetzt ausschreibt, hat realistisch noch gut anderthalb Jahre Bearbeitungszeit.</li>
+<li>Die Musterleistungsverzeichnisse des Kompetenzzentrums Kommunale Wärmewende (KWW) sind die sicherste Basis für die Leistungsbeschreibung.</li>
+<li>Der geschätzte Auftragswert entscheidet, ob Sie national oder EU-weit ausschreiben. Eigene Vorarbeiten senken ihn.</li>
+<li>Gewichten Sie Methodik, Beteiligungskonzept, Team und Zeitplan neben dem Preis.</li>
+<li>Vergeben Sie möglichst alle Phasen an einen Dienstleister, damit Datenbasis und Verantwortung in einer Hand bleiben.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#wo-ihre-kommune-im-herbst-steht">Wo Ihre Kommune im Herbst 2026 steht</a></li>
+<li><a href="#was-in-die-leistungsbeschreibung-gehort">Was in die Leistungsbeschreibung gehört</a></li>
+<li><a href="#auftragswert-schatzen-und-verfahren-wahlen">Auftragswert schätzen und Verfahren wählen</a></li>
+<li><a href="#eignungskriterien-wer-anbieten-darf">Eignungskriterien: Wer anbieten darf</a></li>
+<li><a href="#zuschlagskriterien-qualitat-entscheidet">Zuschlagskriterien: Qualität entscheidet</a></li>
+<li><a href="#der-ablauf-in-acht-schritten">Der Ablauf in acht Schritten</a></li>
+<li><a href="#fehler-die-angebote-unvergleichbar-machen">Fehler, die Angebote unvergleichbar machen</a></li>
+<li><a href="#unsere-sicht-ausschreiben-fur-die-umsetzung-nicht-fur-die-ablage">Unsere Sicht: Ausschreiben für die Umsetzung, nicht für die Ablage</a></li>
+<li><a href="#warmeplanung-mit-planegy">Wärmeplanung mit PLANEGY</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="wo-ihre-kommune-im-herbst-steht" tabindex="-1">Wo Ihre Kommune im Herbst 2026 steht</h2>
+<p>Das WPG verpflichtet die Länder, für flächendeckende Wärmepläne zu sorgen. Die Fristen stehen in <a href="https://www.gesetze-im-internet.de/wpg/__4.html" rel="nofollow noopener noreferrer" target="_blank">§ 4 WPG</a>: Gemeinden mit mehr als 100.000 Einwohnern mussten ihren Plan bis zum 30. Juni 2026 erstellen, alle kleineren Gemeinden haben bis zum 30. Juni 2028 Zeit. Für die Großstädte ist die erste Frist also abgelaufen. Für die große Mehrheit der Städte und Gemeinden läuft die Uhr dagegen noch, und genau dort entstehen derzeit die meisten Ausschreibungen.</p>
+<p>Rechnen Sie rückwärts. Zwischen dem Beschluss, die Leistung zu vergeben, und dem Zuschlag vergehen je nach Verfahren mehrere Monate: Unterlagen erstellen, Gremien beteiligen, Angebotsfrist, Prüfung und Wertung. Danach braucht der Dienstleister Zeit für Datenerhebung, Analysen, Beteiligung und die politische Beschlussfassung im Gemeinderat. Wer die Ausschreibung erst Ende 2027 startet, gerät unter erheblichen Zeitdruck, und Zeitdruck ist der häufigste Grund für dünne Pläne.</p>
+
+<p>Hinzu kommt eine Rechtsänderung. Am 27. Mai 2026 hat das <a href="https://www.bmwsb.bund.de/SharedDocs/pressemitteilungen/DE/2026/05/wpg.html" rel="nofollow noopener noreferrer" target="_blank">Bundeskabinett eine Novelle des WPG beschlossen</a>, die kleine Kommunen deutlich entlasten soll, vor allem beim Aufwand für Analysen und Dokumentation. Für Ihre Ausschreibung heißt das: Prüfen Sie vor der Veröffentlichung, welche Fassung des Gesetzes und welche Landesregelung für Ihre Gemeinde gilt, und beschreiben Sie den Leistungsumfang genau danach. Eine kleine Gemeinde, die den vollen Umfang ausschreibt, obwohl ein reduziertes Verfahren zulässig wäre, bezahlt Leistungen, die das Gesetz gar nicht verlangt. Umgekehrt riskiert eine Kommune, die vorschnell reduziert, einen Plan, der nicht anerkannt wird.</p>
+<h2 id="was-in-die-leistungsbeschreibung-gehort" tabindex="-1">Was in die Leistungsbeschreibung gehört</h2>
+<p>Die Leistungsbeschreibung ist das Herzstück der Ausschreibung. Ausgeschrieben werden Ingenieur- und Planungsleistungen, deren Kern die Phasen des WPG bilden. Das KWW stellt dafür <a href="https://www.kww-halle.de/waermeplanung-vorbereiten/vergabe/musterleistungsverzeichnisse" rel="nofollow noopener noreferrer" target="_blank">Musterleistungsverzeichnisse zur kommunalen Wärmeplanung</a> bereit. Welches Verzeichnis Sie nutzen, hängt davon ab, nach welcher Maßgabe Ihre Kommune plant, also nach Bundesrecht oder nach den Vorgaben Ihres Landes.</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Inhalt</th>
+<th>Worauf Sie in der Ausschreibung achten</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eignungsprüfung</td>
+<td>Welche Teilgebiete kommen für Wärmenetze oder Wasserstoffnetze nicht in Frage?</td>
+<td>Ergebnis und Kartendarstellung als eigene Leistung benennen</td>
+</tr>
+<tr>
+<td>Bestandsanalyse</td>
+<td>Wärmebedarf, Gebäudestruktur, vorhandene Netze und Erzeuger</td>
+<td>Festlegen, wer Daten bei Schornsteinfegern, Netzbetreibern und Unternehmen anfragt</td>
+</tr>
+<tr>
+<td>Potenzialanalyse</td>
+<td>Abwärme, Geothermie, Solarthermie, Biomasse, Umweltwärme, Einsparpotenziale</td>
+<td>Technologieoffene Bewertung ausdrücklich fordern</td>
+</tr>
+<tr>
+<td>Zielszenario</td>
+<td>Versorgungsstruktur bis zum Zieljahr, Einteilung in Wärmeversorgungsgebiete</td>
+<td>Zwischenjahre und Darstellungstiefe vorgeben</td>
+</tr>
+<tr>
+<td>Umsetzungsstrategie</td>
+<td>Konkrete Maßnahmen, Zuständigkeiten, Zeitplan, Kosten</td>
+<td>Mindestzahl priorisierter Maßnahmen mit Steckbrief verlangen</td>
+</tr>
+<tr>
+<td>Beteiligung</td>
+<td>Öffentlichkeit, Netzbetreiber, Großverbraucher, Nachbarkommunen</td>
+<td>Anzahl und Format der Termine festschreiben</td>
+</tr>
+</tbody>
+</table>
+<p>Drei Punkte werden in der Praxis oft vergessen. Erstens die Datenerhebung: Klären Sie, welche Daten die Verwaltung selbst liefert und welche der Dienstleister beschafft. Unser Beitrag zur <a href="https://planegy.de/blog-warmebedarfsanalyse-kommune" target="_blank" rel="noopener">Wärmebedarfsanalyse für Kommunen</a> zeigt, welche Quellen dafür in Frage kommen. Zweitens die Datenformate: Verlangen Sie GIS-fähige Ergebnisse, damit Ihre Verwaltung den Plan später fortschreiben kann. Drittens die Schlussphase: Gremiensitzungen, Veröffentlichung und die Einarbeitung von Stellungnahmen kosten Zeit und gehören in den Leistungsumfang.</p>
+<p>Das KWW empfiehlt, die <a href="https://www.kww-halle.de/waermeplanung-vorbereiten/vergabe" rel="nofollow noopener noreferrer" target="_blank">gesamten Phasen an einen Dienstleister zu vergeben</a>, um Schnittstellenverluste zu vermeiden und eine einheitliche Datenbasis zu sichern. Teilen Sie die Leistung nur dann in Lose, wenn Sie einen klaren Grund haben, etwa ein bereits vorhandenes Energiekonzept für einen Ortsteil.</p>
+<h2 id="auftragswert-schatzen-und-verfahren-wahlen" tabindex="-1">Auftragswert schätzen und Verfahren wählen</h2>
+<p>Bevor Sie ein Verfahren wählen, schätzen Sie den Auftragswert. Die dena rät in ihrem Leitfaden zu den <a href="https://www.dena.de/fileadmin/dena/Publikationen/PDFs/2023/Erste_Schritte_in_der_Kommunalen_Waermeplanung.pdf" rel="nofollow noopener noreferrer" target="_blank">ersten Schritten in der kommunalen Wärmeplanung</a>, dafür Richtpreisangebote einzuholen oder sich an den Erfahrungen anderer Kommunen zu orientieren. Arbeiten, die Ihre Verwaltung selbst erbringt, etwa die Zusammenstellung vorhandener Gebäude- und Netzdaten, reduzieren den Auftragswert rechtssicher.</p>
+<p>Der geschätzte Wert entscheidet über den Rechtsrahmen. Liegt er über dem EU-Schwellenwert für Dienstleistungen, müssen Sie europaweit ausschreiben; darunter gelten das nationale Haushalts- und Vergaberecht Ihres Landes. Die Wertgrenzen für vereinfachte Verfahren unterscheiden sich zwischen den Ländern. Binden Sie deshalb Ihre Vergabestelle oder die Kommunalaufsicht ein, bevor Sie Unterlagen schreiben, nicht erst danach.</p>
+<p>Eine Möglichkeit, die viele kleine Gemeinden unterschätzen, ist die interkommunale Ausschreibung. Ein aktuelles Beispiel ist die europaweite <a href="https://www.ennepetal.de/medien/dokumente/01_auftragsbekanntmachung.pdf?20261013141342=" rel="nofollow noopener noreferrer" target="_blank">Ausschreibung der interkommunalen Wärmeplanung für sechs Kommunen des Ennepe-Ruhr-Kreises</a>. Gemeinsame Vergaben bündeln den Aufwand für Unterlagen und Verfahren, erzeugen eine einheitliche Datenbasis über Gemeindegrenzen hinweg und machen den Auftrag für erfahrene Büros attraktiver. Der Preis dafür ist mehr Abstimmung: Sie brauchen eine Vereinbarung, wer federführend vergibt, wie die Kosten verteilt werden und wer Ergebnisse abnimmt.</p>
+<p>Wie unterschiedlich Ausschreibungen aussehen, zeigen laufende Verfahren. Die Stadt Meuselwitz in Thüringen sucht etwa <a href="https://tendigo.de/ausschreibung/kommunale-waermeplanung-0d211e896a" rel="nofollow noopener noreferrer" target="_blank">ein Planungsbüro für ihre kommunale Wärmeplanung nach WPG</a>, die Gemeinde Wörthsee in Bayern hat ihre <a href="https://www.meinauftrag.rib.de/public/publications/611195" rel="nofollow noopener noreferrer" target="_blank">kommunale Wärmeplanung auf einer Vergabeplattform veröffentlicht</a>. Ein Blick in solche Bekanntmachungen hilft Ihnen, Umfang und Fristen realistisch einzuschätzen.</p>
+<h2 id="eignungskriterien-wer-anbieten-darf" tabindex="-1">Eignungskriterien: Wer anbieten darf</h2>
+<p>Neben den Zuschlagskriterien legen Sie fest, welche Bieter überhaupt geeignet sind. Hier gilt der Grundsatz, den auch das KWW nennt: Gleichbehandlung, Verhältnismäßigkeit und Wirtschaftlichkeit. Überzogene Anforderungen schließen kleine, oft sehr erfahrene Büros aus und verringern den Wettbewerb.</p>
+<p>Bewährt haben sich wenige, klare Anforderungen:</p>
+<ul>
+<li><strong>Referenzen:</strong> zwei bis drei vergleichbare Wärmeplanungen oder Energiekonzepte für Kommunen ähnlicher Größe aus den letzten Jahren.</li>
+<li><strong>Qualifikation des Teams:</strong> Nachweise für Energietechnik, Datenanalyse beziehungsweise GIS und Moderation von Beteiligungsformaten.</li>
+<li><strong>Kapazität:</strong> Angabe, wie viele Wärmeplanungen das Team parallel bearbeitet. Ein Büro mit sehr vielen parallelen Aufträgen kann Ihren Zeitplan gefährden.</li>
+<li><strong>Unabhängigkeit:</strong> Eine Erklärung, ob der Bieter eigene Anlagen, Netze oder Energieträger vertreibt. Das ist kein Ausschlussgrund, gehört aber offen auf den Tisch.</li>
+</ul>
+<p>Verlangen Sie Mindestumsätze nur in einer Höhe, die zum Auftrag passt. Ihre Vergabestelle kennt die Grenzen, die das Vergaberecht hier setzt.</p>
+<h2 id="zuschlagskriterien-qualitat-entscheidet" tabindex="-1">Zuschlagskriterien: Qualität entscheidet</h2>
+
+<p>Der häufigste Fehler ist der Zuschlag allein nach Preis. Das KWW betont, dass der Erfolg der Wärmeplanung stark von der <a href="https://www.kww-halle.de/waermeplanung-vorbereiten/vergabe" rel="nofollow noopener noreferrer" target="_blank">Einbindung lokaler Akteure abhängt</a>, und empfiehlt qualitative Kriterien wie Methodik, Beteiligungskonzept, Erfahrung des Teams und Zeitplanung. Ein billiger Plan, den niemand vor Ort mitträgt, verursacht später teure Nacharbeit.</p>
+<p>Eine mögliche Gewichtung, die Sie an Ihre Lage anpassen sollten, kein verbindlicher Standard:</p>
+<table>
+<thead>
+<tr>
+<th>Kriterium</th>
+<th>Beispielgewicht</th>
+<th>Was Sie bewerten</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Preis</td>
+<td>40 %</td>
+<td>Gesamtpreis inklusive Beteiligungsterminen und Gremiensitzungen</td>
+</tr>
+<tr>
+<td>Methodik</td>
+<td>25 %</td>
+<td>Datenerhebung, Modellierung, Umgang mit Datenlücken, technologieoffene Bewertung</td>
+</tr>
+<tr>
+<td>Beteiligungskonzept</td>
+<td>15 %</td>
+<td>Formate, Zielgruppen, Einbindung von Netzbetreibern und Großverbrauchern</td>
+</tr>
+<tr>
+<td>Projektteam</td>
+<td>10 %</td>
+<td>Referenzen der benannten Personen, nicht nur des Unternehmens</td>
+</tr>
+<tr>
+<td>Zeit- und Ablaufplan</td>
+<td>10 %</td>
+<td>Meilensteine, Puffer, Abstimmung mit Ihrem Sitzungskalender</td>
+</tr>
+</tbody>
+</table>
+<p>Machen Sie die Wertung nachvollziehbar. Legen Sie vorab fest, was eine Bewertung mit null, drei oder fünf Punkten bedeutet, und verlangen Sie für die Methodik ein Konzept mit begrenzter Seitenzahl. So vergleichen Sie Inhalte statt Hochglanz. Ein kurzes Bietergespräch mit dem vorgesehenen Projektleiter ist zulässig, wenn das Verfahren es vorsieht, und zeigt oft mehr als jede Referenzliste.</p>
+<h2 id="der-ablauf-in-acht-schritten" tabindex="-1">Der Ablauf in acht Schritten</h2>
+<ol>
+<li><strong>Rechtslage klären:</strong> Welche Frist gilt, welche Landesregelung, kommt ein reduziertes Verfahren für Ihre Gemeindegröße in Frage?</li>
+<li><strong>Vorarbeiten bündeln:</strong> Vorhandene Klimaschutzkonzepte, Energienutzungspläne, Netzdaten und Gebäudedaten sichten.</li>
+<li><strong>Auftragswert schätzen:</strong> Richtpreisangebote einholen oder Werte vergleichbarer Gemeinden nutzen und dokumentieren.</li>
+<li><strong>Verfahren wählen:</strong> Mit der Vergabestelle national oder EU-weit, einzeln oder interkommunal festlegen.</li>
+<li><strong>Leistungsbeschreibung erstellen:</strong> Das passende KWW-Musterleistungsverzeichnis an Ihre Gemeinde anpassen.</li>
+<li><strong>Zuschlagskriterien festlegen:</strong> Gewichtung und Bewertungsmaßstab vor der Veröffentlichung beschließen.</li>
+<li><strong>Veröffentlichen und Fragen beantworten:</strong> Bieterfragen zügig und für alle Bieter gleich beantworten.</li>
+<li><strong>Werten und beauftragen:</strong> Angebote nach den veröffentlichten Kriterien bewerten, Zuschlag dokumentieren, Auftakttermin ansetzen.</li>
+</ol>
+<p>Wenn Sie wissen wollen, welche Büros in Frage kommen, hilft das <a href="https://www.kww-halle.de/waermeplanung-vorbereiten/vergabe/dienstleisterverzeichnis" rel="nofollow noopener noreferrer" target="_blank">Dienstleisterverzeichnis des KWW</a>. Es ersetzt kein Vergabeverfahren, erleichtert aber die Markterkundung und das Einholen von Richtpreisen.</p>
+<h2 id="fehler-die-angebote-unvergleichbar-machen" tabindex="-1">Fehler, die Angebote unvergleichbar machen</h2>
+<p>Wenn Angebote nicht vergleichbar sind, liegt es fast immer an einer unklaren oder unvollständigen Leistungsbeschreibung. Die typischen Lücken:</p>
+<ul>
+<li><strong>Offene Datenfrage:</strong> Ein Büro kalkuliert eigene Erhebungen, ein anderes geht davon aus, dass die Verwaltung liefert. Die Preise liegen dann weit auseinander, ohne dass einer der beiden falsch rechnet.</li>
+<li><strong>Unbestimmte Beteiligung:</strong> „Angemessene Öffentlichkeitsbeteiligung&quot; lässt jeden Umfang zu. Nennen Sie Zahl und Art der Termine.</li>
+<li><strong>Fehlende Fortschreibung:</strong> Der Wärmeplan wird regelmäßig überprüft. Wer keine offenen Datenformate verlangt, zahlt bei der Fortschreibung erneut.</li>
+<li><strong>Technologie vorgegeben:</strong> Eine Ausschreibung, die ein bestimmtes Wärmenetz oder einen Energieträger voraussetzt, nimmt das Ergebnis der Potenzialanalyse vorweg.</li>
+<li><strong>Keine Brücke zur Umsetzung:</strong> Ohne Maßnahmensteckbriefe mit Kosten und Fördermöglichkeiten bleibt der Plan ein Dokument im Regal.</li>
+</ul>
+<p>Gerade der letzte Punkt entscheidet, ob aus dem Plan Projekte werden. Eine vertiefende <a href="https://planegy.de/blog-warmenetz-potenzialanalyse" target="_blank" rel="noopener">Potenzialanalyse für Wärmenetze</a> ist oft der nächste Schritt nach dem Wärmeplan und sollte in der Umsetzungsstrategie bereits angelegt sein.</p>
+<h2 id="unsere-sicht-ausschreiben-fur-die-umsetzung-nicht-fur-die-ablage" tabindex="-1">Unsere Sicht: Ausschreiben für die Umsetzung, nicht für die Ablage</h2>
+<p>Wir begleiten Kommunen bei der Wärmeplanung und sehen beide Seiten: die Unterlagen, die Gemeinden veröffentlichen, und die Pläne, die daraus entstehen. Unsere Erfahrung aus über 20 Jahren im Energiesektor ist eindeutig. Die besten Wärmepläne entstehen dort, wo die Ausschreibung schon an den Tag nach dem Gemeinderatsbeschluss denkt.</p>
+<p>Drei Dinge würden wir jeder Gemeinde raten. Fordern Sie eine technologieoffene Bewertung ausdrücklich ein. Ein Dienstleister, der eigene Anlagen, Netze oder Energieträger verkauft, hat einen Anreiz, genau diese Lösung zu empfehlen. Wir bewerten alle Optionen neutral, vom Nahwärmenetz über Wärmepumpen bis zu BioLPG als Brückenlösung, weil wir kein Produkt verkaufen.</p>
+<p>Verknüpfen Sie zweitens die Planung mit der Finanzierung. Ein Maßnahmenkatalog ohne Förderpfad bleibt Papier. Wer schon in der Umsetzungsstrategie prüft, welche Programme von Bund, Ländern und EU für ein Wärmenetz oder eine Sanierung passen, verkürzt den Weg zum ersten Bauabschnitt erheblich.</p>
+<p>Und drittens: Planen Sie Genehmigungen mit. Größere Heizzentralen, Speicher oder Flüssiggasanlagen brauchen eigene Verfahren. Wenn der Wärmeplan Standorte vorschlägt, die später nicht genehmigungsfähig sind, beginnt die Arbeit von vorn.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="warmeplanung-mit-planegy" tabindex="-1">Wärmeplanung mit PLANEGY</h2>
+<p>Sie möchten Ihre Ausschreibung vorbereiten oder suchen ein Büro, das den Wärmeplan von der Bestandsanalyse bis zur Umsetzungsstrategie erstellt? Wir erarbeiten <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">kommunale Wärmeplanungen nach WPG</a> technologieoffen, begleiten anschließend Genehmigungsverfahren und erschließen passende Fördermittel. Wie ein fertiges Ergebnis aussieht, zeigt unser Projekt zum <a href="https://planegy.de/projekte" target="_blank" rel="noopener">kommunalen Wärmeplan Grafenwiesen</a>. Einen Überblick über alle Bausteine finden Sie bei unseren <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen für Kommunen und Energieversorger</a>.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="muss-jede-gemeinde-die-warmeplanung-offentlich-ausschreiben" tabindex="-1">Muss jede Gemeinde die Wärmeplanung öffentlich ausschreiben?</h3>
+<p>Wenn Ihre Gemeinde die Wärmeplanung an einen externen Dienstleister vergibt, gilt das Vergaberecht. Welches Verfahren Sie wählen müssen, hängt vom geschätzten Auftragswert und den Vorgaben Ihres Landes ab. Erstellt die Verwaltung den Plan selbst, entfällt die Vergabe, das schaffen aber nur wenige Kommunen mit eigenem Fachpersonal.</p>
+<h3 id="welche-unterlagen-brauche-ich-fur-die-ausschreibung" tabindex="-1">Welche Unterlagen brauche ich für die Ausschreibung?</h3>
+<p>Sie brauchen eine Leistungsbeschreibung, die Zuschlagskriterien mit Gewichtung, Eignungsanforderungen an die Bieter und die Vertragsbedingungen. Für die Leistungsbeschreibung bieten die Musterleistungsverzeichnisse des KWW eine erprobte Grundlage. Ergänzen Sie, welche Daten Ihre Verwaltung selbst bereitstellt.</p>
+<h3 id="konnen-mehrere-gemeinden-gemeinsam-ausschreiben" tabindex="-1">Können mehrere Gemeinden gemeinsam ausschreiben?</h3>
+<p>Ja. Interkommunale Ausschreibungen, wie sie derzeit etwa im Ennepe-Ruhr-Kreis laufen, sparen Verwaltungsaufwand und schaffen eine gemeinsame Datenbasis. Sie brauchen dafür eine Vereinbarung über Federführung, Kostenverteilung und Abnahme der Ergebnisse.</p>
+<h3 id="wie-lange-dauert-es-von-der-ausschreibung-bis-zum-fertigen-warmeplan" tabindex="-1">Wie lange dauert es von der Ausschreibung bis zum fertigen Wärmeplan?</h3>
+<p>Das hängt von Verfahren, Gemeindegröße und Datenlage ab. Rechnen Sie für Vergabe, Bearbeitung, Beteiligung und Gemeinderatsbeschluss zusammen eher mit Jahren als mit Monaten. Gemeinden mit Frist zum 30. Juni 2028 sollten deshalb noch 2026 oder Anfang 2027 ausschreiben.</p>
+<h3 id="wo-finden-buros-und-kommunen-laufende-ausschreibungen-zur-warmeplanung" tabindex="-1">Wo finden Büros und Kommunen laufende Ausschreibungen zur Wärmeplanung?</h3>
+<p>Europaweite Verfahren erscheinen im Amtsblatt der EU, nationale Verfahren auf den Vergabeplattformen von Bund und Ländern sowie auf kommerziellen Ausschreibungsportalen. Für Kommunen lohnt der Blick in fremde Bekanntmachungen, weil Umfang, Fristen und Zuschlagskriterien vergleichbarer Gemeinden eine gute Orientierung für die eigenen Unterlagen geben.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.gesetze-im-internet.de/wpg/__4.html" rel="nofollow noopener noreferrer" target="_blank">§ 4 WPG: Pflicht zur Wärmeplanung</a></li>
+<li><a href="https://www.bmwsb.bund.de/SharedDocs/pressemitteilungen/DE/2026/05/wpg.html" rel="nofollow noopener noreferrer" target="_blank">BMWSB: Kabinett beschließt Novelle des Wärmeplanungsgesetzes</a></li>
+<li><a href="https://www.kww-halle.de/waermeplanung-vorbereiten/vergabe" rel="nofollow noopener noreferrer" target="_blank">KWW: Vergabe der Kommunalen Wärmeplanung</a></li>
+<li><a href="https://www.kww-halle.de/waermeplanung-vorbereiten/vergabe/musterleistungsverzeichnisse" rel="nofollow noopener noreferrer" target="_blank">KWW: Musterleistungsverzeichnisse zur Kommunalen Wärmeplanung</a></li>
+<li><a href="https://www.kww-halle.de/waermeplanung-vorbereiten/vergabe/dienstleisterverzeichnis" rel="nofollow noopener noreferrer" target="_blank">KWW: Dienstleisterverzeichnis</a></li>
+<li><a href="https://www.dena.de/fileadmin/dena/Publikationen/PDFs/2023/Erste_Schritte_in_der_Kommunalen_Waermeplanung.pdf" rel="nofollow noopener noreferrer" target="_blank">dena: Erste Schritte in der Kommunalen Wärmeplanung</a></li>
+<li><a href="https://www.ennepetal.de/medien/dokumente/01_auftragsbekanntmachung.pdf?20261013141342=" rel="nofollow noopener noreferrer" target="_blank">Auftragsbekanntmachung interkommunale Wärmeplanung Ennepe-Ruhr-Kreis</a></li>
+<li><a href="https://tendigo.de/ausschreibung/kommunale-waermeplanung-0d211e896a" rel="nofollow noopener noreferrer" target="_blank">Ausschreibung kommunale Wärmeplanung Meuselwitz</a></li>
+<li><a href="https://www.meinauftrag.rib.de/public/publications/611195" rel="nofollow noopener noreferrer" target="_blank">Ausschreibung kommunale Wärmeplanung Wörthsee</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-kommunale-warmeplanung-leitfaden-fur-kommunen-2026" target="_blank" rel="noopener">Kommunale Wärmeplanung: Leitfaden für Kommunen 2026</a></li>
+<li><a href="https://planegy.de/blog-kommunale-waermeplanung.html" target="_blank" rel="noopener">Kommunale Wärmeplanung 2025: Was Gemeinden jetzt wissen müssen</a></li>
+<li><a href="https://planegy.de/blog-warmebedarfsanalyse-kommune" target="_blank" rel="noopener">Wärmebedarfsanalyse Kommune: Schritt für Schritt zum rechtssicheren Plan</a></li>
+<li><a href="https://planegy.de/blog-kommunale-warmeplanung-bayern" target="_blank" rel="noopener">Kommunale Wärmeplanung Bayern: Leitfaden für Kommunen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
