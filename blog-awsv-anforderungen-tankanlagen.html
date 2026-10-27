@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AwSV-Anforderungen an Tankanlagen: Pflichten für Betreiber – PLANEGY</title>
+  <meta name="description" content="AwSV-Anforderungen an Tankanlagen kompakt: Gefährdungsstufen, Technik, Dokumentation, Fachbetriebspflicht und Prüffristen für Betreiber in Deutschland." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="AwSV-Anforderungen an Tankanlagen: Pflichten für Betreiber" />
+  <meta property="og:description" content="AwSV-Anforderungen an Tankanlagen kompakt: Gefährdungsstufen, Technik, Dokumentation, Fachbetriebspflicht und Prüffristen für Betreiber in Deutschland." />
+  <link rel="canonical" href="https://planegy.de/blog-awsv-anforderungen-tankanlagen" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "AwSV-Anforderungen an Tankanlagen: Pflichten für Betreiber",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-27",
+    "description": "AwSV-Anforderungen an Tankanlagen kompakt: Gefährdungsstufen, Technik, Dokumentation, Fachbetriebspflicht und Prüffristen für Betreiber in Deutschland."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"⚡"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">AwSV-Anforderungen an Tankanlagen: Pflichten für Betreiber</span>
+    </div>
+    <div class="article-cat">Energie</div>
+    <h1>AwSV-Anforderungen an Tankanlagen: Pflichten für Betreiber</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="awsv-anforderungen-an-tankanlagen-pflichten-fur-betreiber" tabindex="-1">AwSV-Anforderungen an Tankanlagen: Pflichten für Betreiber</h1>
+
+<p>Wer einen Tank für Heizöl, Diesel, Hydrauliköl oder Chemikalien betreibt, muss die Verordnung über Anlagen zum Umgang mit wassergefährdenden Stoffen (AwSV) erfüllen. Welche Pflichten auf Sie zukommen, entscheidet vor allem eine Größe: die Gefährdungsstufe Ihrer Anlage. Sie ergibt sich aus dem Volumen und der Wassergefährdungsklasse (WGK) des Stoffs. Von ihr hängen die technische Ausrüstung ab, die Unterlagen, die Sie vorhalten müssen, ob ein Fachbetrieb ran muss und wie oft ein Sachverständiger prüft. Dieser Leitfaden führt Sie in der Reihenfolge durch die Pflichten, in der Sie sie als Betreiber auch abarbeiten: Anlage einstufen, Technik prüfen, Organisation aufbauen, Fachbetrieb beauftragen, Prüffristen einhalten.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">AwSV-Pflichten sicher einordnen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Unternehmen und Kommunen mit technologieoffener Energieberatung und umfassendem Service von der Analyse bis zur Umsetzung.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">PLANEGY kennenlernen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li>Die AwSV gilt für alle Anlagen, in denen mit wassergefährdenden Stoffen umgegangen wird, also auch für Tankanlagen in Betrieben, Kommunen und Versorgern.</li>
+<li>Sie als Betreiber ordnen Ihre Anlage selbst einer Gefährdungsstufe A bis D zu, nach Volumen oder Masse und WGK.</li>
+<li>Jede Anlage muss dicht und standsicher sein, Leckagen müssen schnell erkannt und zurückgehalten werden.</li>
+<li>Errichten, innen reinigen, instand setzen und stilllegen darf bei fachbetriebspflichtigen Anlagen nur ein Fachbetrieb nach § 62 WHG.</li>
+<li>Viele wiederkehrende Sachverständigenprüfungen laufen alle fünf Jahre, unterirdische Anlagen in Schutz- und Überschwemmungsgebieten alle 30 Monate.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#welche-tankanlagen-unter-die-awsv-fallen">Welche Tankanlagen unter die AwSV fallen</a></li>
+<li><a href="#technische-grundsatzanforderungen-an-tank-und-ruckhaltung">Technische Grundsatzanforderungen an Tank und Rückhaltung</a></li>
+<li><a href="#organisatorische-pflichten-und-dokumentation">Organisatorische Pflichten und Dokumentation</a></li>
+<li><a href="#wann-ein-fachbetrieb-nach-62-whg-ran-muss">Wann ein Fachbetrieb nach § 62 WHG ran muss</a></li>
+<li><a href="#prufpflichten-und-pruffristen-fur-tanks">Prüfpflichten und Prüffristen für Tanks</a></li>
+<li><a href="#tankanlagen-in-schutz-und-uberschwemmungsgebieten">Tankanlagen in Schutz- und Überschwemmungsgebieten</a></li>
+<li><a href="#unser-blick-auf-awsv-pflichten-bei-tankanlagen">Unser Blick auf AwSV-Pflichten bei Tankanlagen</a></li>
+<li><a href="#so-unterstutzen-wir-betreiber">So unterstützen wir Betreiber</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="welche-tankanlagen-unter-die-awsv-fallen" tabindex="-1">Welche Tankanlagen unter die AwSV fallen</h2>
+<p>Die AwSV ist eine bundesweit einheitliche Verordnung und regelt laut Bundesumweltministerium <a href="https://www.bundesumweltministerium.de/gesetz/verordnung-ueber-anlagen-zum-umgang-mit-wassergefaehrdenden-stoffen" rel="nofollow noopener noreferrer" target="_blank">alle Anlagen, in denen mit wassergefährdenden Stoffen umgegangen wird</a>. Für Tankanlagen heißt das: Lagerbehälter für Heizöl oder Kraftstoffe, Betriebstankstellen, Tanks für Schmier- und Hydrauliköle, Behälter für Säuren, Laugen oder Additive in der Wasseraufbereitung, dazu Abfüllplätze und die verbindenden Rohrleitungen. Ausschlaggebend ist nicht die Branche, sondern der Stoff und die Menge.</p>
+<p>Das Ministerium beschreibt die Wassergefährdungsklassen als Grundlage für eine <a href="https://www.bundesumweltministerium.de/gesetz/verordnung-ueber-anlagen-zum-umgang-mit-wassergefaehrdenden-stoffen" rel="nofollow noopener noreferrer" target="_blank">risikoorientierte sicherheitstechnische Ausrüstung</a>. Je gefährlicher der Stoff für Gewässer und je größer das Volumen, desto strenger die Anforderungen. Die WGK Ihres Stoffs finden Sie im Sicherheitsdatenblatt des Lieferanten.</p>
+<h3 id="die-gefahrdungsstufe-ermitteln" tabindex="-1">Die Gefährdungsstufe ermitteln</h3>
+<p>Die Einstufung ist Ihre Aufgabe als Betreiber, nicht die der Behörde. Nach <a href="https://www.gesetze-im-internet.de/awsv/__39.html" rel="nofollow noopener noreferrer" target="_blank">§ 39 AwSV</a> zählt bei flüssigen Stoffen das maßgebende Volumen, bei gasförmigen und festen Stoffen die maßgebende Masse, jeweils kombiniert mit der WGK. Maßgebend ist in der Regel das Nennvolumen der Anlage einschließlich aller Anlagenteile, nicht die übliche Füllmenge.</p>
+<table>
+<thead>
+<tr>
+<th>Volumen (m³) oder Masse (t)</th>
+<th>WGK 1</th>
+<th>WGK 2</th>
+<th>WGK 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bis 0,22 m³ bzw. 0,2 t</td>
+<td>A</td>
+<td>A</td>
+<td>A</td>
+</tr>
+<tr>
+<td>über 0,22 bzw. 0,2 bis 1</td>
+<td>A</td>
+<td>A</td>
+<td>B</td>
+</tr>
+<tr>
+<td>über 1 bis 10</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+</tr>
+<tr>
+<td>über 10 bis 100</td>
+<td>A</td>
+<td>C</td>
+<td>D</td>
+</tr>
+<tr>
+<td>über 100 bis 1.000</td>
+<td>B</td>
+<td>D</td>
+<td>D</td>
+</tr>
+<tr>
+<td>über 1.000</td>
+<td>C</td>
+<td>D</td>
+<td>D</td>
+</tr>
+</tbody>
+</table>
+<p>Ein Rechenbeispiel: Ein Betrieb lagert einen WGK-2-Stoff in einem oberirdischen Tank mit 8 m³ Nennvolumen. Die Anlage liegt damit in Stufe B. Kommt ein zweiter Tank mit 5 m³ hinzu, der mit dem ersten eine Anlage bildet, steigt das maßgebende Volumen auf 13 m³ und die Anlage rutscht in Stufe C. Genau an solchen Erweiterungen entstehen in der Praxis die meisten Lücken: Prüfpflichten und Unterlagen wachsen mit, werden aber nicht nachgezogen.</p>
+<p>Prüfen Sie deshalb bei jeder Änderung, wie die Anlage abgegrenzt ist. Ob zwei Behälter eine gemeinsame Anlage bilden, hängt vom funktionalen und räumlichen Zusammenhang ab. Im Zweifel klärt die untere Wasserbehörde Ihres Kreises oder Ihrer kreisfreien Stadt die Abgrenzung verbindlich.</p>
+<h2 id="technische-grundsatzanforderungen-an-tank-und-ruckhaltung" tabindex="-1">Technische Grundsatzanforderungen an Tank und Rückhaltung</h2>
+<p>Der Kern der Technik steht in <a href="https://www.gesetze-im-internet.de/awsv/__17.html" rel="nofollow noopener noreferrer" target="_blank">§ 17 AwSV</a>: Anlagen müssen dicht und standsicher sein, und Undichtheiten sowie austretende Stoffe müssen schnell und zuverlässig erkannt und zurückgehalten werden. Daraus folgen für Tankanlagen vier Baustellen, die Sie bei Planung und Bestandsaufnahme abhaken sollten.</p>
+<ol>
+<li><strong>Behälter und Werkstoffe.</strong> Tank, Dichtungen und Rohrleitungen müssen gegen den gelagerten Stoff beständig sein. Ein Tank, der für Heizöl zugelassen ist, eignet sich nicht automatisch für Biodieselgemische oder Chemikalien.</li>
+<li><strong>Rückhaltung.</strong> Einwandige Behälter brauchen eine Auffangwanne oder einen Auffangraum, der austretende Stoffe sicher fasst. Doppelwandige Tanks mit Leckanzeiger sind die gängige Alternative. Die Rückhalteeinrichtung selbst muss ebenfalls dicht und beständig sein.</li>
+<li><strong>Leckerkennung und Füllstand.</strong> Leckagen müssen schnell auffallen, etwa über Leckanzeiger, Sichtkontrolle des Auffangraums oder Leckagesonden. Überfüllsicherungen und Füllstandsanzeigen verhindern, dass beim Befüllen Stoff austritt.</li>
+<li><strong>Abfüllbereich.</strong> Beim Befüllen aus dem Tankwagen passieren viele Schäden. Die Abfüllfläche muss so ausgeführt sein, dass Tropfverluste und Schlauchabrisse zurückgehalten werden.</li>
+</ol>
+<p>Setzen Sie Bauprodukte und Systeme verschiedener Hersteller zusammen, reicht der einzelne Produktnachweis nicht immer. Der TÜV-Verband weist darauf hin, dass für den Verzicht auf eine Eignungsfeststellung nach § 41 Abs. 2 AwSV ein <a href="https://www.tuev-verband.de/anlagen/wassergefaehrdende-stoffe/faq-awsv" rel="nofollow noopener noreferrer" target="_blank">Sachverständigengutachten erforderlich</a> ist, weil Produktnachweise allein nicht belegen, dass die Teile im Zusammenspiel die Anforderungen erfüllen. Planen Sie dieses Gutachten früh ein, sonst verzögert es die Inbetriebnahme.</p>
+<p>Lagern Sie brennbare Flüssigkeiten, kommt neben dem Gewässerschutz der Explosionsschutz hinzu. Wie Sie Bereiche rund um Tank, Domschacht und Abfüllplatz bewerten, zeigt unser Beitrag zur <a href="https://planegy.de/blog-ex-zonen-klassifizierung" target="_blank" rel="noopener">Klassifizierung von Ex-Zonen</a>.</p>
+<h2 id="organisatorische-pflichten-und-dokumentation" tabindex="-1">Organisatorische Pflichten und Dokumentation</h2>
+<p>Technik allein genügt nicht. Die TU Berlin fasst die Betreiberpflichten in ihrem Leitfaden zum Arbeits- und Umweltschutz gut zusammen: Neben regelmäßigen Eigenkontrollen gehören ein Merkblatt an der Anlage, ab Stufe B eine Betriebsanweisung, jährliche Unterweisungen des Personals und die <a href="https://www.tu.berlin/arbeits-umweltschutz/umweltschutz/wasser/anlagen-wassergefaehrdung/grundsaetzliche-anforderungen-an-anlagen-und-betreiberpflichten" rel="nofollow noopener noreferrer" target="_blank">Bereithaltung technischer Unterlagen</a> dazu.</p>
+<h3 id="merkblatt-betriebsanweisung-unterweisung" tabindex="-1">Merkblatt, Betriebsanweisung, Unterweisung</h3>
+<ul>
+<li><strong>AwSV-Merkblatt:</strong> An jeder Anlage hängt ein individuell ausgefülltes Merkblatt mit Betriebs- und Verhaltensvorschriften. Darauf gehören die Anlage, der Stoff und die Telefonnummern für den Notfall, etwa Feuerwehr, Wasserbehörde und der beauftragte Fachbetrieb.</li>
+<li><strong>Betriebsanweisung ab Stufe B:</strong> Sie regelt den Normalbetrieb, das Befüllen, Kontrollen und das Verhalten bei Leckagen und Betriebsstörungen. Schreiben Sie sie für die Menschen, die tatsächlich am Tank arbeiten, nicht für die Akte.</li>
+<li><strong>Jährliche Unterweisung:</strong> Wer die Anlage bedient oder befüllt, wird einmal im Jahr anhand der Betriebsanweisung unterwiesen. Dokumentieren Sie Datum, Inhalte und Teilnehmer mit Unterschrift. Wie Sie Unterweisungen an Energieanlagen strukturiert aufsetzen, lesen Sie in unserem Beitrag zur <a href="https://planegy.de/blog-sicherheitsunterweisung-energieanlagen" target="_blank" rel="noopener">Sicherheitsunterweisung an Energieanlagen</a>.</li>
+</ul>
+<h3 id="was-in-die-anlagendokumentation-gehort" tabindex="-1">Was in die Anlagendokumentation gehört</h3>
+<p>Die Dokumentation ist das, was Behörde, Sachverständiger und Fachbetrieb zuerst sehen wollen. Vorhalten müssen Sie Unterlagen zum <a href="https://www.tu.berlin/arbeits-umweltschutz/umweltschutz/wasser/anlagen-wassergefaehrdung/grundsaetzliche-anforderungen-an-anlagen-und-betreiberpflichten" rel="nofollow noopener noreferrer" target="_blank">Aufbau der Anlage, zu den Stoffen, zur Bauart, zu Werkstoffen, Sicherheitseinrichtungen und zur Standsicherheit</a>. Bei prüfpflichtigen Anlagen kommen die letzten Prüfberichte hinzu, damit Fachbetriebe und Sachverständige darauf zugreifen können.</p>
+<p>In der Praxis bewährt sich ein Anlagenordner, gedruckt oder digital, mit dieser Gliederung:</p>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Typischer Inhalt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anlagenbeschreibung</td>
+<td>Lageplan, Abgrenzung der Anlage, Volumen, Gefährdungsstufe mit Herleitung</td>
+</tr>
+<tr>
+<td>Stoffe</td>
+<td>Sicherheitsdatenblätter, WGK-Einstufung</td>
+</tr>
+<tr>
+<td>Technik</td>
+<td>Bauartnachweise, Zulassungen, Werkstoffe, Leckanzeiger, Überfüllsicherung, Statik</td>
+</tr>
+<tr>
+<td>Betrieb</td>
+<td>Merkblatt, Betriebsanweisung, Unterweisungsnachweise</td>
+</tr>
+<tr>
+<td>Eigenkontrolle</td>
+<td>Kontrollbuch mit Datum, Befund, Namenszeichen</td>
+</tr>
+<tr>
+<td>Prüfungen</td>
+<td>Sachverständigenberichte, Mängelbeseitigung, nächster Prüftermin</td>
+</tr>
+<tr>
+<td>Fachbetrieb</td>
+<td>Fachbetriebsbescheinigungen der beauftragten Firmen, Arbeitsnachweise</td>
+</tr>
+</tbody>
+</table>
+<p>Führen Sie die Herleitung der Gefährdungsstufe schriftlich mit. Sie ist die Grundlage aller weiteren Pflichten, und bei einem Betreiberwechsel oder einer Prüfung wird genau danach gefragt.</p>
+<h2 id="wann-ein-fachbetrieb-nach-62-whg-ran-muss" tabindex="-1">Wann ein Fachbetrieb nach § 62 WHG ran muss</h2>
+<p>Nicht jede Schraube am Tank darf jede Firma anziehen. Nach <a href="https://www.gesetze-im-internet.de/awsv/__45.html" rel="nofollow noopener noreferrer" target="_blank">§ 45 AwSV</a> dürfen die dort genannten Anlagen nur von Fachbetrieben nach § 62 WHG errichtet, innen gereinigt, instand gesetzt und stillgelegt werden. Ausgenommen sind Tätigkeiten, die keine unmittelbare Bedeutung für die Sicherheit der Anlage haben. Ein Anstrich der Außenhaut ist etwas anderes als der Austausch eines Leckanzeigers.</p>
+<p>Welche Anlagen fachbetriebspflichtig sind, legt § 45 nach Anlagenart und Gefährdungsstufe fest. Für Tankanlagen mit flüssigen Stoffen in höheren Stufen ist das der Regelfall. Klären Sie die Frage vor jeder Maßnahme, nicht danach.</p>
+<p>So prüfen Sie einen Fachbetrieb vor der Beauftragung:</p>
+<ol>
+<li>Lassen Sie sich die aktuelle Fachbetriebsbescheinigung zeigen. Sie wird von einer Sachverständigenorganisation oder einer Güte- und Überwachungsgemeinschaft ausgestellt und ist befristet.</li>
+<li>Gleichen Sie den Tätigkeitsbereich ab. Die Bescheinigung nennt, für welche Anlagen und Tätigkeiten der Betrieb zertifiziert ist.</li>
+<li>Legen Sie eine Kopie in Ihren Anlagenordner.</li>
+</ol>
+<p>Wer den Betrieb überwacht, ist für die Qualität zweitrangig. Das Bundesumweltministerium stellt klar, dass das <a href="https://www.bundesumweltministerium.de/gesetz/verordnung-ueber-anlagen-zum-umgang-mit-wassergefaehrdenden-stoffen" rel="nofollow noopener noreferrer" target="_blank">Qualitätsniveau unabhängig von der überwachenden Stelle</a> ist und es auf Fachkunde und Erfahrung ankommt.</p>
+<h2 id="prufpflichten-und-pruffristen-fur-tanks" tabindex="-1">Prüfpflichten und Prüffristen für Tanks</h2>
+<p>Prüfpflichten gibt es auf zwei Ebenen: die laufende Eigenkontrolle durch Sie und die Prüfung durch einen AwSV-Sachverständigen.</p>
+<h3 id="eigenkontrolle-durch-den-betreiber" tabindex="-1">Eigenkontrolle durch den Betreiber</h3>
+<p>Sie überwachen Dichtheit und Funktion der Sicherheitseinrichtungen regelmäßig selbst. Wie oft, ergibt sich aus der Betriebsanweisung, den Herstellerangaben und dem Zustand der Anlage. Ein bewährter Rhythmus: Sichtkontrolle von Tank, Auffangraum und Leckanzeiger bei jedem Befüllen und zusätzlich in festen Abständen, Funktionstest des Leckanzeigers nach Herstellervorgabe. Tragen Sie jede Kontrolle ins Kontrollbuch ein, auch wenn alles in Ordnung war.</p>
+
+<h3 id="sachverstandigenprufung" tabindex="-1">Sachverständigenprüfung</h3>
+<p>Außerhalb von Schutzgebieten richtet sich die Prüfpflicht nach <a href="https://www.gesetze-im-internet.de/awsv/anlage_5.html" rel="nofollow noopener noreferrer" target="_blank">Anlage 5 der AwSV</a>. Je nach Anlagenart und Gefährdungsstufe prüft ein Sachverständiger zu drei Anlässen:</p>
+<table>
+<thead>
+<tr>
+<th>Anlass</th>
+<th>Wann</th>
+<th>Worauf es ankommt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vor Inbetriebnahme</td>
+<td>nach Errichtung oder wesentlicher Änderung</td>
+<td>Anlage erst nach mängelfreier Prüfung in Betrieb nehmen</td>
+</tr>
+<tr>
+<td>Wiederkehrend</td>
+<td>in vielen Fällen alle fünf Jahre</td>
+<td>Termin im Prüfbericht notieren und früh beauftragen</td>
+</tr>
+<tr>
+<td>Bei Stilllegung</td>
+<td>wenn die Anlage endgültig außer Betrieb geht</td>
+<td>Nachweis, dass keine Stoffe zurückbleiben</td>
+</tr>
+</tbody>
+</table>
+<p>Ob Ihre Anlage alle drei Prüfungen braucht oder nur einzelne, entscheidet die Kombination aus oberirdisch oder unterirdisch und Gefährdungsstufe in der Tabelle der Anlage 5. Lesen Sie die Fußnoten mit, dort stehen die Sonderfälle. Eine Anlage, die durch eine Erweiterung in eine höhere Stufe wechselt, kann von einer reinen Inbetriebnahmeprüfung in den Fünf-Jahres-Rhythmus fallen.</p>
+<p>Zwei Punkte aus der Praxis: Erleichterungen bei der Prüfpflicht greifen nach Auffassung des TÜV-Verbands, ohne dass Sie erst auf einen <a href="https://www.tuev-verband.de/anlagen/wassergefaehrdende-stoffe/faq-awsv" rel="nofollow noopener noreferrer" target="_blank">Bescheid der Behörde warten</a> müssen. Und auch dort, wo keine wiederkehrende Prüfung vorgeschrieben ist, empfiehlt das Ministerium bei Anlagen mit <a href="https://www.bundesumweltministerium.de/gesetz/verordnung-ueber-anlagen-zum-umgang-mit-wassergefaehrdenden-stoffen" rel="nofollow noopener noreferrer" target="_blank">erhöhtem Risikopotenzial regelmäßige externe Prüfungen</a> für einen störungsfreien Betrieb.</p>
+<p>Viele Tankanlagen unterliegen parallel weiteren Prüfregimen, etwa für Druckbehälter oder Arbeitsmittel. Einen Überblick liefert unsere <a href="https://planegy.de/blog-betrsichv-prufungen" target="_blank" rel="noopener">Checkliste zu Prüfungen nach BetrSichV</a>. Legen Sie die Termine aller Regelwerke in einen gemeinsamen Prüfkalender, dann fällt keine Frist durch.</p>
+<h2 id="tankanlagen-in-schutz-und-uberschwemmungsgebieten" tabindex="-1">Tankanlagen in Schutz- und Überschwemmungsgebieten</h2>
+<p>Liegt Ihr Standort in einem Wasser- oder Heilquellenschutzgebiet oder in einem festgesetzten oder vorläufig gesicherten Überschwemmungsgebiet, gelten strengere Regeln. Nach <a href="https://www.gesetze-im-internet.de/awsv/__46.html" rel="nofollow noopener noreferrer" target="_blank">§ 46 AwSV</a> richten sich Prüfzeitpunkte und Intervalle dann nach Anlage 6 statt Anlage 5. Der deutlichste Unterschied: Unterirdische Anlagen mit flüssigen oder gasförmigen wassergefährdenden Stoffen werden dort nach <a href="https://www.gesetze-im-internet.de/awsv/anlage_6.html" rel="nofollow noopener noreferrer" target="_blank">Anlage 6 alle 30 Monate</a> wiederkehrend geprüft, also doppelt so oft wie üblich.</p>
+<p>Ob ein Grundstück in einem Schutzgebiet liegt, zeigen die Kartendienste der Landesumweltverwaltungen oder eine Anfrage bei der unteren Wasserbehörde. Prüfen Sie das vor jeder Neuplanung. Im Überschwemmungsgebiet kommt die Frage dazu, ob der Tank gegen Auftrieb gesichert ist, denn ein aufschwimmender, leerer Behälter reißt Leitungen ab.</p>
+<h2 id="unser-blick-auf-awsv-pflichten-bei-tankanlagen" tabindex="-1">Unser Blick auf AwSV-Pflichten bei Tankanlagen</h2>
+<p>In über 20 Jahren im Energiesektor haben wir viele Tankanlagen gesehen, die technisch einwandfrei waren und trotzdem bei der Prüfung Mängel bekamen. Der Grund war fast nie der Tank, sondern die Organisation: eine Gefährdungsstufe, die nach einer Erweiterung nie neu ermittelt wurde, eine Betriebsanweisung aus dem Jahr der Errichtung, fehlende Nachweise über die Fachbetriebe.</p>
+<p>Deshalb empfehlen wir, die AwSV nicht als Einzelthema zu behandeln. Tankanlagen sind Teil der Energieversorgung eines Standorts, und dieselbe Anlage berührt oft Explosionsschutz, Betriebssicherheit und manchmal ein Genehmigungsverfahren. Wer das gemeinsam plant, spart doppelte Arbeit und vermeidet Widersprüche zwischen Dokumenten.</p>
+<p>Und wer ohnehin über einen neuen Tank oder einen Energieträgerwechsel nachdenkt, sollte die Frage technologieoffen stellen. Manchmal ist die bessere Lösung nicht der größere Öltank, sondern ein anderes Versorgungskonzept. Bei Flüssiggas- und BioLPG-Anlagen stehen etwa andere Regelwerke im Vordergrund, wie unser Beitrag zur <a href="https://planegy.de/blog-lpg-anlage-genehmigung" target="_blank" rel="noopener">Genehmigung von LPG-Anlagen</a> zeigt. Wir bewerten diese Optionen neutral, ohne eigene Produkte.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="so-unterstutzen-wir-betreiber" tabindex="-1">So unterstützen wir Betreiber</h2>
+<p>PLANEGY begleitet Industrie, Gewerbe, Kommunen und Energieversorger bei Konzeption, Genehmigung und Compliance ihrer Energieanlagen. Wir erstellen Gefährdungsbeurteilungen und Explosionsschutzdokumente, bereiten Prüfungen vor, führen Einweisungen durch und koordinieren Genehmigungsverfahren. Plant Ihr Standort eine neue Anlage oder einen Energieträgerwechsel, prüfen wir auch passende Fördermittel. Mehr dazu auf unserer Seite zur <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieberatung für die Industrie</a> oder in der <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Übersicht unserer Leistungen</a>.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="gilt-die-awsv-auch-fur-kleine-heizoltanks" tabindex="-1">Gilt die AwSV auch für kleine Heizöltanks?</h3>
+<p>Ja, die AwSV gilt grundsätzlich für alle Anlagen mit wassergefährdenden Stoffen. Kleine Anlagen landen aber meist in Stufe A, für die deutlich weniger Pflichten gelten. Grundsatzanforderungen wie Dichtheit und Rückhaltung von Leckagen gelten trotzdem.</p>
+<h3 id="wer-stuft-meine-tankanlage-in-eine-gefahrdungsstufe-ein" tabindex="-1">Wer stuft meine Tankanlage in eine Gefährdungsstufe ein?</h3>
+<p>Das tun Sie als Betreiber selbst, anhand von Volumen oder Masse und WGK nach § 39 AwSV. Halten Sie die Herleitung schriftlich fest. Bei Unsicherheit über die Abgrenzung der Anlage hilft die untere Wasserbehörde.</p>
+<h3 id="darf-mein-haustechniker-arbeiten-am-tank-ubernehmen" tabindex="-1">Darf mein Haustechniker Arbeiten am Tank übernehmen?</h3>
+<p>Bei fachbetriebspflichtigen Anlagen nur, wenn sein Betrieb Fachbetrieb nach § 62 WHG für diese Tätigkeit ist. Das betrifft Errichtung, Innenreinigung, Instandsetzung und Stilllegung. Arbeiten ohne unmittelbare Bedeutung für die Anlagensicherheit sind ausgenommen.</p>
+<h3 id="wie-lange-muss-ich-prufberichte-aufbewahren" tabindex="-1">Wie lange muss ich Prüfberichte aufbewahren?</h3>
+<p>Halten Sie mindestens die letzten Prüfberichte so bereit, dass Sachverständige und Fachbetriebe darauf zugreifen können. Viele Betreiber bewahren alle Berichte über die gesamte Lebensdauer der Anlage auf. So lässt sich bei einer Prüfung oder einem Schaden die Historie lückenlos belegen.</p>
+<h3 id="was-andert-sich-wenn-mein-tank-im-wasserschutzgebiet-steht" tabindex="-1">Was ändert sich, wenn mein Tank im Wasserschutzgebiet steht?</h3>
+<p>Dann gelten die Prüfintervalle der Anlage 6 statt der Anlage 5. Unterirdische Anlagen werden dort alle 30 Monate wiederkehrend geprüft. Klären Sie vor einer Neuplanung mit der Wasserbehörde, ob am Standort zusätzliche Einschränkungen gelten.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.bundesumweltministerium.de/gesetz/verordnung-ueber-anlagen-zum-umgang-mit-wassergefaehrdenden-stoffen" rel="nofollow noopener noreferrer" target="_blank">BMUKN: Verordnung über Anlagen zum Umgang mit wassergefährdenden Stoffen</a></li>
+<li><a href="https://www.gesetze-im-internet.de/awsv/__17.html" rel="nofollow noopener noreferrer" target="_blank">§ 17 AwSV: Grundsatzanforderungen</a></li>
+<li><a href="https://www.gesetze-im-internet.de/awsv/__39.html" rel="nofollow noopener noreferrer" target="_blank">§ 39 AwSV: Gefährdungsstufen von Anlagen</a></li>
+<li><a href="https://www.gesetze-im-internet.de/awsv/__45.html" rel="nofollow noopener noreferrer" target="_blank">§ 45 AwSV: Fachbetriebspflicht</a></li>
+<li><a href="https://www.gesetze-im-internet.de/awsv/__46.html" rel="nofollow noopener noreferrer" target="_blank">§ 46 AwSV: Überwachungs- und Prüfpflichten</a></li>
+<li><a href="https://www.gesetze-im-internet.de/awsv/anlage_5.html" rel="nofollow noopener noreferrer" target="_blank">Anlage 5 AwSV: Prüfzeitpunkte außerhalb von Schutzgebieten</a></li>
+<li><a href="https://www.gesetze-im-internet.de/awsv/anlage_6.html" rel="nofollow noopener noreferrer" target="_blank">Anlage 6 AwSV: Prüfzeitpunkte in Schutz- und Überschwemmungsgebieten</a></li>
+<li><a href="https://www.tu.berlin/arbeits-umweltschutz/umweltschutz/wasser/anlagen-wassergefaehrdung/grundsaetzliche-anforderungen-an-anlagen-und-betreiberpflichten" rel="nofollow noopener noreferrer" target="_blank">TU Berlin: Grundsätzliche Anforderungen an Anlagen und Betreiberpflichten</a></li>
+<li><a href="https://www.tuev-verband.de/anlagen/wassergefaehrdende-stoffe/faq-awsv" rel="nofollow noopener noreferrer" target="_blank">TÜV-Verband: Fragen zur AwSV</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-prufpflichten-druckbehalter" target="_blank" rel="noopener">Prüfpflichten bei Druckbehältern: Fristen und Zuständigkeiten</a></li>
+<li><a href="https://planegy.de/blog-lpg-anlage-genehmigung" target="_blank" rel="noopener">LPG-Anlage-Genehmigung: Regeln für Kommunen und Betriebe</a></li>
+<li><a href="https://planegy.de/blog-sicherheitsunterweisung-energieanlagen" target="_blank" rel="noopener">Sicherheitsunterweisung Energieanlagen: Pflichten und Ablauf</a></li>
+<li><a href="https://planegy.de/blog-lng-anlage-genehmigung" target="_blank" rel="noopener">LNG-Anlage-Genehmigung in Deutschland: Was Antragsteller wissen müssen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
