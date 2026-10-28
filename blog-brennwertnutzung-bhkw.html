@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brennwertnutzung im BHKW: So holt der Abgaswärmetauscher mehr Wärme – PLANEGY</title>
+  <meta name="description" content="Brennwertnutzung im BHKW erklärt: wie der zweite Abgaswärmetauscher arbeitet, welche Rücklauftemperatur nötig ist und wann sich die Nachrüstung rechnet." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Brennwertnutzung im BHKW: So holt der Abgaswärmetauscher mehr Wärme" />
+  <meta property="og:description" content="Brennwertnutzung im BHKW erklärt: wie der zweite Abgaswärmetauscher arbeitet, welche Rücklauftemperatur nötig ist und wann sich die Nachrüstung rechnet." />
+  <link rel="canonical" href="https://planegy.de/blog-brennwertnutzung-bhkw" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Brennwertnutzung im BHKW: So holt der Abgaswärmetauscher mehr Wärme",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-28",
+    "description": "Brennwertnutzung im BHKW erklärt: wie der zweite Abgaswärmetauscher arbeitet, welche Rücklauftemperatur nötig ist und wann sich die Nachrüstung rechnet."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Brennwertnutzung im BHKW: So holt der Abgaswärmetauscher mehr Wärme</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Brennwertnutzung im BHKW: So holt der Abgaswärmetauscher mehr Wärme</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>12 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="brennwertnutzung-im-bhkw-so-holt-der-abgaswarmetauscher-mehr-warme" tabindex="-1">Brennwertnutzung im BHKW: So holt der Abgaswärmetauscher mehr Wärme</h1>
+
+<p>Ein Blockheizkraftwerk (BHKW) mit Brennwertnutzung kühlt sein Abgas so weit ab, dass der enthaltene Wasserdampf kondensiert. Die dabei frei werdende Wärme geht ins Heizwasser statt in den Schornstein. Das bringt je nach Anlage bis zu rund 15 % mehr Wärme aus demselben Brennstoff. Es funktioniert aber nur, wenn das Heizsystem kalt genug zurückläuft. Hier lesen Sie, wie der Abgaswärmetauscher arbeitet, welche Temperaturen er braucht, wie Sie Wirkungsgradangaben richtig lesen und was beim Kondensat vorgeschrieben ist. Am Ende wissen Sie, ob sich die zweite Wärmetauscherstufe für Ihre Anlage rechnet.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Mehr Wärme aus Ihrem BHKW gewinnen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY entwickelt technologieoffene Energielösungen und unterstützt Unternehmen von der Analyse bis zur Umsetzung.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Energielösungen entdecken<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li>Brennwertnutzung heißt: Ein zusätzlicher Wärmetauscher kühlt das BHKW-Abgas unter den Taupunkt und gewinnt die Kondensationswärme des Wasserdampfs zurück.</li>
+<li>Der Mehrertrag liegt bei bis zu etwa 15 % der regulären thermischen Leistung, die Voraussetzung sind Rücklauftemperaturen unter etwa 50 °C.</li>
+<li>Gesamtnutzungsgrade über 100 % sind kein Rechenfehler. Sie beziehen sich auf den unteren Heizwert des Brennstoffs.</li>
+<li>Das Kondensat ist sauer. Abgasweg und Wärmetauscher brauchen korrosionsbeständige Werkstoffe, und ab 200 kW ist die Neutralisation Pflicht.</li>
+<li>Ob es sich lohnt, entscheiden Rücklauftemperatur, Betriebsstunden und Hydraulik, nicht das Datenblatt allein.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-brennwertnutzung-beim-bhkw-bedeutet">Was Brennwertnutzung beim BHKW bedeutet</a></li>
+<li><a href="#so-arbeitet-der-abgaswarmetauscher">So arbeitet der Abgaswärmetauscher</a></li>
+<li><a href="#die-rucklauftemperatur-entscheidet">Die Rücklauftemperatur entscheidet</a></li>
+<li><a href="#wirkungsgrad-uber-100-heizwert-und-brennwert-richtig-lesen">Wirkungsgrad über 100 %: Heizwert und Brennwert richtig lesen</a></li>
+<li><a href="#rechenbeispiel-was-die-zweite-stufe-bringen-kann">Rechenbeispiel: Was die zweite Stufe bringen kann</a></li>
+<li><a href="#kondensat-werkstoffe-und-vorschriften">Kondensat, Werkstoffe und Vorschriften</a></li>
+<li><a href="#wann-sich-brennwertnutzung-lohnt-und-wann-nicht">Wann sich Brennwertnutzung lohnt und wann nicht</a></li>
+<li><a href="#unsere-sicht-erst-die-hydraulik-dann-der-warmetauscher">Unsere Sicht: Erst die Hydraulik, dann der Wärmetauscher</a></li>
+<li><a href="#bhkw-konzept-und-forderung-aus-einer-hand">BHKW-Konzept und Förderung aus einer Hand</a></li>
+<li><a href="#haufige-fragen-zur-brennwertnutzung-im-bhkw">Häufige Fragen zur Brennwertnutzung im BHKW</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-brennwertnutzung-beim-bhkw-bedeutet" tabindex="-1">Was Brennwertnutzung beim BHKW bedeutet</h2>
+<p>Ein Gasmotor-BHKW gibt seine Wärme über mehrere Wege ab: über Motorkühlwasser, Schmieröl, Gemischkühlung und das Abgas. In einer Standardanlage kühlt ein Abgaswärmetauscher das heiße Abgas zwar deutlich ab, aber nur bis zu einer Temperatur, bei der der Wasserdampf noch gasförmig bleibt. Diese Wärme gilt als „sensible“ Wärme: Sie lässt sich mit dem Thermometer messen.</p>
+<p>Im Abgas steckt aber noch mehr. Bei der Verbrennung von Erdgas, Biogas oder Flüssiggas entsteht Wasserdampf, und dieser Dampf trägt latente Wärme mit sich, also Energie, die erst beim Kondensieren frei wird. Brennwertnutzung macht diese Wärme über einen zweiten Abgaswärmetauscher nutzbar. Laut dem <a href="https://www.bhkw-infozentrum.de/glossar-lexikon/brennwertnutzung.html" rel="nofollow noopener noreferrer" target="_blank">Glossar des BHKW-Infozentrums</a> steigt der Nutzungsgrad dadurch um bis zu 10 Prozentpunkte. Wie groß die Energiemenge ist, zeigt ein Blick in die Physik: Die <a href="https://de.wikipedia.org/wiki/Abgasw%C3%A4rmetauscher" rel="nofollow noopener noreferrer" target="_blank">Kondensationsenthalpie von Wasser</a> liegt bei 20 °C bei rund 2453 kJ pro Kilogramm. Jedes Kilogramm Wasser, das im Wärmetauscher statt im Freien kondensiert, liefert diese Wärme an Ihr Heizsystem.</p>
+<p>Der Unterschied zur üblichen Abwärmenutzung ist also kein Detail der Bauform, sondern ein anderes Temperaturregime. Die normale Abgaswärmenutzung arbeitet oberhalb des Taupunkts, die Brennwertnutzung bewusst darunter. Wer den Unterschied zwischen beiden Wärmeformen genauer verstehen will, findet ihn in unserem Beitrag zu <a href="https://planegy.de/blog-sensible-vs-latente-warmespeicherung" target="_blank" rel="noopener">sensibler und latenter Wärme</a> erklärt.</p>
+
+<h2 id="so-arbeitet-der-abgaswarmetauscher" tabindex="-1">So arbeitet der Abgaswärmetauscher</h2>
+<p>In den meisten BHKW mit Brennwertnutzung arbeiten zwei Wärmetauscherstufen hintereinander. Sie haben unterschiedliche Aufgaben und stellen unterschiedliche Anforderungen an Werkstoff und Hydraulik.</p>
+<h3 id="stufe-1-der-klassische-abgaswarmetauscher" tabindex="-1">Stufe 1: der klassische Abgaswärmetauscher</h3>
+<p>Die erste Stufe nimmt das Abgas direkt hinter dem Motor auf und überträgt den Großteil seiner fühlbaren Wärme an den Heizkreis. Hier liegen die Temperaturen hoch genug, damit kein Kondensat entsteht. Diese Stufe ist bei nahezu jedem BHKW Standard, denn ohne sie wäre die Kraft-Wärme-Kopplung nicht wirtschaftlich. Nach <a href="https://www.bayern-innovativ.de/de/seite/ueberblick-kraft-waerme-kopplung/" rel="nofollow noopener noreferrer" target="_blank">Bayern Innovativ</a> stellen Verbrennungsmotor-BHKW ihre Wärme üblicherweise bis etwa 90 °C bereit, und nur der Abgasanteil, rund die Hälfte der Gesamtwärme, hat das Temperaturniveau für höhere Anforderungen.</p>
+<h3 id="stufe-2-der-brennwertwarmetauscher" tabindex="-1">Stufe 2: der Brennwertwärmetauscher</h3>
+<p>Die zweite Stufe sitzt dahinter. Nach der Beschreibung eines <a href="https://www.sokratherm.de/blockheizkraftwerke/ausstattungsvarianten/brennwertnutzung-zur-wirkungsgradverbesserung/" rel="nofollow noopener noreferrer" target="_blank">BHKW-Herstellers zur Brennwertnutzung</a> wird dieser Wärmetauscher in den BHKW-Rücklauf eingebunden. Das kalte Rücklaufwasser kühlt das Abgas unter den Taupunkt, der Wasserdampf kondensiert, und die Kondensationswärme geht an das Heizwasser. Das vorgewärmte Wasser fließt dann weiter zu den übrigen Wärmequellen des Moduls.</p>
+<p>Die Reihenfolge ist entscheidend: Der Brennwertwärmetauscher braucht das kälteste Wasser im System. Sitzt er an der falschen Stelle oder wird der Rücklauf vorher angehoben, etwa durch eine Rücklaufanhebung oder eine schlecht abgeglichene Hydraulik, kondensiert nichts, und die Investition bleibt ungenutzt.</p>
+<h2 id="die-rucklauftemperatur-entscheidet" tabindex="-1">Die Rücklauftemperatur entscheidet</h2>
+<p>Kein Parameter bestimmt den Ertrag so stark wie die Temperatur, mit der das Heizwasser zum BHKW zurückkommt. Der Hersteller nennt in seiner <a href="https://www.sokratherm.de/blockheizkraftwerke/ausstattungsvarianten/brennwertnutzung-zur-wirkungsgradverbesserung/" rel="nofollow noopener noreferrer" target="_blank">Beschreibung der Brennwertnutzung</a> eine Grenze: Bei Rücklauftemperaturen unter etwa 50 °C ist die Nutzung der Restwärme häufig ökonomisch und energetisch sinnvoll. Je tiefer der Rücklauf darunter liegt, desto mehr Dampf kondensiert.</p>
+<p>In der Praxis heißt das für typische Abnehmer:</p>
+<table>
+<thead>
+<tr>
+<th>Wärmeabnehmer</th>
+<th>Typische Situation beim Rücklauf</th>
+<th>Eignung für Brennwertnutzung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fußbodenheizung, Flächenheizung</td>
+<td>dauerhaft niedrig</td>
+<td>sehr gut</td>
+</tr>
+<tr>
+<td>Neues Nahwärmenetz mit niedrigen Systemtemperaturen</td>
+<td>niedrig, wenn Übergabestationen gut eingestellt sind</td>
+<td>gut</td>
+</tr>
+<tr>
+<td>Hallenbad, Beckenwassererwärmung</td>
+<td>niedrig und ganzjährig</td>
+<td>sehr gut</td>
+</tr>
+<tr>
+<td>Bestandsgebäude mit Radiatoren</td>
+<td>im Winter oft zu hoch</td>
+<td>eingeschränkt, nur mit Optimierung</td>
+</tr>
+<tr>
+<td>Trinkwarmwasser über Speicher</td>
+<td>wechselnd, abhängig von der Schichtung</td>
+<td>gut mit geschichtetem Puffer</td>
+</tr>
+<tr>
+<td>Prozesswärme über 90 °C, Dampf</td>
+<td>hoch</td>
+<td>kaum, außer mit separatem Niedertemperaturabnehmer</td>
+</tr>
+</tbody>
+</table>
+<p>Ein Pufferspeicher kann den Unterschied machen. Die <a href="https://www.bhkw-infothek.de/nachrichten/9610/2012-10-25-kommentar-wenn-bhkw-dann-mit-brennwertnutzung/" rel="nofollow noopener noreferrer" target="_blank">BHKW-Infothek</a> beschreibt eine Lösung, bei der ein separater Heizkreis das kalte Wasser aus dem unteren Speicherbereich für den Brennwertwärmetauscher nutzt. So lässt sich der Brennwert annähernd ganzjährig ausschöpfen, auch wenn die übrigen Verbraucher wärmer zurücklaufen. Voraussetzung ist eine stabile Schichtung im Speicher. Wie Sie den Puffer dafür bemessen, beschreiben wir in unserem Beitrag zur <a href="https://planegy.de/blog-warmespeicher-dimensionierung" target="_blank" rel="noopener">Dimensionierung von Wärmespeichern</a>.</p>
+<p>In Wärmenetzen lohnt sich vor der Entscheidung ein Blick auf die Netzseite. Jede Übergabestation, die zu warm zurückgibt, kostet Kondensationswärme. Hebel wie bessere Regelung und hydraulischen Abgleich haben wir unter <a href="https://planegy.de/blog-warmenetz-verluste-reduzieren" target="_blank" rel="noopener">Verluste im Wärmenetz reduzieren</a> zusammengefasst.</p>
+<h2 id="wirkungsgrad-uber-100-heizwert-und-brennwert-richtig-lesen" tabindex="-1">Wirkungsgrad über 100 %: Heizwert und Brennwert richtig lesen</h2>
+<p>Datenblätter von BHKW mit Brennwertnutzung weisen oft Gesamtnutzungsgrade von mehr als 100 % aus. Das wirkt wie ein Perpetuum mobile, ist aber eine Frage der Bezugsgröße. <a href="https://www.bayern-innovativ.de/de/seite/ueberblick-kraft-waerme-kopplung/" rel="nofollow noopener noreferrer" target="_blank">Bayern Innovativ</a> nennt für Verbrennungsmotor-BHKW Gesamtnutzungsgrade von etwa 90 %. Mit Brennwertnutzung sind über 100 % möglich, bezogen auf den unteren Heizwert des Brennstoffs.</p>
+<p>Der untere Heizwert (Hi) zählt nur die Energie, die ohne Kondensation nutzbar ist. Der Brennwert (Hs) schließt die Kondensationswärme des Wasserdampfs ein und liegt deshalb höher. Weil Wirkungsgrade traditionell auf den Heizwert bezogen werden, erscheint die zurückgewonnene Kondensationswärme als Zuschlag oberhalb von 100 %. Auf den Brennwert bezogen bleibt der Nutzungsgrad selbstverständlich darunter.</p>
+<p>Für Ihre Planung folgt daraus dreierlei:</p>
+<ol>
+<li><strong>Bezugsgröße prüfen.</strong> Vergleichen Sie Angebote nur, wenn alle auf denselben Heizwert bezogen sind.</li>
+<li><strong>Bedingungen prüfen.</strong> Ein Nennwert über 100 % gilt für eine bestimmte Rücklauftemperatur. Fragen Sie nach, bei welcher.</li>
+<li><strong>Jahresnutzungsgrad statt Momentwert.</strong> Entscheidend ist, was die Anlage über das Jahr bei Ihrer realen Rücklauftemperatur leistet. Warum der Wirkungsgrad allein nicht über die Wirtschaftlichkeit entscheidet, gilt für jede KWK-Technik. Für größere Leistungen vergleichen wir in unserem Beitrag zur <a href="https://planegy.de/blog-gasturbine-kraftwarmekopplung" target="_blank" rel="noopener">Gasturbine in der Kraft-Wärme-Kopplung</a> weitere Kennwerte.</li>
+</ol>
+<h2 id="rechenbeispiel-was-die-zweite-stufe-bringen-kann" tabindex="-1">Rechenbeispiel: Was die zweite Stufe bringen kann</h2>
+<p>Ein vereinfachtes Beispiel zeigt die Größenordnung. Die <a href="https://www.kea-bw.de/fileadmin/user_upload/Kraft-Waerme-Kopplung/Wissensportal/BHKW_das_Wichtigste_in_Ihrer_Projektphase/Auslegungsgrundsaetze_07_1_KPWM.pdf" rel="nofollow noopener noreferrer" target="_blank">Auslegungsgrundsätze der KEA-BW</a> für gasmotorische BHKW bis 2 MWel empfehlen, nach dem Grundlastwärmebedarf auszulegen, und nennen in der Regel mindestens 5.000 Betriebsstunden pro Jahr. Die elektrische Leistung ergibt sich überschlägig aus der thermischen Leistung mal Stromkennzahl, als Durchschnitt nennt das Papier 0,6. Der Hersteller beziffert den zusätzlichen Wärmeertrag durch Brennwertnutzung auf bis zu etwa 15 % der regulären thermischen Leistung.</p>
+<p>Angenommen sei ein BHKW für ein Gewerbeobjekt mit Nahwärmeanschluss:</p>
+<table>
+<thead>
+<tr>
+<th>Größe</th>
+<th>Wert im Beispiel</th>
+<th>Herleitung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Thermische Leistung ohne Brennwertstufe</td>
+<td>100 kW</td>
+<td>Auslegung auf Grundlast</td>
+</tr>
+<tr>
+<td>Elektrische Leistung</td>
+<td>60 kW</td>
+<td>100 kW × Stromkennzahl 0,6</td>
+</tr>
+<tr>
+<td>Betriebsstunden pro Jahr</td>
+<td>5.000 h</td>
+<td>Mindestwert nach KEA-BW</td>
+</tr>
+<tr>
+<td>Wärme ohne Brennwertnutzung</td>
+<td>500.000 kWh/a</td>
+<td>100 kW × 5.000 h</td>
+</tr>
+<tr>
+<td>Mehrertrag Brennwertstufe (Obergrenze)</td>
+<td>bis 15 kW</td>
+<td>15 % von 100 kW</td>
+</tr>
+<tr>
+<td>Zusätzliche Wärme pro Jahr (Obergrenze)</td>
+<td>bis 75.000 kWh/a</td>
+<td>15 kW × 5.000 h</td>
+</tr>
+</tbody>
+</table>
+<p>Die 75.000 kWh sind eine Obergrenze für ideale Bedingungen, also für einen dauerhaft niedrigen Rücklauf. Liegt der Rücklauf nur einen Teil des Jahres unter 50 °C, sinkt der Ertrag entsprechend. Diese Wärme muss ein Spitzenlastkessel nicht mehr erzeugen, der Gasverbrauch des BHKW selbst bleibt gleich. Der wirtschaftliche Wert hängt deshalb vom Preis der ersetzten Wärme ab, und den kennen Sie aus Ihrer eigenen Gasrechnung. Einen ersten Vergleich verschiedener Heizsysteme können Sie mit unserem <a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik-Rechner</a> anstellen.</p>
+<p>Dem Ertrag stehen Kosten gegenüber: der Wärmetauscher selbst, eine korrosionsbeständige Abgasanlage, die Kondensatableitung, gegebenenfalls eine Neutralisation und ein etwas höherer Abgasgegendruck. Seriös lässt sich die Rechnung erst mit gemessenen Rücklauftemperaturen aufstellen, idealerweise über eine ganze Heizperiode.</p>
+<h2 id="kondensat-werkstoffe-und-vorschriften" tabindex="-1">Kondensat, Werkstoffe und Vorschriften</h2>
+<p>Wer Abgas kondensieren lässt, bekommt Wasser, und dieses Wasser ist sauer. Ein <a href="https://www.bosch-industrial.com/de/media/country_pool/knowledge/technical_reports/fachbericht-brennwertnutzung.pdf" rel="nofollow noopener noreferrer" target="_blank">Fachbericht zur Brennwertnutzung</a> nennt für Kondensate aus Erdgas pH-Werte zwischen 2,8 und 4,9, bei schwefelarmem Heizöl zwischen 2,3 und 4,5. Daraus folgen zwei Konsequenzen.</p>
+<h3 id="werkstoffe-im-abgasweg" tabindex="-1">Werkstoffe im Abgasweg</h3>
+<p>Alle Teile, die mit kondensierendem Abgas in Berührung kommen, also Wärmetauschergehäuse, Abgasleitungen und Schornstein, müssen laut demselben Fachbericht aus korrosionsbeständigem Material bestehen, in der Regel aus Edelstahl. Bei einer Nachrüstung ist die vorhandene Abgasanlage deshalb der häufigste Kostentreiber. Eine Abgasleitung, die für trockenen Betrieb ausgelegt ist, hält dem Kondensat nicht dauerhaft stand. Planen Sie auch die Feuchteunempfindlichkeit des Schornsteins und das Gefälle der Leitungen zum Kondensatablauf ein.</p>
+<h3 id="ableitung-ins-kanalnetz-nach-dwa-a-251" tabindex="-1">Ableitung ins Kanalnetz nach DWA-A 251</h3>
+<p>Für die Einleitung in das öffentliche Kanalnetz ist das Arbeitsblatt DWA-A 251 maßgeblich. Nach der <a href="https://de.dwa.de/de/regelwerk-news-volltext/arbeitsblatt-dwa-a-251-kondensate-aus-brennwertkesseln.html" rel="nofollow noopener noreferrer" target="_blank">Mitteilung der DWA zum Arbeitsblatt</a> gilt es ausdrücklich auch für Verbrennungsmotoren mit Brennwertfunktion, darunter Blockheizkraftwerke. Die Grenzen, Stand der Fassung von August 2024:</p>
+<ul>
+<li><strong>über 200 kW:</strong> Neutralisation generell Pflicht</li>
+<li><strong>unter 25 kW:</strong> Neutralisation kann unter bestimmten Rahmenbedingungen entfallen</li>
+<li><strong>dazwischen:</strong> Entscheidung nach den Vorgaben des Arbeitsblatts und den örtlichen Bedingungen</li>
+</ul>
+<p>Zusätzlich gelten die Abwassersatzungen Ihrer Kommune. Klären Sie mit dem örtlichen Abwasserbetrieb, bevor Sie die Neutralisationsbox bestellen, ob er eigene Anforderungen stellt. Bei größeren Anlagen gehört die Kondensatfrage zudem in die Genehmigungsunterlagen. Was dort verlangt wird und welche Fristen gelten, haben wir im Beitrag zum <a href="https://planegy.de/blog-genehmigungsprozess-energieanlagen" target="_blank" rel="noopener">Genehmigungsprozess für Energieanlagen</a> zusammengestellt.</p>
+<h3 id="betrieb-und-wartung" tabindex="-1">Betrieb und Wartung</h3>
+<p>Ein Brennwertwärmetauscher braucht regelmäßige Sichtprüfung auf Ablagerungen und Korrosion, einen frei laufenden Siphon und bei Neutralisationsanlagen den Austausch des Granulats. Nehmen Sie diese Punkte in den Wartungsvertrag auf. Fällt die Kondensatableitung aus, staut sich Wasser im Abgasweg, und das BHKW geht im ungünstigsten Fall auf Störung.</p>
+<h2 id="wann-sich-brennwertnutzung-lohnt-und-wann-nicht" tabindex="-1">Wann sich Brennwertnutzung lohnt und wann nicht</h2>
+<p>Aus Technik und Vorschriften ergeben sich klare Entscheidungskriterien. Brennwertnutzung ist in der Regel sinnvoll, wenn:</p>
+<ul>
+<li>der Rücklauf den größten Teil der Betriebszeit unter etwa 50 °C liegt,</li>
+<li>das BHKW auf viele Volllaststunden ausgelegt ist, mindestens im Bereich der 5.000 Stunden, die die KEA-BW nennt,</li>
+<li>ein geschichteter Pufferspeicher vorhanden ist oder ergänzt werden kann,</li>
+<li>die Abgasanlage ohnehin neu gebaut oder saniert wird,</li>
+<li>ein ganzjähriger Niedertemperaturabnehmer existiert, etwa Beckenwasser, Hallenheizung oder Vorwärmung.</li>
+</ul>
+<p>Skeptisch sollten Sie sein, wenn:</p>
+<ul>
+<li>Ihre Wärme überwiegend als Prozesswärme über 90 °C oder als Dampf gebraucht wird,</li>
+<li>das Heizsystem auf hohe Systemtemperaturen angewiesen ist und keine Absenkung geplant ist,</li>
+<li>das BHKW nur wenige Stunden im Jahr läuft,</li>
+<li>eine bestehende Abgasanlage komplett ersetzt werden müsste und der Mehrertrag klein ist.</li>
+</ul>
+<p>In Betrieben mit Dampf- oder Hochtemperaturbedarf liegen die größeren Hebel oft an anderer Stelle, etwa am Kessel selbst. Dazu passt unser Überblick zur <a href="https://planegy.de/blog-dampferzeuger-effizienz" target="_blank" rel="noopener">Effizienz von Dampferzeugern</a>.</p>
+<h2 id="unsere-sicht-erst-die-hydraulik-dann-der-warmetauscher" tabindex="-1">Unsere Sicht: Erst die Hydraulik, dann der Wärmetauscher</h2>
+<p>Wir sehen in Projekten immer wieder dasselbe Muster: Die Brennwertstufe wird als Option im BHKW-Angebot mitbestellt, aber niemand prüft, ob das Heizsystem die nötigen Rücklauftemperaturen überhaupt liefert. Das Ergebnis ist ein Wärmetauscher, der den größten Teil des Jahres trocken läuft. Umgekehrt verzichten Betreiber auf Brennwertnutzung, weil die Bestandshydraulik heute zu warm zurückläuft, obwohl ein Pufferspeicher mit sauberer Schichtung oder ein hydraulischer Abgleich das Problem lösen würde.</p>
+<p>Weil wir technologieoffen arbeiten und keine eigenen Anlagen verkaufen, beginnen wir deshalb nicht beim Modul, sondern beim Wärmebedarf: Wir messen oder rekonstruieren Lastgänge und Rücklauftemperaturen, bewerten die Abgasanlage und prüfen die Kondensatableitung. Erst dann entscheiden wir, ob eine Brennwertstufe, ein anderer Energieträger wie BioLPG oder eine ganz andere Wärmequelle den besseren Beitrag leistet. Bei Kommunen kommt die Frage hinzu, wie die Anlage in die kommunale Wärmeplanung passt. Unsere Erfahrung aus über 20 Jahren im Energiesektor sagt: Die Hydraulik entscheidet über den Brennwert, nicht das Datenblatt.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="bhkw-konzept-und-forderung-aus-einer-hand" tabindex="-1">BHKW-Konzept und Förderung aus einer Hand</h2>
+<p>Sie planen ein neues BHKW oder wollen eine bestehende Anlage um Brennwertnutzung erweitern? PLANEGY bewertet Ihre Optionen herstellerneutral, legt die Anlage auf Ihren tatsächlichen Wärmebedarf aus, begleitet die Genehmigung und sucht passende Fördermittel, zum Beispiel aus BAFA-, KfW- oder BEW-Programmen. Unsere Leistungen für <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Energieanlagen und Genehmigung</a> reichen von der ersten Analyse bis zur Umsetzung. Industriebetriebe finden Details auf unserer Seite zu <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieberatung für die Industrie</a>, Stadtwerke unter <a href="https://planegy.de/stadtwerke" target="_blank" rel="noopener">Lösungen für Energieversorger</a>. Welche Zuschüsse für Effizienzmaßnahmen infrage kommen, zeigt unser Beitrag zur <a href="https://planegy.de/blog-bafa-forderung-effizienz" target="_blank" rel="noopener">BAFA-Förderung für Effizienz</a>.</p>
+<h2 id="haufige-fragen-zur-brennwertnutzung-im-bhkw" tabindex="-1">Häufige Fragen zur Brennwertnutzung im BHKW</h2>
+<h3 id="lasst-sich-ein-bestehendes-bhkw-mit-brennwertnutzung-nachrusten" tabindex="-1">Lässt sich ein bestehendes BHKW mit Brennwertnutzung nachrüsten?</h3>
+<p>In vielen Fällen ja, denn die zweite Wärmetauscherstufe wird hinter dem vorhandenen Abgaswärmetauscher in den Abgasweg und den Rücklauf eingebunden. Entscheidend sind Platz, ein korrosionsbeständiger Abgasweg und eine Kondensatableitung. Prüfen Sie vorher die Rücklauftemperaturen über mindestens eine Heizperiode, sonst rechnen Sie mit einem Ertrag, den die Anlage nie erreicht.</p>
+<h3 id="verbraucht-ein-bhkw-mit-brennwertnutzung-weniger-gas" tabindex="-1">Verbraucht ein BHKW mit Brennwertnutzung weniger Gas?</h3>
+<p>Das BHKW selbst verbraucht bei gleicher Leistung gleich viel Brennstoff, es gewinnt aber mehr Wärme daraus. Diese zusätzliche Wärme ersetzt Wärme aus dem Spitzenlastkessel, und dort sinkt der Gasverbrauch. Wie viel Gas das BHKW insgesamt braucht, ergibt sich aus elektrischer und thermischer Leistung, Wirkungsgrad und Betriebsstunden.</p>
+<h3 id="muss-das-kondensat-eines-bhkw-neutralisiert-werden" tabindex="-1">Muss das Kondensat eines BHKW neutralisiert werden?</h3>
+<p>Nach dem Arbeitsblatt DWA-A 251 besteht oberhalb von 200 kW generell eine Neutralisationspflicht, unter 25 kW kann sie unter bestimmten Bedingungen entfallen. Dazwischen entscheiden die Vorgaben des Arbeitsblatts und die örtliche Abwassersatzung. Fragen Sie im Zweifel direkt beim Abwasserbetrieb Ihrer Kommune nach.</p>
+<h3 id="sind-bhkw-heute-noch-sinnvoll" tabindex="-1">Sind BHKW heute noch sinnvoll?</h3>
+<p>Ein BHKW lohnt sich vor allem dort, wo über viele Stunden im Jahr gleichzeitig Strom und Wärme gebraucht werden, etwa in Gewerbe, Kliniken, Bädern oder Wärmenetzen. Die KEA-BW nennt als Richtwert in der Regel mindestens 5.000 Betriebsstunden pro Jahr. Ob ein BHKW, eine Wärmepumpe oder eine Kombination die bessere Lösung ist, sollte eine herstellerneutrale Variantenrechnung klären.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.bhkw-infozentrum.de/glossar-lexikon/brennwertnutzung.html" rel="nofollow noopener noreferrer" target="_blank">BHKW-Infozentrum: Brennwertnutzung</a></li>
+<li><a href="https://de.wikipedia.org/wiki/Abgasw%C3%A4rmetauscher" rel="nofollow noopener noreferrer" target="_blank">Wikipedia: Abgaswärmetauscher</a></li>
+<li><a href="https://www.bayern-innovativ.de/de/seite/ueberblick-kraft-waerme-kopplung/" rel="nofollow noopener noreferrer" target="_blank">Bayern Innovativ: Überblick Kraft-Wärme-Kopplung</a></li>
+<li><a href="https://www.sokratherm.de/blockheizkraftwerke/ausstattungsvarianten/brennwertnutzung-zur-wirkungsgradverbesserung/" rel="nofollow noopener noreferrer" target="_blank">Sokratherm: Brennwertnutzung zur Wirkungsgradverbesserung</a></li>
+<li><a href="https://www.bhkw-infothek.de/nachrichten/9610/2012-10-25-kommentar-wenn-bhkw-dann-mit-brennwertnutzung/" rel="nofollow noopener noreferrer" target="_blank">BHKW-Infothek: Wenn BHKW, dann mit Brennwertnutzung</a></li>
+<li><a href="https://www.kea-bw.de/fileadmin/user_upload/Kraft-Waerme-Kopplung/Wissensportal/BHKW_das_Wichtigste_in_Ihrer_Projektphase/Auslegungsgrundsaetze_07_1_KPWM.pdf" rel="nofollow noopener noreferrer" target="_blank">KEA-BW: Auslegung von BHKW-Anlagen bis 2 MWel</a></li>
+<li><a href="https://www.bosch-industrial.com/de/media/country_pool/knowledge/technical_reports/fachbericht-brennwertnutzung.pdf" rel="nofollow noopener noreferrer" target="_blank">Bosch Industrial: Fachbericht Brennwertnutzung</a></li>
+<li><a href="https://de.dwa.de/de/regelwerk-news-volltext/arbeitsblatt-dwa-a-251-kondensate-aus-brennwertkesseln.html" rel="nofollow noopener noreferrer" target="_blank">DWA: Arbeitsblatt DWA-A 251 Kondensate aus Brennwertkesseln</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-gasturbine-kraftwarmekopplung" target="_blank" rel="noopener">Gasturbine in der Kraft-Wärme-Kopplung: Wann sie sich lohnt</a></li>
+<li><a href="https://planegy.de/blog-bhkw-wirtschaftlichkeit" target="_blank" rel="noopener">3 Szenarien für BHKW 2026: KWKG Folgen, Sensitivität und Förderung</a></li>
+<li><a href="https://planegy.de/blog-dampferzeuger-effizienz" target="_blank" rel="noopener">Effizienzsteigerung bei Dampferzeugern: Diese Hebel wirken</a></li>
+<li><a href="https://planegy.de/blog-biomethan-in-kwk" target="_blank" rel="noopener">Nur bei drei Faktoren lohnt sich Biomethan in der KWK für Entscheider</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
