@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fördermittel kombinieren: KfW, BAFA und Co. richtig kumulieren – PLANEGY</title>
+  <meta name="description" content="So kombinieren Sie KfW, BAFA, BEW und Landesprogramme ohne Doppelförderung: Kumulierungsgrenzen, Rechenbeispiel und Kredit oder Zuschuss im Vergleich." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Fördermittel kombinieren: KfW, BAFA und Co. richtig kumulieren" />
+  <meta property="og:description" content="So kombinieren Sie KfW, BAFA, BEW und Landesprogramme ohne Doppelförderung: Kumulierungsgrenzen, Rechenbeispiel und Kredit oder Zuschuss im Vergleich." />
+  <link rel="canonical" href="https://planegy.de/blog-fordermittel-kombinieren" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Fördermittel kombinieren: KfW, BAFA und Co. richtig kumulieren",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-29",
+    "description": "So kombinieren Sie KfW, BAFA, BEW und Landesprogramme ohne Doppelförderung: Kumulierungsgrenzen, Rechenbeispiel und Kredit oder Zuschuss im Vergleich."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#1e3a5f,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"💶"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Fördermittel kombinieren: KfW, BAFA und Co. richtig kumulieren</span>
+    </div>
+    <div class="article-cat">Förderung</div>
+    <h1>Fördermittel kombinieren: KfW, BAFA und Co. richtig kumulieren</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>12 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="fordermittel-kombinieren-kfw-bafa-und-co-richtig-kumulieren" tabindex="-1">Fördermittel kombinieren: KfW, BAFA und Co. richtig kumulieren</h1>
+
+<p>Sie können Fördermittel für ein Energieprojekt kombinieren. KfW und BAFA, Bund und Land oder Zuschuss und Kredit lassen sich zusammen nutzen, solange jede förderfähige Ausgabe eindeutig nur einem Zuschussprogramm zugeordnet ist und die Summe aller öffentlichen Hilfen unter der Kumulierungsgrenze der jeweiligen Richtlinie bleibt. In der Bundesförderung für effiziente Gebäude (BEG) liegt diese Grenze bei 60 % der geförderten Ausgaben, für Kommunen bei 90 %. Hier lesen Sie, wie Sie die Kosten aufteilen, die Grenze nachrechnen und wann ein Förderkredit den Zuschuss sinnvoll ergänzt.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Fördermittel sicher kombinieren</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Unternehmen und Kommunen bei der Förderakquise und entwickelt technologieoffene Energielösungen von der Analyse bis zur Umsetzung.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">PLANEGY kennenlernen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li><strong>Kombinieren ist erlaubt, doppelt fördern nicht:</strong> Verschiedene Programme dürfen verschiedene, klar abgrenzbare Kosten eines Vorhabens tragen. Für dieselbe Rechnung stellen Sie nur einen Zuschussantrag.</li>
+<li><strong>Die Kumulierungsgrenze deckelt die Summe:</strong> In der BEG dürfen öffentliche Zuschüsse und Tilgungszuschüsse für dieselben Kosten zusammen 60 % nicht übersteigen, bei kommunalen Antragstellern 90 %. Sonst kürzt der Fördergeber die BEG-Förderung.</li>
+<li><strong>Kredit und Zuschuss sind Partner:</strong> Der KfW-Ergänzungskredit gibt es nur mit einer Zuschusszusage. Er finanziert Ihren Eigenanteil, ersetzt aber keinen Zuschuss.</li>
+<li><strong>Die Reihenfolge entscheidet:</strong> Erst Kosten aufteilen, dann Grenzen rechnen, dann Anträge stellen, und zwar in der Regel vor dem ersten Auftrag.</li>
+<li><strong>Der Verwendungsnachweis ist die Probe:</strong> Am Ende zählen die tatsächlich abgerechneten Kosten, nicht die Planzahlen aus dem Antrag.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#das-grundprinzip-verschiedene-kosten-verschiedene-topfe">Das Grundprinzip: verschiedene Kosten, verschiedene Töpfe</a></li>
+<li><a href="#doppelforderung-und-kumulierung-zwei-regeln-die-sie-trennen-sollten">Doppelförderung und Kumulierung: zwei Regeln, die Sie trennen sollten</a></li>
+<li><a href="#die-kumulierungsgrenze-nachrechnen">Die Kumulierungsgrenze nachrechnen</a></li>
+<li><a href="#kfw-und-bafa-kombinieren-was-zusammenpasst">KfW und BAFA kombinieren: was zusammenpasst</a></li>
+<li><a href="#forderkredit-oder-investitionszuschuss">Förderkredit oder Investitionszuschuss?</a></li>
+<li><a href="#kosten-auf-mehrere-programme-verteilen-so-gehen-sie-vor">Kosten auf mehrere Programme verteilen: so gehen Sie vor</a></li>
+<li><a href="#typische-fehler-beim-kombinieren">Typische Fehler beim Kombinieren</a></li>
+<li><a href="#sonderfall-kommunen-und-warmenetze">Sonderfall Kommunen und Wärmenetze</a></li>
+<li><a href="#unsere-sicht-erst-das-konzept-dann-die-forderung">Unsere Sicht: erst das Konzept, dann die Förderung</a></li>
+<li><a href="#fordermittel-kombinieren-mit-planegy">Fördermittel kombinieren mit PLANEGY</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="das-grundprinzip-verschiedene-kosten-verschiedene-topfe" tabindex="-1">Das Grundprinzip: verschiedene Kosten, verschiedene Töpfe</h2>
+<p>Fast jedes größere Energieprojekt besteht aus mehreren Bausteinen. Ein Gewerbebetrieb tauscht die Heizung, dämmt das Dach, optimiert die Druckluft und lässt vorher ein Energieaudit erstellen. Eine Gemeinde plant ein Nahwärmenetz, baut eine Heizzentrale und schließt öffentliche Gebäude an. Für viele dieser Bausteine gibt es eigene Programme bei KfW, BAFA, den Ländern oder der EU.</p>
+<p>Die Kombination funktioniert nach einer einfachen Logik: Jeder Euro an förderfähigen Kosten bekommt genau einen Zuschussgeber. Die Heizungsrechnung läuft über das eine Programm, die Prozesswärme-Optimierung über das andere, die Planungsleistung vielleicht über ein Landesprogramm. Solange Sie diese Zuordnung sauber dokumentieren, entsteht keine Doppelförderung.</p>
+<p>Problematisch wird es erst, wenn zwei Programme auf dieselben Kosten zugreifen. Dann greifen zwei Regeln, die Antragsteller oft verwechseln: das Verbot der Doppelförderung und die Kumulierungsgrenze.</p>
+<h2 id="doppelforderung-und-kumulierung-zwei-regeln-die-sie-trennen-sollten" tabindex="-1">Doppelförderung und Kumulierung: zwei Regeln, die Sie trennen sollten</h2>
+<p><strong>Doppelförderung</strong> heißt: Sie beantragen für dieselbe förderfähige Ausgabe bei zwei Stellen denselben Zweck. Beispiel: Die Rechnung für die Wärmepumpe reichen Sie sowohl bei der KfW als auch beim BAFA als Zuschuss ein. Das ist ausgeschlossen, und zwar unabhängig davon, wie hoch die Summe am Ende wäre.</p>
+<p><strong>Kumulierung</strong> heißt: Mehrere öffentliche Hilfen fließen zulässigerweise in dieselbe Maßnahme, etwa ein Bundeszuschuss und ein ergänzendes Landes- oder Kommunalprogramm, das ausdrücklich mit der Bundesförderung kombiniert werden darf. Hier setzt die Richtlinie eine Obergrenze für die Gesamtförderquote.</p>
+<p>Für Unternehmen kommt eine dritte Ebene hinzu: das EU-Beihilferecht. Viele Programme stützen sich auf die Allgemeine Gruppenfreistellungsverordnung oder auf De-minimis-Regeln, die eigene Höchstbeträge und Intensitäten vorgeben. Wer mehrere Programme kombiniert, muss deshalb oft eine Erklärung über bereits erhaltene Beihilfen abgeben. Welche Regel gilt, steht im Zuwendungsbescheid oder in der Richtlinie, meist in einem eigenen Abschnitt zur Kumulierung.</p>
+<h2 id="die-kumulierungsgrenze-nachrechnen" tabindex="-1">Die Kumulierungsgrenze nachrechnen</h2>
+<p>Für die BEG hat das Bundeswirtschaftsministerium die Rechnung klar beschrieben. Laut der <a href="https://www.energiewechsel.de/KAENEF/Redaktion/DE/FAQ/FAQ-Uebersicht/BEG/faq-beg-01-35.html" rel="nofollow noopener noreferrer" target="_blank">BMWE-FAQ zur Kumulierungsgrenze</a> gilt für dieselbe Maßnahme eine Grenze von 60 % der tatsächlich durch die BEG geförderten Ausgaben, für kommunale Antragsteller 90 %. Grundlage sind die im Verwendungsnachweis angegebenen Ausgaben pro Vorhaben. Angerechnet werden öffentliche Zuschüsse und Tilgungszuschüsse für dieselben Kosten. Liegt die Summe darüber, reduziert sich die BEG-Förderung, bis die Grenze eingehalten ist.</p>
+
+<p>Ein zweiter Punkt wird oft übersehen: Viele Vorhaben kosten mehr als die förderfähige Höchstgrenze der BEG. Die aktuelle <a href="http://www.kfw.de/261-richtlinie" rel="nofollow noopener noreferrer" target="_blank">Förderrichtlinie BEG Wohngebäude</a> stellt klar, dass öffentliche Mittel, die Kosten oberhalb dieser Höchstgrenze fördern, bei der Kumulierungsgrenze nicht angerechnet werden. Ein Landesprogramm, das genau diesen überschießenden Teil trägt, schmälert die Bundesförderung also nicht.</p>
+<h3 id="rechenbeispiel-mit-angenommenen-werten" tabindex="-1">Rechenbeispiel mit angenommenen Werten</h3>
+<p>Die folgenden Zahlen sind ein vereinfachtes Beispiel, keine aktuellen Fördersätze. Sie zeigen nur die Mechanik.</p>
+<table>
+<thead>
+<tr>
+<th>Schritt</th>
+<th>Unternehmen (Grenze 60 %)</th>
+<th>Kommune (Grenze 90 %)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gesamtkosten der Maßnahme</td>
+<td>150.000 €</td>
+<td>150.000 €</td>
+</tr>
+<tr>
+<td>davon BEG-förderfähig (Höchstgrenze)</td>
+<td>100.000 €</td>
+<td>100.000 €</td>
+</tr>
+<tr>
+<td>BEG-Zuschuss, angenommen 30 %</td>
+<td>30.000 €</td>
+<td>30.000 €</td>
+</tr>
+<tr>
+<td>Landeszuschuss auf dieselben 100.000 €</td>
+<td>35.000 €</td>
+<td>35.000 €</td>
+</tr>
+<tr>
+<td>Summe auf förderfähige Kosten</td>
+<td>65.000 € = 65 %</td>
+<td>65.000 € = 65 %</td>
+</tr>
+<tr>
+<td>Kumulierungsgrenze</td>
+<td>60.000 €</td>
+<td>90.000 €</td>
+</tr>
+<tr>
+<td>Kürzung der BEG-Förderung</td>
+<td>5.000 € (auf 25.000 €)</td>
+<td>keine</td>
+</tr>
+</tbody>
+</table>
+<p>Trägt das Landesprogramm stattdessen die 50.000 € oberhalb der Höchstgrenze, fließt es nicht in die Rechnung ein. Das Unternehmen behält dann die vollen 30.000 € BEG-Zuschuss. Allein durch die Zuordnung der Kosten verändert sich das Ergebnis um mehrere Tausend Euro, ohne dass sich am Projekt etwas ändert.</p>
+<p>Diese Logik gilt für jedes Budget, ob Industriehalle, Rathaus oder kleiner Gastbetrieb. Wer etwa eine Ferienwohnung oder ein Gästehaus betreibt, rechnet neben der Förderung auch die laufenden Einsparungen mit. Wie sich <a href="https://rm-hospitality.de/blog/energy-and-utility-costs" target="_blank" rel="noopener">Energie- und Nebenkosten senken</a> lassen, beeinflusst, welche Maßnahme sich überhaupt rechnet und welchen Eigenanteil Sie über Förderung und Kredit abdecken müssen.</p>
+
+<h2 id="kfw-und-bafa-kombinieren-was-zusammenpasst" tabindex="-1">KfW und BAFA kombinieren: was zusammenpasst</h2>
+<p>KfW und BAFA sind keine Konkurrenten, sondern teilen sich die Bundesprogramme nach Zuständigkeit auf. Ob Sie beide in einem Vorhaben nutzen können, hängt davon ab, ob die Maßnahmen getrennt abgrenzbar sind.</p>
+<table>
+<thead>
+<tr>
+<th>Konstellation</th>
+<th>Zulässig?</th>
+<th>Worauf Sie achten</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KfW-Zuschuss für die Heizung, BAFA-Zuschuss für eine andere Einzelmaßnahme</td>
+<td>Ja</td>
+<td>Getrennte Rechnungen, getrennte Leistungspositionen</td>
+</tr>
+<tr>
+<td>KfW- und BAFA-Zuschuss für dieselbe Rechnung</td>
+<td>Nein</td>
+<td>Nur ein Antrag pro förderfähiger Ausgabe</td>
+</tr>
+<tr>
+<td>Zuschuss plus KfW-Ergänzungskredit</td>
+<td>Ja</td>
+<td>Kredit setzt Zuschusszusage voraus</td>
+</tr>
+<tr>
+<td>Bundeszuschuss plus Landes- oder Kommunalprogramm</td>
+<td>Oft ja</td>
+<td>Kumulierungsgrenze und Kombinierbarkeit beider Richtlinien prüfen</td>
+</tr>
+<tr>
+<td>Bundesförderung plus EU-Mittel</td>
+<td>Je nach Programm</td>
+<td>Beihilferecht und Erklärung zu weiteren Beihilfen</td>
+</tr>
+</tbody>
+</table>
+<p>Bei der Heizungsförderung ist die Verbindung ausdrücklich vorgesehen: Nach den <a href="https://www.kfw.de/inlandsfoerderung/Heizungsf%C3%B6rderung/" rel="nofollow noopener noreferrer" target="_blank">aktuellen KfW-Informationen zur Heizungsförderung</a> ist der Ergänzungskredit (Nr. 358/359 bzw. 523) nur mit einer Zuschusszusage erhältlich und mit KfW- und BAFA-Zuschüssen kombinierbar.</p>
+<p>Für Unternehmen, die über die Gebäudehülle hinaus in Prozesse und Anlagen investieren, kommen eigene Programme ins Spiel. Welche Varianten es gibt, haben wir in unserem Beitrag zu <a href="https://planegy.de/blog-kfw-energieeffizienz-unternehmen" target="_blank" rel="noopener">KfW-Energieeffizienz für Unternehmen</a> und in der Übersicht zur <a href="https://planegy.de/blog-bafa-forderung-effizienz" target="_blank" rel="noopener">BAFA-Förderung für Effizienzmaßnahmen</a> zusammengestellt.</p>
+<h2 id="forderkredit-oder-investitionszuschuss" tabindex="-1">Förderkredit oder Investitionszuschuss?</h2>
+<p>Die Frage stellt sich seltener als gedacht, weil beide Instrumente unterschiedliche Aufgaben haben. Der Zuschuss senkt Ihre Investitionskosten dauerhaft. Der Kredit verteilt den Rest über die Zeit.</p>
+<table>
+<thead>
+<tr>
+<th>Kriterium</th>
+<th>Investitionszuschuss</th>
+<th>Förderkredit (z. B. Ergänzungskredit)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rückzahlung</td>
+<td>Keine</td>
+<td>Ja, mit Zinsen und Tilgung</td>
+</tr>
+<tr>
+<td>Antrag</td>
+<td>Bei der Heizungsförderung direkt über das Kundenportal „Meine KfW“</td>
+<td>Über einen Finanzierungspartner, etwa Ihre Hausbank</td>
+</tr>
+<tr>
+<td>Voraussetzung</td>
+<td>Erfüllung der technischen Mindestanforderungen</td>
+<td>Zusage eines Zuschusses</td>
+</tr>
+<tr>
+<td>Wirkung auf die Kumulierung</td>
+<td>Zählt voll</td>
+<td>Laut BMWE zählen Tilgungszuschüsse, ein Kredit ohne Tilgungszuschuss wird dort nicht genannt</td>
+</tr>
+<tr>
+<td>Sinnvoll, wenn</td>
+<td>Sie die Investition aus eigenen Mitteln stemmen können</td>
+<td>Liquidität knapp ist oder Sie den Eigenanteil strecken wollen</td>
+</tr>
+</tbody>
+</table>
+<p>Die Angaben zu Antragsweg und Voraussetzungen stammen aus den <a href="https://www.kfw.de/inlandsfoerderung/Heizungsf%C3%B6rderung/" rel="nofollow noopener noreferrer" target="_blank">KfW-Informationen zur Heizungsförderung</a>: Der Zuschuss 458 muss nicht zurückgezahlt werden, der Ergänzungskredit dient der Zwischenfinanzierung bereits bezuschusster Einzelmaßnahmen.</p>
+<p>In der Praxis lautet die Antwort deshalb fast immer: zuerst den höchstmöglichen Zuschuss sichern, dann prüfen, ob ein Kredit den Eigenanteil günstiger finanziert als Ihr Kontokorrent oder ein freies Darlehen. Bei größeren Unternehmensprogrammen, in denen Kredite mit Tilgungszuschüssen arbeiten, gehört der Tilgungszuschuss in die Kumulierungsrechnung. Lassen Sie die Konditionen von Ihrer Hausbank oder Ihrem Steuerberater gegen Ihre Liquiditätsplanung prüfen, bevor Sie unterschreiben.</p>
+<h2 id="kosten-auf-mehrere-programme-verteilen-so-gehen-sie-vor" tabindex="-1">Kosten auf mehrere Programme verteilen: so gehen Sie vor</h2>
+<ol>
+<li><strong>Vorhaben in Maßnahmen zerlegen.</strong> Listen Sie jede Leistung einzeln auf: Planung, Anlagentechnik, Gebäudehülle, Mess- und Regelungstechnik, Netzanschluss. Je feiner die Gliederung, desto sauberer die spätere Zuordnung.</li>
+<li><strong>Programme den Maßnahmen zuordnen.</strong> Prüfen Sie für jede Position, welches Programm sie fördert und mit welcher Quote. Wählen Sie bei Überschneidungen das Programm mit der besseren Gesamtwirkung, nicht automatisch das mit dem höchsten Satz.</li>
+<li><strong>Kombinierbarkeit in den Richtlinien lesen.</strong> Jede Richtlinie regelt, mit welchen anderen Mitteln sie kumuliert werden darf. Manche Landesprogramme schließen eine Bundesförderung aus, andere setzen sie voraus.</li>
+<li><strong>Kumulierungsgrenze vorab rechnen.</strong> Legen Sie eine Tabelle wie im Beispiel oben an. So sehen Sie vor Antragstellung, ob eine Kürzung droht und ob eine andere Zuordnung der Kosten sie vermeidet.</li>
+<li><strong>Anträge vor Vorhabenbeginn stellen.</strong> Bei den meisten Förderprogrammen ist ein Antrag nach Auftragsvergabe nicht mehr möglich. Was genau als Vorhabenbeginn gilt und ob ein Vertrag mit aufschiebender Bedingung erlaubt ist, regelt die jeweilige Richtlinie.</li>
+<li><strong>Angebote und Rechnungen getrennt anfordern.</strong> Bitten Sie Handwerker und Lieferanten, die Positionen nach Fördertöpfen getrennt auszuweisen. Eine Sammelrechnung über alles macht die Zuordnung im Nachweis schwer.</li>
+<li><strong>Verwendungsnachweise abstimmen.</strong> Jeder Fördergeber prüft seine Kosten. Stimmen Sie die Nachweise aufeinander ab, damit keine Rechnung in zwei Nachweisen auftaucht. Was dabei an Fristen und Unterlagen anfällt, beschreiben wir im Beitrag zum <a href="https://planegy.de/blog-verwendungsnachweis-forderung-energie" target="_blank" rel="noopener">Verwendungsnachweis für Energieprojekte</a>.</li>
+</ol>
+<p>Achten Sie bei laufenden Vorhaben auch auf Rechtsänderungen. Mit dem Gebäudemodernisierungsgesetz hat sich 2026 der Rahmen geändert. Die <a href="https://www.ihk.de/freiburg/unternehmen-beraten/umwelt-energie-und-klimaschutz/energie-und-klimaschutz/neuerung-im-gebaeudeenergiegesetz-7133500" rel="nofollow noopener noreferrer" target="_blank">IHK Südlicher Oberrhein</a> weist darauf hin, dass für vor dem 21. Juli 2026 eingereichte Anträge mit vollständiger, korrekter Bestätigung zum Antrag Vertrauensschutz gilt und bewilligte Förderungen unverändert bleiben.</p>
+<h2 id="typische-fehler-beim-kombinieren" tabindex="-1">Typische Fehler beim Kombinieren</h2>
+<ul>
+<li><strong>Eine Rechnung, zwei Anträge.</strong> Der häufigste und teuerste Fehler. Fällt er im Nachweis auf, droht die Rückforderung.</li>
+<li><strong>Planzahlen statt Ist-Kosten.</strong> Die Kumulierung wird auf Basis der tatsächlich abgerechneten Kosten geprüft. Sinken die Kosten, kann die Quote über die Grenze steigen.</li>
+<li><strong>Landesprogramm nachträglich beantragt.</strong> Wer nach der Bundeszusage noch ein Landesprogramm einwirbt, muss die Kumulierung neu rechnen und den Bundesfördergeber gegebenenfalls informieren.</li>
+<li><strong>Beihilfen vergessen.</strong> Unternehmen, die in den Vorjahren andere Hilfen erhalten haben, müssen diese bei beihilferechtlichen Programmen angeben.</li>
+<li><strong>Vorzeitiger Auftrag.</strong> Ein unterschriebener Liefervertrag vor Antragstellung kann die Förderung für das ganze Vorhaben kosten.</li>
+</ul>
+<h2 id="sonderfall-kommunen-und-warmenetze" tabindex="-1">Sonderfall Kommunen und Wärmenetze</h2>
+<p>Kommunen haben beim Kombinieren mehr Spielraum: In der BEG liegt ihre Kumulierungsgrenze bei 90 % statt 60 %. Das macht es attraktiv, Bundesmittel mit Landesprogrammen zum Klimaschutz oder zur Daseinsvorsorge zu verbinden. Gleichzeitig sind kommunale Vorhaben oft mehrstufig: erst die Wärmeplanung, dann Machbarkeitsstudien, dann Bau und Betrieb eines Netzes.</p>
+<p>Jede Stufe hat eigene Programme, und die Abgrenzung zwischen ihnen muss sitzen. Die Planungsleistung für die Wärmeplanung ist eine andere Maßnahme als die Machbarkeitsstudie für ein Netz, und diese wiederum eine andere als die Investition in Leitungen und Erzeuger. Wie die Finanzierung der ersten Stufe aussieht, lesen Sie unter <a href="https://planegy.de/blog-fordermittel-kommunale-warmeplanung" target="_blank" rel="noopener">Fördermittel für die kommunale Wärmeplanung</a>. Für die Umsetzung ist die Bundesförderung für effiziente Wärmenetze zentral. Welche Quoten und Grenzen dort gelten, zeigt unser Beitrag zur <a href="https://planegy.de/blog-bew-forderquote" target="_blank" rel="noopener">BEW-Förderquote</a>, und für kleinere Netze lohnt der Blick auf die <a href="https://planegy.de/blog-nahwarmenetz-forderung" target="_blank" rel="noopener">Förderung von Nahwärmenetzen</a>.</p>
+<p>Stadtwerke, die ein Netz im Auftrag der Kommune bauen, sind meist keine kommunalen Antragsteller im Sinne der 90-%-Regel. Klären Sie deshalb früh, wer den Antrag stellt. Die Wahl des Antragstellers kann die zulässige Gesamtförderung deutlich verschieben.</p>
+<h2 id="unsere-sicht-erst-das-konzept-dann-die-forderung" tabindex="-1">Unsere Sicht: erst das Konzept, dann die Förderung</h2>
+<p>In über 20 Jahren im Energiesektor haben wir eines immer wieder gesehen: Projekte verlieren Fördergeld selten, weil es kein passendes Programm gibt. Sie verlieren es, weil die Kosten falsch geschnitten, die Anträge in der falschen Reihenfolge gestellt oder Rechnungen gemischt wurden. Die Kombination von Fördermitteln ist kein Zusatz am Ende, sie gehört in die Planung.</p>
+<p>Deshalb beginnen wir nicht mit der Frage, welches Programm den höchsten Satz zahlt, sondern mit der Technik. Wir bewerten technologieoffen und ohne Herstellerinteressen, ob Wärmepumpe, Nahwärme, BHKW oder BioLPG als Brückentechnologie für einen Standort die richtige Lösung ist. Erst wenn das Konzept steht, verteilen wir die Kosten auf BEW, KfW, BAFA, Landes- und EU-Programme. So passen technische Lösung, Genehmigung und Förderung zusammen, statt sich gegenseitig zu blockieren.</p>
+<p>Unser Rat: Rechnen Sie die Kumulierung immer zweimal, einmal vor dem Antrag mit den Angebotspreisen und einmal vor dem Verwendungsnachweis mit den Schlussrechnungen. Die zweite Rechnung ist die, die zählt.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="fordermittel-kombinieren-mit-planegy" tabindex="-1">Fördermittel kombinieren mit PLANEGY</h2>
+<p>Wir begleiten Unternehmen, Industriebetriebe, Stadtwerke und Kommunen vom ersten Konzept bis zum Verwendungsnachweis. Unser Förderservice identifiziert passende Programme aus BEW, KfW, BAFA und EU, ordnet die Kosten zu, rechnet die Kumulierung und übernimmt die Antragstellung. Für unsere Kunden haben wir Förderungen von bis zu 1,2 Millionen Euro gesichert.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Sie planen ein Energieprojekt und wollen wissen, welche Programme sich kombinieren lassen? Sehen Sie sich unsere <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen in Förderung und Energieberatung</a> an. Kommunen finden alles zur Wärmeplanung nach WPG auf unserer <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">Seite für Kommunen</a>, Industriebetriebe auf der Seite zu <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieberatung für die Industrie</a>.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="darf-ich-kfw-und-bafa-fur-ein-projekt-gleichzeitig-nutzen" tabindex="-1">Darf ich KfW und BAFA für ein Projekt gleichzeitig nutzen?</h3>
+<p>Ja, wenn beide Programme unterschiedliche, klar abgrenzbare Maßnahmen fördern. Für dieselbe förderfähige Ausgabe stellen Sie nur einen Zuschussantrag. Einen KfW-Ergänzungskredit können Sie zusätzlich zu einem KfW- oder BAFA-Zuschuss nutzen.</p>
+<h3 id="was-passiert-wenn-ich-die-kumulierungsgrenze-uberschreite" tabindex="-1">Was passiert, wenn ich die Kumulierungsgrenze überschreite?</h3>
+<p>In der BEG kürzt der Fördergeber die BEG-Förderung so weit, bis die Grenze von 60 % bzw. 90 % für Kommunen eingehalten ist. Andere Programme verlieren Sie dadurch nicht. Ärgerlich ist die Kürzung trotzdem, weil sie sich durch eine andere Kostenzuordnung oft vermeiden lässt.</p>
+<h3 id="zahlt-ein-forderkredit-zur-kumulierungsgrenze" tabindex="-1">Zählt ein Förderkredit zur Kumulierungsgrenze?</h3>
+<p>Laut BMWE werden bei der BEG öffentliche Zuschüsse und Tilgungszuschüsse für dieselben Kosten berücksichtigt. Ein Tilgungszuschuss in einem Kreditprogramm zählt also mit. Prüfen Sie bei jedem Kredit, ob er einen Tilgungszuschuss enthält.</p>
+<h3 id="kann-ich-ein-landesprogramm-nach-der-bundeszusage-noch-beantragen" tabindex="-1">Kann ich ein Landesprogramm nach der Bundeszusage noch beantragen?</h3>
+<p>Oft ja, sofern beide Richtlinien die Kombination erlauben und das Vorhaben noch nicht begonnen hat. Sie müssen die Kumulierung dann neu rechnen. Besser ist es, alle Programme vor dem ersten Antrag gemeinsam zu planen.</p>
+<h3 id="gilt-die-60-grenze-fur-alle-forderprogramme" tabindex="-1">Gilt die 60-%-Grenze für alle Förderprogramme?</h3>
+<p>Nein, die 60 % und 90 % stammen aus der BEG. Andere Programme wie die BEW, Landesprogramme oder beihilferechtliche Unternehmensförderungen haben eigene Kumulierungsregeln. Maßgeblich ist jeweils der Abschnitt zur Kumulierung in der Richtlinie.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.energiewechsel.de/KAENEF/Redaktion/DE/FAQ/FAQ-Uebersicht/BEG/faq-beg-01-35.html" rel="nofollow noopener noreferrer" target="_blank">BMWE: Wie berechnet sich die Kumulierungsgrenze?</a></li>
+<li><a href="http://www.kfw.de/261-richtlinie" rel="nofollow noopener noreferrer" target="_blank">KfW: Förderrichtlinie BEG Wohngebäude</a></li>
+<li><a href="https://www.kfw.de/inlandsfoerderung/Heizungsf%C3%B6rderung/" rel="nofollow noopener noreferrer" target="_blank">KfW: Aktuelle Informationen zur Heizungsförderung</a></li>
+<li><a href="https://www.ihk.de/freiburg/unternehmen-beraten/umwelt-energie-und-klimaschutz/energie-und-klimaschutz/neuerung-im-gebaeudeenergiegesetz-7133500" rel="nofollow noopener noreferrer" target="_blank">IHK Südlicher Oberrhein: Gebäudemodernisierungsgesetz in Kraft</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-bafa-forderung-effizienz" target="_blank" rel="noopener">BAFA-Förderung Effizienz: Zuschüsse für Ihr Projekt 2026</a></li>
+<li><a href="https://planegy.de/blog-kfw-energieeffizienz-unternehmen" target="_blank" rel="noopener">KfW Energieeffizienz für Unternehmen: Nr.295 oder Nr.292, bis 60 %</a></li>
+<li><a href="https://planegy.de/blog-bafa-modul-4" target="_blank" rel="noopener">BAFA Modul 4: Förderung für Unternehmen und Kommunen</a></li>
+<li><a href="https://planegy.de/blog-kfw-forderung-warmenetze" target="_blank" rel="noopener">KfW-Förderung für Wärmenetze: Ihr Leitfaden 2026</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
