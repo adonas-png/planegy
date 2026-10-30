@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leckageortung im Wärmenetz: Methoden, Ablauf und Grenzen – PLANEGY</title>
+  <meta name="description" content="Welche Methoden zur Leckageortung im Wärmenetz taugen wofür? Von Nachspeisedaten über Thermografie bis Akustik und Tracer: Ablauf, Grenzen und Kosten." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Leckageortung im Wärmenetz: Methoden, Ablauf und Grenzen" />
+  <meta property="og:description" content="Welche Methoden zur Leckageortung im Wärmenetz taugen wofür? Von Nachspeisedaten über Thermografie bis Akustik und Tracer: Ablauf, Grenzen und Kosten." />
+  <link rel="canonical" href="https://planegy.de/blog-leckageortung-warmenetz-methoden" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Leckageortung im Wärmenetz: Methoden, Ablauf und Grenzen",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-30",
+    "description": "Welche Methoden zur Leckageortung im Wärmenetz taugen wofür? Von Nachspeisedaten über Thermografie bis Akustik und Tracer: Ablauf, Grenzen und Kosten."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Leckageortung im Wärmenetz: Methoden, Ablauf und Grenzen</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Leckageortung im Wärmenetz: Methoden, Ablauf und Grenzen</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>12 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="leckageortung-im-warmenetz-methoden-ablauf-und-grenzen" tabindex="-1">Leckageortung im Wärmenetz: Methoden, Ablauf und Grenzen</h1>
+
+<p>Ein Leck in einem Fern- oder Nahwärmenetz findet man selten mit nur einer Methode. Fachleute arbeiten sich in Stufen vor. Zuerst zeigen die Betriebsdaten, dass Wasser fehlt, vor allem Nachspeisemenge und Druck. Dann grenzen Abschnittsabsperrung, Überwachungssysteme oder Thermografie den Bereich ein. Zum Schluss wird die Schadstelle mit Akustik, Tracergas oder Farbstoff auf wenige Meter genau bestimmt. Welche Methode wann passt, hängt von Rohrmaterial, Druck, Verlegetiefe und Schadensbild ab. Dieser Leitfaden erklärt jedes Verfahren und seine Grenzen und zeigt einen Ablauf, der unnötige Aufgrabungen vermeidet.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="strip" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(14px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px;padding:20px 24px;"><div style="flex:1 1 260px;min-width:0;"><div style="margin:0 0 8px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:19px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Wärmenetze vorausschauend planen</div><div style="font-size:14px;line-height:1.5;color:#64748b;margin-top:4px;">PLANEGY unterstützt Kommunen und Unternehmen mit technologieoffener Energieberatung dabei, maßgeschneiderte Energielösungen zu entwickeln und umzusetzen.</div></div><div style="flex:0 0 auto;"><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Energieberatung entdecken<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li>Eine pauschal beste Methode gibt es nicht. Üblich sind <a href="https://www.enargus.de/pub/bscw.cgi/d6674-2/*/*/Leckerkennung%20und%20Leckortung%20in%20Versorgungsnetzen.html?op=Wiki.getwiki" rel="nofollow noopener noreferrer" target="_blank">betriebliche, thermografische und akustische Verfahren sowie Tracerstoffe und Molchtechnik</a>, meist kombiniert.</li>
+<li>Am Anfang steht fast immer die Auswertung von Nachspeisemenge und Druck. Sie zeigt, ob und wie stark das Netz Wasser verliert.</li>
+<li>Akustische Korrelation ist bei Stahlrohren sehr genau. Bei Kunststoffleitungen und Störgeräuschen stößt sie an Grenzen.</li>
+<li>Thermografie grenzt schnell ein, der warme Fleck liegt aber nicht immer genau über dem Leck. Wer zu früh gräbt, riskiert Fehlgrabungen.</li>
+<li>Farbstoffe wie Uranin sind ein bewährtes Mittel, wenn Füllwasser in Gebäuden oder in der Kanalisation austritt. In Ilsfeld kosteten <a href="https://www.ilsfeld.de/resources/ecics_2477.pdf" rel="nofollow noopener noreferrer" target="_blank">rund 30 kg Uranin etwa 7.500 €</a>.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#warum-jedes-leck-im-warmenetz-geld-kostet">Warum jedes Leck im Wärmenetz Geld kostet</a></li>
+<li><a href="#die-methoden-der-leckageortung-im-uberblick">Die Methoden der Leckageortung im Überblick</a></li>
+<li><a href="#vom-ersten-verdacht-zur-schadstelle-der-ablauf">Vom ersten Verdacht zur Schadstelle: der Ablauf</a></li>
+<li><a href="#welche-methode-zu-welchem-netz-passt">Welche Methode zu welchem Netz passt</a></li>
+<li><a href="#was-leckortung-kostet-und-was-sie-spart">Was Leckortung kostet und was sie spart</a></li>
+<li><a href="#technische-regeln-in-deutschland">Technische Regeln in Deutschland</a></li>
+<li><a href="#unsere-sicht-leckortung-beginnt-bei-der-planung">Unsere Sicht: Leckortung beginnt bei der Planung</a></li>
+<li><a href="#warmenetze-planen-die-sich-uberwachen-lassen">Wärmenetze planen, die sich überwachen lassen</a></li>
+<li><a href="#haufige-fragen-zur-leckortung-bei-fernwarme">Häufige Fragen zur Leckortung bei Fernwärme</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="warum-jedes-leck-im-warmenetz-geld-kostet" tabindex="-1">Warum jedes Leck im Wärmenetz Geld kostet</h2>
+<p>Ein undichtes Wärmenetz verliert mehr als Wasser. Jeder Liter Füllwasser, der austritt, muss aufbereitet und nachgespeist werden. Frisches Wasser bringt Sauerstoff und gelöste Stoffe ins System und fördert so Korrosion an Stahlleitungen, Wärmeübertragern und Armaturen. Außerdem nimmt das austretende Heizwasser Wärme mit, die nie beim Kunden ankommt. Hinzu kommt die Bausubstanz: Durchfeuchtete Dämmung isoliert schlechter. Ein kleines Leck kann über Monate einen ganzen Leitungsabschnitt schädigen, bevor es an der Oberfläche auffällt.</p>
+<p>Für Betreiber kleiner Nahwärmenetze in Kommunen oder Genossenschaften ist das besonders heikel. Dort fehlt oft ein eigenes Netzteam, das Nachspeisedaten täglich auswertet. Ein Leck läuft dann lange unbemerkt. Wie Leckagen in die Gesamtbilanz der Netzverluste eingehen und welche weiteren Hebel es gibt, zeigen wir in unserem Beitrag zu den <a href="https://planegy.de/blog-warmenetz-verluste-reduzieren" target="_blank" rel="noopener">wirksamsten Hebeln gegen Wärmenetzverluste</a>.</p>
+<h2 id="die-methoden-der-leckageortung-im-uberblick" tabindex="-1">Die Methoden der Leckageortung im Überblick</h2>
+<p>Die folgende Tabelle ordnet die gängigen Verfahren nach ihrer Rolle im Ablauf ein. Grob gilt: Die ersten Methoden sagen, <em>ob</em> und <em>wo ungefähr</em> ein Leck ist, die späteren sagen, <em>wo genau</em>.</p>
+<table>
+<thead>
+<tr>
+<th>Verfahren</th>
+<th>Rolle im Ablauf</th>
+<th>Voraussetzungen</th>
+<th>Typische Grenzen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Auswertung von Nachspeisemenge und Druck</td>
+<td>Erkennen, grobe Eingrenzung</td>
+<td>Zähler an der Nachspeisung, Druckmessung, Historie</td>
+<td>Zeigt keinen Ort, nur den Verlust</td>
+</tr>
+<tr>
+<td>Abschnittsweises Absperren</td>
+<td>Eingrenzung auf Teilnetz</td>
+<td>Absperrarmaturen, Abstimmung mit Kunden</td>
+<td>Versorgungsunterbrechung</td>
+</tr>
+<tr>
+<td>Rohrnetz-Überwachungssystem (Meldeadern)</td>
+<td>Erkennen und Eingrenzen</td>
+<td>Bei Verlegung eingebaute Adern, intakte Muffen</td>
+<td>Nur in ausgestatteten Leitungen</td>
+</tr>
+<tr>
+<td>Thermografie (Boden, Drohne, Befliegung)</td>
+<td>Eingrenzung auf Abschnitt</td>
+<td>Temperaturdifferenz zur Umgebung</td>
+<td>Hotspot kann versetzt liegen</td>
+</tr>
+<tr>
+<td>Akustische Ortung und Korrelation</td>
+<td>Punktortung</td>
+<td>Druck in der Leitung, Zugang zu Armaturen</td>
+<td>Kunststoffrohre, Störgeräusche</td>
+</tr>
+<tr>
+<td>Tracergas (Helium, Formiergas)</td>
+<td>Punktortung</td>
+<td>Einspeisung, teils entleerte Leitung</td>
+<td>Aufwand, Betriebsunterbrechung</td>
+</tr>
+<tr>
+<td>Fluoreszenzfarbstoff (Uranin)</td>
+<td>Nachweis von Austrittsstellen</td>
+<td>Einfärben des Füllwassers</td>
+<td>Zeigt Austritt, nicht Rohrleck im Erdreich</td>
+</tr>
+<tr>
+<td>Molch- und Kameratechnik</td>
+<td>Inspektion von innen</td>
+<td>Zugänglicher, geeigneter Leitungsquerschnitt</td>
+<td>Nicht für jedes Netz praktikabel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="betriebsdaten-nachspeisemenge-und-druck" tabindex="-1">Betriebsdaten: Nachspeisemenge und Druck</h3>
+<p>Der erste Hinweis kommt fast immer aus der Leitwarte. Steigt die Nachspeisemenge über das gewohnte Maß oder fällt der Druck nach dem Abschalten der Pumpen schneller als sonst, verliert das Netz Wasser. Wichtig ist dafür eine saubere Basislinie: Wer die normale Nachspeisung pro Woche oder Monat kennt, erkennt Abweichungen früh. Netze ohne eigenen Zähler an der Nachspeisung tun sich hier schwer.</p>
+<p>Im nächsten Schritt sperren Betreiber einzelne Abschnitte ab und beobachten, ob der Druck im abgetrennten Teil hält. So schrumpft der Suchraum von mehreren Kilometern auf einen Strang. Idealerweise wird dabei nur das betroffene Gebiet abgetrennt, damit möglichst wenige Kunden ohne Wärme sind. Digitale Messtechnik erleichtert das erheblich: <a href="https://edocs.tib.eu/files/e01fb24/1892155222.pdf" rel="nofollow noopener noreferrer" target="_blank">IoT-Sensoren erfassen Temperatur, Druck und Durchfluss in Echtzeit</a> und liefern damit die Datenbasis, um Auffälligkeiten einem Abschnitt zuzuordnen.</p>
+<h3 id="integrierte-rohrnetz-uberwachung" tabindex="-1">Integrierte Rohrnetz-Überwachung</h3>
+<p>Neu verlegte Leitungen haben heute oft ein <a href="https://www.enargus.de/pub/bscw.cgi/d6674-2/*/*/Leckerkennung%20und%20Leckortung%20in%20Versorgungsnetzen.html?op=Wiki.getwiki" rel="nofollow noopener noreferrer" target="_blank">integriertes Rohrnetz-Überwachungssystem</a>. In der Dämmung von Kunststoffmantelrohren verlaufen dabei Meldeadern, deren elektrische Eigenschaften sich ändern, sobald die Dämmung feucht wird. Die Auswerteeinheit meldet dann den Feuchteeintrag, und mit einer Laufzeitmessung lässt sich der Ort entlang der Leitung abschätzen.</p>
+<p>Das System ist nur so gut wie seine Montage. Wurden Adern an den Muffen nicht sauber verbunden, entstehen Fehlmeldungen oder blinde Abschnitte. Bei Bestandsnetzen ohne Meldeadern bleibt diese Methode außen vor. Wer heute neu baut, sollte die Überwachung deshalb von Anfang an mitplanen, ebenso die Dokumentation der Trasse. Mehr zur Auslegung der Leitungen lesen Sie in unseren <a href="https://planegy.de/blog-rohrleitungsplanung-grundlagen-und-methoden-fur-ingenieure" target="_blank" rel="noopener">Grundlagen der Rohrleitungsplanung</a>.</p>
+<h3 id="thermografie" tabindex="-1">Thermografie</h3>
+<p>Austretendes Heizwasser erwärmt das umgebende Erdreich. Eine Wärmebildkamera macht diese Erwärmung an der Oberfläche sichtbar, vom Boden aus, per Drohne oder bei großen Netzen per Befliegung. Das eignet sich gut, um lange Trassen schnell abzusuchen, am besten in kühlen, trockenen Nächten mit großer Temperaturdifferenz zur Umgebung.</p>
+
+<p>Die Methode hat zwei Schwächen. Erstens zeigt sie Oberflächeneffekte: Bei tiefliegenden Leitungen, versiegelten Flächen oder wechselndem Untergrund verschwimmt das Bild. Zweitens wandert das Wasser in Dämmung und Boden. Der wärmste Punkt an der Oberfläche liegt dann dort, wo sich das Wasser sammelt, und nicht zwingend dort, wo das Mediumrohr undicht ist. Wer allein nach dem Wärmebild gräbt, riskiert eine Fehlgrabung. Thermografie ist deshalb ein Werkzeug zur Eingrenzung, die Punktortung übernehmen andere Verfahren.</p>
+<h3 id="akustische-ortung-und-korrelation" tabindex="-1">Akustische Ortung und Korrelation</h3>
+<p>Wasser, das unter Druck aus einem Leck strömt, erzeugt Geräusche. Bei der akustischen Leckortung werden diese <a href="https://edocs.tib.eu/files/e01fb06/513237755.pdf" rel="nofollow noopener noreferrer" target="_blank">Schallwellen im Frequenzbereich von etwa 20 bis 800 Hz</a> mit Bodenmikrofonen oder Kontaktmikrofonen an Armaturen aufgezeichnet.</p>
+<p>Genauer wird es mit der Korrelation. Zwei Sensoren sitzen vor und hinter der Verdachtsstelle. Das Gerät wertet den zeitlichen Versatz aus, mit dem das Leckgeräusch an beiden Punkten ankommt, und berechnet daraus die Position. Laut dem Abschlussbericht eines BMBF-Forschungsprojekts ist das Verfahren besonders bei metallischen Rohren erfolgreich. Derselbe Bericht nennt die Grenzen: Straßenverkehr und andere Störgeräusche überlagern das Signal, und in Kunststoffrohren breitet sich Schall nur begrenzt aus. Für flexible Kunststoffmediumrohre in kleinen Nahwärmenetzen ist Akustik daher oft nur zweite Wahl. Voraussetzung ist immer, dass die Leitung unter Druck steht.</p>
+<h3 id="tracergas-helium-und-formiergas" tabindex="-1">Tracergas: Helium und Formiergas</h3>
+<p>Bei der Tracergasmethode wird ein Prüfgas in die Leitung eingebracht, das am Leck austritt und an der Oberfläche mit einem Detektor gemessen wird. Bei Fernwärme wird häufig Helium über eine eigens dafür gebaute Einspeiseanlage eingesetzt. Formiergas, ein Gemisch aus Stickstoff und Wasserstoff, nutzt man meist in entleerten Leitungen. Es funktioniert auch bei Kunststoffrohren, an denen Akustik scheitert. Der Nachteil: Die Leitung muss für Formiergas vollständig entleert werden, und das bedeutet eine Betriebsunterbrechung. Das Verfahren eignet sich deshalb vor allem für Hausanschlüsse, kurze Abschnitte oder bereits abgesperrte Stränge.</p>
+<h3 id="fluoreszenzfarbstoff-im-fullwasser" tabindex="-1">Fluoreszenzfarbstoff im Füllwasser</h3>
+<p>Geht Füllwasser in Gebäuden, Kellern oder der Kanalisation verloren, hilft ein Farbstoff. Das Wärmenetz Ilsfeld hat dafür <a href="https://www.ilsfeld.de/resources/ecics_2477.pdf" rel="nofollow noopener noreferrer" target="_blank">Uranin ins Füllwasser eingebracht</a>, um austretendes Wasser sichtbar zu machen. Laut dem Bericht der Gemeinde ist der Farbstoff toxikologisch unbedenklich. Unter UV-Licht leuchtet schon eine geringe Konzentration auf. So lassen sich undichte Übergabestationen, Entleerungen oder Einleitungen in die Kanalisation nachweisen, die sonst kaum auffallen.</p>
+<h3 id="molch-und-kameratechnik" tabindex="-1">Molch- und Kameratechnik</h3>
+<p>Molche sind Geräte, die durch die Leitung geschickt werden und den Zustand von innen erfassen, etwa Wandstärke oder Korrosion. In Fernwärmenetzen ist das möglich, aber an Bedingungen geknüpft: Querschnitt, Bögen und Armaturen müssen eine Befahrung zulassen. Für kleinere Netze ist der Aufwand oft zu hoch. Bei großen Stahltrassen kann die Inspektion Schwachstellen zeigen, bevor sie undicht werden.</p>
+<h3 id="datengetriebene-und-modellbasierte-verfahren" tabindex="-1">Datengetriebene und modellbasierte Verfahren</h3>
+<p>Die nächste Stufe ist die Lokalisierung aus Daten. Aktuelle Forschung untersucht, wie sich <a href="https://link.springer.com/chapter/10.1007/978-3-032-09844-3_13" rel="nofollow noopener noreferrer" target="_blank">modellbasierte und datengetriebene Ansätze kombinieren lassen</a>, um Leckagen in Fernwärmenetzen robust zu lokalisieren. Dabei wird ein hydraulisches Netzmodell mit Messwerten abgeglichen: Weicht der gemessene Druck an einem Punkt vom berechneten ab, deutet das auf einen Verlust in der Nähe hin. Für Betreiber heißt das vor allem eines: Jeder zusätzliche Messpunkt im Netz verbessert die Chancen, ein Leck früher und genauer einzugrenzen.</p>
+<h2 id="vom-ersten-verdacht-zur-schadstelle-der-ablauf" tabindex="-1">Vom ersten Verdacht zur Schadstelle: der Ablauf</h2>
+<p>In der Praxis bewährt sich ein Vorgehen vom Groben zum Feinen. Akustische Korrelationsanalysen sollten laut dem BMBF-Abschlussbericht <a href="https://edocs.tib.eu/files/e01fb06/513237755.pdf" rel="nofollow noopener noreferrer" target="_blank">erst nach einer groben Eingrenzung</a> durch Druckabfallmessungen oder Thermografie eingesetzt werden, damit der Zeitaufwand gering bleibt.</p>
+<ol>
+<li><strong>Verlust bestätigen.</strong> Nachspeisemenge und Druckverlauf mit der Basislinie vergleichen. Messfehler und geplante Entleerungen, etwa bei Bauarbeiten, ausschließen.</li>
+<li><strong>Gebäude und Anschlüsse prüfen.</strong> Übergabestationen, Sicherheitsventile und Entleerungen kontrollieren. Viele Verluste treten nicht im Erdreich auf, sondern beim Kunden. Hier kann ein Farbstoff im Füllwasser schnell Klarheit schaffen.</li>
+<li><strong>Abschnitt eingrenzen.</strong> Stränge nacheinander absperren, Meldeadern auswerten, die Trasse thermografisch abfliegen oder abgehen.</li>
+<li><strong>Punktortung.</strong> Im eingegrenzten Abschnitt akustisch korrelieren. Bei Kunststoffrohren oder ungünstigen Bedingungen Tracergas einsetzen.</li>
+<li><strong>Gezielt aufgraben und dokumentieren.</strong> Die Schadstelle freilegen, Ursache festhalten (Korrosion, Muffe, Fremdeinwirkung) und die Daten für künftige Auswertungen sichern.</li>
+</ol>
+<p>Der letzte Schritt wird oft unterschätzt. Wer Schadensort, Ursache und Rohralter systematisch festhält, erkennt mit der Zeit gefährdete Abschnitte und kann die Sanierung planen, statt nur zu reagieren.</p>
+<h2 id="welche-methode-zu-welchem-netz-passt" tabindex="-1">Welche Methode zu welchem Netz passt</h2>
+<p>Die Wahl hängt von Leitungsmaterial, Systemdruck, Einbausituation und Schadensbild ab. Deshalb kombinieren Fachleute in der Praxis fast immer mehrere Verfahren. Die folgende Zuordnung hilft bei der ersten Einschätzung.</p>
+<table>
+<thead>
+<tr>
+<th>Situation im Netz</th>
+<th>Zuerst</th>
+<th>Für die Punktortung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stahl-Kunststoffmantelrohr mit Meldeadern</td>
+<td>Überwachungssystem, Nachspeisedaten</td>
+<td>Akustische Korrelation</td>
+</tr>
+<tr>
+<td>Stahlrohr ohne Überwachung, Bestandsnetz</td>
+<td>Nachspeisedaten, Absperren, Thermografie</td>
+<td>Akustische Korrelation</td>
+</tr>
+<tr>
+<td>Flexibles Kunststoffmediumrohr (Nahwärme)</td>
+<td>Nachspeisedaten, Thermografie</td>
+<td>Tracergas</td>
+</tr>
+<tr>
+<td>Tiefliegende Leitung, versiegelte Fläche</td>
+<td>Absperren, Datenanalyse</td>
+<td>Akustik oder Tracergas</td>
+</tr>
+<tr>
+<td>Verdacht im Gebäude oder Kanal</td>
+<td>Kontrolle der Stationen</td>
+<td>Fluoreszenzfarbstoff</td>
+</tr>
+<tr>
+<td>Hausanschlussleitung, kurzer Abschnitt</td>
+<td>Druckprüfung</td>
+<td>Tracergas</td>
+</tr>
+</tbody>
+</table>
+<p>Ein Sonderfall sind Netze mit niedrigen Vorlauftemperaturen. Je geringer der Temperaturunterschied zwischen Heizwasser und Erdreich ist, desto schwächer wird das Wärmebild. Wer ein Netz auf niedrigere Temperaturen umstellt, etwa im Rahmen einer <a href="https://planegy.de/blog-niedertemperatur-fernwarme" target="_blank" rel="noopener">Niedertemperatur-Fernwärme</a> oder einer <a href="https://planegy.de/blog-fernwarme-rucklauftemperatur-senken" target="_blank" rel="noopener">Absenkung der Rücklauftemperatur</a>, sollte die Leckerkennung stärker auf Messdaten und Akustik ausrichten.</p>
+<h2 id="was-leckortung-kostet-und-was-sie-spart" tabindex="-1">Was Leckortung kostet und was sie spart</h2>
+<p>Die teuerste Phase einer Lecksuche ist selten die Messung selbst. Teuer werden Aufgrabungen an der falschen Stelle, Oberflächen, die wiederhergestellt werden müssen, und Versorgungsunterbrechungen. Jede Methode, die den Suchraum verkleinert, bevor der Bagger kommt, zahlt sich daher aus.</p>
+<p>Ein konkretes Beispiel liefert die Gemeinde Ilsfeld. Für die Leckagesuche in ihrem Wärmenetz kosteten <a href="https://www.ilsfeld.de/resources/ecics_2477.pdf" rel="nofollow noopener noreferrer" target="_blank">rund 30 kg Uranin etwa 7.500 €</a>, ausgelegt auf mehrmaligen Einsatz. Für Aufbereitung und Einbringen ins Füllwasser kamen etwa 4.000 € hinzu. Diese Zahlen stammen aus dem Bericht der Gemeinde für den Zeitraum 2019 bis 2023. Für Ihr Netz können sie nur eine Größenordnung sein. Sie zeigen aber, dass eine gezielte Methode im Vergleich zu mehreren Probegrabungen im öffentlichen Straßenraum oft die günstigere Wahl ist.</p>
+<p>Langfristig sinken die Kosten vor allem durch Prävention: Messpunkte, eine dokumentierte Basislinie der Nachspeisung, Meldeadern in neuen Leitungen und ein Netzmodell. Was das für Investition und Wirtschaftlichkeit bedeutet, lässt sich mit einer Variantenrechnung abschätzen, wie sie unser <a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik-Rechner</a> für Heizsysteme erlaubt.</p>
+<h2 id="technische-regeln-in-deutschland" tabindex="-1">Technische Regeln in Deutschland</h2>
+<p>Ein einzelnes Gesetz zur Leckortung gibt es nicht, wohl aber technische Regeln, die Anforderungen an Erkennung und Sicherheit stellen. Für die Kundenseite ist die <a href="https://www.agfw.de/technik-normung/anschluss-und-kundenanlagen/hausuebergabestationen" rel="nofollow noopener noreferrer" target="_blank">DIN 4747</a> maßgeblich. Sie regelt die sicherheitstechnische Ausrüstung von Fernwärmeanlagen, einschließlich der Einrichtungen zur Erfassung von Druck und Temperatur. Diese Einrichtungen liefern im Ernstfall genau die Signale, mit denen eine Leckage auffällt. Darüber hinaus gibt der AGFW als Fachverband das technische Regelwerk für Fernwärmenetze heraus. Bei Leitungswasserschäden in Gebäuden orientieren sich Sachverständige zudem an der Richtlinie VdS 3150, die mehrere Verfahren zur fachgerechten Leckageortung beschreibt.</p>
+<p>Für Betreiber heißt das: Die Methodenwahl ist eine fachliche Entscheidung, die dokumentiert und nachvollziehbar sein sollte, auch gegenüber Versicherern. Wer Mitarbeitende an Armaturen, Schächten und Druckleitungen einsetzt, muss sie außerdem unterweisen. Was dazu gehört, steht in unserem Beitrag zur <a href="https://planegy.de/blog-sicherheitsunterweisung-energieanlagen" target="_blank" rel="noopener">Sicherheitsunterweisung an Energieanlagen</a>.</p>
+<h2 id="unsere-sicht-leckortung-beginnt-bei-der-planung" tabindex="-1">Unsere Sicht: Leckortung beginnt bei der Planung</h2>
+<p>In unseren Projekten sehen wir ein Muster: Die Lecksuche wird dann teuer, wenn das Netz schon bei der Planung keine Messbarkeit vorsieht. Es fehlt ein Zähler an der Nachspeisung, es gibt zu wenige Absperrarmaturen für eine sinnvolle Abschnittsbildung, die Meldeadern wurden nicht durchgängig angeschlossen oder die Trassendokumentation ist lückenhaft. Dann bleibt im Schadensfall nur die teure Suche über die ganze Fläche.</p>
+<p>Wir arbeiten technologieoffen und haben kein eigenes Ortungsgerät und kein Herstellerinteresse. Deshalb stellen wir bei der Konzeption von Nahwärmesystemen nicht die Frage, welche Ortungstechnik die beste ist. Wir fragen, welche Kombination zu Rohrmaterial, Temperaturniveau und Betreiberstruktur passt. Ein kommunales Nahwärmenetz mit flexiblen Kunststoffrohren braucht andere Vorkehrungen als eine Stahltrasse eines Stadtwerks. Unser Rat: Legen Sie bereits in der Planung fest, wie ein Leck erkannt, eingegrenzt und geortet werden soll, und rechnen Sie Messpunkte und Überwachung in die Investition ein. Das ist günstiger als jede Fehlgrabung.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="warmenetze-planen-die-sich-uberwachen-lassen" tabindex="-1">Wärmenetze planen, die sich überwachen lassen</h2>
+<p>Sie planen ein neues Nahwärmenetz, erweitern ein Bestandsnetz oder stecken mitten in der kommunalen Wärmeplanung? Wir begleiten Kommunen, Stadtwerke und Energieversorger von der Analyse über die technologieoffene Anlagenkonzeption bis zur Umsetzung, einschließlich der Suche nach passenden Fördermitteln aus Programmen wie der BEW.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Welche Leistungen wir für Versorger anbieten, finden Sie auf unserer Seite mit <a href="https://planegy.de/stadtwerke" target="_blank" rel="noopener">Lösungen für Stadtwerke und Energieversorger</a>. Für Gemeinden lohnt sich ein Blick auf unsere <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">kommunale Wärmeplanung nach WPG</a>. Einen Überblick über alle Schwerpunkte gibt unsere Seite mit den <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen von PLANEGY</a>.</p>
+<h2 id="haufige-fragen-zur-leckortung-bei-fernwarme" tabindex="-1">Häufige Fragen zur Leckortung bei Fernwärme</h2>
+<h3 id="welche-methode-ist-bei-fernwarme-am-genauesten" tabindex="-1">Welche Methode ist bei Fernwärme am genauesten?</h3>
+<p>Für die Punktortung an druckführenden Stahlleitungen gilt die akustische Korrelation als sehr genau. Eine pauschal genaueste Methode gibt es aber nicht, denn bei Kunststoffrohren oder viel Störlärm liefert Tracergas oft das bessere Ergebnis. Entscheidend ist die Reihenfolge: erst grob eingrenzen, dann punktgenau orten.</p>
+<h3 id="woran-erkenne-ich-dass-mein-warmenetz-ein-leck-hat" tabindex="-1">Woran erkenne ich, dass mein Wärmenetz ein Leck hat?</h3>
+<p>Das wichtigste Signal ist eine steigende Nachspeisemenge im Vergleich zu Ihrem üblichen Wert. Dazu kommen ein schnellerer Druckabfall, feuchte Stellen oder schneefreie Streifen über der Trasse und Meldungen des Überwachungssystems. Ohne Zähler an der Nachspeisung fällt ein Leck oft erst spät auf.</p>
+<h3 id="funktioniert-thermografie-auch-bei-niedertemperaturnetzen" tabindex="-1">Funktioniert Thermografie auch bei Niedertemperaturnetzen?</h3>
+<p>Nur eingeschränkt. Thermografie braucht einen deutlichen Temperaturunterschied zwischen austretendem Wasser und Umgebung. Bei niedrigen Netztemperaturen, tiefer Verlegung oder versiegelten Flächen ist das Bild schwach. Dort sind Messdaten, Akustik und Tracergas die verlässlicheren Werkzeuge.</p>
+<h3 id="muss-das-netz-fur-die-lecksuche-abgeschaltet-werden" tabindex="-1">Muss das Netz für die Lecksuche abgeschaltet werden?</h3>
+<p>Nicht immer. Datenauswertung, Thermografie und Akustik funktionieren im laufenden Betrieb, Akustik braucht sogar den Leitungsdruck. Für Formiergas muss die betroffene Leitung entleert werden, und auch beim Absperren einzelner Abschnitte sind Kunden zeitweise ohne Wärme.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.enargus.de/pub/bscw.cgi/d6674-2/*/*/Leckerkennung%20und%20Leckortung%20in%20Versorgungsnetzen.html?op=Wiki.getwiki" rel="nofollow noopener noreferrer" target="_blank">EnArgus: Leckerkennung und Leckortung in Versorgungsnetzen</a></li>
+<li><a href="https://www.ilsfeld.de/resources/ecics_2477.pdf" rel="nofollow noopener noreferrer" target="_blank">Gemeinde Ilsfeld: Wärmenetz, Wasserverlust, Wärmeverlust, Leckagesuche</a></li>
+<li><a href="https://edocs.tib.eu/files/e01fb06/513237755.pdf" rel="nofollow noopener noreferrer" target="_blank">BMBF-Abschlussbericht Fkz 0327339A (TIB)</a></li>
+<li><a href="https://edocs.tib.eu/files/e01fb24/1892155222.pdf" rel="nofollow noopener noreferrer" target="_blank">Digitalisierung von Wärmeversorgungsstrukturen (TIB)</a></li>
+<li><a href="https://link.springer.com/chapter/10.1007/978-3-032-09844-3_13" rel="nofollow noopener noreferrer" target="_blank">Exploiting Synergies of Data-Driven and Model-Based Approaches (Springer)</a></li>
+<li><a href="https://www.agfw.de/technik-normung/anschluss-und-kundenanlagen/hausuebergabestationen" rel="nofollow noopener noreferrer" target="_blank">AGFW: Fernwärme-Hausstation und DIN 4747</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-warmenetz-verluste-reduzieren" target="_blank" rel="noopener">Wärmenetz Verluste reduzieren: Die wirksamsten technischen Hebel</a></li>
+<li><a href="https://planegy.de/blog-warmenetz-dimensionierung" target="_blank" rel="noopener">Wärmenetz Dimensionierung: Richtwerte und Rechenweg für Planer</a></li>
+<li><a href="https://planegy.de/blog-nahwarmenetz-kosten" target="_blank" rel="noopener">Nahwärmenetz Kosten: Investitionen, Förderung und Wirtschaftlichkeit</a></li>
+<li><a href="https://planegy.de/blog-nahwaermenetze-planung-wirtschaftlichkeit" target="_blank" rel="noopener">Nahwärmenetze: Planung und Wirtschaftlichkeit</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
