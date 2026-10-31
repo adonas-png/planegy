@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TA Luft bei Gasfeuerungen: Anforderungen, Grenzwerte und BHKW-Pflichten – PLANEGY</title>
+  <meta name="description" content="Welche Anforderungen TA Luft, 44. und 4. BImSchV an Gasfeuerungen und BHKW stellen: Grenzwerte für NOx, CO, Formaldehyd und Messpflichten im Überblick." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="TA Luft bei Gasfeuerungen: Anforderungen, Grenzwerte und BHKW-Pflichten" />
+  <meta property="og:description" content="Welche Anforderungen TA Luft, 44. und 4. BImSchV an Gasfeuerungen und BHKW stellen: Grenzwerte für NOx, CO, Formaldehyd und Messpflichten im Überblick." />
+  <link rel="canonical" href="https://planegy.de/blog-ta-luft-gasfeuerung-anforderungen" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "TA Luft bei Gasfeuerungen: Anforderungen, Grenzwerte und BHKW-Pflichten",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-10-31",
+    "description": "Welche Anforderungen TA Luft, 44. und 4. BImSchV an Gasfeuerungen und BHKW stellen: Grenzwerte für NOx, CO, Formaldehyd und Messpflichten im Überblick."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">TA Luft bei Gasfeuerungen: Anforderungen, Grenzwerte und BHKW-Pflichten</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>TA Luft bei Gasfeuerungen: Anforderungen, Grenzwerte und BHKW-Pflichten</h1>
+    <div class="article-meta">
+      <span>📅 <strong>Oktober 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="ta-luft-bei-gasfeuerungen-anforderungen-grenzwerte-und-bhkw-pflichten" tabindex="-1">TA Luft bei Gasfeuerungen: Anforderungen, Grenzwerte und BHKW-Pflichten</h1>
+
+<p>Wer heute eine Gasfeuerung oder ein gasbetriebenes BHKW plant, findet die konkreten Grenzwerte meist nicht in der TA Luft, sondern in der 44. BImSchV. Die TA Luft bleibt trotzdem wichtig: Sie regelt die Ableitung der Abgase, die Bewertung der Immissionen und alles, was die Verordnung offenlässt. Ob Ihre Anlage überhaupt eine immissionsschutzrechtliche Genehmigung braucht, entscheidet wiederum die 4. BImSchV. Dieser Beitrag ordnet die drei Regelwerke für Gaskessel, Gasturbinen und Gasmotoren, nennt die geltenden Grenzwerte für Stickoxide, Kohlenmonoxid und Formaldehyd und zeigt, welche Mess- und Nachweispflichten auf Sie als Betreiber zukommen.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Genehmigungsverfahren sicher einordnen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Unternehmen bei Genehmigungsverfahren und entwickelt technologieoffen maßgeschneiderte Energielösungen von der Analyse bis zur Umsetzung.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Energieberatung ansehen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li>Für Gasfeuerungen, Gasturbinen und Motoren von 1 MW bis unter 50 MW Feuerungswärmeleistung gelten die Emissionsgrenzwerte der 44. BImSchV. Die Emissionsanforderungen der TA Luft (Nr. 5.1 bis 5.4) treten dahinter zurück.</li>
+<li>Die TA Luft 2021 greift weiter bei Schornsteinhöhe und Abgasableitung (Nr. 5.5), bei der Immissionsprognose und bei Stoffen, die die Verordnung nicht regelt.</li>
+<li>Für Gasmotoren gelten unter anderem 0,25 g/m³ CO (0,50 g/m³ bei Biogas, Klärgas und Grubengas) und 20 mg/m³ Formaldehyd bei Mager- und Zündstrahlmotoren.</li>
+<li>Ab 1 MW sind CO und NOx jährlich zu messen, Formaldehyd bei Gasmotoren ebenfalls jährlich.</li>
+<li>Mehrere Aggregate desselben Betreibers werden für die Genehmigungsschwelle zusammengerechnet.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#welches-regelwerk-fur-ihre-gasfeuerung-gilt">Welches Regelwerk für Ihre Gasfeuerung gilt</a></li>
+<li><a href="#was-die-ta-luft-bei-gasfeuerungen-weiterhin-verlangt">Was die TA Luft bei Gasfeuerungen weiterhin verlangt</a></li>
+<li><a href="#grenzwerte-fur-gaskessel-und-gasturbinen">Grenzwerte für Gaskessel und Gasturbinen</a></li>
+<li><a href="#bhkw-und-ta-luft-die-grenzwerte-fur-gasmotoren">BHKW und TA Luft: die Grenzwerte für Gasmotoren</a></li>
+<li><a href="#messen-uberwachen-nachweisen">Messen, überwachen, nachweisen</a></li>
+<li><a href="#bestandsanlagen-ubergangsregeln-und-ausnahmen">Bestandsanlagen, Übergangsregeln und Ausnahmen</a></li>
+<li><a href="#rechenbeispiel-zwei-bhkw-an-einem-standort">Rechenbeispiel: Zwei BHKW an einem Standort</a></li>
+<li><a href="#unsere-sicht-auf-gasfeuerungen-im-genehmigungsverfahren">Unsere Sicht auf Gasfeuerungen im Genehmigungsverfahren</a></li>
+<li><a href="#genehmigung-und-anlagenkonzept-aus-einer-hand">Genehmigung und Anlagenkonzept aus einer Hand</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="welches-regelwerk-fur-ihre-gasfeuerung-gilt" tabindex="-1">Welches Regelwerk für Ihre Gasfeuerung gilt</h2>
+<p>Die TA Luft in der Fassung vom 18. August 2021 ist die zentrale Verwaltungsvorschrift zum Bundes-Immissionsschutzgesetz. Sie beschreibt den Stand der Technik für genehmigungsbedürftige Anlagen und bindet die Behörden, wenn sie Genehmigungsbescheide formulieren. Gleich zu Beginn ihres Emissionsteils steht aber eine Einschränkung, die für Feuerungen entscheidend ist: Die Anforderungen der Nummern 5.1 bis 5.4 gelten nicht, soweit eine Rechtsverordnung der Bundesregierung bereits Vorsorgeanforderungen trifft.</p>
+<p>Genau das ist bei Feuerungsanlagen der Fall. Für mittelgroße Feuerungsanlagen, Gasturbinen und Verbrennungsmotoranlagen von 1 MW bis unter 50 MW Feuerungswärmeleistung legt die 44. BImSchV die Grenzwerte fest. Oberhalb von 50 MW beginnt der Bereich der Großfeuerungsanlagen mit eigener Verordnung. Die TA Luft ist damit nicht verschwunden, sie arbeitet nur an anderer Stelle.</p>
+<table>
+<thead>
+<tr>
+<th>Frage</th>
+<th>Maßgebliches Regelwerk</th>
+<th>Was es für Sie bedeutet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brauche ich eine BImSchG-Genehmigung?</td>
+<td>4. BImSchV, Anhang 1</td>
+<td>Schwellenwerte nach Anlagenart, Brennstoff und Feuerungswärmeleistung</td>
+</tr>
+<tr>
+<td>Welche Emissionsgrenzwerte gelten (1 bis unter 50 MW)?</td>
+<td>44. BImSchV</td>
+<td>NOx, CO, SOx, Formaldehyd, organische Stoffe</td>
+</tr>
+<tr>
+<td>Wie hoch muss der Schornstein sein?</td>
+<td>TA Luft Nr. 5.5</td>
+<td>Ableitung nach dem Stand der Technik</td>
+</tr>
+<tr>
+<td>Wie wirkt die Anlage auf die Umgebung?</td>
+<td>TA Luft Nr. 4 und Anhang 1</td>
+<td>Immissionsbewertung, Schutz der Nachbarschaft</td>
+</tr>
+<tr>
+<td>Welche Stoffe sind sonst noch zu begrenzen?</td>
+<td>TA Luft Nr. 5.2</td>
+<td>Greift dort, wo die Verordnung schweigt</td>
+</tr>
+</tbody>
+</table>
+<p>Die Schwellen zur Genehmigungsbedürftigkeit unterscheiden sich nach Anlagenart und Brennstoff. Ein Beispiel aus der 4. BImSchV: Verbrennungsmotoranlagen werden unter bestimmten Voraussetzungen bereits ab 1 MW Feuerungswärmeleistung genehmigungsbedürftig. Für andere Anlagenarten und Brennstoffe gelten eigene Schwellen. Welche Nummer des Anhangs Ihre Anlage trifft, sollten Sie vor der Planung sauber klären; wie das systematisch geht, zeigen wir in unserem Beitrag zum <a href="https://planegy.de/blog-4-bimschv-anwendungsbereich" target="_blank" rel="noopener">Anwendungsbereich der 4. BImSchV</a>.</p>
+<h2 id="was-die-ta-luft-bei-gasfeuerungen-weiterhin-verlangt" tabindex="-1">Was die TA Luft bei Gasfeuerungen weiterhin verlangt</h2>
+<p>Auch wenn die Grenzwerte aus der Verordnung kommen, prüft die Genehmigungsbehörde Ihre Gasfeuerung an mehreren Stellen gegen die TA Luft.</p>
+<p><strong>Emissionswerte als Grundlage des Bescheids.</strong> Die TA Luft definiert Emissionswerte als Grundlage für die Emissionsbegrenzungen, die im Genehmigungsbescheid festgelegt werden (Nr. 2.7). In der Praxis übernimmt der Bescheid die Werte der 44. BImSchV und ergänzt sie, wo nötig.</p>
+<p><strong>Abgasableitung und Schornsteinhöhe.</strong> Nr. 5.5 verlangt eine ordnungsgemäße Ableitung der Abgase. Die Schornsteinhöhe wird nach dem Stand der Technik bemessen, abhängig von Emissionsmassenstrom, Bebauung und Gelände. Gerade bei BHKW in Gewerbegebieten oder neben Wohnbebauung ist das oft der Punkt, an dem Planungen nachgebessert werden müssen.</p>
+<p><strong>Immissionen und Nachbarschaftsschutz.</strong> Der Schutzteil der TA Luft (Nr. 4) bewertet, was am Boden ankommt. Die <a href="https://www.lai-immissionsschutz.de/documents/vollzugsfragen-ta-luft-stand-2023-03-01_2_1712914125.pdf" rel="nofollow noopener noreferrer" target="_blank">Vollzugsfragen der LAI zur TA Luft</a> stellen klar, dass Nr. 5.4.7.1 und Anhang 1 vor allem der Vorsorge und dem Schutz vor direkten Wirkungen dienen, etwa auf Vegetation und Ökosysteme. Bei Standorten nahe empfindlicher Gebiete kann deshalb eine Ausbreitungsrechnung gefordert werden.</p>
+<p><strong>Allgemeine Vorsorge.</strong> Die allgemeinen Anforderungen ab Nr. 5.1 gelten auch für Gasfeuerungen, soweit keine spezielle Regelung greift. Das betrifft vor allem Stoffe oder Betriebszustände, die die 44. BImSchV nicht abdeckt.</p>
+<p>Das <a href="https://www.bundesumweltministerium.de/faqs/technische-anleitung-zur-reinhaltung-der-luft" rel="nofollow noopener noreferrer" target="_blank">Bundesumweltministerium</a> beschreibt die TA Luft 2021 als das Regelwerk, das genehmigungsbedürftige Anlagen auf den aktuellen Stand der Technik bringt, und weist darauf hin, dass Energieeffizienz dabei stärker gewichtet wird. Für Gasfeuerungen heißt das: Effiziente Brenner und eine sinnvolle Abwärmenutzung sind auch genehmigungsrechtlich ein Argument.</p>
+
+<h2 id="grenzwerte-fur-gaskessel-und-gasturbinen" tabindex="-1">Grenzwerte für Gaskessel und Gasturbinen</h2>
+<p>Für mittelgroße Kesselanlagen mit gasförmigen Brennstoffen beziehen sich die Grenzwerte der 44. BImSchV auf 3 Prozent Sauerstoff im Abgas. Bei Erdgas gelten für Kohlenmonoxid 80 mg/m³ und für Stickstoffoxide 0,10 g/m³, angegeben als Stickstoffdioxid. Für Schwefeloxide hängt der Wert am Brennstoff:</p>
+<table>
+<thead>
+<tr>
+<th>Brennstoff</th>
+<th>Schwefeloxide (als SO₂)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flüssiggas</td>
+<td>5 mg/m³</td>
+</tr>
+<tr>
+<td>Gase der öffentlichen Gasversorgung</td>
+<td>10 mg/m³</td>
+</tr>
+<tr>
+<td>Biogas oder Klärgas</td>
+<td>0,10 g/m³</td>
+</tr>
+</tbody>
+</table>
+<p>Wer von Erdgas auf Flüssiggas oder BioLPG umstellt, sollte die Umstellung der Behörde anzeigen und prüfen lassen, ob der Bescheid angepasst werden muss.</p>
+<p>Bei Gasturbinen rechnet die Verordnung auf 15 Prozent Sauerstoff um. Für Stickstoffoxide gilt bei Erdgas im Betrieb ab 70 Prozent Last eine Massenkonzentration von 50 mg/m³. Für niedrigere Lasten legt die Behörde den zu überwachenden Teillastbereich und die dort einzuhaltende Begrenzung selbst fest. Das sollten Sie schon im Antrag mit einem realistischen Lastprofil vorbereiten. Wann sich eine Turbine gegenüber einem Motor lohnt, vergleichen wir im Beitrag zur <a href="https://planegy.de/blog-gasturbine-kraftwarmekopplung" target="_blank" rel="noopener">Gasturbine in der Kraft-Wärme-Kopplung</a>.</p>
+<p>Für Dampferzeuger und Prozesswärmekessel gilt dieselbe Logik: Die NOx-Grenze wird mit Low-NOx-Brennern und sauberer Verbrennungsregelung erreicht, und die gleichen Maßnahmen senken oft den Brennstoffverbrauch. Welche Hebel dabei wirken, beschreiben wir bei der <a href="https://planegy.de/blog-dampferzeuger-effizienz" target="_blank" rel="noopener">Effizienz von Dampferzeugern</a>.</p>
+<h2 id="bhkw-und-ta-luft-die-grenzwerte-fur-gasmotoren" tabindex="-1">BHKW und TA Luft: die Grenzwerte für Gasmotoren</h2>
+<p>Das BHKW ist der Fall, nach dem am häufigsten gefragt wird, und der mit den meisten Einzelregeln. Maßgeblich ist § 16 der 44. BImSchV. Die wichtigsten Werte für gasbetriebene Motoren:</p>
+<table>
+<thead>
+<tr>
+<th>Schadstoff</th>
+<th>Brennstoff</th>
+<th>Grenzwert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kohlenmonoxid</td>
+<td>Biogas, Klärgas, Grubengas, Holzvergasungsgas</td>
+<td>0,50 g/m³</td>
+</tr>
+<tr>
+<td>Kohlenmonoxid</td>
+<td>sonstige Brennstoffe, z. B. Erdgas</td>
+<td>0,25 g/m³</td>
+</tr>
+<tr>
+<td>Stickstoffoxide (als NO₂)</td>
+<td>Biogas</td>
+<td>0,10 g/m³</td>
+</tr>
+<tr>
+<td>Stickstoffoxide (als NO₂)</td>
+<td>Klärgas, Grubengas, Holzvergasungsgas</td>
+<td>0,50 g/m³</td>
+</tr>
+<tr>
+<td>Formaldehyd</td>
+<td>Mager- und Zündstrahlmotoren mit Biogas, Erdgas, Klärgas oder Grubengas</td>
+<td>20 mg/m³</td>
+</tr>
+<tr>
+<td>Formaldehyd</td>
+<td>bestehende Mager- und Zündstrahlmotoren mit diesen Gasen</td>
+<td>30 mg/m³</td>
+</tr>
+<tr>
+<td>Formaldehyd</td>
+<td>Deponiegas</td>
+<td>40 mg/m³</td>
+</tr>
+</tbody>
+</table>
+<p>Die Tabelle zeigt, warum sich ein pauschaler Blick auf “die BHKW-Grenzwerte” nicht lohnt. Derselbe Motor kann je nach Gasart und Alter der Anlage an unterschiedlichen Werten gemessen werden. Wer zwischen Erdgas, Biomethan und Biogas wechselt, muss deshalb immer auch die Emissionsseite neu bewerten. Wann Biomethan im BHKW wirtschaftlich sinnvoll ist, zeigen wir in unserer Analyse zu <a href="https://planegy.de/blog-biomethan-in-kwk" target="_blank" rel="noopener">Biomethan in der KWK</a>.</p>
+<h3 id="formaldehyd-als-kritischer-parameter" tabindex="-1">Formaldehyd als kritischer Parameter</h3>
+<p>Formaldehyd entsteht vor allem bei unvollständiger Verbrennung im Magerbetrieb. In der Praxis setzen viele Betreiber für den Wert von 20 mg/m³ auf Oxidationskatalysatoren. Entsprechend schreibt die Verordnung Nachweise vor, dass Katalysatoren tatsächlich wirksam arbeiten. Die LAI hat in ihren Vollzugsfragen zudem klargestellt, dass für die Frage, ob kontinuierliche Messungen angeordnet werden, vor allem die genehmigten Massenkonzentrationen maßgeblich sind und die Behörde im Einzelfall entscheidet.</p>
+<h3 id="spitzenlast-und-notbetrieb" tabindex="-1">Spitzenlast und Notbetrieb</h3>
+<p>Nicht jeder Motor muss alle Werte einhalten. § 16 sieht für bestimmte CO-, NOx-, Schwefeloxid- und organische Grenzwerte Ausnahmen vor, wenn eine Anlage zur Abdeckung der Spitzenlast höchstens 300 Stunden im Jahr läuft oder ausschließlich dem Notbetrieb dient. Für Formaldehyd gilt bei reinen Notstrommotoren ein eigener Wert von 60 mg/m³. Wichtig: Die Betriebsstunden müssen Sie belegen können. Ein Notstromaggregat, das regelmäßig zur Lastspitzenkappung mitläuft, verliert diesen Status schnell.</p>
+<h2 id="messen-uberwachen-nachweisen" tabindex="-1">Messen, überwachen, nachweisen</h2>
+<p>Die Überwachungspflichten stehen in § 24 der 44. BImSchV. Für Verbrennungsmotoranlagen ab 1 MW Feuerungswärmeleistung gilt:</p>
+<ol>
+<li><strong>CO und NOx jährlich.</strong> Beide Parameter sind einmal im Jahr durch Messung zu ermitteln.</li>
+<li><strong>Formaldehyd jährlich</strong> bei Motoren, die mit Biogas, Erdgas, Grubengas oder Klärgas betrieben werden. Bei sonstigen Motoren ab 1 MW reicht ein Turnus von drei Jahren.</li>
+<li><strong>Organische Stoffe jährlich</strong> bei Anlagen mit gasförmigen Brennstoffen.</li>
+<li><strong>Staub jährlich</strong> nur bei flüssigen Brennstoffen und Zündstrahlmotoren.</li>
+<li><strong>Nachweise für Abgasreinigung.</strong> Wer Rußfilter oder Oxidationskatalysatoren einsetzt, muss deren effektiven Betrieb belegen.</li>
+</ol>
+<p>Messungen allein reichen aber nicht. Der <a href="https://www.luft.sachsen.de/download/LeitfadenUeberwachungBiogasanlagen.pdf" rel="nofollow noopener noreferrer" target="_blank">Leitfaden zur Überwachung von Biogasanlagen</a> des Freistaats Sachsen betont, dass tägliche Eigenkontrolle und die Einhaltung der empfohlenen Wartungsintervalle für den Emissionsschutz entscheidend sind. Ein weiterer Punkt aus dem Leitfaden: Dauerhafter Teillastbetrieb entspricht nicht dem Stand der Technik, weil Motoren dann schlechter verbrennen.</p>
+<p>Für die Praxis empfehlen wir ein einfaches Betriebstagebuch mit Laufzeiten, Lastzuständen, Wartungen, Katalysatorwechseln und den Messberichten. Kommt die Behörde zur Überwachung, haben Sie damit alles an einer Stelle, und Abweichungen lassen sich früh erkennen.</p>
+<h2 id="bestandsanlagen-ubergangsregeln-und-ausnahmen" tabindex="-1">Bestandsanlagen, Übergangsregeln und Ausnahmen</h2>
+<p>Bestehende Genehmigungen bleiben zunächst wirksam, die Verordnung gilt aber auch für Altanlagen, teils mit eigenen Werten. Beim Formaldehyd ist das gut sichtbar: Für bestehende Mager- und Zündstrahlmotoren mit Biogas, Erdgas, Grubengas oder Klärgas gilt 30 mg/m³ statt 20 mg/m³. Auch bislang nicht genehmigungsbedürftige mittelgroße Anlagen fallen unter die 44. BImSchV und müssen bei der zuständigen Behörde registriert sein.</p>
+<p>Daneben kennt die Verordnung Ausnahmen, wenn ein Grenzwert im Einzelfall technisch unverhältnismäßig wäre. Voraussetzung ist, dass der Stand der Technik gewahrt bleibt und kein Konflikt mit EU-Recht entsteht. Eine solche Ausnahme ist kein Selbstläufer: Sie brauchen eine belastbare technische Begründung, meist mit Herstellerangaben und Messdaten.</p>
+<p>Achtung bei Änderungen: Ein zusätzliches Modul, ein Brennstoffwechsel oder eine Leistungserhöhung kann eine Änderungsanzeige oder eine Änderungsgenehmigung auslösen. Bevor Sie bestellen, sollte geklärt sein, welches Verfahren nötig ist. Den Ablauf beschreiben wir im Beitrag zur <a href="https://planegy.de/blog-immissionsschutzgenehmigung-ablauf" target="_blank" rel="noopener">Immissionsschutzgenehmigung</a>.</p>
+<h2 id="rechenbeispiel-zwei-bhkw-an-einem-standort" tabindex="-1">Rechenbeispiel: Zwei BHKW an einem Standort</h2>
+<p>Ein angenommenes Beispiel zeigt, wie schnell die Schwellen erreicht sind. Ein Landwirtschaftsbetrieb betreibt ein Biogas-BHKW mit 600 kW Feuerungswärmeleistung und plant ein zweites Modul gleicher Größe.</p>
+<ul>
+<li><strong>Einzeln betrachtet</strong> liegt jedes Modul unter 1 MW.</li>
+<li><strong>Zusammengerechnet</strong> ergeben beide 1,2 MW. Nach Anhang 1 der 4. BImSchV sind bei mehreren Aggregaten desselben Betreibers die Gesamtfeuerungswärmeleistung und der Betriebsumfang zu berücksichtigen.</li>
+<li><strong>Folge:</strong> Die Anlage wird genehmigungsbedürftig. Es gelten die Biogaswerte aus § 16 (CO 0,50 g/m³, NOx 0,10 g/m³, Formaldehyd 20 mg/m³), jährliche Messungen von CO, NOx und Formaldehyd sowie die Anforderungen der TA Luft an die Abgasableitung.</li>
+</ul>
+<p>Wer das zweite Modul ohne diese Prüfung bestellt, riskiert Verzögerungen bei der Inbetriebnahme. Ob sich der Ausbau trotz der Mehrkosten trägt, hängt auch von der KWK-Förderung ab; drei Szenarien dazu haben wir in unserem Beitrag zur <a href="https://planegy.de/blog-bhkw-wirtschaftlichkeit" target="_blank" rel="noopener">Wirtschaftlichkeit von BHKW</a> durchgerechnet.</p>
+<h2 id="unsere-sicht-auf-gasfeuerungen-im-genehmigungsverfahren" tabindex="-1">Unsere Sicht auf Gasfeuerungen im Genehmigungsverfahren</h2>
+<p>Aus über 20 Jahren im Energiesektor wissen wir: Die meisten Verzögerungen entstehen nicht am Grenzwert selbst, sondern an der Schnittstelle zwischen den Regelwerken. Ein Betreiber kennt die NOx-Grenze aus dem Herstellerdatenblatt, unterschätzt aber die Schornsteinhöhe nach TA Luft oder die Zusammenrechnung mehrerer Module nach der 4. BImSchV.</p>
+<p>Deshalb betrachten wir eine Gasfeuerung nie isoliert. Wir fragen zuerst, welche Wärme- und Stromlast tatsächlich anfällt, und bewerten dann Kessel, Motor, Turbine oder einen Mix technologieoffen, ohne Herstellerbindung. Erst danach legen wir fest, welches Verfahren nötig ist und welche Messkonzepte in den Antrag gehören. So passt die Anlage zum Bedarf und zum Bescheid.</p>
+<p>Ein zweiter Punkt liegt uns am Herzen: Wer heute eine Gasfeuerung genehmigen lässt, sollte den Brennstoffwechsel gleich mitdenken. BioLPG oder Biomethan können Emissionen deutlich senken, wenn die Genehmigung diese Optionen schon abdeckt. Das spart später ein zweites Verfahren.</p>
+<blockquote>
+<p><em>— Alexios Donas</em></p>
+</blockquote>
+<h2 id="genehmigung-und-anlagenkonzept-aus-einer-hand" tabindex="-1">Genehmigung und Anlagenkonzept aus einer Hand</h2>
+<p>PLANEGY begleitet Industrie, Gewerbe, Stadtwerke und Kommunen bei Gasfeuerungen, BHKW, Gasturbinen und Dampferzeugern von der Konzeption über das Genehmigungsverfahren nach 4. BImSchV bis zur Umsetzung. Wir prüfen die Genehmigungsbedürftigkeit, stellen die Antragsunterlagen zusammen und suchen parallel die passenden Fördermittel, etwa aus BEW, KfW oder BAFA.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Sie planen eine neue Anlage oder ein zusätzliches Modul? Schauen Sie sich unsere <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Leistungen für Industrie und BImSchG</a> an oder sprechen Sie uns über die <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Übersicht unserer Leistungen</a> direkt an.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="gilt-die-ta-luft-uberhaupt-noch-fur-mein-gas-bhkw" tabindex="-1">Gilt die TA Luft überhaupt noch für mein Gas-BHKW?</h3>
+<p>Ja, aber nicht für die Emissionsgrenzwerte. Diese stehen für Anlagen von 1 MW bis unter 50 MW in der 44. BImSchV. Die TA Luft bleibt für Abgasableitung, Schornsteinhöhe, Immissionsbewertung und nicht geregelte Stoffe maßgeblich.</p>
+<h3 id="ab-wann-braucht-ein-biogas-bhkw-eine-bimschg-genehmigung" tabindex="-1">Ab wann braucht ein Biogas-BHKW eine BImSchG-Genehmigung?</h3>
+<p>In der Regel ab 1 MW Feuerungswärmeleistung nach der 4. BImSchV. Mehrere Module desselben Betreibers am Standort werden zusammengerechnet. Im Zweifel sollten Sie die Einstufung vor der Bestellung mit der zuständigen Immissionsschutzbehörde klären.</p>
+<h3 id="wie-oft-muss-ein-bhkw-gemessen-werden" tabindex="-1">Wie oft muss ein BHKW gemessen werden?</h3>
+<p>Bei Motoranlagen ab 1 MW sind CO und NOx jährlich zu ermitteln. Formaldehyd ist bei Motoren mit Biogas, Erdgas, Klärgas oder Grubengas ebenfalls jährlich zu messen. Organische Stoffe kommen bei gasförmigen Brennstoffen jährlich hinzu.</p>
+<h3 id="welcher-formaldehyd-grenzwert-gilt-fur-gasmotoren" tabindex="-1">Welcher Formaldehyd-Grenzwert gilt für Gasmotoren?</h3>
+<p>Für Mager- und Zündstrahlmotoren mit Biogas, Erdgas, Klärgas oder Grubengas gelten 20 mg/m³, für bestehende Motoren dieser Art 30 mg/m³. Bei Deponiegas sind es 40 mg/m³, bei reinen Notstrommotoren 60 mg/m³.</p>
+<h3 id="gibt-es-erleichterungen-fur-notstromaggregate" tabindex="-1">Gibt es Erleichterungen für Notstromaggregate?</h3>
+<p>Ja. Für Anlagen, die ausschließlich dem Notbetrieb dienen oder höchstens 300 Stunden im Jahr die Spitzenlast abdecken, sieht die 44. BImSchV Ausnahmen bei mehreren Grenzwerten vor. Die Betriebsstunden müssen nachweisbar dokumentiert sein.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.lai-immissionsschutz.de/documents/vollzugsfragen-ta-luft-stand-2023-03-01_2_1712914125.pdf" rel="nofollow noopener noreferrer" target="_blank">LAI: Vollzugsfragen zur TA Luft, Stand 1. März 2023</a></li>
+<li><a href="https://www.luft.sachsen.de/download/LeitfadenUeberwachungBiogasanlagen.pdf" rel="nofollow noopener noreferrer" target="_blank">Sachsen: Leitfaden zur Überwachung von Biogasanlagen</a></li>
+<li><a href="https://www.bundesumweltministerium.de/faqs/technische-anleitung-zur-reinhaltung-der-luft" rel="nofollow noopener noreferrer" target="_blank">Bundesumweltministerium: FAQ zur TA Luft</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-gasturbine-kraftwarmekopplung" target="_blank" rel="noopener">Gasturbine in der Kraft-Wärme-Kopplung: Wann sie sich lohnt</a></li>
+<li><a href="https://planegy.de/blog-bhkw-wirtschaftlichkeit" target="_blank" rel="noopener">3 Szenarien für BHKW 2026: KWKG Folgen, Sensitivität und Förderung</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
