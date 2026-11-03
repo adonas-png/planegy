@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Messkonzept im Energieaudit: So planen Sie die Datenerfassung – PLANEGY</title>
+  <meta name="description" content="Messkonzept fürs Energieaudit: welche Daten Sie erfassen, wie Sie Messstellen und Intervalle festlegen und was § 8a EDL-G bei fehlenden Messwerten erlaubt." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Messkonzept im Energieaudit: So planen Sie die Datenerfassung" />
+  <meta property="og:description" content="Messkonzept fürs Energieaudit: welche Daten Sie erfassen, wie Sie Messstellen und Intervalle festlegen und was § 8a EDL-G bei fehlenden Messwerten erlaubt." />
+  <link rel="canonical" href="https://planegy.de/blog-energieaudit-messkonzept" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Messkonzept im Energieaudit: So planen Sie die Datenerfassung",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-03",
+    "description": "Messkonzept fürs Energieaudit: welche Daten Sie erfassen, wie Sie Messstellen und Intervalle festlegen und was § 8a EDL-G bei fehlenden Messwerten erlaubt."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"⚡"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Messkonzept im Energieaudit: So planen Sie die Datenerfassung</span>
+    </div>
+    <div class="article-cat">Energie</div>
+    <h1>Messkonzept im Energieaudit: So planen Sie die Datenerfassung</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="messkonzept-im-energieaudit-so-planen-sie-die-datenerfassung" tabindex="-1">Messkonzept im Energieaudit: So planen Sie die Datenerfassung</h1>
+
+<p>Ein Messkonzept legt vor dem Energieaudit fest, welche Energieflüsse Sie wo, wie, wie lange und in welcher Auflösung erfassen und wie die einzelnen Zähler zueinander stehen. Es macht aus Rechnungen, Zählerständen und Lastgängen eine belastbare Energiebilanz, die das Gesetz verlangt: Nach § 8a EDL-G braucht ein Audit aktuelle, gemessene und belegbare Betriebsdaten zu Verbrauch und Lastprofilen und muss mindestens 90 Prozent des Gesamtenergieverbrauchs abdecken. Hier lesen Sie, wie Sie das Messkonzept aufbauen, welche Daten hineingehören und was Sie tun, wenn an einer Anlage kein Zähler hängt.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Energieverbräuche fundiert erfassen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Unternehmen mit technologieoffener Energieberatung dabei, maßgeschneiderte Energielösungen von der Analyse bis zur Umsetzung zu entwickeln.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">PLANEGY kennenlernen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li>Das Messkonzept ist der Plan für die Datenerfassung: Messstellen, Messgrößen, Messtechnik, Intervalle, Zeitraum und die Hierarchie vom Hauptzähler bis zur einzelnen Anlage.</li>
+<li>Gesetzlich gefordert sind gemessene, belegbare Daten zu Energieverbrauch und Lastprofilen, die mindestens 90 Prozent des Gesamtverbrauchs abdecken.</li>
+<li>Wo Messen nicht oder nur mit großem Aufwand geht, sind nachvollziehbare Hochrechnungen erlaubt, bei Beleuchtung und Bürogeräten auch nachvollziehbare Schätzungen.</li>
+<li>Sinnvoll ist eine Mischung: vorhandene Zähler und Lastgänge des Netzbetreibers, gezielte Messkampagnen mit mobilen Loggern und dauerhafte Messstellen an den großen Verbrauchern.</li>
+<li>Gut geplant, bleibt das Messkonzept nach dem Audit stehen und wird zur Basis für Energiemonitoring, ISO 50001 und die Erfolgskontrolle von Maßnahmen.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-ein-messkonzept-im-energieaudit-leistet">Was ein Messkonzept im Energieaudit leistet</a></li>
+<li><a href="#was-das-gesetz-an-daten-verlangt">Was das Gesetz an Daten verlangt</a></li>
+<li><a href="#welche-daten-in-die-erfassung-gehoren">Welche Daten in die Erfassung gehören</a></li>
+<li><a href="#in-sechs-schritten-zum-messkonzept">In sechs Schritten zum Messkonzept</a></li>
+<li><a href="#wenn-messdaten-fehlen-oder-ungenau-sind">Wenn Messdaten fehlen oder ungenau sind</a></li>
+<li><a href="#von-messwerten-zu-einsparungen">Von Messwerten zu Einsparungen</a></li>
+<li><a href="#wer-zum-energieaudit-verpflichtet-ist">Wer zum Energieaudit verpflichtet ist</a></li>
+<li><a href="#unsere-sicht-auf-gute-messkonzepte">Unsere Sicht auf gute Messkonzepte</a></li>
+<li><a href="#energieaudit-und-messkonzept-mit-planegy">Energieaudit und Messkonzept mit PLANEGY</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-ein-messkonzept-im-energieaudit-leistet" tabindex="-1">Was ein Messkonzept im Energieaudit leistet</h2>
+<p>Im Energiemarkt meint „Messkonzept“ oft etwas anderes: die Anordnung von Zählern am Netzanschluss, etwa bei Photovoltaik, Speicher oder Drittmengen, die der Anlagenbetreiber mit dem Netzbetreiber abstimmt. Im Energieaudit geht es um die Frage dahinter: Welche Messwerte brauchen Sie, um nachzuweisen, wohin die Energie in Ihrem Betrieb fließt?</p>
+<p>Ein Audit-Messkonzept beantwortet dafür fünf Punkte:</p>
+<ol>
+<li><strong>Was wird gemessen?</strong> Strom, Erdgas, Flüssiggas, Heizöl, Fernwärme, Dampf, Druckluft, Kälte, Wasser, Kraftstoffe.</li>
+<li><strong>Wo wird gemessen?</strong> Am Hauptzähler, an Unterverteilungen, an einzelnen Anlagen oder Prozesslinien.</li>
+<li><strong>Womit wird gemessen?</strong> Abrechnungszähler, fest installierte Unterzähler, mobile Stromzangen und Datenlogger, Durchflussmesser, Daten aus der Anlagensteuerung.</li>
+<li><strong>Wie fein und wie lange?</strong> Monatswerte, Viertelstundenwerte oder Sekundenwerte, über Tage, Wochen oder ein ganzes Jahr.</li>
+<li><strong>Wie hängt alles zusammen?</strong> Ein Messstellenbaum zeigt, welcher Unterzähler unter welchem Hauptzähler liegt. Nur so lassen sich Summen prüfen und nicht erfasste Restverbräuche erkennen.</li>
+</ol>
+<p>Der Nutzen liegt in der Transparenz. Sobald der Verbrauch nach Bereichen und Anlagen aufgeteilt ist, sehen Sie, welche Querschnittstechnik und welche Prozesse den größten Anteil haben, und genau dort sucht das Audit nach Einsparungen. Die <a href="https://www.din.de/de/mitwirken/normenausschuesse/nagus/veroeffentlichungen/wdc-beuth:din21:352351116/toc-3339939/download" rel="nofollow noopener noreferrer" target="_blank">DIN EN 16247-2:2022-11</a> nennt als Prozessschritte unter anderem die Informationsanforderung, die Bewertung verfügbarer Daten, die vorbereitende Datenanalyse und die Ortsbegehung. Das Messkonzept verbindet diese Schritte: Es entsteht aus der Datenanalyse und wird bei der Begehung bestätigt oder korrigiert.</p>
+<h2 id="was-das-gesetz-an-daten-verlangt" tabindex="-1">Was das Gesetz an Daten verlangt</h2>
+<p>Für auditpflichtige Unternehmen in Deutschland ist § 8a EDL-G der Maßstab. Für das Messkonzept sind vier Anforderungen entscheidend:</p>
+<ul>
+<li><strong>Gemessene, belegbare Betriebsdaten:</strong> Verlangt werden aktuelle, kontinuierlich oder zeitweise gemessene Daten zu Energieverbrauch und Lastprofilen. Eine reine Rechnungsauswertung genügt also nicht.</li>
+<li><strong>Abdeckung von mindestens 90 Prozent:</strong> Das Audit muss ein zuverlässiges Bild der Gesamtenergieeffizienz liefern und mindestens 90 Prozent des Gesamtenergieverbrauchs untersuchen. Ihr Messkonzept muss diese Quote nachvollziehbar belegen.</li>
+<li><strong>Hochrechnung statt Messung, wo nötig:</strong> Bei gängigen Geräten, deren Messung nicht oder nur mit erheblichem Aufwand möglich ist, darf der Verbrauch aus bestehenden Betriebs- und Lastkenndaten hochgerechnet werden. Für Beleuchtung und Bürogeräte sind nachvollziehbare Schätzungen zulässig.</li>
+<li><strong>Übergabe der Daten:</strong> Die verwendeten Daten sind so zu übermitteln, dass das Unternehmen sie für historische Analysen und die Rückverfolgung der Leistung aufbewahren kann.</li>
+</ul>
+<p>Der letzte Punkt wird oft übersehen. Er bedeutet praktisch: Messreihen, Messstellenplan und Berechnungswege gehören in strukturierter Form zu Ihnen, nicht nur als Grafik im Auditbericht. Beim nächsten Audit vier Jahre später sparen Sie damit viel Arbeit. Wie die Norm den Ablauf insgesamt regelt, zeigt unser Beitrag zum <a href="https://planegy.de/blog-energieaudit-nach-din-en-16247-1-pflicht-und-nutzen" target="_blank" rel="noopener">Energieaudit nach DIN EN 16247-1</a>.</p>
+<h2 id="welche-daten-in-die-erfassung-gehoren" tabindex="-1">Welche Daten in die Erfassung gehören</h2>
+<p>Die Datenerfassung beginnt nie mit dem Messgerät, sondern mit den Unterlagen, die bereits vorliegen. Die folgende Übersicht zeigt, was Sie typischerweise zusammentragen und wofür es im Audit gebraucht wird.</p>
+<table>
+<thead>
+<tr>
+<th>Datenbereich</th>
+<th>Typische Quelle</th>
+<th>Auflösung</th>
+<th>Zweck im Audit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Strom gesamt</td>
+<td>Rechnungen, Lastgang des Netzbetreibers bzw. Messstellenbetreibers</td>
+<td>Jahr, Monat, 15 Minuten</td>
+<td>Gesamtbilanz, Lastspitzen, Grundlast</td>
+</tr>
+<tr>
+<td>Erdgas, Flüssiggas, Heizöl</td>
+<td>Rechnungen, Lieferscheine, Gaszähler</td>
+<td>Monat, Jahr</td>
+<td>Brennstoffbilanz, Wärmeerzeugung</td>
+</tr>
+<tr>
+<td>Fernwärme, Dampf</td>
+<td>Wärmemengenzähler, Kesselprotokolle</td>
+<td>Monat, Stunde</td>
+<td>Wärmebilanz, Erzeugerwirkungsgrad</td>
+</tr>
+<tr>
+<td>Kraftstoffe Fuhrpark</td>
+<td>Tankkarten, Fahrtenbücher</td>
+<td>Monat, Jahr</td>
+<td>Anteil Mobilität an der 90-%-Quote</td>
+</tr>
+<tr>
+<td>Große Einzelverbraucher</td>
+<td>Unterzähler, mobile Logger, Steuerungsdaten</td>
+<td>1 bis 15 Minuten</td>
+<td>Lastprofile, Betriebszeiten, Leerlauf</td>
+</tr>
+<tr>
+<td>Produktion und Nutzung</td>
+<td>ERP, Schichtpläne, Belegungspläne</td>
+<td>Tag, Monat</td>
+<td>Kennzahlen wie kWh pro Stück oder Tonne</td>
+</tr>
+<tr>
+<td>Einflussgrößen</td>
+<td>Wetterdaten, Gradtagzahlen</td>
+<td>Tag</td>
+<td>Normalisierung witterungsabhängiger Verbräuche</td>
+</tr>
+<tr>
+<td>Anlagenbestand</td>
+<td>Typenschilder, Datenblätter, Wartungsprotokolle</td>
+<td>einmalig</td>
+<td>Nennleistungen, Hochrechnungen, Alter</td>
+</tr>
+</tbody>
+</table>
+<p>Wichtig ist der Bezugszeitraum: Verbrauchsdaten sollten mindestens ein vollständiges, repräsentatives Betriebsjahr abdecken, damit saisonale Effekte sichtbar werden. Messkampagnen an einzelnen Anlagen laufen kürzer, müssen aber typische Betriebszustände enthalten: Volllast, Teillast, Wochenende, Betriebsruhe.</p>
+<h2 id="in-sechs-schritten-zum-messkonzept" tabindex="-1">In sechs Schritten zum Messkonzept</h2>
+<ol>
+<li><strong>Energiebilanz aus Rechnungen aufstellen.</strong> Summieren Sie alle Energieträger in kWh über einen Bezugszeitraum. Das ist die 100-Prozent-Basis, an der sich die 90-Prozent-Abdeckung misst.</li>
+<li><strong>Hauptverbraucher identifizieren.</strong> Ordnen Sie den Verbrauch Bereichen und Anlagen zu, zunächst grob nach Nennleistung und Betriebsstunden. Druckluft, Kälte, Lüftung, Prozesswärme, Pumpen und Beleuchtung sind die üblichen Kandidaten.</li>
+<li><strong>Messstellenplan zeichnen.</strong> Erfassen Sie jede vorhandene Messstelle mit Bezeichnung, Messgröße, Einheit, Zählertyp und Position im Messstellenbaum. Markieren Sie, wo Lücken sind.</li>
+<li><strong>Messmethode und Intervall je Lücke festlegen.</strong> Dauerhafte Unterzählung lohnt sich an großen, variablen Verbrauchern. Für konstante Lasten reicht oft eine Stichprobenmessung mit Hochrechnung.</li>
+<li><strong>Messkampagne durchführen.</strong> Mobile Logger an ausgewählten Anlagen, synchronisiert mit dem Lastgang und den Produktionsdaten, über einen Zeitraum, der alle relevanten Betriebszustände enthält.</li>
+<li><strong>Plausibilisieren und dokumentieren.</strong> Die Summe der Unterzähler muss zum Hauptzähler passen. Die Differenz ist der unaufgeklärte Rest. Halten Sie Messdauer, Geräte, Annahmen und Rechenwege fest.</li>
+</ol>
+<h3 id="messintervalle-richtig-wahlen" tabindex="-1">Messintervalle richtig wählen</h3>
+<table>
+<thead>
+<tr>
+<th>Fragestellung</th>
+<th>Sinnvolle Auflösung</th>
+<th>Typische Messdauer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jahresbilanz, Verteilung auf Energieträger</td>
+<td>Monat</td>
+<td>12 Monate oder mehr</td>
+</tr>
+<tr>
+<td>Lastspitzen, Grundlast, Netzentgelte</td>
+<td>15 Minuten</td>
+<td>12 Monate (Lastgang)</td>
+</tr>
+<tr>
+<td>Betriebszeiten und Leerlauf von Anlagen</td>
+<td>1 bis 5 Minuten</td>
+<td>1 bis 4 Wochen</td>
+</tr>
+<tr>
+<td>Taktverhalten von Kompressoren, Pumpen, Kälte</td>
+<td>Sekunden bis 1 Minute</td>
+<td>einige Tage</td>
+</tr>
+<tr>
+<td>Witterungsabhängige Heizung und Lüftung</td>
+<td>Stunde oder Tag</td>
+<td>eine Heizperiode</td>
+</tr>
+</tbody>
+</table>
+<p>Der 15-Minuten-Lastgang ist bei leistungsgemessenen Stromkunden fast immer schon vorhanden und die ergiebigste Einzelquelle. Was sich darin über Grundlast und Spitzen ablesen lässt, zeigen wir in unserem Beitrag zur <a href="https://planegy.de/blog-lastgang-analyse-strom" target="_blank" rel="noopener">Lastganganalyse im Gewerbe</a>.</p>
+<h3 id="manuell-mobil-oder-automatisch-erfassen" tabindex="-1">Manuell, mobil oder automatisch erfassen</h3>
+<p>Das Bayerische Landesamt für Umwelt hält <a href="https://www.energieatlas.bayern.de/sites/default/files/Messdaten%20und%20auswerten%20aufnehmen_0.pdf" rel="nofollow noopener noreferrer" target="_blank">manuelle Ablesung und mobile Messgeräte</a> für geeignet, wenn die Verbrauchsstruktur einfach ist oder die Energiekosten gering sind. Die Nachteile nennt es ebenso: hoher Personalaufwand, geringe zeitliche Auflösung, Datenlücken und Ablesefehler. Für die automatische Erfassung empfiehlt das Amt, vorhandene Messeinrichtungen und Datenlogger gemeinsam anzubinden und bei Bedarf weitere Messstellen sowie eine Energiemonitoring-Software zu ergänzen.</p>
+<p>In der Praxis heißt das: Für das erste Audit genügen oft Rechnungen, Lastgang und eine gezielte Messkampagne. Wer die Unterzähler an den fünf bis zehn größten Verbrauchern dauerhaft und automatisch ausliest, hat beim nächsten Audit die Daten schon parat. Wie Sie ein solches System aufsetzen, beschreibt unser <a href="https://planegy.de/blog-energiedatenmanagement-aufbau" target="_blank" rel="noopener">Leitfaden zum Energiedatenmanagement</a>.</p>
+<h2 id="wenn-messdaten-fehlen-oder-ungenau-sind" tabindex="-1">Wenn Messdaten fehlen oder ungenau sind</h2>
+<p>Kaum ein Betrieb hat an jeder Anlage einen Zähler. Das ist kein Hindernis, solange Sie die Lücke sauber schließen. Drei Wege sind üblich:</p>
+<ul>
+<li><strong>Hochrechnung aus Kenndaten:</strong> Nennleistung, gemessener Lastfaktor aus einer Stichprobe und Betriebsstunden aus Schichtplan oder Steuerung ergeben den Jahresverbrauch. Das Gesetz lässt dies für gängige Geräte zu, wenn Messen unverhältnismäßig aufwendig wäre.</li>
+<li><strong>Schätzung bei Beleuchtung und Bürogeräten:</strong> Leuchtenanzahl, Leistung und Brenndauer oder Gerätelisten mit typischen Verbrauchswerten sind zulässig, solange die Schätzung nachvollziehbar ist.</li>
+<li><strong>Differenzbildung:</strong> Bei sauberem Messstellenbaum ergibt sich der Verbrauch eines nicht gemessenen Strangs aus dem übergeordneten Zähler minus der gemessenen Unterzähler. Das funktioniert nur, wenn alle Zähler denselben Zeitraum abbilden.</li>
+</ul>
+<p>Bei ungenauen Daten helfen Plausibilitätsprüfungen: Passen Zählerstände zu den Rechnungen? Stimmen Wandlerfaktoren? Gibt es Sprünge durch Zählertausch? Jede Korrektur gehört mit Begründung in die Dokumentation. Ein Auditbericht, der Annahmen offenlegt, ist belastbarer als einer mit scheinbar exakten Zahlen ohne Herkunft.</p>
+<h2 id="von-messwerten-zu-einsparungen" tabindex="-1">Von Messwerten zu Einsparungen</h2>
+<p>Messdaten allein sparen keine Kilowattstunde. Erst die Auswertung macht daraus Maßnahmen. Das Bayerische Landesamt für Umwelt empfiehlt, <a href="https://www.energieatlas.bayern.de/sites/default/files/Messdaten%20und%20auswerten%20aufnehmen_0.pdf" rel="nofollow noopener noreferrer" target="_blank">Verbräuche auf den Nutzen zu beziehen</a>, etwa auf Stück oder Kilogramm Produktion, Wirkungsgrade und Energiekostenanteile zu berechnen und Einflussgrößen wie die Außentemperatur zu berücksichtigen. Wo nötig, werden Verbräuche normalisiert, damit ein milder Winter nicht wie eine Effizienzmaßnahme aussieht.</p>
+<p><strong>Rechenbeispiel (angenommene Werte):</strong> Ein Betrieb misst seinen Druckluftkompressor zwei Wochen lang mit einem mobilen Logger. Am Wochenende, wenn nicht produziert wird, zieht die Anlage durchgehend rund 18 kW, um Leckagen auszugleichen. Bei 60 produktionsfreien Stunden pro Woche sind das 1.080 kWh, über 50 Wochen 54.000 kWh im Jahr. Bei einem angenommenen Strompreis von 0,20 € pro kWh kostet der Leerlauf rund 10.800 € jährlich. Ohne Messung wäre dieser Posten in der Rechnungssumme verschwunden. Mit Messung wird er zur konkreten Maßnahme: Leckageortung, Abschaltung am Wochenende, Prüfung der Kompressorsteuerung.</p>
+
+<p>So entsteht aus dem Messkonzept auch die Grundlage für Kennzahlen, die Sie nach der Umsetzung weiterführen. Wer später ein ESG- oder CSRD-Reporting aufbaut, nutzt dieselben Messstellen. Welche Kennzahlen dort zählen, zeigt unser Beitrag zu <a href="https://planegy.de/blog-esg-dashboard-kpis" target="_blank" rel="noopener">ESG-Dashboard-KPIs</a>.</p>
+<h2 id="wer-zum-energieaudit-verpflichtet-ist" tabindex="-1">Wer zum Energieaudit verpflichtet ist</h2>
+<p>Nach geltendem Recht müssen in Deutschland alle Unternehmen, die kein KMU sind, nach <a href="https://www.bafa.de/DE/Energie/Energieberatung/Energieaudit/energieaudit_node.html" rel="nofollow noopener noreferrer" target="_blank">Angaben des BAFA</a> alle vier Jahre ein Energieaudit durch qualifizierte Energieauditoren durchführen, sofern ihr durchschnittlicher Gesamtenergieverbrauch unter 7,5 GWh pro Jahr liegt. Darüber verlangt § 8 EnEfG ein Energie- oder Umweltmanagementsystem. Nicht-KMU mit höchstens 500.000 kWh im Jahr können die Bagatellschwelle nutzen. Alle Nicht-KMU müssen spätestens zwei Monate nach Fertigstellung des Audits oder nach Feststellung der Bagatellschwelle eine Online-Energieauditerklärung abgeben.</p>
+<p>Eine Novelle von EDL-G und EnEfG ist in Arbeit. Sie soll die Pflicht vom KMU-Status lösen und an den Verbrauch koppeln: Audit ab rund 2,77 GWh, Managementsystem ab rund 23,6 GWh, Wegfall der 500.000-kWh-Bagatellgrenze. Laut <a href="https://umweltcluster-nrw.de/wiki/energieaudit/" rel="nofollow noopener noreferrer" target="_blank">Umweltcluster NRW</a> war sie im Oktober 2026 noch nicht beschlossen. Bis zur Verkündung gelten die bisherigen Regeln. Den aktuellen Stand verfolgen wir in unserem Beitrag zur <a href="https://planegy.de/blog-energieaudit-pflicht-2026-was-unternehmen-wissen-mussen" target="_blank" rel="noopener">Energieaudit-Pflicht 2026</a>, Förderung und Ablauf beim BAFA erklärt unser Artikel zum <a href="https://planegy.de/blog-energieaudit-bafa-pflicht-forderung-und-ablauf-2026" target="_blank" rel="noopener">Energieaudit beim BAFA</a>.</p>
+
+<p>Für das Messkonzept heißt das: Wer heute einen Gesamtverbrauch nahe einer dieser Schwellen hat, braucht eine belastbare Verbrauchsermittlung über drei Jahre, unabhängig davon, welche Fassung am Ende gilt.</p>
+<h2 id="unsere-sicht-auf-gute-messkonzepte" tabindex="-1">Unsere Sicht auf gute Messkonzepte</h2>
+<blockquote>
+<p>Wir erleben oft, dass das Messkonzept als Pflichtübung für den Auditor verstanden wird: schnell ein paar Logger setzen, Bericht schreiben, fertig. Damit verschenken Unternehmen den größten Teil des Werts. Ein Messkonzept, das nur für einen Stichtag gebaut wird, muss vier Jahre später neu erfunden werden.</p>
+<p>Wir planen Messkonzepte deshalb von Anfang an so, dass sie über das Audit hinaus tragen: für das Monitoring der Maßnahmen, für die Nachweise in Förderanträgen, für das ESG-Reporting und, wenn es soweit ist, für ein Energiemanagement nach ISO 50001. Weil wir technologieoffen arbeiten und keine eigenen Anlagen oder Messsysteme verkaufen, bewerten wir Messtechnik und Maßnahmen danach, was für Ihren Standort wirtschaftlich ist, nicht danach, was sich am besten verkaufen lässt.</p>
+<p>Gerade bei Prozesswärme, Dampf und Energieträgerwechseln entscheidet die Qualität der Daten darüber, ob eine Investition genehmigungsfähig und förderfähig geplant werden kann. Ein sauberes Messkonzept ist der erste Schritt dorthin.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="energieaudit-und-messkonzept-mit-planegy" tabindex="-1">Energieaudit und Messkonzept mit PLANEGY</h2>
+<p>Wir führen Energieaudits nach DIN EN 16247 durch und entwickeln das passende Messkonzept gleich mit: von der Bestandsaufnahme Ihrer Zähler über die Messkampagne bis zur Übergabe der Daten in einer Form, die Sie weiterverwenden können. Aus den Ergebnissen leiten wir Maßnahmen ab, prüfen passende Förderprogramme von BAFA, KfW und EU und begleiten die Umsetzung bis zur Inbetriebnahme.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Wenn Ihr nächstes Audit ansteht oder Sie wissen möchten, ob Ihr Unternehmen unter die Pflicht fällt, sprechen Sie mit uns über <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieaudit und Energieberatung für die Industrie</a>. Einen Überblick über alle Themen finden Sie bei unseren <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen</a>.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="muss-fur-ein-energieaudit-jede-anlage-einzeln-gemessen-werden" tabindex="-1">Muss für ein Energieaudit jede Anlage einzeln gemessen werden?</h3>
+<p>Nein. Gefordert sind gemessene und belegbare Daten, die mindestens 90 Prozent des Gesamtverbrauchs abdecken. Für gängige Geräte, bei denen Messen unverhältnismäßig aufwendig wäre, sind nachvollziehbare Hochrechnungen erlaubt, für Beleuchtung und Bürogeräte nachvollziehbare Schätzungen.</p>
+<h3 id="was-bedeutet-messkonzept-c3" tabindex="-1">Was bedeutet Messkonzept C3?</h3>
+<p>Bezeichnungen wie C3 stammen aus den Messkonzepten, die Netzbetreiber und Verbände für Erzeugungsanlagen wie Photovoltaik oder BHKW festlegen. Sie regeln, wie Bezug, Einspeisung und Eigenverbrauch am Netzanschluss gezählt und abgerechnet werden. Für das Energieaudit sind diese Zähler wertvolle Datenquellen, ersetzen aber nicht den Messstellenplan für die Verbraucher im Betrieb.</p>
+<h3 id="wie-lange-sollte-eine-messkampagne-dauern" tabindex="-1">Wie lange sollte eine Messkampagne dauern?</h3>
+<p>So lange, bis alle typischen Betriebszustände erfasst sind. Für Anlagen mit regelmäßigem Schichtbetrieb reichen oft ein bis vier Wochen, für witterungsabhängige Heizung und Lüftung brauchen Sie Daten über eine Heizperiode. Verbrauchsbilanzen sollten mindestens ein vollständiges Betriebsjahr abdecken.</p>
+<h3 id="was-passiert-mit-den-messdaten-nach-dem-audit" tabindex="-1">Was passiert mit den Messdaten nach dem Audit?</h3>
+<p>Nach § 8a EDL-G müssen die verwendeten Daten so übergeben werden, dass Sie sie für historische Analysen und die Leistungsrückverfolgung aufbewahren können. Am meisten nutzen sie, wenn Sie die Messstellen weiter auslesen und Maßnahmen damit kontrollieren.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.din.de/de/mitwirken/normenausschuesse/nagus/veroeffentlichungen/wdc-beuth:din21:352351116/toc-3339939/download" rel="nofollow noopener noreferrer" target="_blank">DIN EN 16247-2:2022-11, Inhaltsübersicht (DIN)</a></li>
+<li><a href="https://www.energieatlas.bayern.de/sites/default/files/Messdaten%20und%20auswerten%20aufnehmen_0.pdf" rel="nofollow noopener noreferrer" target="_blank">Messdaten aufnehmen und auswerten (Bayerisches Landesamt für Umwelt, Energie-Atlas Bayern)</a></li>
+<li><a href="https://www.bafa.de/DE/Energie/Energieberatung/Energieaudit/energieaudit_node.html" rel="nofollow noopener noreferrer" target="_blank">Energieaudit nach EDL-G, Energie- und Umweltmanagementsysteme nach EnEfG (BAFA)</a></li>
+<li><a href="https://umweltcluster-nrw.de/wiki/energieaudit/" rel="nofollow noopener noreferrer" target="_blank">Energieaudit (Umweltcluster NRW)</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-energiedatenmanagement-aufbau" target="_blank" rel="noopener">Energiedatenmanagement aufbau: der 5-Schritte-Weg zur Praxis</a></li>
+<li><a href="https://planegy.de/blog-energieaudit-nach-din-en-16247-1-pflicht-und-nutzen" target="_blank" rel="noopener">Energieaudit nach DIN EN 16247-1: Pflicht und Nutzen</a></li>
+<li><a href="https://planegy.de/blog-energieaudit-pflicht-2026-was-unternehmen-wissen-mussen" target="_blank" rel="noopener">Energieaudit Pflicht 2026: Was Unternehmen wissen müssen</a></li>
+<li><a href="https://planegy.de/blog-energieaudit-bafa-pflicht-forderung-und-ablauf-2026" target="_blank" rel="noopener">Energieaudit BAFA: Pflicht, Förderung und Ablauf 2026</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
