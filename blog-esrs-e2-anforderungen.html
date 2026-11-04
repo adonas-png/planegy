@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESRS E2: Diese Anforderungen gelten zur Umweltverschmutzung – PLANEGY</title>
+  <meta name="description" content="ESRS E2 verständlich erklärt: Themen, Wesentlichkeit, die sechs Angabepflichten E2-1 bis E2-6 und wie Sie die Datenbasis für Luft, Wasser und Boden aufbauen." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="ESRS E2: Diese Anforderungen gelten zur Umweltverschmutzung" />
+  <meta property="og:description" content="ESRS E2 verständlich erklärt: Themen, Wesentlichkeit, die sechs Angabepflichten E2-1 bis E2-6 und wie Sie die Datenbasis für Luft, Wasser und Boden aufbauen." />
+  <link rel="canonical" href="https://planegy.de/blog-esrs-e2-anforderungen" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ESRS E2: Diese Anforderungen gelten zur Umweltverschmutzung",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-04",
+    "description": "ESRS E2 verständlich erklärt: Themen, Wesentlichkeit, die sechs Angabepflichten E2-1 bis E2-6 und wie Sie die Datenbasis für Luft, Wasser und Boden aufbauen."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"⚡"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">ESRS E2: Diese Anforderungen gelten zur Umweltverschmutzung</span>
+    </div>
+    <div class="article-cat">Energie</div>
+    <h1>ESRS E2: Diese Anforderungen gelten zur Umweltverschmutzung</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>13 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="esrs-e2-diese-anforderungen-gelten-zur-umweltverschmutzung" tabindex="-1">ESRS E2: Diese Anforderungen gelten zur Umweltverschmutzung</h1>
+
+<p>ESRS E2 verlangt von berichtspflichtigen Unternehmen, offenzulegen, wie sie Luft, Wasser und Boden belasten, welche besorgniserregenden Stoffe sie herstellen oder verwenden und was sie dagegen tun. Der Standard gilt nicht automatisch: Er greift, wenn die doppelte Wesentlichkeitsanalyse Umweltverschmutzung als wesentlich einstuft. Dann folgen sechs Angabepflichten, von Strategien über Maßnahmen und Ziele bis zu Emissionsmengen und finanziellen Effekten. Hier lesen Sie, was jede Angabepflicht konkret fordert, wo die Daten in Ihrem Betrieb meist schon liegen und wie Sie daraus einen prüfungsfähigen Bericht machen.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Energiefragen fundiert angehen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Unternehmen mit technologieoffener Energieberatung dabei, nachhaltige Energielösungen zu entwickeln und umzusetzen.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">PLANEGY kennenlernen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li>ESRS E2 umfasst Luft-, Wasser- und Bodenverschmutzung, Mikroplastik sowie besorgniserregende und besonders besorgniserregende Stoffe (SoC und SVHC).</li>
+<li>Ob Sie nach E2 berichten, entscheidet die Wesentlichkeitsanalyse, die eigene Standorte und die vor- und nachgelagerte Wertschöpfungskette einbezieht.</li>
+<li>Die sechs Angabepflichten heißen E2-1 bis E2-6: Strategien, Maßnahmen und Mittel, Ziele, Schadstoffkennzahlen, Stoffe sowie finanzielle Effekte.</li>
+<li>Wer bereits an das Schadstoffregister E-PRTR meldet, kann einen großen Teil der Emissionsdaten für E2-4 wiederverwenden.</li>
+<li>Der größte Aufwand liegt selten in der Methodik, sondern im Zusammenführen verstreuter Daten aus Umwelt-, Einkaufs- und Produktionssystemen.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-esrs-e2-abdeckt">Was ESRS E2 abdeckt</a></li>
+<li><a href="#wesentlichkeit-zuerst-der-einstieg-uber-esrs-2">Wesentlichkeit zuerst: der Einstieg über ESRS 2</a></li>
+<li><a href="#die-sechs-angabepflichten-im-uberblick">Die sechs Angabepflichten im Überblick</a></li>
+<li><a href="#e2-1-strategien-gegen-umweltverschmutzung">E2-1: Strategien gegen Umweltverschmutzung</a></li>
+<li><a href="#e2-2-massnahmen-und-mittel">E2-2: Maßnahmen und Mittel</a></li>
+<li><a href="#e2-3-ziele-zur-vermeidung-und-verringerung">E2-3: Ziele zur Vermeidung und Verringerung</a></li>
+<li><a href="#e2-4-kennzahlen-zu-luft-wasser-und-boden">E2-4: Kennzahlen zu Luft, Wasser und Boden</a></li>
+<li><a href="#e2-5-besorgniserregende-und-besonders-besorgniserregende-stoffe">E2-5: Besorgniserregende und besonders besorgniserregende Stoffe</a></li>
+<li><a href="#e2-6-erwartete-finanzielle-effekte">E2-6: Erwartete finanzielle Effekte</a></li>
+<li><a href="#wie-e2-mit-den-ubrigen-standards-zusammenhangt">Wie E2 mit den übrigen Standards zusammenhängt</a></li>
+<li><a href="#unsere-sicht-auf-esrs-e2">Unsere Sicht auf ESRS E2</a></li>
+<li><a href="#esrs-e2-mit-planegy-umsetzen">ESRS E2 mit PLANEGY umsetzen</a></li>
+<li><a href="#haufige-fragen-zu-esrs-e2">Häufige Fragen zu ESRS E2</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-esrs-e2-abdeckt" tabindex="-1">Was ESRS E2 abdeckt</h2>
+<p>ESRS E2 ist einer der fünf Umweltstandards der European Sustainability Reporting Standards. Er soll den Lesern Ihres Berichts verständlich machen, welche tatsächlichen oder potenziellen Auswirkungen Ihr Unternehmen auf Luft, Wasser und Boden hat, mit welchen Maßnahmen Sie diese verhindern, mindern oder beheben und wie Ihre Pläne für eine schadstofffreie Umwelt aussehen. So beschreibt es der <a href="https://esrs-nachhaltigkeitsberichterstattung.de/esrs/umwelt/esrs-e2" rel="nofollow noopener noreferrer" target="_blank">Standardtext zu ESRS E2</a>.</p>
+<p>Inhaltlich gliedert sich der Standard in fünf Unterthemen:</p>
+<ol>
+<li><strong>Luftverschmutzung:</strong> Emissionen aus Verbrennungsanlagen, Prozessen, Lösemitteln oder Fahrzeugflotten, etwa Stickoxide, Schwefeloxide, Feinstaub oder flüchtige organische Verbindungen.</li>
+<li><strong>Wasserverschmutzung:</strong> Einleitungen in Gewässer oder in die Kanalisation, zum Beispiel Schwermetalle, Stickstoff- und Phosphorfrachten oder organische Belastungen.</li>
+<li><strong>Bodenverschmutzung:</strong> Einträge durch Leckagen, Lagerung, Altlasten oder den Umgang mit Gefahrstoffen auf dem Betriebsgelände.</li>
+<li><strong>Mikroplastik:</strong> primäres Mikroplastik, das Sie in Produkten herstellen oder verwenden und das direkt in die Umwelt gelangt.</li>
+<li><strong>Besorgniserregende und besonders besorgniserregende Stoffe:</strong> Stoffe, die Sie herstellen, in Verkehr bringen oder verwenden und die wegen ihrer Eigenschaften besonders reguliert sind.</li>
+</ol>
+<p>Wichtig für die Abgrenzung: Treibhausgase gehören nicht in E2, sondern in ESRS E1. Wenn Sie also eine Feuerungsanlage betreiben, berichten Sie das CO₂ unter E1 und die Stickoxide oder den Staub derselben Anlage unter E2. Welche Anforderungen E1 im Einzelnen stellt, lesen Sie in unserem Beitrag zu den <a href="https://planegy.de/blog-esrs-e1-anforderungen" target="_blank" rel="noopener">ESRS E1 Anforderungen</a>.</p>
+<p>Eine gute Nachricht für Industriebetriebe: ESRS E2 erfindet das Umweltrecht nicht neu. Das <a href="https://www.umweltbundesamt.de/system/files/medien/11850/publikationen/166_2023_texte_corporate_sustainability_reporting_0.pdf" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt beschreibt</a>, dass der Standard auf bestehende Rechtsvorschriften wie die Industrieemissionsrichtlinie (IED) und die E-PRTR-Verordnung verweist, um die Berichterstattung zu harmonisieren und Doppelarbeit zu verringern. Wer eine genehmigungsbedürftige Anlage nach BImSchG betreibt, kennt viele der geforderten Größen deshalb bereits aus Emissionserklärungen und Messberichten.</p>
+<h2 id="wesentlichkeit-zuerst-der-einstieg-uber-esrs-2" tabindex="-1">Wesentlichkeit zuerst: der Einstieg über ESRS 2</h2>
+<p>Bevor Sie eine einzige Kennzahl erheben, klären Sie, ob Umweltverschmutzung für Ihr Unternehmen wesentlich ist. Das geschieht in der doppelten Wesentlichkeitsanalyse: Sie prüfen, wie stark Ihr Unternehmen die Umwelt belastet (Auswirkungswesentlichkeit) und welche finanziellen Risiken und Chancen sich aus dem Thema für Sie ergeben (finanzielle Wesentlichkeit). Die Angaben zum Verfahren selbst machen Sie unabhängig vom Ergebnis unter ESRS 2 IRO-1.</p>
+<p>Für E2 bedeutet das konkret:</p>
+<ul>
+<li><strong>Standorte und Tätigkeiten prüfen:</strong> Sie legen dar, ob Sie alle Standorte und Geschäftstätigkeiten untersucht haben und auf welche Methoden, Annahmen und Instrumente Sie sich stützen. Die Anwendungsanforderungen nennen dafür den LEAP-Ansatz (Locate, Evaluate, Assess, Prepare) als mögliche Orientierung.</li>
+<li><strong>Wertschöpfungskette einbeziehen:</strong> Ein Händler ohne eigene Produktion kann über Lieferanten in der Galvanik oder Textilveredelung wesentliche Auswirkungen haben. Diese gehören in die Analyse.</li>
+<li><strong>Betroffene konsultieren:</strong> Die Offenlegung umfasst nach dem <a href="https://www.haufe.de/id/norm/esrs-e2-umweltverschmutzung-management-der-auswirkungen-risiken-und-chancen-HI15942438.html" rel="nofollow noopener noreferrer" target="_blank">Normtext zu IRO-1 bei Haufe</a> auch Angaben dazu, ob und wie Sie Konsultationen durchgeführt haben, insbesondere mit betroffenen Gemeinschaften. Für ein Werk am Ortsrand sind das zum Beispiel Anwohner oder die Gemeinde.</li>
+</ul>
+<p>Achten Sie auf präzise Formulierungen. Der <a href="https://www.deutscher-nachhaltigkeitskodex.de/media/1yohdluy/aktualisierter-dnk-prozessleitfaden-fuer-die-doppelte-wesentlichkeitsanalyse.pdf" rel="nofollow noopener noreferrer" target="_blank">DNK-Prozessleitfaden zur doppelten Wesentlichkeitsanalyse</a> empfiehlt, Auswirkungen, Risiken und Chancen eindeutig, differenziert, nachvollziehbar und bewertbar zu beschreiben. “Wir verursachen Emissionen” reicht nicht. “Stickoxid-Emissionen aus dem Erdgas-BHKW am Standort X, mittlere Schwere, lokal begrenzt, Eintritt dauerhaft” ist eine Aussage, die ein Prüfer nachvollziehen kann. Wie Sie die Analyse strukturiert aufsetzen, zeigen wir in unserer <a href="https://planegy.de/blog-materialitatsanalyse-csrd-vorlage" target="_blank" rel="noopener">Materialitätsanalyse nach CSRD</a>.</p>
+<h2 id="die-sechs-angabepflichten-im-uberblick" tabindex="-1">Die sechs Angabepflichten im Überblick</h2>
+<p>Ist E2 wesentlich, berichten Sie zu den wesentlichen Unterthemen nach den folgenden Angabepflichten. E2-1 bis E2-3 knüpfen an die übergreifenden Mindestangaben aus ESRS 2 an (MDR-P für Strategien, MDR-A für Maßnahmen, MDR-T für Ziele).</p>
+<table>
+<thead>
+<tr>
+<th>Angabepflicht</th>
+<th>Inhalt</th>
+<th>Typische Datenquelle im Betrieb</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E2-1</td>
+<td>Strategien und Richtlinien zur Vermeidung und Verminderung von Umweltverschmutzung</td>
+<td>Umweltpolitik, Managementhandbuch ISO 14001 oder EMAS, Gefahrstoffrichtlinien</td>
+</tr>
+<tr>
+<td>E2-2</td>
+<td>Maßnahmen und dafür bereitgestellte Mittel</td>
+<td>Investitionsplanung, Instandhaltungsbudget, Projektlisten</td>
+</tr>
+<tr>
+<td>E2-3</td>
+<td>Ziele zu Luft, Wasser, Boden und Stoffen</td>
+<td>Umweltprogramm, Zielvereinbarungen, Genehmigungsauflagen</td>
+</tr>
+<tr>
+<td>E2-4</td>
+<td>Mengen der Schadstoffemissionen und des primären Mikroplastiks</td>
+<td>Emissionserklärung, E-PRTR-Meldung, Messberichte, Abwasserkataster</td>
+</tr>
+<tr>
+<td>E2-5</td>
+<td>Besorgniserregende und besonders besorgniserregende Stoffe</td>
+<td>Gefahrstoffkataster, Sicherheitsdatenblätter, REACH-Dokumentation, ERP</td>
+</tr>
+<tr>
+<td>E2-6</td>
+<td>Erwartete finanzielle Effekte von Risiken und Chancen</td>
+<td>Rückstellungen, Controlling, Investitionsplanung, Risikomanagement</td>
+</tr>
+</tbody>
+</table>
+<h2 id="e2-1-strategien-gegen-umweltverschmutzung" tabindex="-1">E2-1: Strategien gegen Umweltverschmutzung</h2>
+<p>Unter E2-1 beschreiben Sie Ihre Strategien zum Umgang mit wesentlichen Auswirkungen, Risiken und Chancen rund um Umweltverschmutzung. Für jedes wesentliche Thema geben Sie an, ob und wie die Strategie Luft, Wasser und Boden, besorgniserregende Stoffe sowie die Vermeidung von Vorfällen und Notsituationen adressiert. Zusätzlich zeigen Sie, ob sie für die eigenen Tätigkeiten und für die vor- und nachgelagerte Wertschöpfungskette gilt.</p>
+<p>In der Praxis reicht eine allgemeine Umweltleitlinie selten aus. Ein Prüfer fragt: Wer ist verantwortlich, für welche Standorte gilt die Richtlinie, auf welche Rechtsgrundlagen bezieht sie sich, und wie wird sie überwacht? Haben Sie ein Umweltmanagementsystem nach ISO 14001 oder EMAS, liegt das meiste davon bereits vor. Sie müssen es nur in die Logik von MDR-P übersetzen.</p>
+<h2 id="e2-2-massnahmen-und-mittel" tabindex="-1">E2-2: Maßnahmen und Mittel</h2>
+<p>E2-2 verlangt die Maßnahmen, mit denen Sie Umweltverschmutzung angehen, und die Ressourcen, die Sie dafür einsetzen. Die Beschreibung folgt MDR-A: Was genau wird getan, in welchem Zeitraum, mit welchem erwarteten Ergebnis und mit welchem Budget?</p>
+<p>Hilfreich ist eine Gliederung nach der Minderungshierarchie, die der Standard nahelegt: zuerst vermeiden, dann verringern, schließlich wiederherstellen und sanieren. Beispiele aus der Energietechnik:</p>
+<ul>
+<li>Umstellung einer ölbefeuerten Prozesswärmeanlage auf einen emissionsärmeren Energieträger, um Schwefel- und Staubemissionen zu senken</li>
+<li>Nachrüstung eines BHKW mit einem Katalysator zur Stickoxidminderung</li>
+<li>Bau einer Auffangwanne oder doppelwandigen Lagerung, um Bodeneinträge bei Leckagen zu verhindern</li>
+<li>Substitution eines SVHC-haltigen Reinigungsmittels in der Instandhaltung</li>
+</ul>
+<p>Jede dieser Maßnahmen wird erst berichtsfähig, wenn Zeitplan, Kosten und erwartete Wirkung dokumentiert sind. Genau dort verbinden sich Nachhaltigkeitsbericht und Investitionsplanung: Was Sie unter E2-2 als geplante Maßnahme ausweisen, sollte auch im Budget stehen.</p>
+<h2 id="e2-3-ziele-zur-vermeidung-und-verringerung" tabindex="-1">E2-3: Ziele zur Vermeidung und Verringerung</h2>
+<p>Unter E2-3 nennen Sie Ihre Ziele im Bereich Umweltverschmutzung nach den Vorgaben von MDR-T. Sie legen dar, ob und inwiefern die Ziele Luftschadstoffe, Emissionen ins Wasser und Bodenverschmutzung betreffen, jeweils einschließlich spezifischer Frachtwerte, sowie besorgniserregende und besonders besorgniserregende Stoffe.</p>
+<p>Ein brauchbares Ziel hat einen Basiswert, einen Zielwert, ein Zieljahr und eine klare Abgrenzung. Zum Beispiel: “Senkung der NOx-Fracht am Standort X von 12 t im Basisjahr auf 8 t bis zum Zieljahr”. Zu berichten ist außerdem, ob das Ziel freiwillig ist oder sich aus gesetzlichen Vorgaben ergibt, etwa aus Grenzwerten der TA Luft oder einer Genehmigungsauflage. Haben Sie für ein wesentliches Thema kein Ziel, sagen Sie das offen und erläutern, wie Sie die Wirksamkeit Ihrer Maßnahmen trotzdem verfolgen.</p>
+<h2 id="e2-4-kennzahlen-zu-luft-wasser-und-boden" tabindex="-1">E2-4: Kennzahlen zu Luft, Wasser und Boden</h2>
+<p>E2-4 ist der quantitative Kern des Standards. Sie geben die Mengen der Schadstoffe an, die Sie in Luft, Wasser und Boden emittieren, und die Menge des primären Mikroplastiks, das Sie herstellen oder verwenden und das direkt in die Umwelt gelangt. Maßgeblich ist die Schadstoffliste aus Anhang II der E-PRTR-Verordnung mit ihren Schwellenwerten.</p>
+<p>Für Betreiber großer Anlagen ist das eine Erleichterung. Das <a href="https://www.umweltbundesamt.de/system/files/medien/11850/publikationen/166_2024_texte.pdf" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt hat 2024 festgestellt</a>, dass die vorhandenen Daten von Unternehmen, die bereits unter die E-PRTR-Verordnung fallen, sehr gut zu den Anforderungen von ESRS E2 passen. Dieselbe Studie zeigt aber auch das typische Problem: Die Daten liegen in den Unternehmen oft verstreut, was die Zusammenführung für den Bericht zeitaufwendig macht.</p>
+<p>So gehen Sie bei E2-4 vor:</p>
+<ol>
+<li><strong>Emissionsquellen erfassen:</strong> Listen Sie jede Anlage, jede Einleitstelle und jeden Lagerbereich auf, an dem Schadstoffe austreten können.</li>
+<li><strong>Vorhandene Meldungen sichten:</strong> Emissionserklärungen nach der 11. BImSchV, E-PRTR-Meldungen, Abwasserabgabebescheide und Messberichte liefern viele Werte bereits.</li>
+<li><strong>Methode je Wert festlegen:</strong> Bevorzugen Sie direkte Messungen, dann Berechnungen aus Betriebsdaten und Emissionsfaktoren. Halten Sie für jeden Wert fest, ob er gemessen, berechnet oder geschätzt ist.</li>
+<li><strong>Schwellenwerte prüfen:</strong> Vergleichen Sie die Mengen mit den Schwellen aus Anhang II der E-PRTR-Verordnung.</li>
+<li><strong>Konsolidieren:</strong> Fassen Sie die Werte nach Schadstoff und Medium zusammen, mit klarer Zuordnung zu Standorten.</li>
+</ol>
+<p>Ein Hinweis aus der Praxis: Schwachstelle sind oft Standorte, die nicht genehmigungsbedürftig sind und deshalb keine Emissionserklärung abgeben. Für sie brauchen Sie eine eigene, nachvollziehbare Berechnung, zum Beispiel aus dem Brennstoffverbrauch und anerkannten Emissionsfaktoren.</p>
+<h2 id="e2-5-besorgniserregende-und-besonders-besorgniserregende-stoffe" tabindex="-1">E2-5: Besorgniserregende und besonders besorgniserregende Stoffe</h2>
+<p>E2-5 fragt, welche besorgniserregenden Stoffe (Substances of Concern, SoC) und besonders besorgniserregenden Stoffe (Substances of Very High Concern, SVHC) Sie herstellen, verwenden, vertreiben oder kommerziell nutzen. Anzugeben sind die Gesamtmengen, die beim Herstellen anfallen oder verwendet werden, und die Mengen, die Ihre Anlagen als Emissionen, als Produkte oder als Teil von Produkten verlassen. SVHC weisen Sie gesondert aus.</p>
+<p>Die Hürde liegt hier in der Aggregation. Wie das <a href="https://www.umweltbundesamt.de/system/files/medien/11850/publikationen/166_2024_texte.pdf" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt in derselben Untersuchung</a> zeigt, liegen Stoffdaten meist auf Produktebene vor, etwa in Sicherheitsdatenblättern, während ESRS E2 eine Zusammenfassung über Produkte und Prozesse hinweg verlangt. Wer hier sauber arbeiten will, verknüpft das Gefahrstoffkataster mit den Einkaufs- und Produktionsmengen im ERP. Dann lassen sich die Mengen je Stoff automatisch hochrechnen statt jedes Jahr per Hand aus Datenblättern zu sammeln. Wie das technisch funktioniert, beschreiben wir in unserem Beitrag zur <a href="https://planegy.de/blog-csrd-erp-integration" target="_blank" rel="noopener">CSRD-ERP-Integration</a>.</p>
+<p>Für Energieanlagen spielt E2-5 eine größere Rolle, als viele erwarten: Kältemittel, Wärmeträgeröle, Additive, Korrosionsschutz- und Reinigungsmittel tauchen in vielen Betrieben in relevanten Mengen auf.</p>
+<h2 id="e2-6-erwartete-finanzielle-effekte" tabindex="-1">E2-6: Erwartete finanzielle Effekte</h2>
+<p>E2-6 schließt den Bogen zur finanziellen Wesentlichkeit. Sie berichten, welche finanziellen Effekte Sie aus wesentlichen Risiken und Chancen im Zusammenhang mit Umweltverschmutzung erwarten. Der Standard nennt dafür ausdrücklich die Betriebs- und Investitionsausgaben im Zusammenhang mit schweren Vorfällen und Ablagerungen sowie Rückstellungen für Umweltschutz und Sanierung.</p>
+<p>Typische Risiken sind strengere Grenzwerte, die eine Nachrüstung erzwingen, Sanierungspflichten für belastete Flächen oder Lieferausfälle, wenn ein eingesetzter Stoff beschränkt wird. Chancen entstehen etwa durch emissionsarme Produkte oder durch Förderprogramme für Umstellungen. Geben Sie zu jedem Effekt den erwarteten Zeithorizont, die wichtigsten Annahmen und die Unsicherheit an. Lässt sich ein Effekt noch nicht sicher in Euro beziffern, beschreiben Sie ihn qualitativ und erläutern, warum.</p>
+<h2 id="wie-e2-mit-den-ubrigen-standards-zusammenhangt" tabindex="-1">Wie E2 mit den übrigen Standards zusammenhängt</h2>
+<p>E2 steht nicht für sich. Die ESRS folgen einer gemeinsamen Gliederung in Governance, Strategie, Management der Auswirkungen, Risiken und Chancen sowie Kennzahlen und Ziele. Das <a href="https://www.umweltbundesamt.de/umweltberichterstattung-berichtsstandards" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt erläutert</a>, dass ESRS 2 sinngemäß der Struktur der TCFD-Empfehlungen folgt und diese Logik auch für die themenbezogenen Standards gilt. Für Sie heißt das: Governance-Angaben zu E2 machen Sie nicht im E2-Kapitel, sondern unter ESRS 2.</p>
+<p>Die engsten Verbindungen bestehen zu E1, weil Verbrennungsprozesse Treibhausgase und Luftschadstoffe zugleich erzeugen, und zu E3 (Wasser) sowie E5 (Ressourcennutzung und Kreislaufwirtschaft). Eine Maßnahme wie der Wechsel des Energieträgers wirkt oft in mehreren Standards: Sie senkt Scope-1-Emissionen und gleichzeitig Stickoxide oder Staub. Mehr zur Abgrenzung der Emissionsbereiche finden Sie in unserem Beitrag zu <a href="https://planegy.de/blog-scope-1-2-3" target="_blank" rel="noopener">Scope 1, 2 und 3</a>.</p>
+
+<p>Wer die Umweltstandards im Zusammenhang mit Governance, Arbeitsschutz und Compliance betrachtet, erkennt schneller, wo Daten doppelt genutzt werden können. Einen Blick auf diese Verzahnung bieten <a href="https://4dlegal.es/planes-de-sostenibilidad-para-empresas-en-baleares" target="_blank" rel="noopener">Nachhaltigkeitspläne für Unternehmen</a>, die Berichterstattung, interne Richtlinien und Managementsysteme gemeinsam aufsetzen. Welche Datenpunkte insgesamt auf Sie zukommen, ordnet unsere <a href="https://planegy.de/blog-csrd-datenpunkte" target="_blank" rel="noopener">Roadmap zu den CSRD-Datenpunkten</a> ein.</p>
+<h2 id="unsere-sicht-auf-esrs-e2" tabindex="-1">Unsere Sicht auf ESRS E2</h2>
+<blockquote>
+<p>Wir sehen in ESRS E2 den Standard, bei dem Berichterstattung und Anlagentechnik am engsten zusammenhängen. Die Zahlen für E2-4 entstehen nicht im Nachhaltigkeitsteam, sondern an Kesseln, Motoren, Tanklagern und Einleitstellen. Wer sie verlässlich berichten will, muss die Anlagen verstehen.</p>
+<p>Deshalb fangen wir bei unseren Kunden nicht mit einem Formular an, sondern mit einer Bestandsaufnahme der Energie- und Prozessanlagen, ihrer Genehmigungen und Messpflichten. Aus mehr als 20 Jahren im Energiesektor wissen wir, dass viele Werte bereits in Emissionserklärungen, Prüfberichten und Explosionsschutzdokumenten stecken. Sie müssen nur einmal sauber erschlossen und dann automatisiert fortgeschrieben werden.</p>
+<p>Der zweite Punkt ist uns genauso wichtig: E2 soll nicht nur dokumentieren, sondern zu besseren Entscheidungen führen. Wenn eine Anlage unter E2-4 auffällt, bewerten wir technologieoffen und ohne Herstellerinteresse, welche Option die Emissionen wirtschaftlich senkt, ob Katalysator, neuer Energieträger wie BioLPG oder ein anderes Anlagenkonzept, und welche Fördermittel die Investition tragen. So wird aus einer Berichtspflicht ein Investitionsplan, der sich in E2-2 und E2-3 gleich mitberichten lässt.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="esrs-e2-mit-planegy-umsetzen" tabindex="-1">ESRS E2 mit PLANEGY umsetzen</h2>
+<p>Wir begleiten Industriebetriebe, KMU und Energieversorger von der Wesentlichkeitsanalyse bis zum fertigen E2-Kapitel. Dazu gehören die Erfassung der Emissionsquellen, der Aufbau automatisierter ESG-Dashboards mit ERP-Anbindung und die Berichterstellung nach CSRD. Weil wir zugleich Genehmigungsverfahren nach BImSchG, Compliance-Dokumentation und Energieaudits nach EN 16247 betreuen, kennen wir die Datenquellen, aus denen E2 gespeist wird.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Sie möchten wissen, wo Ihr Unternehmen bei E2 steht? Auf unserer Seite zu <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">unseren Leistungen für ESG und Nachhaltigkeit</a> finden Sie den Einstieg. Für Industriebetriebe mit genehmigungsbedürftigen Anlagen lohnt zusätzlich ein Blick auf unsere <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieberatung für die Industrie</a>.</p>
+<h2 id="haufige-fragen-zu-esrs-e2" tabindex="-1">Häufige Fragen zu ESRS E2</h2>
+<h3 id="muss-jedes-berichtspflichtige-unternehmen-nach-esrs-e2-berichten" tabindex="-1">Muss jedes berichtspflichtige Unternehmen nach ESRS E2 berichten?</h3>
+<p>Nein. E2 ist ein themenbezogener Standard und wird nur berichtet, wenn die doppelte Wesentlichkeitsanalyse Umweltverschmutzung als wesentlich einstuft. Das Verfahren, mit dem Sie das prüfen, beschreiben Sie aber in jedem Fall unter ESRS 2 IRO-1. Ob Ihr Unternehmen überhaupt unter die CSRD fällt, klärt unser Überblick zu den <a href="https://planegy.de/blog-csrd-pflichten-unternehmen" target="_blank" rel="noopener">CSRD-Pflichten für Unternehmen</a>.</p>
+<h3 id="was-ist-der-unterschied-zwischen-soc-und-svhc" tabindex="-1">Was ist der Unterschied zwischen SoC und SVHC?</h3>
+<p>SVHC sind besonders besorgniserregende Stoffe, die nach der REACH-Verordnung auf der Kandidatenliste stehen. SoC ist der weitere Begriff und umfasst zusätzlich Stoffe mit bestimmten Gefahreneigenschaften. Unter E2-5 berichten Sie beide, wobei SVHC gesondert auszuweisen sind.</p>
+<h3 id="reichen-unsere-e-prtr-daten-fur-e2-4-aus" tabindex="-1">Reichen unsere E-PRTR-Daten für E2-4 aus?</h3>
+<p>Sie sind eine sehr gute Grundlage, weil E2-4 auf die Schadstoffliste der E-PRTR-Verordnung verweist. Lücken entstehen meist bei Standorten ohne Meldepflicht, bei Mikroplastik und bei Emissionen in den Boden. Diese Werte ergänzen Sie mit eigenen Messungen oder dokumentierten Berechnungen.</p>
+<h3 id="werden-treibhausgase-unter-e2-berichtet" tabindex="-1">Werden Treibhausgase unter E2 berichtet?</h3>
+<p>Nein, Treibhausgasemissionen gehören in ESRS E1. Unter E2 berichten Sie Luftschadstoffe wie Stickoxide, Schwefeloxide oder Feinstaub. Dieselbe Anlage kann also in beiden Standards auftauchen.</p>
+<h3 id="wie-viel-vorlauf-brauchen-wir-fur-e2" tabindex="-1">Wie viel Vorlauf brauchen wir für E2?</h3>
+<p>Das hängt davon ab, wie verteilt Ihre Daten sind. Wer Emissionserklärungen, Gefahrstoffkataster und ERP-Daten bereits pflegt, kommt deutlich schneller voran als ein Unternehmen, das Stoffmengen erst aus Sicherheitsdatenblättern zusammentragen muss. Planen Sie die Datenerhebung vor dem ersten Berichtsjahr ein, damit Basiswerte für Ziele unter E2-3 vorliegen.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://esrs-nachhaltigkeitsberichterstattung.de/esrs/umwelt/esrs-e2" rel="nofollow noopener noreferrer" target="_blank">ESRS E2 – Standardtext zur Umweltverschmutzung</a></li>
+<li><a href="https://www.umweltbundesamt.de/system/files/medien/11850/publikationen/166_2023_texte_corporate_sustainability_reporting_0.pdf" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt: Corporate sustainability reporting on environmental issues (2023)</a></li>
+<li><a href="https://www.umweltbundesamt.de/system/files/medien/11850/publikationen/166_2024_texte.pdf" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt: Comparison of environmental reporting requirements (2024)</a></li>
+<li><a href="https://www.haufe.de/id/norm/esrs-e2-umweltverschmutzung-management-der-auswirkungen-risiken-und-chancen-HI15942438.html" rel="nofollow noopener noreferrer" target="_blank">Haufe: ESRS E2 Management der Auswirkungen, Risiken und Chancen</a></li>
+<li><a href="https://www.deutscher-nachhaltigkeitskodex.de/media/1yohdluy/aktualisierter-dnk-prozessleitfaden-fuer-die-doppelte-wesentlichkeitsanalyse.pdf" rel="nofollow noopener noreferrer" target="_blank">DNK-Prozessleitfaden für die doppelte Wesentlichkeitsanalyse</a></li>
+<li><a href="https://www.umweltbundesamt.de/umweltberichterstattung-berichtsstandards" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt: Umweltberichterstattung und Berichtsstandards</a></li>
+<li><a href="https://4dlegal.es/planes-de-sostenibilidad-para-empresas-en-baleares" target="_blank" rel="noopener">Nachhaltigkeitspläne für Unternehmen</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-esrs-e1-anforderungen" target="_blank" rel="noopener">ESRS E1 Anforderungen: Was Unternehmen jetzt umsetzen müssen</a></li>
+<li><a href="https://planegy.de/blog-csrd-vs-esg" target="_blank" rel="noopener">CSRD vs. ESG: Was Entscheider in Deutschland wissen müssen</a></li>
+<li><a href="https://planegy.de/blog-csrd-pflichten-unternehmen" target="_blank" rel="noopener">CSRD-Pflichten für Unternehmen: Was jetzt zu tun ist</a></li>
+<li><a href="https://planegy.de/blog-csrd-datenpunkte" target="_blank" rel="noopener">CSRD Datenpunkte: Praxis-Roadmap für Fach- und Führungskräfte</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
