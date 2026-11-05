@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CapEx-Quote der EU-Taxonomie: Berechnung, Beispiel, Praxis – PLANEGY</title>
+  <meta name="description" content="So berechnen Sie die CapEx-Quote der EU-Taxonomie: Zähler, Nenner, taxonomiefähig vs. taxonomiekonform, Rechenbeispiel und die Regeln, die seit 2026 gelten." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="CapEx-Quote der EU-Taxonomie: Berechnung, Beispiel, Praxis" />
+  <meta property="og:description" content="So berechnen Sie die CapEx-Quote der EU-Taxonomie: Zähler, Nenner, taxonomiefähig vs. taxonomiekonform, Rechenbeispiel und die Regeln, die seit 2026 gelten." />
+  <link rel="canonical" href="https://planegy.de/blog-eu-taxonomie-capex-quote" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "CapEx-Quote der EU-Taxonomie: Berechnung, Beispiel, Praxis",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-05",
+    "description": "So berechnen Sie die CapEx-Quote der EU-Taxonomie: Zähler, Nenner, taxonomiefähig vs. taxonomiekonform, Rechenbeispiel und die Regeln, die seit 2026 gelten."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"⚡"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">CapEx-Quote der EU-Taxonomie: Berechnung, Beispiel, Praxis</span>
+    </div>
+    <div class="article-cat">Energie</div>
+    <h1>CapEx-Quote der EU-Taxonomie: Berechnung, Beispiel, Praxis</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>12 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="capex-quote-der-eu-taxonomie-berechnung-beispiel-praxis" tabindex="-1">CapEx-Quote der EU-Taxonomie: Berechnung, Beispiel, Praxis</h1>
+
+<p>Die CapEx-Quote der EU-Taxonomie zeigt, welcher Anteil Ihrer Investitionsausgaben in einem Geschäftsjahr in ökologisch nachhaltige, also taxonomiekonforme, Wirtschaftstätigkeiten fließt. Sie ist ein einfacher Bruch. Im Zähler stehen die Investitionen in taxonomiekonforme Tätigkeiten, im Nenner alle Zugänge zu Sachanlagen und immateriellen Vermögenswerten vor Abschreibungen. Schwierig sind nicht die Rechenschritte. Schwierig ist die Frage, welche Investition in den Zähler darf. Dafür muss jede Tätigkeit technische Kriterien, die DNSH-Prüfung und den Mindestschutz bestehen. Hier erfahren Sie, wie Sie die Quote sauber aufbauen, wo taxonomiefähig und taxonomiekonform auseinanderlaufen und warum Ihre Energieinvestitionen meist den größten Hebel haben.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="split" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="display:flex;flex-wrap:wrap;"><div style="flex:1 0 36%;min-width:220px;box-sizing:border-box;padding:30px 76px 30px 26px;color:#ffffff;background:linear-gradient(104deg,#0c3c65 0%,#07233a 82%,rgba(0,0,0,0) 82.15%);"><div style="margin:0 0 14px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#ffffff;color:#0f4b7e;">PLANEGY</span></div><div style="font-size:12px;opacity:0.75;">planegy.de</div></div><div style="flex:999 1 300px;min-width:0;padding:30px 28px;"><div style="font-size:23px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Energieinvestitionen taxonomiekonform planen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 22px;">PLANEGY bewertet Energietechnologien neutral und unterstützt Unternehmen dabei, nachhaltige Energielösungen von der Analyse bis zur Umsetzung zu entwickeln.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Energielösungen entdecken<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li><strong>Formel:</strong> taxonomiekonforme CapEx geteilt durch die gesamten CapEx-Zugänge des Geschäftsjahres (Sachanlagen, immaterielle Vermögenswerte, Nutzungsrechte aus Leasing), jeweils vor Abschreibungen und Neubewertungen.</li>
+<li><strong>Taxonomiefähig</strong> heißt nur, dass die Tätigkeit in den delegierten Rechtsakten beschrieben ist. <strong>Taxonomiekonform</strong> ist sie erst, wenn sie einen wesentlichen Beitrag zu einem Umweltziel leistet, kein anderes Ziel erheblich beeinträchtigt und den Mindestschutz einhält.</li>
+<li>In den Zähler gehören drei Arten von Ausgaben: Investitionen in konforme Tätigkeiten, Investitionen aus einem genehmigten CapEx-Plan und konforme Einzelmaßnahmen wie PV-Anlagen oder Effizienztechnik.</li>
+<li>Seit dem vereinfachten delegierten Rechtsakt von 2025 müssen Sie finanziell unwesentliche Tätigkeiten nicht mehr im Detail prüfen.</li>
+<li>Die CapEx-Quote ist die Kennzahl, mit der Sie Ihre Transformation zeigen. Konzipieren Sie Investitionen in Wärme, Strom und Effizienz deshalb von Anfang an so, dass sie die Kriterien erfüllen.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-die-capex-quote-misst">Was die CapEx-Quote misst</a></li>
+<li><a href="#taxonomiefahig-oder-taxonomiekonform-der-entscheidende-unterschied">Taxonomiefähig oder taxonomiekonform: der entscheidende Unterschied</a></li>
+<li><a href="#was-in-zahler-und-nenner-gehort">Was in Zähler und Nenner gehört</a></li>
+<li><a href="#ein-rechenbeispiel-aus-dem-mittelstand">Ein Rechenbeispiel aus dem Mittelstand</a></li>
+<li><a href="#daten-und-nachweise-die-sie-brauchen">Daten und Nachweise, die Sie brauchen</a></li>
+<li><a href="#wer-berichten-muss-und-was-sich-2026-geandert-hat">Wer berichten muss und was sich 2026 geändert hat</a></li>
+<li><a href="#energieinvestitionen-der-grosste-hebel-fur-ihre-quote">Energieinvestitionen: der größte Hebel für Ihre Quote</a></li>
+<li><a href="#unsere-sicht-auf-die-capex-quote">Unsere Sicht auf die CapEx-Quote</a></li>
+<li><a href="#von-der-anlage-bis-zum-reporting-mit-planegy">Von der Anlage bis zum Reporting mit PLANEGY</a></li>
+<li><a href="#haufige-fragen-zur-capex-quote">Häufige Fragen zur CapEx-Quote</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-die-capex-quote-misst" tabindex="-1">Was die CapEx-Quote misst</h2>
+<p>Unternehmen, die unter die Taxonomie-Verordnung fallen, berichten drei Kennzahlen: Umsatz, Investitionsausgaben (CapEx) und Betriebsausgaben (OpEx). Der CapEx-KPI nach Artikel 8 in Verbindung mit der Delegierten Verordnung (EU) 2021/2178 gibt dabei den <a href="https://www.haufe.de/id/beitrag/1-einfuehrung-in-die-european-sustainability-reporting-63-taxonomieangaben-HI16908724.html" rel="nofollow noopener noreferrer" target="_blank">Anteil der Investitionsausgaben für taxonomiekonforme Tätigkeiten</a> an.</p>
+<p>Der Umsatz-KPI zeigt, wie grün Ihr Geschäft heute ist. Der CapEx-KPI zeigt, wohin Sie investieren. Der <a href="https://www.chemiehoch3.de/fileadmin/user_upload/Chemie3_Praxisguide_Nachhaltigkeitsberichterstattung_Kapitel_5_EU-Taxonomie-1.pdf" rel="nofollow noopener noreferrer" target="_blank">Praxisleitfaden von Chemie³</a> beschreibt ihn deshalb als dynamischere Kennzahl, weil sie das Transformationspotenzial geplanter Investitionen sichtbar macht. Für ein Industrieunternehmen mit wenig taxonomiefähigem Umsatz ist die CapEx-Quote oft die einzige Stelle im Bericht, an der der Umbau zu sehen ist: die neue Wärmepumpe, die Photovoltaik auf dem Hallendach oder ein Prozesswärmekonzept mit erneuerbaren Brennstoffen.</p>
+<p>Banken, Investoren und große Kunden lesen die Kennzahl genau so. Eine hohe CapEx-Quote ist ein Argument in Finanzierungsgesprächen und in Lieferantenbewertungen, auch wenn Sie selbst nicht berichtspflichtig sind.</p>
+<h2 id="taxonomiefahig-oder-taxonomiekonform-der-entscheidende-unterschied" tabindex="-1">Taxonomiefähig oder taxonomiekonform: der entscheidende Unterschied</h2>
+<p>Wer nach „eligible vs. aligned“ sucht, stolpert über genau diese Stufe. Die Wirtschaftsprüferkammer fasst es knapp: <a href="https://www.wpk.de/wissen/nachhaltigkeitskompass/regulatorische-anforderungen/eu-tax-vo/" rel="nofollow noopener noreferrer" target="_blank">taxonomiefähig sind Tätigkeiten, für die Bewertungskriterien vorliegen</a>, taxonomiekonform sind Tätigkeiten, die diese Kriterien kumulativ erfüllen.</p>
+<table>
+<thead>
+<tr>
+<th>Merkmal</th>
+<th>Taxonomiefähig (eligible)</th>
+<th>Taxonomiekonform (aligned)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grundfrage</td>
+<td>Ist die Tätigkeit in den delegierten Rechtsakten beschrieben?</td>
+<td>Erfüllt die Tätigkeit alle Kriterien?</td>
+</tr>
+<tr>
+<td>Prüfaufwand</td>
+<td>Zuordnung zu einer Tätigkeit (z. B. über NACE-Codes)</td>
+<td>Technische Bewertungskriterien, DNSH, Mindestschutz, Nachweise</td>
+</tr>
+<tr>
+<td>Aussage</td>
+<td>Potenzial, zu einem Umweltziel beizutragen</td>
+<td>Ökologisch nachhaltig im Sinne der Verordnung</td>
+</tr>
+<tr>
+<td>Wirkung auf die CapEx-Quote</td>
+<td>Nur ausgewiesen, nicht im Zähler der Konformitätsquote</td>
+<td>Zählt in den Zähler</td>
+</tr>
+<tr>
+<td>Beispiel</td>
+<td>Eine neue Produktionshalle (Neubau)</td>
+<td>Dieselbe Halle, wenn sie die Energiekriterien und alle DNSH-Anforderungen erfüllt</td>
+</tr>
+</tbody>
+</table>
+<h3 id="die-vier-bedingungen-fur-konformitat" tabindex="-1">Die vier Bedingungen für Konformität</h3>
+<p>Nach der <a href="https://eur-lex.europa.eu/DE/legal-content/summary/assessing-environmentally-sustainable-investments.html" rel="nofollow noopener noreferrer" target="_blank">Zusammenfassung der Taxonomie-Verordnung auf EUR-Lex</a> muss eine Tätigkeit:</p>
+<ol>
+<li>wesentlich zu mindestens einem der sechs Umweltziele beitragen (Klimaschutz, Anpassung an den Klimawandel, Wasser- und Meeresressourcen, Kreislaufwirtschaft, Vermeidung von Umweltverschmutzung, Biodiversität und Ökosysteme),</li>
+<li>keines der übrigen Ziele erheblich beeinträchtigen („Do No Significant Harm“, DNSH),</li>
+<li>den Mindestschutz einhalten,</li>
+<li>die technischen Bewertungskriterien erfüllen, die vor allem in den delegierten Verordnungen (EU) 2021/2139 und (EU) 2023/2486 stehen.</li>
+</ol>
+<p>Beim Mindestschutz verweist die <a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=OJ%3AC_202501373" rel="nofollow noopener noreferrer" target="_blank">Bekanntmachung der Kommission vom März 2025</a> auf die OECD-Leitsätze für multinationale Unternehmen und die UN-Leitprinzipien für Wirtschaft und Menschenrechte. Das ist keine Prüfung je Anlage, sondern eine Prüfung auf Unternehmensebene. Fehlt sie, ist keine einzige Investition konform, egal wie effizient die Technik ist.</p>
+<p>In der Praxis ist der Abstand zwischen beiden Stufen groß. Analysen europäischer Industrieunternehmen zeigen bei allen drei Kennzahlen eine deutliche Lücke zwischen taxonomiefähigen und taxonomiekonformen Anteilen. Diese Lücke entsteht selten durch die falsche Technik, sondern meist durch fehlende Nachweise: kein Klimarisiko-Assessment für das DNSH-Kriterium Anpassung, keine dokumentierten Emissionswerte, keine Belege zu Wasser oder Kreislaufwirtschaft.</p>
+<h2 id="was-in-zahler-und-nenner-gehort" tabindex="-1">Was in Zähler und Nenner gehört</h2>
+<p>Die Regeln stehen in Anhang I der Delegierten Verordnung (EU) 2021/2178. Den <a href="https://ec.europa.eu/finance/docs/level-2-measures/taxonomy-regulation-delegated-act-2021-4987-annex-1-5_en.pdf" rel="nofollow noopener noreferrer" target="_blank">Wortlaut des Anhangs stellt die Europäische Kommission bereit</a>.</p>
+<h3 id="der-nenner-alle-investitionszugange-des-jahres" tabindex="-1">Der Nenner: alle Investitionszugänge des Jahres</h3>
+<p>Der Nenner umfasst die <a href="https://vmebf.de/wp-content/uploads/2025/05/Mitgliederversammlung_20231130_VMEBF_Leitfaden_Nachhaltigkeitsbericht.pdf" rel="nofollow noopener noreferrer" target="_blank">Zugänge zu Sachanlagen und immateriellen Vermögenswerten im Geschäftsjahr vor Abschreibungen, Wertminderungen und Neubewertungen</a>. Dazu zählen:</p>
+<ul>
+<li>Zugänge zu Sachanlagen (IAS 16 bzw. Anlagenspiegel nach HGB),</li>
+<li>Zugänge zu immateriellen Vermögenswerten (IAS 38), ohne Geschäfts- oder Firmenwert,</li>
+<li>Zugänge zu als Finanzinvestition gehaltenen Immobilien (IAS 40) und, wo relevant, zu landwirtschaftlichen Vermögenswerten (IAS 41),</li>
+<li>Nutzungsrechte aus Leasingverträgen (IFRS 16),</li>
+<li>Zugänge aus Unternehmenszusammenschlüssen.</li>
+</ul>
+<p>Leasingverträge, die kein Nutzungsrecht begründen, zählen nicht als CapEx. Unternehmen, die nach HGB bilanzieren, nehmen die entsprechenden Positionen ihres Anlagenspiegels.</p>
+<h3 id="der-zahler-drei-wege-in-die-quote" tabindex="-1">Der Zähler: drei Wege in die Quote</h3>
+<p>In den Zähler gehört der Teil des Nenners, der zu einer dieser Kategorien gehört:</p>
+<ul>
+<li><strong>(a) Konforme Tätigkeiten:</strong> Investitionen in Vermögenswerte oder Prozesse, die mit einer taxonomiekonformen Tätigkeit verbunden sind, etwa die Anlage, mit der Sie konformen Umsatz erzielen.</li>
+<li><strong>(b) CapEx-Plan:</strong> Investitionen, die Teil eines Plans sind, um eine konforme Tätigkeit auszubauen oder eine taxonomiefähige Tätigkeit konform zu machen. Der Plan muss von der Geschäftsleitung genehmigt sein und grundsätzlich innerhalb von fünf Jahren umgesetzt werden, in begründeten Fällen innerhalb von bis zu zehn Jahren.</li>
+<li><strong>© Einzelmaßnahmen:</strong> Ausgaben für den Bezug von Leistungen aus konformen Tätigkeiten und für einzelne Maßnahmen, mit denen Ihre Tätigkeiten CO₂-ärmer werden. Typisch sind die Maßnahmen aus den Abschnitten 7.3 bis 7.6 des Klima-Rechtsakts: Effizienztechnik im Gebäude, Ladestationen, Mess- und Regeltechnik und Anlagen für erneuerbare Energien.</li>
+</ul>
+<p>Drei Punkte werden oft übersehen. Erstens: Ändern sich die technischen Kriterien, bevor ein CapEx-Plan abgeschlossen ist, müssen Sie den Plan innerhalb von zwei Jahren aktualisieren oder den Zähler neu berechnen. Zweitens: Jeder Euro darf nur einmal zählen, auch wenn eine Investition mehreren Umweltzielen dient. Drittens kann der Kauf nicht konformer Gebäude oder Anlagen den Nenner aufblähen. Der <a href="https://vmebf.de/wp-content/uploads/2025/05/Mitgliederversammlung_20231130_VMEBF_Leitfaden_Nachhaltigkeitsbericht.pdf" rel="nofollow noopener noreferrer" target="_blank">VMEBF-Leitfaden</a> warnt, dass das die ausgewiesene Quote drücken kann, auch wenn Ihre Strategie klar auf Nachhaltigkeit zielt.</p>
+<h2 id="ein-rechenbeispiel-aus-dem-mittelstand" tabindex="-1">Ein Rechenbeispiel aus dem Mittelstand</h2>
+<p>Das folgende Beispiel ist fiktiv, folgt aber der Logik des Meldebogens. Ein Hersteller von Metallkomponenten investiert im Geschäftsjahr insgesamt 10,0 Mio. €: 8,0 Mio. € in Sachanlagen, 0,5 Mio. € in Software und 1,5 Mio. € in neue Leasingfahrzeuge und Gabelstapler mit Nutzungsrecht.</p>
+<table>
+<thead>
+<tr>
+<th>Investition</th>
+<th>Betrag</th>
+<th>Einordnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PV-Anlage auf dem Hallendach (7.6)</td>
+<td>0,6 Mio. €</td>
+<td>konform, Einzelmaßnahme ©</td>
+</tr>
+<tr>
+<td>Großwärmepumpe mit Abwärmenutzung</td>
+<td>0,9 Mio. €</td>
+<td>konform, Kriterien und DNSH belegt</td>
+</tr>
+<tr>
+<td>Ladeinfrastruktur für Firmenfahrzeuge (7.4)</td>
+<td>0,2 Mio. €</td>
+<td>konform, Einzelmaßnahme ©</td>
+</tr>
+<tr>
+<td>Erste Tranche Prozesswärme-Umbau laut CapEx-Plan</td>
+<td>1,3 Mio. €</td>
+<td>konform über CapEx-Plan (b)</td>
+</tr>
+<tr>
+<td>Neue Lagerhalle (Neubau, 7.1)</td>
+<td>2,0 Mio. €</td>
+<td>taxonomiefähig, Energiekriterium verfehlt</td>
+</tr>
+<tr>
+<td>Fertigungsmaschinen, Software, übrige Leasingzugänge</td>
+<td>5,0 Mio. €</td>
+<td>nicht taxonomiefähig</td>
+</tr>
+<tr>
+<td><strong>Summe (Nenner)</strong></td>
+<td><strong>10,0 Mio. €</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Daraus ergibt sich:</p>
+<ul>
+<li><strong>taxonomiekonforme CapEx-Quote:</strong> 3,0 Mio. € ÷ 10,0 Mio. € = <strong>30 %</strong></li>
+<li><strong>taxonomiefähige, nicht konforme CapEx:</strong> 2,0 Mio. € ÷ 10,0 Mio. € = <strong>20 %</strong></li>
+<li><strong>nicht taxonomiefähige CapEx:</strong> 5,0 Mio. € ÷ 10,0 Mio. € = <strong>50 %</strong></li>
+</ul>
+<p>Im Meldebogen erscheinen diese Werte in den Blöcken A.1 (konform), A.2 (fähig, nicht konform) und B (nicht fähig). Kauft das Unternehmen im selben Jahr zusätzlich ein bestehendes Bürogebäude für 4,0 Mio. €, das die Kriterien nicht erfüllt, wächst der Nenner auf 14,0 Mio. €. Die Konformitätsquote fällt auf 3,0 ÷ 14,0 = <strong>21,4 %</strong>, obwohl keine einzige grüne Investition weggefallen ist.</p>
+<p>Die Lagerhalle zeigt den größten Hebel: Mit einer anderen Gebäudehülle und Wärmeversorgung und einem dokumentierten Nachweis wären 2,0 Mio. € in den Zähler gewandert. Die Quote läge dann bei 50 %. Solche Entscheidungen fallen in der Planung, nicht im Berichtsjahr.</p>
+
+<h2 id="daten-und-nachweise-die-sie-brauchen" tabindex="-1">Daten und Nachweise, die Sie brauchen</h2>
+<p>Für die Berechnung brauchen Sie Daten aus mehreren Abteilungen. Der <a href="https://vmebf.de/wp-content/uploads/2025/05/Mitgliederversammlung_20231130_VMEBF_Leitfaden_Nachhaltigkeitsbericht.pdf" rel="nofollow noopener noreferrer" target="_blank">VMEBF-Leitfaden</a> nennt Anlagenbuchhaltung, Kostenstellenrechnung, NACE-Zuordnung und die Nachweise für Kriterien, DNSH und Mindestschutz. In der Praxis bewährt sich diese Reihenfolge:</p>
+<ol>
+<li><strong>Tätigkeiten erfassen:</strong> Alle Geschäftstätigkeiten und Investitionsprojekte auflisten und den Tätigkeiten der Taxonomie zuordnen.</li>
+<li><strong>Wesentlichkeit prüfen:</strong> Welche Tätigkeiten sind finanziell wesentlich? Dazu mehr im nächsten Abschnitt.</li>
+<li><strong>Anlagenspiegel abgleichen:</strong> Jede Zugangsposition einem Projekt und einer Tätigkeit zuordnen, Leasingzugänge und Zugänge aus Akquisitionen gesondert markieren.</li>
+<li><strong>Technische Kriterien belegen:</strong> Emissionswerte, Wirkungsgrade, Energiekennwerte, Herstellerdatenblätter, Energieausweise.</li>
+<li><strong>DNSH dokumentieren:</strong> Klimarisikoanalyse, Wasser, Kreislaufwirtschaft, Schadstoffe, Biodiversität, jeweils so, wie es die Tätigkeit verlangt.</li>
+<li><strong>Mindestschutz nachweisen:</strong> Menschenrechts-Due-Diligence, Anti-Korruption, Steuern, fairer Wettbewerb auf Unternehmensebene.</li>
+<li><strong>Rechnen und plausibilisieren:</strong> Doppelzählungen ausschließen, Abgleich mit dem Konzernabschluss, Meldebogen befüllen.</li>
+</ol>
+<p>Wer diese Daten jedes Jahr per Tabellenkalkulation zusammenträgt, verliert Zeit und Prüfungssicherheit. Wie Sie das ERP zur Datenbasis machen, zeigt unser Beitrag zur <a href="https://planegy.de/blog-csrd-erp-integration" target="_blank" rel="noopener">CSRD-ERP-Integration</a>. Welche Kennzahlen in ein Steuerungscockpit gehören, lesen Sie in unserem Überblick zu <a href="https://planegy.de/blog-esg-dashboard-kpis" target="_blank" rel="noopener">ESG-Dashboard-KPIs</a>.</p>
+<h2 id="wer-berichten-muss-und-was-sich-2026-geandert-hat" tabindex="-1">Wer berichten muss und was sich 2026 geändert hat</h2>
+<p>Die Taxonomie-Verordnung gilt <a href="https://www.wpk.de/wissen/nachhaltigkeitskompass/regulatorische-anforderungen/eu-tax-vo/" rel="nofollow noopener noreferrer" target="_blank">seit dem 1. Januar 2022 für das Geschäftsjahr 2021</a>, zuerst für kapitalmarktorientierte Unternehmen, die unter die NFRD fielen. Der Kreis der Berichtspflichtigen folgt der CSRD.</p>
+<p>Mit dem Omnibus-I-Paket hat die EU diesen Kreis deutlich verkleinert: Künftig berichten Unternehmen mit <a href="https://cms.law/de/deu/legal-updates/Bruesseler-Kurskorrektur-EU-Kommission-plant-mit-dem-Omnibus-reduzierte-Nachhaltigkeitspflichten-fuer-Unternehmen-Teil-I-CSRD-und-Taxonomie" rel="nofollow noopener noreferrer" target="_blank">mehr als 1.000 Mitarbeitenden und mehr als 450 Mio. € Umsatz</a>. Viele Mittelständler sind damit nicht mehr direkt pflichtig, werden aber von Banken und Konzernkunden weiter nach Taxonomie-Daten gefragt. Ob Ihr Unternehmen im Anwendungsbereich liegt, klären Sie am besten mit Ihrem Abschlussprüfer oder Ihrer Rechtsberatung, weil die Umsetzung ins deutsche Recht maßgeblich ist.</p>
+<p>Parallel hat die Kommission am 4. Juli 2025 einen <a href="https://finance.ec.europa.eu/publications/commission-cut-eu-taxonomy-red-tape-companies_en" rel="nofollow noopener noreferrer" target="_blank">delegierten Rechtsakt zur Vereinfachung der Taxonomie</a> angenommen. Er ist am 28. Januar 2026 in Kraft getreten und <a href="https://sustainablefutures.linklaters.com/post/102m1i3/eu-delegated-act-on-simplifying-taxonomy-reporting-published-in-the-official-jou" rel="nofollow noopener noreferrer" target="_blank">gilt rückwirkend ab dem 1. Januar 2026, also bereits für das Geschäftsjahr 2025</a>. Für die CapEx-Quote ist vor allem eine Änderung wichtig: Nicht-Finanzunternehmen müssen <a href="https://cms.law/en/swe/legal-updates/european-commission-adopts-delegated-act-simplifying-eu-taxonomy-reporting" rel="nofollow noopener noreferrer" target="_blank">Tätigkeiten, die finanziell nicht wesentlich sind, nicht mehr auf Fähigkeit und Konformität prüfen</a>. Die Schwelle liegt bei 10 % von Umsatz, CapEx oder OpEx. Für das Rechenbeispiel heißt das: Die Ladeinfrastruktur könnte als unwesentlich gelten, die Wärmepumpe und der Prozesswärme-Umbau nicht.</p>
+
+<p>Die Vereinfachung senkt den Aufwand, ändert aber nichts an der Logik. Was Sie als konform ausweisen, muss weiter belegt sein.</p>
+<h2 id="energieinvestitionen-der-grosste-hebel-fur-ihre-quote" tabindex="-1">Energieinvestitionen: der größte Hebel für Ihre Quote</h2>
+<p>In vielen Industrie- und Gewerbebetrieben sind Energieanlagen die größten Einzelinvestitionen, die überhaupt taxonomiefähig sind. Erzeugung aus erneuerbaren Quellen, Wärmepumpen, Wärmespeicher, Nah- und Fernwärmenetze und Kraft-Wärme-Kopplung mit erneuerbaren Brennstoffen haben eigene Tätigkeiten im Klima-Rechtsakt. Der Geschäftsbericht von Lenzing führt zum Beispiel die <a href="https://www.lenzing.com/" rel="nofollow noopener noreferrer" target="_blank">Kraft-Wärme-Kopplung mit erneuerbaren nichtfossilen gasförmigen und flüssigen Brennstoffen (CCM 4.19)</a> als eigene Tätigkeit aus.</p>
+<p>Ob eine Anlage am Ende im Zähler steht, entscheidet sich bei der Konzeption:</p>
+<ul>
+<li><strong>Technik und Brennstoff:</strong> Die technischen Kriterien setzen etwa Grenzwerte für Lebenszyklus-Emissionen. Brennstoffwahl, Wirkungsgrad und Betriebsweise gehören deshalb in die erste Planungsrunde.</li>
+<li><strong>Reihenfolge:</strong> Erst Bedarf senken und Abwärme nutzen, dann erzeugen. Wie das bei Prozesswärme aussieht, beschreiben wir in unserem Beitrag zur <a href="https://planegy.de/blog-dekarbonisierung-prozesswarme" target="_blank" rel="noopener">Dekarbonisierung der Prozesswärme</a>.</li>
+<li><strong>Genehmigung und DNSH:</strong> Emissionen, Lärm und Wasser sind oft gleichzeitig Genehmigungs- und DNSH-Themen. Wer die Unterlagen einmal sauber erstellt, nutzt sie doppelt.</li>
+<li><strong>Fossile Übergangstechnik:</strong> Für Erdgas gelten eigene, strenge Kriterien. Die Details finden Sie in unserem Beitrag zur <a href="https://planegy.de/blog-eu-taxonomie-energie" target="_blank" rel="noopener">EU-Taxonomie für Gas und Atomkraft</a>.</li>
+<li><strong>Förderung:</strong> Fördermittel senken die Investition, nicht die Logik der Quote. Welche Kosten Sie ansetzen können, zeigt unser Überblick zu <a href="https://planegy.de/blog-forderfahige-kosten-energieprojekte" target="_blank" rel="noopener">förderfähigen Kosten bei Energieprojekten</a>.</li>
+</ul>
+<h2 id="unsere-sicht-auf-die-capex-quote" tabindex="-1">Unsere Sicht auf die CapEx-Quote</h2>
+<blockquote>
+<p>Wir sehen die CapEx-Quote nicht als Pflichtübung der Finanzabteilung, sondern als Ergebnis der Anlagenplanung. Die Zahl wird nicht im Bericht gemacht, sondern Jahre vorher, wenn jemand entscheidet, wie eine Halle beheizt, eine Dampferzeugung ersetzt oder ein Wärmenetz ausgelegt wird.</p>
+<p>Deshalb planen wir technologieoffen. Wir bewerten Wärmepumpe, Nahwärme, BHKW, BioLPG oder Gasturbine neutral, ohne eigene Produkte oder Herstellerinteressen. Wir prüfen jede Option gegen Wirtschaftlichkeit, Genehmigungsfähigkeit, Förderfähigkeit und die technischen Kriterien, die später über den Zähler entscheiden. BioLPG zum Beispiel ist für uns eine Brückentechnologie, mit der sich in unseren Projekten die CO₂-Emissionen um bis zu 90 % senken lassen.</p>
+<p>Den größten Fehler sehen wir dort, wo Technik, Förderung und Reporting getrennt laufen. Dann wird gebaut, gefördert und erst danach gefragt, ob die Investition taxonomiekonform ist. Wir verbinden diese drei Stränge von Anfang an. So entsteht eine Investition, die genehmigt, gefördert und im Bericht als konform belegt werden kann.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="von-der-anlage-bis-zum-reporting-mit-planegy" tabindex="-1">Von der Anlage bis zum Reporting mit PLANEGY</h2>
+<p>Wir begleiten Industrie, Gewerbe, Stadtwerke und Kommunen von der Analyse bis zur Umsetzung. Wir konzipieren Energieanlagen technologieoffen, führen Genehmigungsverfahren, sichern Fördermittel aus BEW, KfW, BAFA und EU-Programmen und bauen automatisierte ESG- und CSRD-Reportings mit KPI-Dashboards und ERP-Anbindung auf. In unseren Projekten haben wir Förderungen von bis zu 1,2 Mio. € gesichert.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Sie möchten wissen, welche Ihrer geplanten Investitionen in den Zähler passen und wie Sie die Nachweise effizient führen? Sehen Sie sich unsere <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen für Energie und ESG</a> an, oder lesen Sie, wie wir <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Industriebetriebe bei Energie und Genehmigung</a> unterstützen. Für laufende Unterstützung bieten wir das <a href="https://planegy.de/klimamanager-service" target="_blank" rel="noopener">Klimaschutzmanagement im Abo</a>.</p>
+<h2 id="haufige-fragen-zur-capex-quote" tabindex="-1">Häufige Fragen zur CapEx-Quote</h2>
+<h3 id="kann-die-capex-quote-hoher-sein-als-die-umsatzquote" tabindex="-1">Kann die CapEx-Quote höher sein als die Umsatzquote?</h3>
+<p>Ja, und bei Unternehmen im Umbau ist das typisch. Der Umsatz zeigt das heutige Geschäft, die Investitionen zeigen den Weg dorthin. Eine CapEx-Quote über der Umsatzquote signalisiert, dass Sie gezielt in konforme Tätigkeiten investieren.</p>
+<h3 id="zahlen-geleaste-anlagen-in-die-capex-quote" tabindex="-1">Zählen geleaste Anlagen in die CapEx-Quote?</h3>
+<p>Nur, wenn der Leasingvertrag ein Nutzungsrecht begründet, das Sie bilanzieren, etwa nach IFRS 16. Dann erhöht der Zugang den Nenner und, falls die Tätigkeit konform ist, auch den Zähler. Leasingverträge ohne Nutzungsrecht bleiben außen vor.</p>
+<h3 id="was-passiert-wenn-sich-die-kriterien-wahrend-meines-capex-plans-andern" tabindex="-1">Was passiert, wenn sich die Kriterien während meines CapEx-Plans ändern?</h3>
+<p>Sie müssen den Plan innerhalb von zwei Jahren an die neuen Kriterien anpassen oder den Zähler neu berechnen. Planen Sie deshalb Reserven in Technik und Nachweisen ein, statt knapp an den Grenzwerten zu bauen.</p>
+<h3 id="lohnt-sich-die-berechnung-wenn-wir-nicht-berichtspflichtig-sind" tabindex="-1">Lohnt sich die Berechnung, wenn wir nicht berichtspflichtig sind?</h3>
+<p>Viele Mittelständler rechnen die Quote freiwillig, weil Banken und Konzernkunden die Daten abfragen. Eine belegte Quote ist ein Argument in Finanzierungsgesprächen. Der Aufwand sinkt, wenn Sie die Nachweise schon bei der Anlagenplanung erstellen.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.haufe.de/id/beitrag/1-einfuehrung-in-die-european-sustainability-reporting-63-taxonomieangaben-HI16908724.html" rel="nofollow noopener noreferrer" target="_blank">Haufe: Einführung in die ESRS, Taxonomieangaben</a></li>
+<li><a href="https://www.chemiehoch3.de/fileadmin/user_upload/Chemie3_Praxisguide_Nachhaltigkeitsberichterstattung_Kapitel_5_EU-Taxonomie-1.pdf" rel="nofollow noopener noreferrer" target="_blank">Chemie³: Praxisguide Nachhaltigkeitsberichterstattung, Kapitel EU-Taxonomie</a></li>
+<li><a href="https://www.wpk.de/wissen/nachhaltigkeitskompass/regulatorische-anforderungen/eu-tax-vo/" rel="nofollow noopener noreferrer" target="_blank">Wirtschaftsprüferkammer: EU-Taxonomie-Verordnung</a></li>
+<li><a href="https://eur-lex.europa.eu/DE/legal-content/summary/assessing-environmentally-sustainable-investments.html" rel="nofollow noopener noreferrer" target="_blank">EUR-Lex: Bewertung ökologisch nachhaltiger Investitionen</a></li>
+<li><a href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=OJ%3AC_202501373" rel="nofollow noopener noreferrer" target="_blank">EUR-Lex: Bekanntmachung der Kommission (2025/C 1373)</a></li>
+<li><a href="https://ec.europa.eu/finance/docs/level-2-measures/taxonomy-regulation-delegated-act-2021-4987-annex-1-5_en.pdf" rel="nofollow noopener noreferrer" target="_blank">Europäische Kommission: Anhang I der Delegierten Verordnung (EU) 2021/2178</a></li>
+<li><a href="https://vmebf.de/wp-content/uploads/2025/05/Mitgliederversammlung_20231130_VMEBF_Leitfaden_Nachhaltigkeitsbericht.pdf" rel="nofollow noopener noreferrer" target="_blank">VMEBF: Leitfaden Nachhaltigkeitsbericht</a></li>
+<li><a href="https://cms.law/de/deu/legal-updates/Bruesseler-Kurskorrektur-EU-Kommission-plant-mit-dem-Omnibus-reduzierte-Nachhaltigkeitspflichten-fuer-Unternehmen-Teil-I-CSRD-und-Taxonomie" rel="nofollow noopener noreferrer" target="_blank">CMS: Omnibus, CSRD und Taxonomie</a></li>
+<li><a href="https://finance.ec.europa.eu/publications/commission-cut-eu-taxonomy-red-tape-companies_en" rel="nofollow noopener noreferrer" target="_blank">Europäische Kommission: Vereinfachung der EU-Taxonomie</a></li>
+<li><a href="https://sustainablefutures.linklaters.com/post/102m1i3/eu-delegated-act-on-simplifying-taxonomy-reporting-published-in-the-official-jou" rel="nofollow noopener noreferrer" target="_blank">Linklaters: Vereinfachter delegierter Rechtsakt im Amtsblatt</a></li>
+<li><a href="https://cms.law/en/swe/legal-updates/european-commission-adopts-delegated-act-simplifying-eu-taxonomy-reporting" rel="nofollow noopener noreferrer" target="_blank">CMS: Delegierter Rechtsakt zur Vereinfachung der Taxonomie-Berichterstattung</a></li>
+<li><a href="https://www.lenzing.com/" rel="nofollow noopener noreferrer" target="_blank">Lenzing: Unternehmenswebsite</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-eu-taxonomie-energie" target="_blank" rel="noopener">EU-Taxonomie Energie: Was für Gas und Atomkraft gilt</a></li>
+<li><a href="https://planegy.de/blog-co2-preis-deutschland" target="_blank" rel="noopener">CO2-Preis 55–65 €/t in Deutschland: Praxis, Rechenbeispiele</a></li>
+<li><a href="https://planegy.de/blog-scope-1-2-3" target="_blank" rel="noopener">Scope 1, 2 und 3: Definition und Reduktion für Unternehmen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
