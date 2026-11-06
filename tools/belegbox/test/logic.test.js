@@ -117,4 +117,16 @@ test('Alle .gs-Dateien lassen sich gemeinsam laden', () => {
   Object.keys(ctx.AUSLESE_SCHEMA.properties).forEach(k => assert.ok(ctx.AUSLESE_SCHEMA.required.includes(k), k + ' nicht in required'));
 });
 
+test('dist ist aktuell (sonst: node tools/belegbox/build.js)', () => {
+  const dir = path.join(__dirname, '..');
+  const { baue } = require(path.join(dir, 'build.js'));
+  assert.strictEqual(fs.readFileSync(path.join(dir, 'dist', 'Code.gs'), 'utf8'), baue());
+  assert.strictEqual(fs.readFileSync(path.join(dir, 'dist', 'Index.html'), 'utf8'), fs.readFileSync(path.join(dir, 'Index.html'), 'utf8'));
+  const ctx = { console };
+  vm.createContext(ctx);
+  vm.runInContext(fs.readFileSync(path.join(dir, 'dist', 'Code.gs'), 'utf8'), ctx);
+  assert.strictEqual(typeof ctx.einrichten, 'function');
+  assert.strictEqual(ctx.STANDARD_EINSTELLUNGEN.MODELL, 'claude-haiku-5-5');
+});
+
 console.log(n + ' Tests bestanden');

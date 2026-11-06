@@ -14,7 +14,7 @@ var BEARBEITBAR = ['status', 'richtung', 'dokumentart', 'belegdatum', 'rechnungs
   'bereich', 'notiz'];
 
 var SICHTBARE_EINSTELLUNGEN = ['FIRMA_NAME', 'FIRMA_USTID', 'FIRMA_ORT', 'GMAIL_SUCHE', 'SCAN_AB', 'HTML_ALS_PDF', 'MAX_MAILS_PRO_LAUF',
-  'MODELL', 'BELEGMAIL', 'AUTO_UEBERMITTELN', 'STEUERBERATER_MAIL', 'STEUERBERATER_NAME', 'MONATSPAKET_AUTO'];
+  'MODELL', 'GENAU_MODELL', 'BELEGMAIL', 'AUTO_UEBERMITTELN', 'STEUERBERATER_MAIL', 'STEUERBERATER_NAME', 'MONATSPAKET_AUTO'];
 
 function fuerClient(b) {
   var o = {};
@@ -101,8 +101,8 @@ function uebermittelnAusApp(id) {
   return fuerClient(anBelegmailSenden(id));
 }
 
-function neuAuslesenAusApp(id) {
-  return fuerClient(belegNeuAuslesen(id));
+function neuAuslesenAusApp(id, genau) {
+  return fuerClient(belegNeuAuslesen(id, genau ? einstellung('GENAU_MODELL') : ''));
 }
 
 function einstellungenSpeichern(werte) {

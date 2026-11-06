@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<base target="_top">
+<meta charset="utf-8">
+<style>
+:root {
+  --bg: #f5f7f9; --flaeche: #fff; --text: #1d2a33; --leise: #5d6b75; --linie: #dde3e8;
+  --akzent: #0b6e4f; --akzent-hell: #e3f2ec; --warn: #a15c00; --warn-hell: #fff3e0;
+  --rot: #b3261e; --rot-hell: #fdecea; --blau: #1f5fa8; --blau-hell: #e8f0fb; --grau-hell: #eef1f3;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; color: var(--text); background: var(--bg); }
+header { background: var(--flaeche); border-bottom: 1px solid var(--linie); padding: 12px 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+header h1 { font-size: 17px; margin: 0 12px 0 0; }
+header h1 span { color: var(--akzent); }
+.knopf { border: 1px solid var(--linie); background: var(--flaeche); color: var(--text); border-radius: 6px; padding: 7px 12px; font: inherit; cursor: pointer; white-space: nowrap; }
+.knopf:hover { border-color: #b9c3cb; }
+.knopf.haupt { background: var(--akzent); border-color: var(--akzent); color: #fff; }
+.knopf.klein { padding: 4px 9px; font-size: 13px; }
+.knopf:disabled { opacity: .5; cursor: default; }
+.rechts { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+main { padding: 16px 20px 40px; max-width: 1500px; margin: 0 auto; }
+.kacheln { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.kachel { background: var(--flaeche); border: 1px solid var(--linie); border-radius: 8px; padding: 12px 14px; }
+.kachel .wert { font-size: 20px; font-weight: 600; }
+.kachel .titel { color: var(--leise); font-size: 12px; }
+.filter { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+select, input[type=text], input[type=search], input[type=date], input[type=number], input[type=email], textarea {
+  font: inherit; border: 1px solid var(--linie); border-radius: 6px; padding: 6px 8px; background: var(--flaeche); color: var(--text); }
+input[type=search] { min-width: 220px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { border: 1px solid var(--linie); border-radius: 99px; padding: 4px 10px; background: var(--flaeche); cursor: pointer; font-size: 13px; }
+.chip.an { background: var(--text); color: #fff; border-color: var(--text); }
+.chip .n { opacity: .7; margin-left: 4px; }
+table { width: 100%; border-collapse: collapse; background: var(--flaeche); border: 1px solid var(--linie); border-radius: 8px; overflow: hidden; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--linie); vertical-align: top; }
+th { font-size: 12px; color: var(--leise); font-weight: 600; background: #fafbfc; position: sticky; top: 0; }
+tr.zeile { cursor: pointer; }
+tr.zeile:hover { background: #f8fafb; }
+tr.zeile.aktiv { background: var(--akzent-hell); }
+td.betrag, th.betrag { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.leise { color: var(--leise); font-size: 12px; }
+.marke { display: inline-block; border-radius: 4px; padding: 1px 7px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.s-Neu { background: var(--blau-hell); color: var(--blau); }
+.s-Prüfen { background: var(--warn-hell); color: var(--warn); }
+.s-Freigegeben { background: var(--akzent-hell); color: var(--akzent); }
+.s-Übermittelt { background: #e6f4f1; color: #11695f; }
+.s-Dublette, .s-Ausgeschlossen { background: var(--grau-hell); color: var(--leise); }
+.r-Ausgang { color: var(--blau); }
+.r-Unklar { color: var(--warn); }
+.leer { padding: 40px; text-align: center; color: var(--leise); background: var(--flaeche); border: 1px dashed var(--linie); border-radius: 8px; }
+
+.panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(1100px, 100%); background: var(--flaeche); box-shadow: -4px 0 24px rgba(0,0,0,.12);
+  display: none; grid-template-columns: 1fr 420px; z-index: 10; }
+.panel.offen { display: grid; }
+.panel .vorschau { background: #e9edf0; position: relative; }
+.panel .vorschau iframe { width: 100%; height: 100%; border: 0; }
+.panel .formular { overflow-y: auto; padding: 16px 18px 90px; border-left: 1px solid var(--linie); }
+.panel .kopf { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.panel .kopf h2 { font-size: 16px; margin: 0; flex: 1; }
+.feld { margin-bottom: 9px; }
+.feld label { display: block; font-size: 12px; color: var(--leise); margin-bottom: 2px; }
+.feld input, .feld select, .feld textarea { width: 100%; }
+.zwei { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.drei { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.hinweis { background: var(--warn-hell); color: #5c3800; border-radius: 6px; padding: 8px 10px; font-size: 13px; margin-bottom: 10px; }
+.meta { font-size: 12px; color: var(--leise); border-top: 1px solid var(--linie); margin-top: 12px; padding-top: 10px; word-break: break-word; }
+.aktionen { position: sticky; bottom: -90px; background: var(--flaeche); padding: 10px 0; display: flex; gap: 8px; flex-wrap: wrap; border-top: 1px solid var(--linie); }
+.dialog { position: fixed; inset: 0; background: rgba(20,30,40,.4); display: none; align-items: center; justify-content: center; z-index: 20; padding: 16px; }
+.dialog.offen { display: flex; }
+.dialog .inhalt { background: var(--flaeche); border-radius: 10px; padding: 18px 20px; width: min(640px, 100%); max-height: 90vh; overflow-y: auto; }
+.dialog h2 { margin: 0 0 12px; font-size: 16px; }
+.meldung { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); background: var(--text); color: #fff; padding: 10px 16px; border-radius: 8px; z-index: 30; display: none; max-width: 90vw; }
+.meldung.fehler { background: var(--rot); }
+.ablage { border: 2px dashed var(--linie); border-radius: 8px; padding: 18px; text-align: center; color: var(--leise); margin-bottom: 12px; }
+.ablage.drueber { border-color: var(--akzent); background: var(--akzent-hell); }
+.check { display: flex; align-items: center; gap: 6px; margin: 6px 0; }
+
+@media (max-width: 900px) {
+  .panel { grid-template-columns: 1fr; grid-template-rows: 45vh 1fr; }
+  .panel .formular { border-left: 0; border-top: 1px solid var(--linie); }
+}
+@media (max-width: 720px) {
+  header, main { padding-left: 16px; padding-right: 16px; }
+  .rechts { margin-left: 0; }
+  table thead { display: none; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  tr.zeile { border-bottom: 1px solid var(--linie); padding: 8px 4px; }
+  td { border: 0; padding: 2px 8px; }
+  td.betrag { text-align: left; }
+  td.nur-breit { display: none; }
+  input[type=search] { min-width: 0; flex: 1; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1><span>PLANEGY</span> Belegbox</h1>
+  <span class="leise" id="scanInfo"></span>
+  <div class="rechts">
+    <button class="knopf haupt" id="btnScan">Postfach scannen</button>
+    <label class="knopf" for="dateiInput">Beleg hochladen</label>
+    <input type="file" id="dateiInput" accept="application/pdf,image/*" multiple hidden>
+    <button class="knopf" id="btnPaket">Monatspaket</button>
+    <button class="knopf" id="btnEinst">Einstellungen</button>
+  </div>
+</header>
+
+<main>
+  <div class="hinweis" id="ohneSchluessel" style="display:none">
+    Kein Claude-API-Schlüssel hinterlegt. Belege werden abgelegt, aber nicht ausgelesen. Schlüssel unter „Einstellungen“ eintragen.
+  </div>
+  <div class="ablage" id="ablage">Dateien hierher ziehen oder „Beleg hochladen“ wählen. Auf dem Handy öffnet das die Kamera.</div>
+
+  <div class="kacheln" id="kacheln"></div>
+
+  <div class="filter">
+    <select id="fMonat"></select>
+    <select id="fRichtung">
+      <option value="">Eingang und Ausgang</option>
+      <option>Eingang</option><option>Ausgang</option><option>Unklar</option>
+    </select>
+    <select id="fBereich">
+      <option value="">Alle Bereiche</option><option>Geschäftlich</option><option>Privat</option>
+    </select>
+    <input type="search" id="fSuche" placeholder="Suche: Lieferant, Betrag, Nummer …">
+  </div>
+  <div class="filter chips" id="fStatus"></div>
+
+  <div id="liste"></div>
+</main>
+
+<div class="panel" id="panel">
+  <div class="vorschau"><iframe id="vorschau" title="Belegvorschau"></iframe></div>
+  <div class="formular">
+    <div class="kopf">
+      <h2 id="pTitel"></h2>
+      <button class="knopf klein" id="pZu">Schließen</button>
+    </div>
+    <div class="hinweis" id="pHinweis" style="display:none"></div>
+    <form id="pForm" autocomplete="off">
+      <div class="zwei">
+        <div class="feld"><label>Status</label><select name="status" id="pStatus"></select></div>
+        <div class="feld"><label>Richtung</label><select name="richtung"><option>Eingang</option><option>Ausgang</option><option>Unklar</option></select></div>
+      </div>
+      <div class="zwei">
+        <div class="feld"><label>Dokumentart</label><select name="dokumentart" id="pDokart"></select></div>
+        <div class="feld"><label>Belegdatum</label><input type="date" name="belegdatum"></div>
+      </div>
+      <div class="feld"><label>Lieferant / Kunde</label><input type="text" name="partner"></div>
+      <div class="zwei">
+        <div class="feld"><label>Rechnungsnummer</label><input type="text" name="rechnungsnummer"></div>
+        <div class="feld"><label>USt-IdNr. Partner</label><input type="text" name="partner_ustid"></div>
+      </div>
+      <div class="feld"><label>Beschreibung</label><input type="text" name="beschreibung"></div>
+      <div class="zwei">
+        <div class="feld"><label>Kategorie</label><select name="kategorie" id="pKat"></select></div>
+        <div class="feld"><label>Konto SKR03 (Vorschlag)</label><input type="text" name="konto"></div>
+      </div>
+      <div class="drei">
+        <div class="feld"><label>Netto</label><input type="text" name="netto" inputmode="decimal"></div>
+        <div class="feld"><label>USt %</label><input type="text" name="ust_satz" inputmode="decimal"></div>
+        <div class="feld"><label>USt-Betrag</label><input type="text" name="ust_betrag" inputmode="decimal"></div>
+      </div>
+      <div class="drei">
+        <div class="feld"><label>Brutto</label><input type="text" name="brutto" inputmode="decimal"></div>
+        <div class="feld"><label>Währung</label><input type="text" name="waehrung" maxlength="3"></div>
+        <div class="feld"><label>Brutto EUR</label><input type="text" id="pEur" disabled></div>
+      </div>
+      <div class="drei">
+        <div class="feld"><label>Zahlungsart</label><input type="text" name="zahlungsart"></div>
+        <div class="feld"><label>Bezahlt</label><select name="bezahlt"><option></option><option>ja</option><option>nein</option><option>unbekannt</option></select></div>
+        <div class="feld"><label>Bereich</label><select name="bereich"><option>Geschäftlich</option><option>Privat</option></select></div>
+      </div>
+      <label class="check"><input type="checkbox" name="reverse_charge"> Reverse Charge (§ 13b UStG)</label>
+      <div class="feld"><label>Notiz für Buchhaltung / Steuerberater</label><textarea name="notiz" rows="2"></textarea></div>
+      <div class="aktionen">
+        <button type="submit" class="knopf">Speichern</button>
+        <button type="button" class="knopf haupt" id="pFrei">Freigeben</button>
+        <button type="button" class="knopf" id="pSenden">An Belegmail senden</button>
+        <button type="button" class="knopf" id="pAus">Ausschließen</button>
+        <button type="button" class="knopf" id="pNeu">Neu auslesen</button>
+        <button type="button" class="knopf" id="pGenau" title="Mit dem genaueren Modell auslesen, z. B. bei unscharfen Fotos">Genau auslesen</button>
+      </div>
+    </form>
+    <div class="meta" id="pMeta"></div>
+  </div>
+</div>
+
+<div class="dialog" id="dPaket">
+  <div class="inhalt">
+    <h2>Monatspaket für den Steuerberater</h2>
+    <p class="leise">Enthält alle Belege des Monats mit Status Neu, Freigegeben oder Übermittelt: CSV und Excel-Liste, Belege als ZIP, abgelegt in Drive unter „Exporte“.</p>
+    <div class="feld"><label>Monat</label><input type="month" id="paketMonat"></div>
+    <div id="paketVorschau" class="leise"></div>
+    <label class="check"><input type="checkbox" id="paketEntwurf" checked> Gmail-Entwurf an den Steuerberater anlegen (wird nicht gesendet)</label>
+    <label class="check"><input type="checkbox" id="paketTeilen"> Drive-Ordner für die Steuerberater-Adresse freigeben</label>
+    <div class="aktionen" style="position:static">
+      <button class="knopf haupt" id="paketLos">Paket erstellen</button>
+      <button class="knopf" data-zu="dPaket">Abbrechen</button>
+    </div>
+    <div id="paketErgebnis"></div>
+  </div>
+</div>
+
+<div class="dialog" id="dEinst">
+  <div class="inhalt">
+    <h2>Einstellungen</h2>
+    <form id="eForm" autocomplete="off">
+      <div class="drei">
+        <div class="feld"><label>Firma</label><input type="text" name="FIRMA_NAME"></div>
+        <div class="feld"><label>USt-IdNr.</label><input type="text" name="FIRMA_USTID"></div>
+        <div class="feld"><label>Sitz</label><input type="text" name="FIRMA_ORT"></div>
+      </div>
+      <div class="feld"><label>Claude-API-Schlüssel <span id="eSchluesselStand" class="leise"></span></label><input type="text" name="ANTHROPIC_API_KEY" placeholder="sk-ant-… (leer lassen = unverändert)"></div>
+      <div class="zwei">
+        <div class="feld"><label>Modell (Standard)</label><input type="text" name="MODELL"></div>
+        <div class="feld"><label>Modell für „Genau auslesen“</label><input type="text" name="GENAU_MODELL"></div>
+      </div>
+      <div class="zwei">
+        <div class="feld"><label>Mails pro Lauf</label><input type="number" name="MAX_MAILS_PRO_LAUF" min="1" max="60"></div>
+      </div>
+      <div class="feld"><label>Gmail-Suche</label><textarea name="GMAIL_SUCHE" rows="3"></textarea></div>
+      <div class="zwei">
+        <div class="feld"><label>Erster Scan ab</label><input type="date" name="SCAN_AB"></div>
+        <div class="feld"><label>Mails ohne Anhang als PDF</label><select name="HTML_ALS_PDF"><option value="true">ja</option><option value="false">nein</option></select></div>
+      </div>
+      <div class="feld"><label>Beleg-Mailadresse (DATEV Upload Mail, lexoffice, sevDesk)</label><input type="email" name="BELEGMAIL"></div>
+      <div class="feld"><label>Freigegebene Belege automatisch an Beleg-Mailadresse senden</label><select name="AUTO_UEBERMITTELN"><option value="false">nein</option><option value="true">ja</option></select></div>
+      <div class="zwei">
+        <div class="feld"><label>Steuerberater E-Mail</label><input type="email" name="STEUERBERATER_MAIL"></div>
+        <div class="feld"><label>Anrede Steuerberater</label><input type="text" name="STEUERBERATER_NAME"></div>
+      </div>
+      <div class="feld"><label>Monatspaket am 3. als Gmail-Entwurf</label><select name="MONATSPAKET_AUTO"><option value="true">ja</option><option value="false">nein</option></select></div>
+      <div class="aktionen" style="position:static">
+        <button type="submit" class="knopf haupt">Speichern</button>
+        <button type="button" class="knopf" data-zu="dEinst">Schließen</button>
+      </div>
+      <p class="leise" id="eLinks"></p>
+    </form>
+  </div>
+</div>
+
+<div class="meldung" id="meldung"></div>
+
+<script>
+var D = null;            // Daten vom Server
+var filter = { monat: '', status: 'offen', richtung: '', bereich: '', suche: '' };
+var aktiv = null;        // geöffneter Beleg
+
+var $ = function (id) { return document.getElementById(id); };
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+function eur(n) { if (n === '' || n == null || isNaN(Number(n))) return ''; return Number(n).toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+function deDat(iso) { if (!iso) return ''; var t = String(iso).slice(0, 10).split('-'); return t.length === 3 ? t[2] + '.' + t[1] + '.' + t[0] : iso; }
+function monatName(m) { if (!m) return 'ohne Datum'; var n = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez']; var t = m.split('-'); return n[Number(t[1]) - 1] + ' ' + t[0]; }
+
+function melde(text, fehler) {
+  var m = $('meldung'); m.textContent = text; m.className = 'meldung' + (fehler ? ' fehler' : ''); m.style.display = 'block';
+  clearTimeout(melde.t); melde.t = setTimeout(function () { m.style.display = 'none'; }, fehler ? 8000 : 4000);
+}
+
+function server(name) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  return new Promise(function (ok, nein) {
+    google.script.run.withSuccessHandler(ok).withFailureHandler(function (e) { melde(e.message || String(e), true); nein(e); })[name].apply(null, args);
+  });
+}
+
+function laden() {
+  return server('appDaten').then(function (d) { D = d; aufbauen(); });
+}
+
+function aufbauen() {
+  $('ohneSchluessel').style.display = D.hatSchluessel ? 'none' : 'block';
+  $('scanInfo').textContent = D.letzterScan ? 'Letzter vollständiger Scan: ' + new Date(D.letzterScan).toLocaleString('de-DE') : 'Noch kein Scan';
+
+  var monate = {};
+  D.belege.forEach(function (b) { monate[b.monat] = true; });
+  var liste = Object.keys(monate).sort().reverse();
+  $('fMonat').innerHTML = '<option value="">Alle Monate</option>' + liste.map(function (m) { return '<option value="' + m + '">' + monatName(m) + '</option>'; }).join('');
+  $('fMonat').value = filter.monat;
+
+  $('pStatus').innerHTML = D.status.map(function (s) { return '<option>' + esc(s) + '</option>'; }).join('');
+  $('pDokart').innerHTML = '<option></option>' + D.dokumentarten.map(function (s) { return '<option>' + esc(s) + '</option>'; }).join('');
+  $('pKat').innerHTML = '<option></option>' + D.kategorien.map(function (s) { return '<option>' + esc(s) + '</option>'; }).join('');
+  zeigen();
+}
+
+function passt(b, ohneStatus) {
+  if (filter.monat && b.monat !== filter.monat) return false;
+  if (filter.richtung && b.richtung !== filter.richtung) return false;
+  if (filter.bereich && b.bereich !== filter.bereich) return false;
+  if (!ohneStatus) {
+    if (filter.status === 'offen' && ['Neu', 'Prüfen'].indexOf(b.status) < 0) return false;
+    if (filter.status && filter.status !== 'offen' && filter.status !== 'alle' && b.status !== filter.status) return false;
+  }
+  if (filter.suche) {
+    var q = filter.suche.toLowerCase();
+    var heu = [b.partner, b.rechnungsnummer, b.beschreibung, b.kategorie, b.absender, b.betreff, b.id, eur(b.brutto), b.brutto].join(' ').toLowerCase();
+    if (heu.indexOf(q) < 0) return false;
+  }
+  return true;
+}
+
+function zeigen() {
+  var basis = D.belege.filter(function (b) { return passt(b, true); });
+  var zahl = function (f) { return basis.filter(f).length; };
+  var chips = [
+    ['offen', 'Zu bearbeiten', zahl(function (b) { return b.status === 'Neu' || b.status === 'Prüfen'; })],
+    ['Prüfen', 'Prüfen', zahl(function (b) { return b.status === 'Prüfen'; })],
+    ['Freigegeben', 'Freigegeben', zahl(function (b) { return b.status === 'Freigegeben'; })],
+    ['Übermittelt', 'Übermittelt', zahl(function (b) { return b.status === 'Übermittelt'; })],
+    ['Dublette', 'Dubletten', zahl(function (b) { return b.status === 'Dublette'; })],
+    ['Ausgeschlossen', 'Ausgeschlossen', zahl(function (b) { return b.status === 'Ausgeschlossen'; })],
+    ['alle', 'Alle', basis.length]
+  ];
+  $('fStatus').innerHTML = chips.map(function (c) {
+    return '<span class="chip' + (filter.status === c[0] ? ' an' : '') + '" data-status="' + c[0] + '">' + c[1] + '<span class="n">' + c[2] + '</span></span>';
+  }).join('');
+
+  // Kacheln über alle gültigen Belege im Filter
+  var gueltig = basis.filter(function (b) { return ['Neu', 'Freigegeben', 'Übermittelt'].indexOf(b.status) > -1; });
+  var summe = function (r) {
+    return gueltig.filter(function (b) { return (r === 'Ausgang') === (b.richtung === 'Ausgang'); })
+      .reduce(function (s, b) { var v = b.brutto_eur !== '' ? b.brutto_eur : (b.waehrung === 'EUR' ? b.brutto : 0); return s + (Number(v) || 0); }, 0);
+  };
+  $('kacheln').innerHTML = [
+    ['Ausgaben brutto', eur(summe('Eingang')) + ' €'],
+    ['Einnahmen brutto', eur(summe('Ausgang')) + ' €'],
+    ['Zu prüfen', zahl(function (b) { return b.status === 'Prüfen'; })],
+    ['Dubletten erkannt', zahl(function (b) { return b.status === 'Dublette'; })],
+    ['Belege gesamt', basis.length]
+  ].map(function (k) { return '<div class="kachel"><div class="titel">' + k[0] + '</div><div class="wert">' + k[1] + '</div></div>'; }).join('');
+
+  var sicht = D.belege.filter(function (b) { return passt(b, false); });
+  if (!sicht.length) {
+    $('liste').innerHTML = '<div class="leer">' + (D.belege.length ? 'Keine Belege für diesen Filter.' : 'Noch keine Belege. „Postfach scannen“ startet die erste Suche in Gmail.') + '</div>';
+    return;
+  }
+  $('liste').innerHTML = '<table><thead><tr><th>Datum</th><th>Lieferant / Kunde</th><th class="nur-breit">Art</th><th class="nur-breit">Kategorie</th>' +
+    '<th class="betrag">Brutto</th><th>Status</th></tr></thead><tbody>' +
+    sicht.map(function (b) {
+      return '<tr class="zeile' + (aktiv && aktiv.id === b.id ? ' aktiv' : '') + '" data-id="' + esc(b.id) + '">' +
+        '<td>' + (deDat(b.belegdatum) || '<span class="leise">' + deDat(b.eingang) + '</span>') + '</td>' +
+        '<td><strong>' + esc(b.partner || '—') + '</strong> <span class="r-' + esc(b.richtung) + ' leise">' + esc(b.richtung === 'Eingang' ? '' : b.richtung) + '</span>' +
+        '<div class="leise">' + esc(b.beschreibung || b.betreff) + (b.rechnungsnummer ? ' · Nr. ' + esc(b.rechnungsnummer) : '') + '</div></td>' +
+        '<td class="nur-breit">' + esc(b.dokumentart) + '</td>' +
+        '<td class="nur-breit">' + esc(b.kategorie) + (b.bereich === 'Privat' ? ' <span class="marke s-Prüfen">Privat</span>' : '') + '</td>' +
+        '<td class="betrag">' + eur(b.brutto) + ' ' + esc(b.waehrung) + (b.waehrung && b.waehrung !== 'EUR' && b.brutto_eur !== '' ? '<div class="leise">' + eur(b.brutto_eur) + ' €</div>' : '') + '</td>' +
+        '<td><span class="marke s-' + esc(b.status) + '">' + esc(b.status) + '</span>' + (b.grund ? '<div class="leise">' + esc(String(b.grund).slice(0, 70)) + '</div>' : '') + '</td></tr>';
+    }).join('') + '</tbody></table>';
+}
+
+function oeffnen(id) {
+  aktiv = D.belege.filter(function (b) { return b.id === id; })[0];
+  if (!aktiv) return;
+  $('panel').classList.add('offen');
+  $('vorschau').src = aktiv.datei_id ? 'https://drive.google.com/file/d/' + aktiv.datei_id + '/preview' : 'about:blank';
+  $('pTitel').textContent = aktiv.id + (aktiv.partner ? ' · ' + aktiv.partner : '');
+  var h = [aktiv.grund, aktiv.dublette_von ? 'Dublette zu ' + aktiv.dublette_von : ''].filter(Boolean).join(' · ');
+  $('pHinweis').style.display = h ? 'block' : 'none';
+  $('pHinweis').textContent = h;
+  var f = $('pForm');
+  ['status', 'richtung', 'dokumentart', 'belegdatum', 'partner', 'rechnungsnummer', 'partner_ustid', 'beschreibung', 'kategorie', 'konto',
+    'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung', 'zahlungsart', 'bezahlt', 'bereich', 'notiz'].forEach(function (k) {
+    var v = aktiv[k] == null ? '' : aktiv[k];
+    if (['netto', 'ust_betrag', 'brutto'].indexOf(k) > -1) v = v === '' ? '' : eur(v);
+    if (k === 'ust_satz') v = v === '' ? '' : String(v).replace('.', ',');
+    if (k === 'belegdatum') v = String(v || '').slice(0, 10);
+    f.elements[k].value = v == null ? '' : v;
+  });
+  f.elements.reverse_charge.checked = aktiv.reverse_charge === 'ja' || aktiv.reverse_charge === true;
+  $('pEur').value = aktiv.brutto_eur === '' ? '' : eur(aktiv.brutto_eur) + (aktiv.kurs ? ' (Kurs ' + aktiv.kurs + ')' : '');
+  $('pSenden').style.display = D.einstellungen.BELEGMAIL ? '' : 'none';
+  $('pMeta').innerHTML = [
+    'Quelle: ' + esc(aktiv.quelle) + (aktiv.absender ? ' von ' + esc(aktiv.absender) : ''),
+    aktiv.betreff ? 'Betreff: ' + esc(aktiv.betreff) : '',
+    'Eingang: ' + (aktiv.eingang ? new Date(aktiv.eingang).toLocaleString('de-DE') : ''),
+    aktiv.uebermittelt ? 'Übermittelt: ' + new Date(aktiv.uebermittelt).toLocaleString('de-DE') : '',
+    'Datei: ' + esc(aktiv.datei_name) + (aktiv.datei_id ? ' · <a href="https://drive.google.com/file/d/' + esc(aktiv.datei_id) + '/view" target="_blank">in Drive öffnen</a>' : ''),
+    aktiv.mail_id ? '<a href="https://mail.google.com/mail/u/0/#all/' + esc(aktiv.mail_id) + '" target="_blank">Mail in Gmail öffnen</a>' : '',
+    aktiv.vertrauen !== '' ? 'KI-Sicherheit: ' + Math.round(Number(aktiv.vertrauen) * 100) + ' %' : ''
+  ].filter(Boolean).join('<br>');
+  zeigen();
+}
+
+function schliessen() { aktiv = null; $('panel').classList.remove('offen'); $('vorschau').src = 'about:blank'; zeigen(); }
+
+function formularWerte() {
+  var f = $('pForm');
+  var w = {};
+  ['status', 'richtung', 'dokumentart', 'belegdatum', 'partner', 'rechnungsnummer', 'partner_ustid', 'beschreibung', 'kategorie', 'konto',
+    'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung', 'zahlungsart', 'bezahlt', 'bereich', 'notiz'].forEach(function (k) { w[k] = f.elements[k].value; });
+  w.reverse_charge = f.elements.reverse_charge.checked ? 'ja' : '';
+  return w;
+}
+
+function ersetzen(b) {
+  for (var i = 0; i < D.belege.length; i++) if (D.belege[i].id === b.id) D.belege[i] = b;
+}
+
+function speichern(extra) {
+  var w = formularWerte();
+  Object.keys(extra || {}).forEach(function (k) { w[k] = extra[k]; });
+  return server('belegAktualisieren', aktiv.id, w).then(function (b) {
+    ersetzen(b); melde('Gespeichert: ' + b.id + ' (' + b.status + ')');
+    naechsterOffener(b.id);
+  });
+}
+
+function naechsterOffener(id) {
+  var sicht = D.belege.filter(function (b) { return passt(b, false); });
+  var idx = sicht.map(function (b) { return b.id; }).indexOf(id);
+  if (idx > -1) oeffnen(id);
+  else if (sicht.length) oeffnen(sicht[0].id);
+  else schliessen();
+}
+
+// Bilder vom Handy verkleinern, bevor sie hochgeladen werden
+function dateiLesen(datei) {
+  return new Promise(function (ok, nein) {
+    if (datei.type === 'application/pdf' || !/^image\//.test(datei.type)) {
+      var r = new FileReader();
+      r.onload = function () { ok({ name: datei.name, mime: datei.type || 'application/pdf', b64: String(r.result).split(',')[1] }); };
+      r.onerror = nein; r.readAsDataURL(datei); return;
+    }
+    var img = new Image();
+    img.onload = function () {
+      var max = 2200, s = Math.min(1, max / Math.max(img.width, img.height));
+      var c = document.createElement('canvas'); c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+      ok({ name: datei.name.replace(/\.\w+$/, '') + '.jpg', mime: 'image/jpeg', b64: c.toDataURL('image/jpeg', 0.85).split(',')[1] });
+      URL.revokeObjectURL(img.src);
+    };
+    img.onerror = function () { nein(new Error('Bild nicht lesbar: ' + datei.name)); };
+    img.src = URL.createObjectURL(datei);
+  });
+}
+
+function hochladen(dateien) {
+  var liste = Array.prototype.slice.call(dateien);
+  if (!liste.length) return;
+  var n = 0;
+  melde('Lade ' + liste.length + ' Datei(en) hoch und lese sie aus …');
+  liste.reduce(function (kette, datei) {
+    return kette.then(function () {
+      return dateiLesen(datei).then(function (d) { return server('belegHochladen', d.name, d.mime, d.b64); })
+        .then(function (r) { n++; D.belege.unshift(r.beleg); melde(n + '/' + liste.length + ': ' + r.ergebnis); })
+        .catch(function () { /* Meldung kam schon */ });
+    });
+  }, Promise.resolve()).then(function () { laden(); });
+}
+
+// Ereignisse
+$('fMonat').onchange = function () { filter.monat = this.value; zeigen(); };
+$('fRichtung').onchange = function () { filter.richtung = this.value; zeigen(); };
+$('fBereich').onchange = function () { filter.bereich = this.value; zeigen(); };
+$('fSuche').oninput = function () { filter.suche = this.value.trim(); zeigen(); };
+$('fStatus').onclick = function (e) { var c = e.target.closest('.chip'); if (c) { filter.status = c.dataset.status; zeigen(); } };
+$('liste').onclick = function (e) { var z = e.target.closest('tr.zeile'); if (z) oeffnen(z.dataset.id); };
+$('pZu').onclick = schliessen;
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { schliessen(); document.querySelectorAll('.dialog.offen').forEach(function (d) { d.classList.remove('offen'); }); } });
+$('pForm').onsubmit = function (e) { e.preventDefault(); speichern(); };
+$('pFrei').onclick = function () { speichern({ status: 'Freigegeben' }); };
+$('pAus').onclick = function () { speichern({ status: 'Ausgeschlossen' }); };
+$('pSenden').onclick = function () {
+  speichern().then(function () { return server('uebermittelnAusApp', aktiv.id); })
+    .then(function (b) { ersetzen(b); melde('An ' + D.einstellungen.BELEGMAIL + ' gesendet'); oeffnen(b.id); });
+};
+function neuAuslesen(genau) {
+  melde(genau ? 'Lese mit ' + D.einstellungen.GENAU_MODELL + ' aus …' : 'Lese neu aus …');
+  server('neuAuslesenAusApp', aktiv.id, genau).then(function (b) { ersetzen(b); oeffnen(b.id); melde('Neu ausgelesen'); });
+}
+$('pNeu').onclick = function () { neuAuslesen(false); };
+$('pGenau').onclick = function () { neuAuslesen(true); };
+$('pForm').elements.kategorie.onchange = function () {
+  var k = D.kategorieKonten[this.value]; if (k) $('pForm').elements.konto.value = k;
+};
+
+$('btnScan').onclick = function () {
+  var k = this; k.disabled = true; k.textContent = 'Scanne …';
+  server('scanStarten').then(function (r) { melde(r.meldung); return laden(); })
+    .finally(function () { k.disabled = false; k.textContent = 'Postfach scannen'; });
+};
+$('dateiInput').onchange = function () { hochladen(this.files); this.value = ''; };
+var ablage = $('ablage');
+['dragenter', 'dragover'].forEach(function (t) { document.addEventListener(t, function (e) { e.preventDefault(); ablage.classList.add('drueber'); }); });
+['dragleave', 'drop'].forEach(function (t) { document.addEventListener(t, function (e) { e.preventDefault(); if (t === 'drop' || e.target === ablage) ablage.classList.remove('drueber'); }); });
+document.addEventListener('drop', function (e) { hochladen(e.dataTransfer.files); });
+
+document.querySelectorAll('[data-zu]').forEach(function (k) { k.onclick = function () { $(k.dataset.zu).classList.remove('offen'); }; });
+
+$('btnPaket').onclick = function () {
+  var d = new Date(); d.setDate(1); d.setMonth(d.getMonth() - 1);
+  $('paketMonat').value = filter.monat || (d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0'));
+  $('paketErgebnis').innerHTML = '';
+  paketVorschau();
+  $('dPaket').classList.add('offen');
+};
+function paketVorschau() {
+  var m = $('paketMonat').value;
+  var im = D.belege.filter(function (b) { return b.monat === m; });
+  var rein = im.filter(function (b) { return ['Neu', 'Freigegeben', 'Übermittelt'].indexOf(b.status) > -1; }).length;
+  var offen = im.filter(function (b) { return b.status === 'Prüfen'; }).length;
+  $('paketVorschau').innerHTML = rein + ' Belege kommen ins Paket.' + (offen ? ' <strong style="color:var(--warn)">' + offen + ' Beleg(e) stehen noch auf „Prüfen“ und fehlen im Paket.</strong>' : '') +
+    (D.einstellungen.STEUERBERATER_MAIL ? '' : ' Keine Steuerberater-Adresse hinterlegt, daher kein Entwurf.');
+}
+$('paketMonat').onchange = paketVorschau;
+$('paketLos').onclick = function () {
+  var k = this; k.disabled = true; k.textContent = 'Erstelle …';
+  server('monatspaketAusApp', $('paketMonat').value, $('paketEntwurf').checked, $('paketTeilen').checked).then(function (r) {
+    $('paketErgebnis').innerHTML = '<p>' + r.anzahl + ' Belege, Ausgaben ' + eur(r.summen.eingang) + ' €, Einnahmen ' + eur(r.summen.ausgang) + ' €. ' +
+      (r.entwurf ? 'Entwurf liegt in Gmail. ' : '') + '<a href="' + esc(r.ordner) + '" target="_blank">Ordner öffnen</a></p>';
+  }).finally(function () { k.disabled = false; k.textContent = 'Paket erstellen'; });
+};
+
+$('btnEinst').onclick = function () {
+  var f = $('eForm');
+  Object.keys(D.einstellungen).forEach(function (k) { if (f.elements[k]) f.elements[k].value = D.einstellungen[k]; });
+  f.elements.ANTHROPIC_API_KEY.value = '';
+  $('eSchluesselStand').textContent = D.hatSchluessel ? '(hinterlegt)' : '(fehlt)';
+  $('eLinks').innerHTML = '<a href="' + esc(D.links.tabelle) + '" target="_blank">Belegliste, Regeln und Kategorien in Google Sheets</a> · <a href="' + esc(D.links.ordner) + '" target="_blank">Drive-Ordner</a>';
+  $('dEinst').classList.add('offen');
+};
+$('eForm').onsubmit = function (e) {
+  e.preventDefault();
+  var w = {}; Array.prototype.forEach.call(this.elements, function (el) { if (el.name) w[el.name] = el.value; });
+  server('einstellungenSpeichern', w).then(function (d) { D = d; aufbauen(); melde('Einstellungen gespeichert'); $('dEinst').classList.remove('offen'); });
+};
+
+laden();
+</script>
+</body>
+</html>

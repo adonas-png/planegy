@@ -179,11 +179,11 @@ function lieferantAktualisieren(beleg) {
 }
 
 /** Beleg erneut auslesen, z. B. nachdem der API-Schlüssel hinterlegt wurde. */
-function belegNeuAuslesen(id) {
+function belegNeuAuslesen(id, modell) {
   var beleg = belegNachId(id);
   if (!beleg) throw new Error('Beleg nicht gefunden');
   var blob = DriveApp.getFileById(beleg.datei_id).getBlob();
-  var x = belegAuslesen(blob, { absender: beleg.absender, betreff: beleg.betreff });
+  var x = belegAuslesen(blob, { absender: beleg.absender, betreff: beleg.betreff }, modell);
   if (!x) throw new Error('ANTHROPIC_API_KEY fehlt');
   var notiz = beleg.notiz;
   beleg.status = STATUS.NEU;

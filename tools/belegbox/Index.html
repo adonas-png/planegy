@@ -181,6 +181,7 @@ td.betrag, th.betrag { text-align: right; white-space: nowrap; font-variant-nume
         <button type="button" class="knopf" id="pSenden">An Belegmail senden</button>
         <button type="button" class="knopf" id="pAus">Ausschließen</button>
         <button type="button" class="knopf" id="pNeu">Neu auslesen</button>
+        <button type="button" class="knopf" id="pGenau" title="Mit dem genaueren Modell auslesen, z. B. bei unscharfen Fotos">Genau auslesen</button>
       </div>
     </form>
     <div class="meta" id="pMeta"></div>
@@ -214,7 +215,10 @@ td.betrag, th.betrag { text-align: right; white-space: nowrap; font-variant-nume
       </div>
       <div class="feld"><label>Claude-API-Schlüssel <span id="eSchluesselStand" class="leise"></span></label><input type="text" name="ANTHROPIC_API_KEY" placeholder="sk-ant-… (leer lassen = unverändert)"></div>
       <div class="zwei">
-        <div class="feld"><label>Modell</label><input type="text" name="MODELL"></div>
+        <div class="feld"><label>Modell (Standard)</label><input type="text" name="MODELL"></div>
+        <div class="feld"><label>Modell für „Genau auslesen“</label><input type="text" name="GENAU_MODELL"></div>
+      </div>
+      <div class="zwei">
         <div class="feld"><label>Mails pro Lauf</label><input type="number" name="MAX_MAILS_PRO_LAUF" min="1" max="60"></div>
       </div>
       <div class="feld"><label>Gmail-Suche</label><textarea name="GMAIL_SUCHE" rows="3"></textarea></div>
@@ -464,10 +468,12 @@ $('pSenden').onclick = function () {
   speichern().then(function () { return server('uebermittelnAusApp', aktiv.id); })
     .then(function (b) { ersetzen(b); melde('An ' + D.einstellungen.BELEGMAIL + ' gesendet'); oeffnen(b.id); });
 };
-$('pNeu').onclick = function () {
-  melde('Lese neu aus …');
-  server('neuAuslesenAusApp', aktiv.id).then(function (b) { ersetzen(b); oeffnen(b.id); melde('Neu ausgelesen'); });
-};
+function neuAuslesen(genau) {
+  melde(genau ? 'Lese mit ' + D.einstellungen.GENAU_MODELL + ' aus …' : 'Lese neu aus …');
+  server('neuAuslesenAusApp', aktiv.id, genau).then(function (b) { ersetzen(b); oeffnen(b.id); melde('Neu ausgelesen'); });
+}
+$('pNeu').onclick = function () { neuAuslesen(false); };
+$('pGenau').onclick = function () { neuAuslesen(true); };
 $('pForm').elements.kategorie.onchange = function () {
   var k = D.kategorieKonten[this.value]; if (k) $('pForm').elements.konto.value = k;
 };

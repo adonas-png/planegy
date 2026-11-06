@@ -19,8 +19,9 @@ var STANDARD_EINSTELLUNGEN = {
   HTML_ALS_PDF: 'true',
   // Max. Mails pro Lauf. Apps Script bricht nach 6 Minuten ab.
   MAX_MAILS_PRO_LAUF: '25',
-  // Claude-Modell für die Auslesung.
-  MODELL: 'claude-opus-5-5',
+  // Claude-Modell für die Auslesung. Haiku ist günstig; "Genau auslesen" in der App nutzt GENAU_MODELL.
+  MODELL: 'claude-haiku-5-5',
+  GENAU_MODELL: 'claude-opus-5-5',
   // Optional: Beleg-Mailadresse von DATEV Unternehmen online (Upload Mail), lexoffice oder sevDesk.
   BELEGMAIL: '',
   // Freigegebene Belege sofort an BELEGMAIL senden.

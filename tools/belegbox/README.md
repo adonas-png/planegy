@@ -25,7 +25,12 @@ Kategorien tragen einen Kontovorschlag nach SKR03 (Blatt „Kategorien“, frei 
 
 Mit adonas@planegy.de angemeldet auf [script.google.com](https://script.google.com) ein neues Projekt „PLANEGY Belegbox“ anlegen.
 
-**Variante A, von Hand:** In den Projekteinstellungen „appsscript.json im Editor anzeigen“ einschalten. Für jede `.gs`-Datei aus diesem Ordner eine Skriptdatei mit gleichem Namen anlegen und den Inhalt einfügen (`Code.gs` kann gelöscht werden). `Index.html` als HTML-Datei mit dem Namen `Index` anlegen. Den Inhalt von `appsscript.json` ersetzen.
+**Variante A, im Browser (empfohlen):** Im Ordner `dist/` liegen drei fertige Dateien zum Einfügen. Auf GitHub jeweils die Datei öffnen und oben rechts „Copy raw file“ klicken.
+
+1. Im Apps-Script-Editor links auf das Zahnrad (Projekteinstellungen) und „Manifestdatei appsscript.json im Editor anzeigen“ einschalten.
+2. Zurück im Editor (`<>`): `Code.gs` öffnen, alles markieren und durch den Inhalt von `dist/Code.gs` ersetzen. Speichern.
+3. Neben „Dateien“ auf `+` › HTML, Name `Index` (ohne .html). Inhalt durch `dist/Index.html` ersetzen. Speichern.
+4. `appsscript.json` öffnen und durch `dist/appsscript.json` ersetzen. Speichern.
 
 **Variante B, mit clasp:**
 
@@ -51,7 +56,7 @@ Vorher unter [script.google.com/home/usersettings](https://script.google.com/hom
 
 ### 2. Einrichten ausführen
 
-Im Editor die Datei `Setup.gs` öffnen, oben die Funktion `einrichten` wählen und „Ausführen“ klicken. Google fragt nach Berechtigungen für Gmail, Drive, Sheets und externe Aufrufe. Weil die App nicht von Google geprüft ist, kommt ein Warnhinweis: „Erweitert“ und „Weiter zu PLANEGY Belegbox“ wählen.
+Im Editor oben in der Funktionsauswahl `einrichten` wählen und „Ausführen“ klicken. Google fragt nach Berechtigungen für Gmail, Drive, Sheets und externe Aufrufe. Weil die App nicht von Google geprüft ist, kommt ein Warnhinweis: „Erweitert“ und „Weiter zu PLANEGY Belegbox“ wählen.
 
 Danach gibt es in Drive den Ordner „PLANEGY Belegbox“ mit der Belegliste, in Gmail die Labels „Belege“ und „Belege/erfasst“, und zwei Zeitauslöser (stündlicher Scan, Monatspaket am 3.).
 
@@ -85,7 +90,14 @@ Vor dem 13.11.2026 den Test kündigen, in WellyBox Gmail- und WhatsApp-Verbindun
 
 ## Kosten
 
-Google Apps Script, Drive und Sheets sind im Workspace-Konto enthalten. Bezahlt wird nur die Claude-API nach Verbrauch. Mit dem voreingestellten Modell `claude-opus-5-5` (4 USD pro Million Eingabe-Token, 20 USD pro Million Ausgabe-Token) kostet ein ein- bis zweiseitiger Beleg grob 2 bis 4 Cent. Bei 60 Belegen im Monat sind das etwa 2 USD. Wer sparen will, trägt in den Einstellungen `claude-haiku-5-5` als Modell ein; das ist deutlich günstiger, liest aber unsaubere Scans schlechter.
+Google Apps Script, Drive und Sheets sind im Workspace-Konto enthalten. Bezahlt wird nur die Claude-API nach Verbrauch, getrennt vom Claude-Pro-Abo.
+
+| Modell | pro Beleg | 100 Belege im Monat |
+| --- | --- | --- |
+| `claude-haiku-5-5` (Standard) | ca. 0,1 Cent | ca. 0,10 USD |
+| `claude-opus-5-5` (Knopf „Genau auslesen“) | ca. 3–4 Cent | ca. 3–4 USD |
+
+Grundlage: etwa 4.000 Token Eingabe und 1.000 Token Antwort pro Beleg. Haiku reicht für normale PDF-Rechnungen. Bei unscharfen Fotos den Beleg in der App mit „Genau auslesen“ noch einmal mit Opus lesen lassen.
 
 ## Grenzen
 
@@ -99,6 +111,7 @@ Google Apps Script, Drive und Sheets sind im Workspace-Konto enthalten. Bezahlt 
 
 | Datei | Inhalt |
 | --- | --- |
+| `dist/` | Fertige Dateien zum Einfügen im Browser, erzeugt mit `node tools/belegbox/build.js` |
 | `Logic.gs` | Regeln, Dublettenerkennung, Dateinamen, CSV. Ohne Google-Dienste, mit Node testbar. |
 | `Config.gs` | Einstellungen und Hilfsfunktionen für Drive und Sheets |
 | `Setup.gs` | Einmalige Einrichtung |

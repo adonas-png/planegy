@@ -59,7 +59,7 @@ function systemPrompt(kategorien) {
 /**
  * blob: PDF oder Bild. kontext: { absender, betreff, text } aus der Mail.
  */
-function belegAuslesen(blob, kontext) {
+function belegAuslesen(blob, kontext, modell) {
   var schluessel = einstellung('ANTHROPIC_API_KEY');
   if (!schluessel) return null;
 
@@ -82,15 +82,17 @@ function belegAuslesen(blob, kontext) {
   }
 
   var body = {
-    model: einstellung('MODELL') || 'claude-opus-5-5',
+    model: modell || einstellung('MODELL') || 'claude-haiku-5-5',
     max_tokens: 16000,
     output_config: { effort: 'low', format: { type: 'json_schema', schema: AUSLESE_SCHEMA } },
-    fallbacks: 'default',
     system: systemPrompt(kategorien),
     messages: [{ role: 'user', content: [block, { type: 'text', text: hinweis + '\n\nLies diesen Beleg aus.' }] }]
   };
 
-  var antwort = claudeAnfrage(schluessel, body);
+  // Haiku hat keinen serverseitigen Rückfall auf ein anderes Modell, Opus und Sonnet schon.
+  var mitRueckfall = !/haiku/.test(body.model);
+  if (mitRueckfall) body.fallbacks = 'default';
+  var antwort = claudeAnfrage(schluessel, body, mitRueckfall);
   if (antwort.stop_reason === 'refusal') {
     throw new Error('Claude hat die Auslesung abgelehnt');
   }
@@ -99,18 +101,18 @@ function belegAuslesen(blob, kontext) {
   return JSON.parse(text);
 }
 
-function claudeAnfrage(schluessel, body) {
+function claudeAnfrage(schluessel, body, mitRueckfall) {
   var optionen = {
     method: 'post',
     contentType: 'application/json',
     headers: {
       'x-api-key': schluessel,
-      'anthropic-version': '2023-06-01',
-      'anthropic-beta': 'server-side-fallback-2026-07-01'
+      'anthropic-version': '2023-06-01'
     },
     payload: JSON.stringify(body),
     muteHttpExceptions: true
   };
+  if (mitRueckfall) optionen.headers['anthropic-beta'] = 'server-side-fallback-2026-07-01';
   var versuche = 0;
   while (true) {
     versuche++;
