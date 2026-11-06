@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gasturbine für Prozessdampf: Abhitzekessel richtig auslegen – PLANEGY</title>
+  <meta name="description" content="Wie eine Gasturbine mit Abhitzekessel Prozessdampf erzeugt: Komponenten, Dampfparameter, Wirkungsgrade, Praxisbeispiele und Planung in Deutschland." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Gasturbine für Prozessdampf: Abhitzekessel richtig auslegen" />
+  <meta property="og:description" content="Wie eine Gasturbine mit Abhitzekessel Prozessdampf erzeugt: Komponenten, Dampfparameter, Wirkungsgrade, Praxisbeispiele und Planung in Deutschland." />
+  <link rel="canonical" href="https://planegy.de/blog-gasturbine-prozessdampf" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Gasturbine für Prozessdampf: Abhitzekessel richtig auslegen",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-06",
+    "description": "Wie eine Gasturbine mit Abhitzekessel Prozessdampf erzeugt: Komponenten, Dampfparameter, Wirkungsgrade, Praxisbeispiele und Planung in Deutschland."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"⚡"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Gasturbine für Prozessdampf: Abhitzekessel richtig auslegen</span>
+    </div>
+    <div class="article-cat">Energie</div>
+    <h1>Gasturbine für Prozessdampf: Abhitzekessel richtig auslegen</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>12 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="gasturbine-fur-prozessdampf-abhitzekessel-richtig-auslegen" tabindex="-1">Gasturbine für Prozessdampf: Abhitzekessel richtig auslegen</h1>
+
+<p>Eine Gasturbine erzeugt Prozessdampf über einen nachgeschalteten Abhitzekessel. Die Turbine verbrennt Gas und erzeugt damit Strom. Ihr heißes Abgas strömt danach durch den Kessel und verdampft dort Speisewasser. Dieser Dampf geht direkt ins Prozessnetz oder zuerst durch eine Dampfturbine und wird an einer Entnahme abgezweigt. Reicht die Abgaswärme nicht aus, erhöht eine Zusatzfeuerung die Dampfmenge. Ausgeführte Anlagen nutzen so rund 80 bis 86 % des eingesetzten Brennstoffs. Ob sich das für Ihren Standort rechnet, hängt vor allem davon ab, wie gleichmäßig Sie Dampf brauchen und auf welchem Druck- und Temperaturniveau.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Energielösungen neutral bewerten lassen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY entwickelt mit Industrieunternehmen maßgeschneiderte Energielösungen und unterstützt von der Analyse bis zur Umsetzung.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Energielösungen entdecken<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li><strong>Prinzip:</strong> Die Gasturbine erzeugt Strom. Ihr Abgas liefert im Abhitzekessel über Economizer, Verdampfer und Überhitzer Prozessdampf.</li>
+<li><strong>Leistungsbereich:</strong> Von wenigen Tonnen Dampf pro Stunde in einer Papierfabrik bis zu 200 t/h in einem Chemiestandort ist alles umgesetzt.</li>
+<li><strong>Effizienz:</strong> Anlagen mit Dampfnutzung erreichen Gesamtnutzungsgrade von etwa 80 bis 86 %. Wird nur Strom erzeugt, liegt der Wirkungsgrad eines GuD-Kraftwerks bei bis zu 60 %.</li>
+<li><strong>Flexibilität:</strong> Mit Zusatzfeuerung lässt sich die Dampfmenge weitgehend unabhängig von der Stromerzeugung steuern.</li>
+<li><strong>Erfolgsfaktor:</strong> Grundlage jeder Auslegung ist das Lastprofil des Dampfbedarfs, nicht die elektrische Leistung der Turbine.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#so-wird-aus-abgaswarme-prozessdampf">So wird aus Abgaswärme Prozessdampf</a></li>
+<li><a href="#die-komponenten-im-uberblick">Die Komponenten im Überblick</a></li>
+<li><a href="#welche-dampfmengen-und-parameter-moglich-sind">Welche Dampfmengen und -parameter möglich sind</a></li>
+<li><a href="#zusatzfeuerung-dampf-und-strom-entkoppeln">Zusatzfeuerung: Dampf und Strom entkoppeln</a></li>
+<li><a href="#drei-anlagenkonzepte-im-vergleich">Drei Anlagenkonzepte im Vergleich</a></li>
+<li><a href="#wirkungsgrad-was-sie-realistisch-erwarten-konnen">Wirkungsgrad: Was Sie realistisch erwarten können</a></li>
+<li><a href="#auslegung-zuerst-der-dampfbedarf-dann-die-turbine">Auslegung: Zuerst der Dampfbedarf, dann die Turbine</a></li>
+<li><a href="#wirtschaftlichkeit-und-genehmigung-in-deutschland">Wirtschaftlichkeit und Genehmigung in Deutschland</a></li>
+<li><a href="#unsere-sicht-auf-gasturbinen-fur-prozessdampf">Unsere Sicht auf Gasturbinen für Prozessdampf</a></li>
+<li><a href="#von-der-idee-zur-genehmigten-anlage">Von der Idee zur genehmigten Anlage</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="so-wird-aus-abgaswarme-prozessdampf" tabindex="-1">So wird aus Abgaswärme Prozessdampf</h2>
+<p>In einer Gasturbine verdichtet ein Verdichter Luft. In der Brennkammer wird darin Brennstoff verbrannt, und das heiße Gas treibt die Turbine samt Generator an. Danach ist das Abgas immer noch sehr heiß. Ohne Abhitzekessel würde diese Wärme ungenutzt über den Schornstein entweichen.</p>
+<p>Der Abhitzekessel sitzt zwischen dem Turbinenaustritt und dem Schornstein. Das Prinzip ist einfach: Wasser verdampft bei viel niedrigeren Temperaturen, als in der Brennkammer herrschen. Deshalb lässt sich die <a href="https://top-energy.gfai.de/documentation/index.php/kb/abhitzedampferzeuger/" rel="nofollow noopener noreferrer" target="_blank">Abgaswärme noch gut zur Dampferzeugung nutzen</a>, obwohl sie schon deutlich abgekühlt ist. Zwei Prozesse laufen also nacheinander ab: zuerst der Gasturbinenprozess, dann der Dampfprozess.</p>
+<p>Im Kessel durchläuft das Speisewasser drei Heizflächen. Im Economizer wird es vorgewärmt, im Verdampfer verdampft und im Überhitzer auf die gewünschte Dampftemperatur gebracht. So beschreibt es zum Beispiel die <a href="https://www.uvp-verbund.de/documents-ige-ng/igc_hh/B9CFC7FE-09DF-4F29-B6BF-8087F73D4291/Kapitel%203%20-%20Anlage%20und%20Betrieb.pdf" rel="nofollow noopener noreferrer" target="_blank">Anlagenbeschreibung eines GuD-Projekts in Hamburg</a>. Dort wird außerdem gezeigt, wie ein Teil des Dampfes als Fern- oder Prozesswärme ausgekoppelt wird.</p>
+<p>Für Industriebetriebe gibt es zwei Grundvarianten:</p>
+<ol>
+<li><strong>Direkte Prozessdampfversorgung:</strong> Der Frischdampf aus dem Kessel geht ohne Umweg in das Dampfnetz des Werks. Strom kommt allein vom Gasturbinengenerator.</li>
+<li><strong>Kombination mit Dampfturbine:</strong> Der Dampf treibt zuerst eine Dampfturbine an. Auf dem Druckniveau, das der Prozess braucht, wird er entnommen. Das bringt mehr Strom pro eingesetzter Kilowattstunde Gas, macht die Anlage aber auch aufwendiger.</li>
+</ol>
+<p>Wann eine Gasturbine in der Kraft-Wärme-Kopplung grundsätzlich die richtige Wahl ist, lesen Sie in unserem Beitrag <a href="https://planegy.de/blog-gasturbine-kraftwarmekopplung" target="_blank" rel="noopener">Gasturbine in der Kraft-Wärme-Kopplung</a>.</p>
+<h2 id="die-komponenten-im-uberblick" tabindex="-1">Die Komponenten im Überblick</h2>
+<p>Eine Prozessdampfanlage mit Gasturbine umfasst mehr als Turbine und Kessel. Diese Bausteine gehören zum Gesamtkonzept:</p>
+<table>
+<thead>
+<tr>
+<th>Komponente</th>
+<th>Aufgabe</th>
+<th>Worauf es bei der Planung ankommt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gasturbine mit Generator</td>
+<td>Strom erzeugen, heißes Abgas liefern</td>
+<td>Abgasmassenstrom und Abgastemperatur bei Voll- und Teillast</td>
+</tr>
+<tr>
+<td>Abgasweg mit Bypass</td>
+<td>Abgas am Kessel vorbeiführen, wenn kein Dampf gebraucht wird</td>
+<td>Ob die Turbine auch ohne Dampfabnahme laufen soll</td>
+</tr>
+<tr>
+<td>Zusatzfeuerung</td>
+<td>Abgas nachheizen, um mehr Dampf zu erzeugen</td>
+<td>Restsauerstoff im Abgas, Regelbereich, Emissionen</td>
+</tr>
+<tr>
+<td>Überhitzer</td>
+<td>Dampf auf die Zieltemperatur bringen</td>
+<td>Dampfparameter des Prozesses oder der Dampfturbine</td>
+</tr>
+<tr>
+<td>Verdampfer</td>
+<td>Speisewasser verdampfen</td>
+<td>Druckstufe, Umlaufsystem, Lastwechsel</td>
+</tr>
+<tr>
+<td>Economizer</td>
+<td>Speisewasser vorwärmen, Abgas abkühlen</td>
+<td>Möglichst niedrige Abgastemperatur am Kesselaustritt</td>
+</tr>
+<tr>
+<td>Speisewasseraufbereitung und Entgasung</td>
+<td>Wasserqualität für den Kessel sichern</td>
+<td>Kondensatrücklauf aus dem Prozess</td>
+</tr>
+<tr>
+<td>Dampfturbine (optional)</td>
+<td>Zusätzlichen Strom erzeugen, Dampf an der Entnahme abgeben</td>
+<td>Entnahmedruck und Entnahmemenge</td>
+</tr>
+<tr>
+<td>Leittechnik</td>
+<td>Turbine, Kessel und Prozessnetz zusammen regeln</td>
+<td>Vorrang zwischen Dampf- und Stromführung</td>
+</tr>
+</tbody>
+</table>
+<p>Der Economizer ist der wichtigste Hebel, wenn es um den Wirkungsgrad geht. Je weiter er das Abgas abkühlt, desto mehr Wärme landet im Dampf. Welche weiteren Maßnahmen bei bestehenden Kesseln wirken, zeigen wir in <a href="https://planegy.de/blog-dampferzeuger-effizienz" target="_blank" rel="noopener">Effizienzsteigerung bei Dampferzeugern</a>.</p>
+<h2 id="welche-dampfmengen-und-parameter-moglich-sind" tabindex="-1">Welche Dampfmengen und -parameter möglich sind</h2>
+<p>Wie viel Dampf Sie bekommen und auf welchem Niveau, hängt vom Abgasstrom der Turbine, von der Kesselauslegung und von einer eventuellen Zusatzfeuerung ab. Ausgeführte Anlagen zeigen die Spannbreite:</p>
+<table>
+<thead>
+<tr>
+<th>Anlage</th>
+<th>Branche</th>
+<th>Dampf</th>
+<th>Besonderheit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://nachhaltigwirtschaften.at/de/edz/projekte/kwk-papierfabrik-sca-hygiene-ortmann.php" rel="nofollow noopener noreferrer" target="_blank">SCA Hygiene, Ortmann (Österreich)</a></td>
+<td>Papier</td>
+<td>2 × 10,5 t/h bei 16 bar und 250 °C, mit Zusatzfeuerung bis 2 × 22 t/h</td>
+<td>Abgas nach dem Kessel 135 °C, Gesamtnutzungsgrad 86 % bei Volllast</td>
+</tr>
+<tr>
+<td><a href="https://www.process.vogel.de/infra-leuna-feiert-inbetriebnahme-des-modernisierten-kraftwerkes-gud-2-a-440419654775dc7c715e56d959c87ba9/" rel="nofollow noopener noreferrer" target="_blank">Infra Leuna, GuD 2</a></td>
+<td>Chemiestandort</td>
+<td>bis zu 200 t/h Prozessdampf</td>
+<td>Brennstoffausnutzung 86 %, 15 Minuten vom Start bis zur maximalen Stromleistung</td>
+</tr>
+<tr>
+<td><a href="https://www.ineoskoeln.de/unternehmen/projekte/gud-anlage/" rel="nofollow noopener noreferrer" target="_blank">INEOS Köln, GuD-Anlage</a></td>
+<td>Chemie</td>
+<td>Dampf für Dampfturbine und Prozessnetze</td>
+<td>Abhitzekessel mit Zusatzfeuerung, Dampf über Entnahmen ins Werk</td>
+</tr>
+<tr>
+<td><a href="https://www.bhkw-infozentrum.de/bhkw-des-monats/mit-kwk-gegen-sauergas" rel="nofollow noopener noreferrer" target="_blank">KWK-Konzept Cuno-Werk</a></td>
+<td>Energieversorgung</td>
+<td>bis zu 80 t/h Prozessdampf aus dem Abhitzekessel</td>
+<td>Gesamtwirkungsgrad ca. 80 %</td>
+</tr>
+</tbody>
+</table>
+<p>Das Beispiel Ortmann zeigt besonders gut, was die einzelnen Zahlen bedeuten. Das Speisewasser kommt mit 60 °C in den Kessel, das Abgas verlässt ihn mit 135 °C. Mit der Zusatzfeuerung wird die Temperatur vor dem Kessel auf 725 °C angehoben, und die Dampfmenge verdoppelt sich ungefähr. Der Dampf heizt dort vor allem die Walzen der Papiermaschinen.</p>
+<p>Für die Planung heißt das: Druck und Temperatur legen Sie nach dem Bedarf Ihres Prozesses fest, nicht nach dem Datenblatt der Turbine. Ein Netz mit 16 bar Sattdampf braucht einen anderen Kessel als eine Kombination mit Dampfturbine, die überhitzten Hochdruckdampf benötigt.</p>
+
+<h2 id="zusatzfeuerung-dampf-und-strom-entkoppeln" tabindex="-1">Zusatzfeuerung: Dampf und Strom entkoppeln</h2>
+<p>Nach der Verbrennung in der Gasturbine enthält das Abgas noch viel Sauerstoff. Eine Zusatzfeuerung, auch Zusatz- oder Nachfeuerung genannt, nutzt diesen Sauerstoff und verbrennt im Abgaskanal vor dem Kessel weiteren Brennstoff. Das bringt drei Vorteile:</p>
+<ul>
+<li><strong>Mehr Dampf bei gleicher Turbine:</strong> Die Dampfleistung steigt deutlich, wie in Ortmann zu sehen, ohne dass eine größere Gasturbine nötig ist.</li>
+<li><strong>Bessere Regelbarkeit:</strong> Ändert sich der Dampfbedarf, regeln Sie die Zusatzfeuerung nach. Die Turbine kann im Bestpunkt bleiben.</li>
+<li><strong>Mehr Versorgungssicherheit:</strong> Je nach Auslegung kann der Kessel mit Frischluftbetrieb auch dann Dampf liefern, wenn die Turbine in Revision ist.</li>
+</ul>
+<p>Deshalb haben viele Industrieanlagen eine Zusatzfeuerung, darunter die Anlage von INEOS in Köln. Dort geht der Dampf sowohl in die Dampfturbine als auch in die Prozessnetze des Standorts.</p>
+<h2 id="drei-anlagenkonzepte-im-vergleich" tabindex="-1">Drei Anlagenkonzepte im Vergleich</h2>
+<p>Unter dem Begriff „Gasturbine mit Dampf“ laufen drei unterschiedliche Konzepte. Für Ihre Entscheidung ist es wichtig, sie auseinanderzuhalten:</p>
+<table>
+<thead>
+<tr>
+<th>Kriterium</th>
+<th>Gasturbine mit Abhitzekessel für Prozessdampf</th>
+<th>GuD-Anlage mit Dampfentnahme</th>
+<th>Gasturbine mit Dampfeinspritzung (STIG)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wohin geht der Dampf?</td>
+<td>Direkt in den Prozess</td>
+<td>In die Dampfturbine, teilweise ins Prozessnetz</td>
+<td>Zurück in die Brennkammer der Gasturbine</td>
+</tr>
+<tr>
+<td>Hauptziel</td>
+<td>Prozesswärme mit Stromerzeugung als Zusatz</td>
+<td>Hohe Stromausbeute plus Wärmeauskopplung</td>
+<td>Mehr Leistung aus der Gasturbine</td>
+</tr>
+<tr>
+<td>Komplexität</td>
+<td>Mittel</td>
+<td>Hoch</td>
+<td>Mittel</td>
+</tr>
+<tr>
+<td>Typischer Einsatz</td>
+<td>Papier, Lebensmittel, Chemie, Textil</td>
+<td>Große Industriestandorte, Heizkraftwerke</td>
+<td>Anlagen mit wechselndem Dampfbedarf</td>
+</tr>
+</tbody>
+</table>
+<p>Bei der Dampfeinspritzung nutzt der Abhitzekessel die Abgaswärme ebenfalls. Der Dampf wird aber in die Brennkammer eingespritzt und erhöht dort den Massenstrom durch die Turbine. Je nach Konzept lässt sich Dampf zwischen Prozess und Einspritzung aufteilen.</p>
+<p>Die GuD-Anlage holt den meisten Strom aus dem Gas. Im <a href="https://www.enbw.com/unternehmen/themen/kohleausstieg/heizkraftwerk-heilbronn/" rel="nofollow noopener noreferrer" target="_blank">Heizkraftwerk Heilbronn der EnBW</a> wird die Energie aus der Gasverbrennung doppelt genutzt, durch Gasturbine, Abhitzekessel und Dampfturbine. Der Wirkungsgrad steigt so auf bis zu 60 %. Für einen Industriebetrieb, der vor allem Dampf braucht, ist die einfachere Variante mit direkter Dampfabgabe oft die passende. Sie hat weniger Komponenten und gibt die Wärme ohne Umweg an den Prozess.</p>
+<h2 id="wirkungsgrad-was-sie-realistisch-erwarten-konnen" tabindex="-1">Wirkungsgrad: Was Sie realistisch erwarten können</h2>
+<p>Beim Wirkungsgrad werden oft zwei Kennzahlen verwechselt:</p>
+<ul>
+<li><strong>Elektrischer Wirkungsgrad:</strong> Er sagt, wie viel Prozent des Brennstoffs zu Strom werden. Bei großen GuD-Anlagen sind das bis zu 60 %. Eine Gasturbine allein mit Abhitzekessel liegt deutlich darunter, weil der Dampf nicht verstromt wird.</li>
+<li><strong>Gesamtnutzungsgrad oder Brennstoffausnutzung:</strong> Hier zählen Strom und genutzte Wärme zusammen. In den Beispielen oben liegt er bei 80 bis 86 %.</li>
+</ul>
+<p>Für Prozessdampf ist der Gesamtnutzungsgrad die entscheidende Zahl. Er ist aber nur dann hoch, wenn der Dampf auch wirklich abgenommen wird. Eine Anlage, die nachts mit offenem Bypass läuft, kommt nie auf die Werte aus dem Datenblatt.</p>
+<p>Diese Faktoren bestimmen den realen Nutzungsgrad:</p>
+<ol>
+<li><strong>Abgastemperatur am Kesselaustritt:</strong> Je niedriger, desto besser. Ein Economizer und kalte Speisewasser- oder Kondensatströme helfen dabei.</li>
+<li><strong>Auslastung:</strong> Viele Volllaststunden mit voller Dampfabnahme sind die Basis.</li>
+<li><strong>Teillastverhalten:</strong> Gasturbinen verlieren in Teillast an Wirkungsgrad. Eine Zusatzfeuerung oder ein Spitzenlastkessel fängt Bedarfsschwankungen ab.</li>
+<li><strong>Kondensatrückführung:</strong> Jeder Kubikmeter Kondensat, der zurückkommt, spart Aufbereitung und Vorwärmung.</li>
+</ol>
+<p>Hat Ihr Werk weitere Abwärmequellen, etwa Abluft, Kühlwasser oder Abgas aus Öfen, lohnt sich ein Gesamtblick. Laut einer <a href="https://www.isi.fraunhofer.de/content/dam/isi/dokumente/cce/2013/Kurzstudie_Abwaermenutzung.pdf" rel="nofollow noopener noreferrer" target="_blank">Kurzstudie des Fraunhofer ISI zur industriellen Abwärmenutzung</a> ist die Nutzung innerhalb der Anlage oder des Prozesses oft die naheliegendste Variante: Die Wege sind kurz, und es entstehen keine Abhängigkeiten von Dritten. Unser Leitfaden zur <a href="https://planegy.de/blog-abwarmenutzung-industrie" target="_blank" rel="noopener">industriellen Abwärmenutzung</a> ordnet die Optionen ein.</p>
+<h2 id="auslegung-zuerst-der-dampfbedarf-dann-die-turbine" tabindex="-1">Auslegung: Zuerst der Dampfbedarf, dann die Turbine</h2>
+<p>Der häufigste Planungsfehler ist, mit der Turbine anzufangen. Eine wirtschaftliche Anlage entsteht in dieser Reihenfolge:</p>
+<ol>
+<li><strong>Lastprofil erfassen:</strong> Stündliche Dampfmengen über mindestens ein typisches Jahr, getrennt nach Druckstufen. Wichtig sind auch Wochenenden, Stillstände und saisonale Schwankungen.</li>
+<li><strong>Grundlast bestimmen:</strong> Die Dampfmenge, die fast immer gebraucht wird, ist die Basis für die Größe von Gasturbine und Abhitzekessel.</li>
+<li><strong>Spitzen abdecken:</strong> Spitzen übernimmt die Zusatzfeuerung oder ein separater Spitzenlastkessel. Liegt der Dampfbedarf deutlich über der Grundlast, ist ein Spitzenlastkessel neben einem reinen Abhitzekessel oft die bessere Lösung.</li>
+<li><strong>Strombedarf abgleichen:</strong> Wie viel Strom können Sie selbst verbrauchen, wie viel geht ins Netz? Das bestimmt maßgeblich die Erlöse.</li>
+<li><strong>Dampfparameter festlegen:</strong> Druck, Temperatur und Überhitzung richten sich nach dem Prozess, bei einer Dampfturbine auch nach deren Eintritts- und Entnahmedaten.</li>
+<li><strong>Redundanz klären:</strong> Was passiert, wenn die Turbine ausfällt? Viele Betriebe behalten einen Bestandskessel als Reserve. Wie sich dieser fit machen lässt, zeigt unser Beitrag <a href="https://planegy.de/blog-dampfkessel-modernisierung" target="_blank" rel="noopener">Dampfkessel modernisieren</a>.</li>
+</ol>
+<p>Vergleichen Sie zum Schluss mehrere Varianten auf Basis von Vollkosten: Investition, Brennstoff, Wartung, Stromerlöse und CO₂-Kosten über die gesamte Laufzeit.</p>
+<h2 id="wirtschaftlichkeit-und-genehmigung-in-deutschland" tabindex="-1">Wirtschaftlichkeit und Genehmigung in Deutschland</h2>
+<p>Ob sich das Projekt rechnet, entscheiden in Deutschland vor allem vier Punkte:</p>
+<ul>
+<li><strong>Verhältnis von Gas- und Strompreis:</strong> Die Anlage verdient Geld, wenn der selbst erzeugte Strom teurer zugekauften Netzstrom ersetzt und die Wärme gleichzeitig genutzt wird.</li>
+<li><strong>Volllaststunden:</strong> Ein gleichmäßiger Dampfbedarf im Mehrschichtbetrieb ist ideal.</li>
+<li><strong>CO₂-Kosten und Energieträger:</strong> Die Anlage ist ein Baustein auf dem Weg zur Dekarbonisierung. Wichtig ist, ob sie später erneuerbare Gase wie Biomethan nutzen kann. Unsere Einschätzung dazu lesen Sie in <a href="https://planegy.de/blog-biomethan-in-kwk" target="_blank" rel="noopener">Biomethan in der KWK</a>. In welcher Reihenfolge Sie Prozesswärme insgesamt klimafreundlich machen, zeigt <a href="https://planegy.de/blog-dekarbonisierung-prozesswarme" target="_blank" rel="noopener">Dekarbonisierung der Prozesswärme</a>.</li>
+<li><strong>Förderung und Zuschläge:</strong> Für KWK-Anlagen und Effizienzmaßnahmen gibt es Programme auf Bundes- und EU-Ebene. Die Bedingungen ändern sich regelmäßig. Prüfen Sie deshalb vor jeder Investitionsentscheidung, welche Programme aktuell gelten und ob sie sich kombinieren lassen. Wie Sie Programme richtig kumulieren, erklären wir in <a href="https://planegy.de/blog-fordermittel-kombinieren" target="_blank" rel="noopener">Fördermittel kombinieren</a>.</li>
+</ul>
+<p>Dazu kommt die Genehmigung. Gasturbinen und Dampfkessel sind Feuerungsanlagen. Ob ein immissionsschutzrechtliches Verfahren nötig ist und welches, richtet sich nach der Feuerungswärmeleistung und dem Brennstoff gemäß 4. BImSchV. Emissionsgrenzwerte, Schornsteinhöhe, Lärm und die Einbindung in bestehende Genehmigungen gehören früh auf den Tisch. Planen Sie dafür ausreichend Vorlauf ein und stimmen Sie sich frühzeitig mit der zuständigen Immissionsschutzbehörde ab. Wie das Verfahren abläuft, beschreiben wir in <a href="https://planegy.de/blog-bimschv-genehmigung-industrieanlagen" target="_blank" rel="noopener">4. BImSchV: Genehmigungsverfahren für Industrieanlagen</a>.</p>
+<h2 id="unsere-sicht-auf-gasturbinen-fur-prozessdampf" tabindex="-1">Unsere Sicht auf Gasturbinen für Prozessdampf</h2>
+<blockquote>
+<p>Wir erleben oft, dass Projekte mit einem fertigen Angebot für eine bestimmte Turbine beginnen. Wir drehen die Reihenfolge um: Zuerst kommt der Dampfbedarf, dann die Technik. Wir verkaufen keine eigenen Anlagen und vertreten keine Hersteller. Deshalb können wir Gasturbine, BHKW, Dampferzeuger und weitere Optionen neutral nebeneinanderstellen.</p>
+<p>Für Betriebe mit gleichmäßigem Dampfbedarf im Mehrschichtbetrieb ist die Gasturbine mit Abhitzekessel ein sehr starkes Konzept. Sie liefert Strom und Prozessdampf aus einem Brennstoff, und mit Zusatzfeuerung bleibt sie flexibel. Den Unterschied machen die Details: wie die Grundlast bemessen ist, wie weit der Economizer das Abgas abkühlt und wie die Anlage mit dem Bestandskessel zusammenarbeitet.</p>
+<p>Technik allein reicht dabei nicht. Eine Anlage muss genehmigungsfähig sein, Fördermittel einbeziehen und auch in zehn Jahren zum Klimapfad des Unternehmens passen. Deshalb bearbeiten wir Konzept, Genehmigung und Förderservice in einem Projekt. Aus über 20 Jahren im Energiesektor wissen wir: An diesen Schnittstellen entscheidet sich, ob ein Projekt pünktlich und wirtschaftlich in Betrieb geht.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="von-der-idee-zur-genehmigten-anlage" tabindex="-1">Von der Idee zur genehmigten Anlage</h2>
+<p>Wir begleiten Industriebetriebe und Energieversorger bei Gasturbinenprojekten von der ersten Analyse bis zur Umsetzung. Am Anfang stehen Lastprofil und Variantenvergleich. Danach folgen die technologieoffene Anlagenkonzeption, die Genehmigungsunterlagen nach BImSchG und die Suche nach passenden Fördermitteln aus BEW-, KfW-, BAFA- und EU-Programmen.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Sie möchten wissen, ob Ihr Dampfbedarf eine Gasturbine mit Abhitzekessel trägt? Auf unserer Seite <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieberatung und BImSchG für die Industrie</a> finden Sie unser Angebot. Alle Leistungsbereiche im Überblick sehen Sie unter <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">unsere Leistungen</a>.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="was-ist-der-unterschied-zwischen-abhitzekessel-und-abhitzedampferzeuger" tabindex="-1">Was ist der Unterschied zwischen Abhitzekessel und Abhitzedampferzeuger?</h3>
+<p>Im Sprachgebrauch werden beide Begriffe meist gleich verwendet. „Abhitzedampferzeuger“, englisch HRSG, steht eher für große Kraftwerkskessel hinter Gasturbinen, oft mit mehreren Druckstufen. „Abhitzekessel“ ist der allgemeinere Begriff und umfasst auch kleinere Kessel hinter Motoren oder Industrieöfen.</p>
+<h3 id="wie-viel-dampf-liefert-eine-gasturbine-ohne-zusatzfeuerung" tabindex="-1">Wie viel Dampf liefert eine Gasturbine ohne Zusatzfeuerung?</h3>
+<p>Das hängt vom Abgasmassenstrom und der Abgastemperatur der jeweiligen Turbine ab. In der Papierfabrik Ortmann waren es ohne Zusatzfeuerung 2 × 10,5 t/h bei 16 bar. Mit Zusatzfeuerung stieg die Menge auf bis zu 2 × 22 t/h. Die genaue Menge für Ihr Werk ergibt sich aus der Auslegung für Ihre Turbine und Ihre Dampfparameter.</p>
+<h3 id="kann-die-gasturbine-laufen-wenn-kein-dampf-gebraucht-wird" tabindex="-1">Kann die Gasturbine laufen, wenn kein Dampf gebraucht wird?</h3>
+<p>Ja, wenn ein Abgasbypass eingeplant ist. Das Abgas geht dann am Kessel vorbei in den Schornstein. Ohne Wärmenutzung sinkt aber der Gesamtnutzungsgrad deutlich. Deshalb sollte die Anlage so ausgelegt sein, dass dieser Betrieb die Ausnahme bleibt.</p>
+<h3 id="braucht-eine-gasturbine-mit-abhitzekessel-eine-bimschg-genehmigung" tabindex="-1">Braucht eine Gasturbine mit Abhitzekessel eine BImSchG-Genehmigung?</h3>
+<p>Das hängt von der Feuerungswärmeleistung und dem Brennstoff ab, die Einordnung regelt die 4. BImSchV. Bei Industrieanlagen ist oft auch die bestehende Genehmigung des Standorts betroffen. Klären Sie das deshalb früh mit der zuständigen Behörde.</p>
+<h3 id="lohnt-sich-eine-dampfturbine-zusatzlich-zum-abhitzekessel" tabindex="-1">Lohnt sich eine Dampfturbine zusätzlich zum Abhitzekessel?</h3>
+<p>Eine Dampfturbine lohnt sich vor allem bei großem Dampfbedarf und wenn der Prozess Dampf auf niedrigerem Druck braucht, als der Kessel liefern kann. Dann wird die Druckdifferenz zusätzlich zu Strom. Bei kleineren Anlagen ist die direkte Dampfabgabe oft wirtschaftlicher. Welche Variante bei Ihnen besser abschneidet, zeigt ein Vergleich auf Basis von Vollkosten.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<p><a href="https://top-energy.gfai.de/documentation/index.php/kb/abhitzedampferzeuger/" rel="nofollow noopener noreferrer" target="_blank">TOP-Energy: Abhitzedampferzeuger (z. B. GuD-Prozesse)</a>
+<a href="https://www.uvp-verbund.de/documents-ige-ng/igc_hh/B9CFC7FE-09DF-4F29-B6BF-8087F73D4291/Kapitel%203%20-%20Anlage%20und%20Betrieb.pdf" rel="nofollow noopener noreferrer" target="_blank">UVP-Verbund: Kapitel 3, Anlage und Betrieb</a>
+<a href="https://nachhaltigwirtschaften.at/de/edz/projekte/kwk-papierfabrik-sca-hygiene-ortmann.php" rel="nofollow noopener noreferrer" target="_blank">Nachhaltig Wirtschaften: KWK in der Papierfabrik SCA Hygiene Ortmann</a>
+<a href="https://www.process.vogel.de/infra-leuna-feiert-inbetriebnahme-des-modernisierten-kraftwerkes-gud-2-a-440419654775dc7c715e56d959c87ba9/" rel="nofollow noopener noreferrer" target="_blank">PROCESS: Infra Leuna feiert Inbetriebnahme des modernisierten Kraftwerks GuD 2</a>
+<a href="https://www.ineoskoeln.de/unternehmen/projekte/gud-anlage/" rel="nofollow noopener noreferrer" target="_blank">INEOS Köln: GuD-Anlage</a>
+<a href="https://www.bhkw-infozentrum.de/bhkw-des-monats/mit-kwk-gegen-sauergas" rel="nofollow noopener noreferrer" target="_blank">BHKW-Infozentrum: Mit KWK gegen Sauergas</a>
+<a href="https://www.enbw.com/unternehmen/themen/kohleausstieg/heizkraftwerk-heilbronn/" rel="nofollow noopener noreferrer" target="_blank">EnBW: Heizkraftwerk Heilbronn</a>
+<a href="https://www.isi.fraunhofer.de/content/dam/isi/dokumente/cce/2013/Kurzstudie_Abwaermenutzung.pdf" rel="nofollow noopener noreferrer" target="_blank">Fraunhofer ISI: Industrielle Abwärmenutzung, Kurzstudie</a></p>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-gasturbine-kraftwarmekopplung" target="_blank" rel="noopener">Gasturbine in der Kraft-Wärme-Kopplung: Wann sie sich lohnt</a></li>
+<li><a href="https://planegy.de/blog-dampferzeuger-effizienz" target="_blank" rel="noopener">Effizienzsteigerung bei Dampferzeugern: Diese Hebel wirken</a></li>
+<li><a href="https://planegy.de/blog-dampfkessel-modernisierung" target="_blank" rel="noopener">Dampfkessel modernisieren: Diese Maßnahmen bringen den größten Effekt</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
