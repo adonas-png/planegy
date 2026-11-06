@@ -120,3 +120,17 @@ function vorschauUrl(dateiId) {
 function listeBereinigenAusApp() {
   return listeBereinigen();
 }
+
+function jahresUebersichtAusApp(jahr, mitPrivat) {
+  var belege = alleBelege();
+  var jahre = {};
+  belege.forEach(function (b) { var d = alsDatum(b.belegdatum); if (d) jahre[d.getFullYear()] = true; });
+  jahr = Number(jahr) || new Date().getFullYear();
+  var heute = new Date();
+  var stichtag = jahr < heute.getFullYear() ? new Date(jahr, 11, 31) : heute;
+  return {
+    jahre: Object.keys(jahre).map(Number).sort().reverse(),
+    uebersicht: jahresUebersicht(belege, jahr, { mitPrivat: !!mitPrivat, stichtag: stichtag }),
+    laufend: laufendeKosten(belege, { mitPrivat: !!mitPrivat, stichtag: heute })
+  };
+}

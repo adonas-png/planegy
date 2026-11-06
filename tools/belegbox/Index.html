@@ -75,6 +75,23 @@ td.betrag, th.betrag { text-align: right; white-space: nowrap; font-variant-nume
 .meldung.fehler { background: var(--rot); }
 .ablage { border: 2px dashed var(--linie); border-radius: 8px; padding: 18px; text-align: center; color: var(--leise); margin-bottom: 12px; }
 .ablage.drueber { border-color: var(--akzent); background: var(--akzent-hell); }
+.dialog .inhalt.breit { width: min(1000px, 100%); }
+.balken { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; align-items: end; height: 170px; margin: 8px 0 4px; }
+.balken .spalte { display: flex; gap: 2px; align-items: end; height: 100%; }
+.balken .b { flex: 1; border-radius: 3px 3px 0 0; min-height: 1px; }
+.b-aus { background: #c0682b; position: relative; } .b-ein { background: var(--akzent); }
+.wertlabel { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); font-size: 11px; color: var(--leise); white-space: nowrap; padding-bottom: 2px; }
+.balken { padding-top: 16px; }
+.monatsnamen { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6px; font-size: 11px; color: var(--leise); text-align: center; }
+.legende { display: flex; gap: 14px; font-size: 12px; color: var(--leise); }
+.legende i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+.zweispaltig { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; }
+.zweispaltig h3, .inhalt h3 { font-size: 14px; margin: 14px 0 6px; }
+.anteil { height: 6px; background: var(--grau-hell); border-radius: 3px; margin-top: 3px; }
+.anteil span { display: block; height: 100%; background: #c0682b; border-radius: 3px; }
+table.klein { font-size: 13px; }
+table.klein td, table.klein th { padding: 5px 8px; }
+@media (max-width: 720px) { .zweispaltig { grid-template-columns: 1fr; } .balken { gap: 2px; height: 130px; } .monatsnamen { gap: 2px; } }
 .check { display: flex; align-items: center; gap: 6px; margin: 6px 0; }
 
 @media (max-width: 900px) {
@@ -84,11 +101,13 @@ td.betrag, th.betrag { text-align: right; white-space: nowrap; font-variant-nume
 @media (max-width: 720px) {
   header, main { padding-left: 16px; padding-right: 16px; }
   .rechts { margin-left: 0; }
-  table thead { display: none; }
-  table, tbody, tr, td { display: block; width: 100%; }
+  #liste table thead { display: none; }
+  #liste table, #liste tbody, #liste tr, #liste td { display: block; width: 100%; }
   tr.zeile { border-bottom: 1px solid var(--linie); padding: 8px 4px; }
-  td { border: 0; padding: 2px 8px; }
-  td.betrag { text-align: left; }
+  #liste td { border: 0; padding: 2px 8px; }
+  #liste td.betrag { text-align: left; }
+  table.klein th:nth-child(3), table.klein td:nth-child(3), table.klein th:nth-child(4), table.klein td:nth-child(4) { display: none; }
+  .dialog .inhalt { padding: 14px; }
   td.nur-breit { display: none; }
   input[type=search] { min-width: 0; flex: 1; }
 }
@@ -102,6 +121,7 @@ td.betrag, th.betrag { text-align: right; white-space: nowrap; font-variant-nume
     <button class="knopf haupt" id="btnScan">Postfach scannen</button>
     <label class="knopf" for="dateiInput">Beleg hochladen</label>
     <input type="file" id="dateiInput" accept="application/pdf,image/*" multiple hidden>
+    <button class="knopf" id="btnJahr">Jahresübersicht</button>
     <button class="knopf" id="btnPaket">Monatspaket</button>
     <button class="knopf" id="btnEinst">Einstellungen</button>
   </div>
@@ -185,6 +205,18 @@ td.betrag, th.betrag { text-align: right; white-space: nowrap; font-variant-nume
       </div>
     </form>
     <div class="meta" id="pMeta"></div>
+  </div>
+</div>
+
+<div class="dialog" id="dJahr">
+  <div class="inhalt breit">
+    <div class="kopf" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <h2 style="flex:1;margin:0">Jahresübersicht</h2>
+      <select id="jJahr"></select>
+      <label class="check" style="margin:0"><input type="checkbox" id="jPrivat"> mit Privat</label>
+      <button class="knopf klein" data-zu="dJahr">Schließen</button>
+    </div>
+    <div id="jInhalt" class="leise" style="margin-top:12px">Lade …</div>
   </div>
 </div>
 
@@ -495,6 +527,61 @@ var ablage = $('ablage');
 document.addEventListener('drop', function (e) { hochladen(e.dataTransfer.files); });
 
 document.querySelectorAll('[data-zu]').forEach(function (k) { k.onclick = function () { $(k.dataset.zu).classList.remove('offen'); }; });
+
+function jahrLaden() {
+  $('jInhalt').innerHTML = '<p class="leise">Lade …</p>';
+  server('jahresUebersichtAusApp', $('jJahr').value || new Date().getFullYear(), $('jPrivat').checked).then(jahrZeigen);
+}
+function jahrZeigen(r) {
+  var u = r.uebersicht, l = r.laufend;
+  var jahre = r.jahre.length ? r.jahre : [u.jahr];
+  if (jahre.indexOf(u.jahr) < 0) jahre.unshift(u.jahr);
+  $('jJahr').innerHTML = jahre.map(function (j) { return '<option' + (j === u.jahr ? ' selected' : '') + '>' + j + '</option>'; }).join('');
+  var ergebnis = u.einnahmen.netto - u.ausgaben.netto;
+  var laufendesJahr = u.jahr === new Date().getFullYear();
+  var html = '<div class="kacheln">' + [
+    ['Ausgaben netto' + (laufendesJahr ? ' bis heute' : ''), eur(u.ausgaben.netto) + ' €', u.ausgaben.anzahl + ' Belege · brutto ' + eur(u.ausgaben.brutto) + ' €'],
+    ['Davon Vorsteuer / USt', eur(u.ausgaben.ust) + ' €', 'aus Eingangsbelegen'],
+    ['Einnahmen netto', eur(u.einnahmen.netto) + ' €', u.einnahmen.anzahl + ' Ausgangsrechnungen'],
+    ['Überschuss netto (vorläufig)', eur(ergebnis) + ' €', 'Einnahmen minus Ausgaben'],
+    ['Laufende Kosten pro Jahr', eur(l.summeNetto) + ' €', 'netto, hochgerechnet aus Abos']
+  ].map(function (k) { return '<div class="kachel"><div class="titel">' + k[0] + '</div><div class="wert">' + k[1] + '</div><div class="leise">' + k[2] + '</div></div>'; }).join('') + '</div>';
+  var hinweise = [];
+  if (u.zuPruefen) hinweise.push(u.zuPruefen + ' Beleg(e) stehen noch auf „Prüfen“ und sind mitgezählt.');
+  if (u.ohneEur) hinweise.push(u.ohneEur + ' Beleg(e) ohne Betrag oder Euro-Kurs fehlen in den Summen.');
+  if (hinweise.length) html += '<div class="hinweis">' + hinweise.join(' ') + '</div>';
+
+  var max = Math.max.apply(null, u.monate.map(function (m) { return m.ausgaben; }).concat([1]));
+  var mn = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+  html += '<h3>Ausgaben pro Monat (brutto)</h3>' +
+    '<div class="balken">' + u.monate.map(function (m, i) {
+      return '<div class="spalte" title="' + mn[i] + ': Ausgaben ' + eur(m.ausgaben) + ' €, Einnahmen ' + eur(m.einnahmen) + ' €">' +
+        '<div class="b b-aus" style="height:' + (m.ausgaben / max * 100) + '%"><span class="wertlabel">' + (m.ausgaben ? Math.round(m.ausgaben).toLocaleString('de-DE') : '') + '</span></div></div>';
+    }).join('') + '</div><div class="monatsnamen">' + mn.map(function (n) { return '<span>' + n + '</span>'; }).join('') + '</div>';
+
+  var summeKat = u.kategorien.reduce(function (s, k) { return s + k.netto; }, 0) || 1;
+  html += '<div class="zweispaltig"><div><h3>Ausgaben nach Kategorie (netto)</h3>' +
+    (u.kategorien.length ? '<table class="klein"><tbody>' + u.kategorien.map(function (k) {
+      return '<tr><td>' + esc(k.name) + '<div class="anteil"><span style="width:' + (k.netto / summeKat * 100) + '%"></span></div></td><td class="betrag">' + eur(k.netto) + ' €</td></tr>';
+    }).join('') + '</tbody></table>' : '<p class="leise">Keine Ausgaben im Zeitraum.</p>') +
+    '</div><div><h3>Größte Lieferanten (netto)</h3>' +
+    (u.lieferanten.length ? '<table class="klein"><tbody>' + u.lieferanten.map(function (k) {
+      return '<tr><td>' + esc(k.name) + '</td><td class="betrag">' + eur(k.netto) + ' €</td></tr>';
+    }).join('') + '</tbody></table>' : '<p class="leise">—</p>') + '</div></div>';
+
+  html += '<h3>Laufende Kosten (wiederkehrende Zahlungen)</h3>' +
+    (l.posten.length ? '<table class="klein"><thead><tr><th>Lieferant</th><th>Rhythmus</th><th>Letzte Zahlung</th><th class="betrag">Betrag netto</th><th class="betrag">Pro Jahr netto</th></tr></thead><tbody>' +
+      l.posten.map(function (p) {
+        return '<tr' + (p.aktiv ? '' : ' style="opacity:.5"') + '><td>' + esc(p.name) + '<div class="leise">' + esc(p.kategorie) + (p.aktiv ? '' : ' · vermutlich beendet') + '</div></td>' +
+          '<td>' + esc(p.rhythmus) + '</td><td>' + deDat(p.letzteZahlung) + '</td><td class="betrag">' + eur(p.letzterBetragNetto) + ' €</td><td class="betrag"><strong>' + eur(p.proJahrNetto) + ' €</strong></td></tr>';
+      }).join('') + '<tr><td colspan="4"><strong>Summe aktiver Abos</strong></td><td class="betrag"><strong>' + eur(l.summeNetto) + ' €</strong><div class="leise">brutto ' + eur(l.summeBrutto) + ' €</div></td></tr></tbody></table>' +
+      '<p class="leise">Erkannt, wenn ein Lieferant in mindestens zwei Monaten abgerechnet hat. Jahresabos tauchen erst nach der zweiten Rechnung auf.</p>'
+      : '<p class="leise">Noch keine wiederkehrenden Zahlungen erkannt. Dafür braucht es von einem Lieferanten Belege aus mindestens zwei Monaten.</p>');
+  $('jInhalt').innerHTML = html;
+}
+$('btnJahr').onclick = function () { $('dJahr').classList.add('offen'); jahrLaden(); };
+$('jJahr').onchange = jahrLaden;
+$('jPrivat').onchange = jahrLaden;
 
 $('btnPaket').onclick = function () {
   var d = new Date(); d.setDate(1); d.setMonth(d.getMonth() - 1);

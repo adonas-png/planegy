@@ -389,12 +389,148 @@ function exportierbar(b) {
   return b.status === STATUS.FREIGEGEBEN || b.status === STATUS.UEBERMITTELT || b.status === STATUS.NEU;
 }
 
+// ---------- Jahresübersicht und laufende Kosten ----------
+
+// Zählt für Auswertungen: gültige Buchungsbelege, keine Dubletten, nichts Ausgeschlossenes.
+function zaehltFuerAuswertung(b) {
+  return [STATUS.NEU, STATUS.PRUEFEN, STATUS.FREIGEGEBEN, STATUS.UEBERMITTELT].indexOf(b.status) > -1 &&
+    ['Rechnung', 'Quittung', 'Zahlungsbestätigung', 'Gutschrift', ''].indexOf(b.dokumentart || '') > -1;
+}
+
+function bruttoEur(b) {
+  var eur = zahl(b.brutto_eur);
+  if (eur === null && String(b.waehrung || 'EUR').toUpperCase() === 'EUR') eur = zahl(b.brutto);
+  if (eur === null) return null;
+  return b.dokumentart === 'Gutschrift' ? -Math.abs(eur) : eur;
+}
+
+function nettoEur(b) {
+  var netto = zahl(b.netto);
+  var kurs = String(b.waehrung || 'EUR').toUpperCase() === 'EUR' ? 1 : zahl(b.kurs);
+  if (netto !== null && kurs) {
+    var n = netto * kurs;
+    return b.dokumentart === 'Gutschrift' ? -Math.abs(n) : n;
+  }
+  return bruttoEur(b);
+}
+
+function runden(n) { return Math.round(n * 100) / 100; }
+
+/**
+ * Übersicht für ein Kalenderjahr bis zum Stichtag (Standard: heute).
+ * optionen = { mitPrivat: false, stichtag: Date }
+ */
+function jahresUebersicht(belege, jahr, optionen) {
+  optionen = optionen || {};
+  var stichtag = alsDatum(optionen.stichtag) || new Date();
+  var leer = function () { return { netto: 0, ust: 0, brutto: 0, anzahl: 0 }; };
+  var erg = {
+    jahr: jahr, stichtag: isoDatum(stichtag),
+    ausgaben: leer(), einnahmen: leer(),
+    monate: [], kategorien: {}, lieferanten: {}, ohneEur: 0, zuPruefen: 0
+  };
+  for (var m = 0; m < 12; m++) erg.monate.push({ monat: jahr + '-' + zwei(m + 1), ausgaben: 0, einnahmen: 0 });
+
+  belege.forEach(function (b) {
+    if (!zaehltFuerAuswertung(b)) return;
+    if (!optionen.mitPrivat && b.bereich === 'Privat') return;
+    var d = alsDatum(b.belegdatum);
+    if (!d || d.getFullYear() !== Number(jahr) || d > stichtag) return;
+    var brutto = bruttoEur(b);
+    if (brutto === null) { erg.ohneEur++; return; }
+    var netto = nettoEur(b);
+    if (b.status === STATUS.PRUEFEN) erg.zuPruefen++;
+    var ziel = b.richtung === 'Ausgang' ? erg.einnahmen : erg.ausgaben;
+    ziel.netto += netto; ziel.brutto += brutto; ziel.ust += brutto - netto; ziel.anzahl++;
+    var monat = erg.monate[d.getMonth()];
+    if (b.richtung === 'Ausgang') monat.einnahmen += brutto; else monat.ausgaben += brutto;
+    if (b.richtung !== 'Ausgang') {
+      var k = b.kategorie || 'Ohne Kategorie';
+      erg.kategorien[k] = (erg.kategorien[k] || 0) + netto;
+      var l = b.partner || 'Unbekannt';
+      erg.lieferanten[l] = (erg.lieferanten[l] || 0) + netto;
+    }
+  });
+
+  [erg.ausgaben, erg.einnahmen].forEach(function (x) { x.netto = runden(x.netto); x.brutto = runden(x.brutto); x.ust = runden(x.ust); });
+  erg.monate.forEach(function (m) { m.ausgaben = runden(m.ausgaben); m.einnahmen = runden(m.einnahmen); });
+  var sortiert = function (obj, max) {
+    return Object.keys(obj).map(function (k) { return { name: k, netto: runden(obj[k]) }; })
+      .sort(function (a, b) { return b.netto - a.netto; }).slice(0, max || 100);
+  };
+  erg.kategorien = sortiert(erg.kategorien);
+  erg.lieferanten = sortiert(erg.lieferanten, 10);
+  return erg;
+}
+
+/**
+ * Erkennt wiederkehrende Ausgaben (Abos, Mieten, Versicherungen) und rechnet sie aufs Jahr hoch.
+ * Ein Lieferant gilt als wiederkehrend, wenn er in den letzten 13 Monaten in mindestens zwei
+ * verschiedenen Monaten einen Beleg hatte. Jährliche Zahlungen fallen erst nach zwei Jahren auf.
+ */
+function laufendeKosten(belege, optionen) {
+  optionen = optionen || {};
+  var stichtag = alsDatum(optionen.stichtag) || new Date();
+  var grenze = new Date(stichtag.getTime() - 400 * 86400000);
+  var proPartner = {};
+  belege.forEach(function (b) {
+    if (!zaehltFuerAuswertung(b) || b.richtung === 'Ausgang' || b.dokumentart === 'Gutschrift') return;
+    if (!optionen.mitPrivat && b.bereich === 'Privat') return;
+    var d = alsDatum(b.belegdatum);
+    var n = nettoEur(b);
+    if (!d || d < grenze || d > stichtag || n === null || !b.partner) return;
+    var key = normalisiereName(b.partner);
+    (proPartner[key] = proPartner[key] || { name: b.partner, kategorie: b.kategorie, posten: [] }).posten.push({ d: d, netto: n, brutto: bruttoEur(b) });
+  });
+
+  var liste = [];
+  Object.keys(proPartner).forEach(function (key) {
+    var p = proPartner[key];
+    p.posten.sort(function (a, b) { return a.d - b.d; });
+    var monate = {};
+    p.posten.forEach(function (x) { monate[monatVon(x.d)] = true; });
+    if (Object.keys(monate).length < 2) return;
+    // Abstand zwischen den Zahlungen, Median in Tagen
+    var abstaende = [];
+    for (var i = 1; i < p.posten.length; i++) {
+      var t = Math.round((p.posten[i].d - p.posten[i - 1].d) / 86400000);
+      if (t >= 20) abstaende.push(t);
+    }
+    if (!abstaende.length) return;
+    abstaende.sort(function (a, b) { return a - b; });
+    var median = abstaende[Math.floor(abstaende.length / 2)];
+    var rhythmus, proJahr;
+    if (median <= 45) { rhythmus = 'monatlich'; proJahr = 12; }
+    else if (median <= 120) { rhythmus = 'quartalsweise'; proJahr = 4; }
+    else if (median <= 200) { rhythmus = 'halbjährlich'; proJahr = 2; }
+    else { rhythmus = 'jährlich'; proJahr = 1; }
+    var letzter = p.posten[p.posten.length - 1];
+    var tageSeitLetztem = Math.round((stichtag - letzter.d) / 86400000);
+    liste.push({
+      name: p.name, kategorie: p.kategorie || '', rhythmus: rhythmus,
+      letzterBetragNetto: runden(letzter.netto), letzterBetragBrutto: runden(letzter.brutto || letzter.netto),
+      letzteZahlung: isoDatum(letzter.d), anzahl: p.posten.length,
+      proJahrNetto: runden(letzter.netto * proJahr), proJahrBrutto: runden((letzter.brutto || letzter.netto) * proJahr),
+      // Ausgelaufen, wenn die nächste Zahlung deutlich überfällig ist
+      aktiv: tageSeitLetztem <= median * 1.6 + 10
+    });
+  });
+  liste.sort(function (a, b) { return b.proJahrNetto - a.proJahrNetto; });
+  var aktive = liste.filter(function (x) { return x.aktiv; });
+  return {
+    posten: liste,
+    summeNetto: runden(aktive.reduce(function (s, x) { return s + x.proJahrNetto; }, 0)),
+    summeBrutto: runden(aktive.reduce(function (s, x) { return s + x.proJahrBrutto; }, 0))
+  };
+}
+
 if (typeof module !== 'undefined') {
   module.exports = {
     BELEG_SPALTEN: BELEG_SPALTEN, STATUS: STATUS, STANDARD_REGELN: STANDARD_REGELN, STANDARD_KATEGORIEN: STANDARD_KATEGORIEN,
     zeileZuObjekt: zeileZuObjekt, objektZuZeile: objektZuZeile, normalisiereName: normalisiereName, zahl: zahl,
     alsDatum: alsDatum, isoDatum: isoDatum, deDatum: deDatum, monatVon: monatVon, regelTrifft: regelTrifft,
     wendeRegelnAn: wendeRegelnAn, bestimmeRichtung: bestimmeRichtung, istEigeneFirma: istEigeneFirma, findeDublette: findeDublette, dateiname: dateiname, baueCsv: baueCsv,
-    summen: summen, exportierbar: exportierbar, betragDe: betragDe
+    summen: summen, exportierbar: exportierbar, betragDe: betragDe,
+    jahresUebersicht: jahresUebersicht, laufendeKosten: laufendeKosten
   };
 }

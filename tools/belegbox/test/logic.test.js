@@ -171,4 +171,39 @@ test('Liste bereinigen mit Daten wie in der echten Belegliste', () => {
   assert.strictEqual(r.dubletten, 4);
 });
 
+test('Jahresübersicht und laufende Kosten', () => {
+  const B = (partner, datum, netto, brutto, extra) => Object.assign({ status: 'Neu', richtung: 'Eingang', dokumentart: 'Rechnung', partner, belegdatum: datum, netto, brutto, waehrung: 'EUR', kategorie: 'Software & Abos', bereich: 'Geschäftlich' }, extra || {});
+  const belege = [
+    B('Calendly LLC', '2026-09-03', 12, 12), B('Calendly LLC', '2026-10-03', 12, 12), B('Calendly LLC', '2026-11-03', 12, 12),
+    B('Calendly LLC', '2026-11-03', 12, 12, { status: 'Dublette', dokumentart: 'Quittung' }),
+    B('Caya GmbH', '2026-08-01', 24.99, 29.74, { kategorie: 'Miete & Raumkosten' }), B('Caya GmbH', '2026-09-01', 24.99, 29.74, { kategorie: 'Miete & Raumkosten' }),
+    B('Jan Fricke Consulting', '2026-11-02', 1250, 1487.5, { kategorie: 'Fortbildung' }),
+    B('HubSpot Germany GmbH', '2026-10-25', 10, 11.9, { waehrung: 'USD', kurs: 0.9, brutto_eur: 10.71 }),
+    B('Kunde AG', '2026-10-22', 2250, 2677.5, { richtung: 'Ausgang', kategorie: 'Erlöse 19 %' }),
+    B('Kunde', '2026-10-20', 8000, 8800, { richtung: 'Ausgang', dokumentart: 'Angebot', status: 'Ausgeschlossen' }),
+    B('Saily', '2026-10-10', 5, 5, { bereich: 'Privat' }),
+    B('Altes Abo', '2026-01-05', 10, 10), B('Altes Abo', '2026-02-05', 10, 10),
+    B('Nächstes Jahr', '2027-01-05', 99, 99)
+  ];
+  const u = L.jahresUebersicht(belege, 2026, { stichtag: new Date(2026, 10, 6) });
+  // 36 Calendly + 49,98 Caya + 1250 Fricke + 9 HubSpot + 20 altes Abo
+  assert.strictEqual(u.ausgaben.netto, 1364.98);
+  assert.strictEqual(u.ausgaben.brutto, 36 + 59.48 + 1487.5 + 10.71 + 20);
+  assert.strictEqual(u.einnahmen.netto, 2250);
+  assert.strictEqual(u.monate[10].ausgaben, 12 + 1487.5);
+  assert.strictEqual(u.kategorien[0].name, 'Fortbildung');
+  const mitPrivat = L.jahresUebersicht(belege, 2026, { stichtag: new Date(2026, 10, 6), mitPrivat: true });
+  assert.strictEqual(mitPrivat.ausgaben.netto, 1369.98);
+
+  const l = L.laufendeKosten(belege, { stichtag: new Date(2026, 10, 6) });
+  const namen = l.posten.map(p => p.name);
+  assert.ok(namen.includes('Calendly LLC') && namen.includes('Caya GmbH') && namen.includes('Altes Abo'));
+  assert.ok(!namen.includes('Jan Fricke Consulting') && !namen.includes('HubSpot Germany GmbH'));
+  const cal = l.posten.find(p => p.name === 'Calendly LLC');
+  assert.strictEqual(cal.rhythmus, 'monatlich'); assert.strictEqual(cal.proJahrNetto, 144); assert.ok(cal.aktiv);
+  assert.strictEqual(l.posten.find(p => p.name === 'Altes Abo').aktiv, false);
+  // Caya: letzte Zahlung 01.09., Abstand 31 Tage -> am 06.11. überfällig, gilt als beendet
+  assert.strictEqual(l.summeNetto, 144 + (l.posten.find(p => p.name === 'Caya GmbH').aktiv ? 299.88 : 0));
+});
+
 console.log(n + ' Tests bestanden');
