@@ -129,4 +129,46 @@ test('dist ist aktuell (sonst: node tools/belegbox/build.js)', () => {
   assert.strictEqual(ctx.STANDARD_EINSTELLUNGEN.MODELL, 'claude-haiku-5-5');
 });
 
+test('Liste bereinigen mit Daten wie in der echten Belegliste', () => {
+  const dir = path.join(__dirname, '..');
+  const code = fs.readdirSync(dir).filter(f => f.endsWith('.gs')).map(f => fs.readFileSync(path.join(dir, f), 'utf8')).join('\n;\n');
+  const R = (id, status, dok, datum, rn, partner, brutto, hash, grund) => ({ id, status, richtung: 'Eingang', dokumentart: dok, belegdatum: datum, rechnungsnummer: rn, partner, brutto, waehrung: 'EUR', hash, grund: grund || '' });
+  let daten = [
+    R('B2026-00006', 'Neu', 'Rechnung', '2026-11-03', '3DZNYTMS-0010', 'Calendly LLC', 12, 'h6'),
+    R('B2026-00007', 'Dublette', 'Quittung', '2026-11-03', '3DZNYTMS-0010', 'Calendly LLC', 12, 'h7'),
+    R('B2026-00008', 'Neu', 'Rechnung', '2026-10-31', '5722810789', 'Google Cloud EMEA Limited', 25.3, 'h8'),
+    R('B2026-00009', 'Neu', 'Rechnung', '2026-10-31', '5722810789', 'Google Cloud EMEA Limited', 25.3, 'h8'),
+    R('B2026-00010', 'Neu', 'Rechnung', '2026-11-02', '202610314', 'Jan Fricke Consulting', 1487.5, 'h10'),
+    R('B2026-00011', 'Neu', 'Rechnung', '2026-11-02', '202610314', 'Jan Fricke Consulting', 1487.5, 'h10'),
+    R('B2026-00012', 'Neu', 'Rechnung', '2026-08-01', 'CAY441002120', 'Caya GmbH', 29.74, 'h12'),
+    R('B2026-00013', 'Neu', 'Rechnung', '2026-09-01', 'CAY441012175', 'Caya GmbH', 34.74, 'h13'),
+    R('B2026-00014', 'Neu', 'Rechnung', '2026-09-01', 'CAY441012175', 'Caya GmbH', 34.74, 'h13'),
+    R('B2026-00015', 'Neu', 'Rechnung', '2026-10-01', 'CAY441024134', 'Caya GmbH', 34.74, 'h15'),
+    R('B2026-00016', 'Dublette', 'Rechnung', '2026-10-01', 'CAY441024134', 'Caya GmbH', 34.74, 'h16'),
+    R('B2026-00022', 'Ausgeschlossen', 'Sonstiges', '', '', 'Max Weishaupt SE', '', 'h22'),
+    R('B2026-00023', 'Ausgeschlossen', 'Sonstiges', '', '', 'Max Weishaupt SE', '', 'h22'),
+    R('B2026-00039', 'Neu', 'Rechnung', '2026-10-25', '847914815', 'HubSpot Germany GmbH', 11.9, 'h39'),
+    R('B2026-00001', 'Prüfen', '', '', '', '', '', 'h1', 'Nicht ausgelesen: ANTHROPIC_API_KEY fehlt')
+  ];
+  const gespeichert = [];
+  const nachgelesen = [];
+  const ctx = {
+    console, module: undefined,
+    LockService: { getScriptLock: () => ({ tryLock: () => true, releaseLock() {} }) }
+  };
+  vm.createContext(ctx);
+  vm.runInContext(code, ctx);
+  ctx.alleBelege = () => daten.map(b => b);
+  ctx.belegSpeichern = b => gespeichert.push(b.id);
+  ctx.dateiEinordnen = () => {};
+  ctx.protokoll = () => {};
+  ctx.belegNeuAuslesen = id => { nachgelesen.push(id); };
+  const r = ctx.listeBereinigen();
+  const st = Object.fromEntries(daten.map(b => [b.id, b.status]));
+  assert.deepStrictEqual(nachgelesen, ['B2026-00001']);
+  ['B2026-00009', 'B2026-00011', 'B2026-00014', 'B2026-00023'].forEach(id => assert.strictEqual(st[id], 'Dublette', id));
+  ['B2026-00006', 'B2026-00008', 'B2026-00010', 'B2026-00012', 'B2026-00013', 'B2026-00015', 'B2026-00039'].forEach(id => assert.notStrictEqual(st[id], 'Dublette', id));
+  assert.strictEqual(r.dubletten, 4);
+});
+
 console.log(n + ' Tests bestanden');

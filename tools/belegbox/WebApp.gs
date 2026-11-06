@@ -116,3 +116,7 @@ function einstellungenSpeichern(werte) {
 function vorschauUrl(dateiId) {
   return 'https://drive.google.com/file/d/' + dateiId + '/preview';
 }
+
+function listeBereinigenAusApp() {
+  return listeBereinigen();
+}

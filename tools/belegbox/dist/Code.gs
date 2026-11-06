@@ -664,7 +664,7 @@ var AUSLESE_SCHEMA = {
     kategorie: { type: 'string', description: 'Eine Kategorie aus der vorgegebenen Liste' },
     bereich_vorschlag: { type: 'string', enum: ['Geschäftlich', 'Privat', 'Unklar'] },
     vertrauen: { type: 'number', description: '0 bis 1: wie sicher die Angaben sind' },
-    hinweis: { type: 'string', description: 'Kurzer Hinweis für die Buchhaltung, leer wenn nichts auffällt' }
+    hinweis: { type: 'string', description: 'Höchstens ein Satz mit 20 Wörtern für die Buchhaltung, leer wenn nichts auffällt' }
   },
   required: ['ist_beleg', 'dokumentart', 'richtung', 'aussteller_name', 'aussteller_ustid', 'empfaenger_name', 'empfaenger_ustid',
     'rechnungsnummer', 'belegdatum', 'leistungszeitraum', 'beschreibung', 'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung',
@@ -869,7 +869,9 @@ function belegSpeichern(beleg) {
 }
 
 function neueBelegId() {
-  var lock = LockService.getScriptLock();
+  // Eigene Benutzersperre. Die Skriptsperre hält währenddessen der Scan; sie hier freizugeben
+  // hat früher parallele Scans und doppelte Einträge verursacht.
+  var lock = LockService.getUserLock();
   lock.waitLock(20000);
   try {
     var props = PropertiesService.getScriptProperties();
@@ -880,6 +882,17 @@ function neueBelegId() {
   } finally {
     lock.releaseLock();
   }
+}
+
+function hashVorhanden(hash) {
+  var b = blatt('Belege');
+  var n = b.getLastRow();
+  if (n < 2) return '';
+  var spalteHash = BELEG_SPALTEN.map(function (s) { return s[0]; }).indexOf('hash') + 1;
+  var ids = b.getRange(2, 1, n - 1, 1).getValues();
+  var hashes = b.getRange(2, spalteHash, n - 1, 1).getValues();
+  for (var i = 0; i < hashes.length; i++) if (hashes[i][0] === hash) return ids[i][0];
+  return '';
 }
 
 function sha256(bytes) {
@@ -959,9 +972,13 @@ function dateiVerarbeiten(blob, meta) {
   wendeRegelnAn(beleg, regelnLaden(), kategorienKarte());
   if (beleg.status !== STATUS.AUSGESCHLOSSEN) inEuroUmrechnen(beleg);
 
+  // Während der Auslesung kann ein anderer Lauf dieselbe Datei gespeichert haben
+  var schonDa = hashVorhanden(hash);
+  if (schonDa) return { ergebnis: 'Datei schon vorhanden (' + schonDa + ')', id: schonDa };
+
   var dublette = null;
   if (beleg.status !== STATUS.AUSGESCHLOSSEN) {
-    dublette = findeDublette(beleg, bestehende.filter(function (b) { return b.status !== STATUS.AUSGESCHLOSSEN; }));
+    dublette = findeDublette(beleg, alleBelege().filter(function (b) { return b.status !== STATUS.AUSGESCHLOSSEN; }));
   }
 
   // Datei ablegen
@@ -987,7 +1004,7 @@ function dateiVerarbeiten(blob, meta) {
 
   dateiEinordnen(beleg);
   belegAnhaengen(beleg);
-  if (beleg.status !== STATUS.AUSGESCHLOSSEN && beleg.partner) lieferantAktualisieren(beleg);
+  if ([STATUS.AUSGESCHLOSSEN, STATUS.DUBLETTE].indexOf(beleg.status) < 0 && beleg.partner) lieferantAktualisieren(beleg);
 
   if (beleg.status === STATUS.FREIGEGEBEN && einstellung('AUTO_UEBERMITTELN') === 'true') {
     try { anBelegmailSenden(beleg.id); } catch (e) { protokoll('Übermittlung fehlgeschlagen', beleg.id + ': ' + e.message); }
@@ -1032,6 +1049,65 @@ function belegNeuAuslesen(id, modell) {
   dateiEinordnen(beleg);
   belegSpeichern(beleg);
   return beleg;
+}
+
+/**
+ * Räumt die bestehende Liste auf:
+ *  1. liest Belege nach, die ohne API-Schlüssel oder mit Fehler erfasst wurden
+ *  2. markiert doppelte Dateien (gleicher Hash) und Dubletten desselben Vorgangs
+ * Ändert nur den Status, löscht nichts. Dubletten wandern in Drive nach "Aussortiert".
+ */
+function listeBereinigen() {
+  var lock = LockService.getScriptLock();
+  if (!lock.tryLock(5000)) return { meldung: 'Gerade läuft ein Scan. Bitte in ein paar Minuten erneut versuchen.' };
+  var start = Date.now();
+  var ergebnis = { nachgelesen: 0, dubletten: 0, fehler: 0, unvollstaendig: false };
+  try {
+    alleBelege().forEach(function (b) {
+      if (b.status !== STATUS.PRUEFEN || !/^(Nicht ausgelesen|Auslesung fehlgeschlagen)/.test(String(b.grund))) return;
+      if (Date.now() - start > LAUFZEIT_MS - 60000) { ergebnis.unvollstaendig = true; return; }
+      try { belegNeuAuslesen(b.id); ergebnis.nachgelesen++; } catch (e) { ergebnis.fehler++; protokoll('Nachlesen fehlgeschlagen', b.id + ': ' + e.message); }
+    });
+
+    var liste = alleBelege().sort(function (a, b) { return String(a.id).localeCompare(String(b.id)); });
+    var gesehen = [];
+    var hashes = {};
+    liste.forEach(function (b) {
+      var geaendert = null;
+      if (b.status !== STATUS.DUBLETTE && b.hash && hashes[b.hash]) {
+        geaendert = b;
+        b.status = STATUS.DUBLETTE;
+        b.dublette_von = hashes[b.hash];
+        b.grund = [b.grund, 'Identische Datei'].filter(String).join('; ');
+      } else if ([STATUS.NEU, STATUS.PRUEFEN, STATUS.FREIGEGEBEN].indexOf(b.status) > -1) {
+        var d = findeDublette(b, gesehen.filter(function (x) { return x.status !== STATUS.AUSGESCHLOSSEN; }));
+        if (d) {
+          var verlierer = d.behalteNeu ? d.beleg : b;
+          // Bereits übermittelte Belege bleiben, wie sie sind
+          if (verlierer.status !== STATUS.UEBERMITTELT) {
+            verlierer.status = STATUS.DUBLETTE;
+            verlierer.dublette_von = verlierer === b ? d.beleg.id : b.id;
+            verlierer.grund = [verlierer.grund, d.grund].filter(String).join('; ');
+            geaendert = verlierer;
+          }
+        }
+      }
+      if (b.hash && !hashes[b.hash]) hashes[b.hash] = b.id;
+      gesehen.push(b);
+      if (geaendert) {
+        try { dateiEinordnen(geaendert); } catch (e) { protokoll('Datei nicht verschoben', geaendert.id + ': ' + e.message); }
+        belegSpeichern(geaendert);
+        ergebnis.dubletten++;
+      }
+    });
+    ergebnis.meldung = ergebnis.nachgelesen + ' Belege nachgelesen, ' + ergebnis.dubletten + ' Dubletten markiert' +
+      (ergebnis.fehler ? ', ' + ergebnis.fehler + ' Fehler (siehe Protokoll)' : '') +
+      (ergebnis.unvollstaendig ? '. Noch nicht fertig, bitte erneut starten.' : '.');
+    protokoll('Liste bereinigt', ergebnis.meldung);
+    return ergebnis;
+  } finally {
+    lock.releaseLock();
+  }
 }
 
 // ===== Gmail.gs =====
@@ -1104,8 +1180,17 @@ function mailVerarbeiten(msg, zaehler) {
   };
   var ergebnisse = [];
   try {
-    var anhaenge = msg.getAttachments({ includeInlineImages: false, includeAttachments: true })
-      .filter(istBelegAnhang)
+    var markiert = hatBelegLabel(msg);
+    var belegBetreff = BELEG_BETREFF.test(msg.getSubject() || '');
+    var alle = msg.getAttachments({ includeInlineImages: false, includeAttachments: true }).filter(istBelegAnhang);
+    // Fotos nur aus Mails, die nach Beleg aussehen oder das Label "Belege" tragen.
+    // Sonst landen Baustellenfotos aus Projektmails in der Auslesung.
+    if (!markiert && !belegBetreff) {
+      alle = alle.filter(function (a) { return a.getContentType() === 'application/pdf' || /\.pdf$/i.test(a.getName()); });
+      // Antworten/Weiterleitungen mit vielen Anhängen sind Schriftverkehr, keine Belege
+      if (/^\s*(aw|re|wg|fw|fwd)\s*:/i.test(msg.getSubject() || '') && alle.length > 3) alle = [];
+    }
+    var anhaenge = alle
       .map(function (a) {
         var blob = a.copyBlob().setName(a.getName());
         // Manche Absender schicken PDFs als application/octet-stream
@@ -1133,6 +1218,12 @@ function mailVerarbeiten(msg, zaehler) {
     return 'Fehler: ' + e.message;
   }
   return ergebnisse.join(' | ');
+}
+
+var BELEG_BETREFF = /(rechnung|invoice|receipt|quittung|beleg|zahlungsbest|payment|gutschrift|credit note|bill|abrechnung)/i;
+
+function hatBelegLabel(msg) {
+  return msg.getThread().getLabels().some(function (l) { return /^belege$/i.test(l.getName()); });
 }
 
 function istBelegAnhang(a) {
@@ -1467,4 +1558,8 @@ function einstellungenSpeichern(werte) {
 
 function vorschauUrl(dateiId) {
   return 'https://drive.google.com/file/d/' + dateiId + '/preview';
+}
+
+function listeBereinigenAusApp() {
+  return listeBereinigen();
 }

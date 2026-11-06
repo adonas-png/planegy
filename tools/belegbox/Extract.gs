@@ -34,7 +34,7 @@ var AUSLESE_SCHEMA = {
     kategorie: { type: 'string', description: 'Eine Kategorie aus der vorgegebenen Liste' },
     bereich_vorschlag: { type: 'string', enum: ['Geschäftlich', 'Privat', 'Unklar'] },
     vertrauen: { type: 'number', description: '0 bis 1: wie sicher die Angaben sind' },
-    hinweis: { type: 'string', description: 'Kurzer Hinweis für die Buchhaltung, leer wenn nichts auffällt' }
+    hinweis: { type: 'string', description: 'Höchstens ein Satz mit 20 Wörtern für die Buchhaltung, leer wenn nichts auffällt' }
   },
   required: ['ist_beleg', 'dokumentart', 'richtung', 'aussteller_name', 'aussteller_ustid', 'empfaenger_name', 'empfaenger_ustid',
     'rechnungsnummer', 'belegdatum', 'leistungszeitraum', 'beschreibung', 'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung',

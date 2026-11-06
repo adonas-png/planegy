@@ -66,8 +66,17 @@ function mailVerarbeiten(msg, zaehler) {
   };
   var ergebnisse = [];
   try {
-    var anhaenge = msg.getAttachments({ includeInlineImages: false, includeAttachments: true })
-      .filter(istBelegAnhang)
+    var markiert = hatBelegLabel(msg);
+    var belegBetreff = BELEG_BETREFF.test(msg.getSubject() || '');
+    var alle = msg.getAttachments({ includeInlineImages: false, includeAttachments: true }).filter(istBelegAnhang);
+    // Fotos nur aus Mails, die nach Beleg aussehen oder das Label "Belege" tragen.
+    // Sonst landen Baustellenfotos aus Projektmails in der Auslesung.
+    if (!markiert && !belegBetreff) {
+      alle = alle.filter(function (a) { return a.getContentType() === 'application/pdf' || /\.pdf$/i.test(a.getName()); });
+      // Antworten/Weiterleitungen mit vielen Anhängen sind Schriftverkehr, keine Belege
+      if (/^\s*(aw|re|wg|fw|fwd)\s*:/i.test(msg.getSubject() || '') && alle.length > 3) alle = [];
+    }
+    var anhaenge = alle
       .map(function (a) {
         var blob = a.copyBlob().setName(a.getName());
         // Manche Absender schicken PDFs als application/octet-stream
@@ -95,6 +104,12 @@ function mailVerarbeiten(msg, zaehler) {
     return 'Fehler: ' + e.message;
   }
   return ergebnisse.join(' | ');
+}
+
+var BELEG_BETREFF = /(rechnung|invoice|receipt|quittung|beleg|zahlungsbest|payment|gutschrift|credit note|bill|abrechnung)/i;
+
+function hatBelegLabel(msg) {
+  return msg.getThread().getLabels().some(function (l) { return /^belege$/i.test(l.getName()); });
 }
 
 function istBelegAnhang(a) {
