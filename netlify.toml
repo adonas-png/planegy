@@ -32,6 +32,13 @@
   status = 404
   force = true
 
+# Interne Werkzeuge (Apps-Script-Quelltext), nicht öffentlich ausliefern
+[[redirects]]
+  from = "/tools/*"
+  to = "/404"
+  status = 404
+  force = true
+
 [[redirects]]
   from = "/package.json"
   to = "/404"
