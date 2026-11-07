@@ -163,6 +163,9 @@ test('Liste bereinigen mit Daten wie in der echten Belegliste', () => {
   ctx.dateiEinordnen = () => {};
   ctx.protokoll = () => {};
   ctx.belegNeuAuslesen = id => { nachgelesen.push(id); };
+  ctx.kopfzeileSicherstellen = () => {};
+  ctx.standardregelnErgaenzen = () => 0;
+  ctx.inEuroUmrechnen = b => b;
   const r = ctx.listeBereinigen();
   const st = Object.fromEntries(daten.map(b => [b.id, b.status]));
   assert.deepStrictEqual(nachgelesen, ['B2026-00001']);
@@ -204,6 +207,92 @@ test('Jahresübersicht und laufende Kosten', () => {
   assert.strictEqual(l.posten.find(p => p.name === 'Altes Abo').aktiv, false);
   // Caya: letzte Zahlung 01.09., Abstand 31 Tage -> am 06.11. überfällig, gilt als beendet
   assert.strictEqual(l.summeNetto, 144 + (l.posten.find(p => p.name === 'Caya GmbH').aktiv ? 299.88 : 0));
+});
+
+test('Monatspaket nur mit freigegebenen Belegen', () => {
+  assert.strictEqual(L.exportierbar({ status: 'Neu' }), false);
+  assert.strictEqual(L.exportierbar({ status: 'Prüfen' }), false);
+  assert.strictEqual(L.exportierbar({ status: 'Freigegeben' }), true);
+  assert.strictEqual(L.exportierbar({ status: 'Übermittelt' }), true);
+  assert.strictEqual(L.nochNichtFreigegeben({ status: 'Neu' }), true);
+});
+
+test('Reverse Charge nach EU und Drittland', () => {
+  const google = { reverse_charge: 'ja', partner_ustid: 'IE3668997OH', netto: 25.3, waehrung: 'EUR' };
+  const calendly = { reverse_charge: 'ja', partner_ustid: 'EU372082401', netto: 12, waehrung: 'EUR' };
+  const hubspotUsd = { reverse_charge: 'ja', partner_ustid: '', netto: 10, waehrung: 'USD', kurs: 0.9 };
+  assert.strictEqual(L.rcArt(google), 'EU §13b Abs. 1');
+  assert.strictEqual(L.rcArt(calendly), 'Drittland §13b Abs. 2');
+  assert.strictEqual(L.rcArt({ reverse_charge: '' }), '');
+  assert.strictEqual(L.ustParagraf13b(google), 4.81);
+  assert.strictEqual(L.ustParagraf13b(hubspotUsd), 1.71);
+  const csv = L.baueCsv([Object.assign({ id: 'B1', belegdatum: '2026-10-31', brutto: 25.3 }, google)]);
+  assert.ok(csv.includes('EU §13b Abs. 1;4,81;'));
+});
+
+test('Erlöskategorie nach Kunde', () => {
+  assert.strictEqual(L.erloesKategorie({ ust_satz: 19, partner_ustid: 'DE123456789' }), 'Erlöse 19 %');
+  assert.strictEqual(L.erloesKategorie({ ust_satz: 19, partner_ustid: '' }), 'Erlöse 19 %');
+  assert.strictEqual(L.erloesKategorie({ ust_satz: 0, partner_ustid: '' }), 'Erlöse Ausland / steuerfrei');
+  assert.strictEqual(L.erloesKategorie({ ust_satz: 19, partner_ustid: 'ATU12345678' }), 'Erlöse Ausland / steuerfrei');
+});
+
+test('Eigene Firma über Merkmale erkennen', () => {
+  const f = { name: 'PLANEGY', ustid: 'DE275026433', merkmale: ['Alexios Donas', 'Im Raisger 22'] };
+  assert.ok(L.istEigeneFirma('Alexios Donas', '', f));
+  assert.ok(L.istEigeneFirma('Planegy Alexios Donas', '', f));
+  assert.ok(!L.istEigeneFirma('Caya GmbH', '', f));
+  const r = L.bestimmeRichtung({ aussteller_name: 'Caya GmbH', aussteller_ustid: 'DE311355906', empfaenger_name: 'Alexios Donas', empfaenger_ustid: '', richtung: 'Unklar' }, f);
+  assert.strictEqual(r.richtung, 'Eingang');
+});
+
+test('Zweite Auslesung bei unsicheren Belegen und fehlender Kurs', () => {
+  const dir = path.join(__dirname, '..');
+  const code = fs.readdirSync(dir).filter(f => f.endsWith('.gs')).map(f => fs.readFileSync(path.join(dir, f), 'utf8')).join('\n;\n');
+  const ctx = { console };
+  vm.createContext(ctx);
+  vm.runInContext(code, ctx);
+  const einst = { MODELL: 'claude-haiku-5-5', GENAU_MODELL: 'claude-opus-5-5', ZWEITE_RUNDE: 'true' };
+  ctx.einstellung = k => einst[k] || '';
+  ctx.protokoll = () => {};
+  const aufrufe = [];
+  let antwort = {};
+  ctx.belegAuslesen = (blob, meta, modell) => { aufrufe.push(modell || 'standard'); return Object.assign({ ist_beleg: true }, antwort, modell ? { vertrauen: 0.97 } : {}); };
+  const blob = { getName: () => 'x.pdf' };
+  antwort = { reverse_charge: false, waehrung: 'EUR', vertrauen: 0.95 };
+  ctx.auslesenMitZweiterRunde(blob, {});
+  assert.deepStrictEqual(aufrufe, ['standard']);
+  aufrufe.length = 0; antwort = { reverse_charge: true, waehrung: 'EUR', vertrauen: 0.95 };
+  const x = ctx.auslesenMitZweiterRunde(blob, {});
+  assert.deepStrictEqual(aufrufe, ['standard', 'claude-opus-5-5']);
+  assert.strictEqual(x._zweiteRunde, 'claude-opus-5-5');
+  aufrufe.length = 0; antwort = { reverse_charge: false, waehrung: 'USD', vertrauen: 0.95 };
+  ctx.auslesenMitZweiterRunde(blob, {});
+  assert.strictEqual(aufrufe.length, 2);
+  aufrufe.length = 0; antwort = { ist_beleg: false, vertrauen: 0.3 };
+  ctx.auslesenMitZweiterRunde(blob, {});
+  assert.strictEqual(aufrufe.length, 1);
+
+  ctx.eurKurs = () => null;
+  const b = ctx.inEuroUmrechnen({ status: 'Neu', brutto: 9, waehrung: 'USD', grund: 'x' });
+  assert.strictEqual(b.status, 'Prüfen'); assert.strictEqual(b.grund, 'x; Kurs fehlt');
+  ctx.eurKurs = () => 0.9;
+  const c = ctx.inEuroUmrechnen(b);
+  assert.strictEqual(c.brutto_eur, 8.1); assert.strictEqual(c.grund, 'x');
+});
+
+test('Seite enthält gültige Rechenregeln für den Browser', () => {
+  const dir = path.join(__dirname, '..');
+  const code = fs.readdirSync(dir).filter(f => f.endsWith('.gs')).map(f => fs.readFileSync(path.join(dir, f), 'utf8')).join('\n;\n');
+  const ctx = { console };
+  vm.createContext(ctx);
+  vm.runInContext(code, ctx);
+  const browser = { };
+  vm.createContext(browser);
+  vm.runInContext('var STATUS = ' + JSON.stringify(ctx.STATUS) + ';\n' + ctx.gemeinsameFunktionen(), browser);
+  assert.strictEqual(browser.bruttoEur({ brutto: 12, waehrung: 'EUR', dokumentart: 'Gutschrift' }), -12);
+  assert.strictEqual(browser.zaehltFuerAuswertung({ status: 'Prüfen', dokumentart: 'Rechnung' }), true);
+  assert.strictEqual(browser.zaehltFuerAuswertung({ status: 'Dublette', dokumentart: 'Rechnung' }), false);
 });
 
 console.log(n + ' Tests bestanden');

@@ -92,6 +92,17 @@ td.betrag, th.betrag { text-align: right; white-space: nowrap; font-variant-nume
 table.klein { font-size: 13px; }
 table.klein td, table.klein th { padding: 5px 8px; }
 @media (max-width: 720px) { .zweispaltig { grid-template-columns: 1fr; } .balken { gap: 2px; height: 130px; } .monatsnamen { gap: 2px; } }
+.grund { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; max-width: 340px; }
+tr.rz-Ausgang td:first-child { box-shadow: inset 3px 0 0 var(--akzent); }
+tr.rz-Unklar td:first-child { box-shadow: inset 3px 0 0 var(--warn); }
+.plus { color: var(--akzent); font-weight: 600; }
+td.wahl, th.wahl { width: 28px; padding-right: 0; }
+.sammel { display: none; align-items: center; gap: 10px; background: var(--akzent-hell); border-radius: 6px; padding: 8px 12px; margin-bottom: 10px; }
+.sammel.an { display: flex; flex-wrap: wrap; }
+.fehlerbox { background: var(--rot-hell); color: var(--rot); border-radius: 6px; padding: 8px 12px; margin-bottom: 12px; display: none; align-items: center; gap: 10px; flex-wrap: wrap; }
+.kachel .unter { color: var(--leise); font-size: 11px; margin-top: 2px; }
+.tasten { font-size: 11px; color: var(--leise); margin-top: 6px; }
+kbd { border: 1px solid var(--linie); border-bottom-width: 2px; border-radius: 3px; padding: 0 4px; font: 11px monospace; }
 .check { display: flex; align-items: center; gap: 6px; margin: 6px 0; }
 
 @media (max-width: 900px) {
@@ -109,6 +120,7 @@ table.klein td, table.klein th { padding: 5px 8px; }
   table.klein th:nth-child(3), table.klein td:nth-child(3), table.klein th:nth-child(4), table.klein td:nth-child(4) { display: none; }
   .dialog .inhalt { padding: 14px; }
   td.nur-breit { display: none; }
+  #liste td.wahl { display: none; }
   input[type=search] { min-width: 0; flex: 1; }
 }
 </style>
@@ -131,6 +143,10 @@ table.klein td, table.klein th { padding: 5px 8px; }
   <div class="hinweis" id="ohneSchluessel" style="display:none">
     Kein Claude-API-Schlüssel hinterlegt. Belege werden abgelegt, aber nicht ausgelesen. Schlüssel unter „Einstellungen“ eintragen.
   </div>
+  <div class="fehlerbox" id="fehlerbox">
+    <span id="fehlerText"></span>
+    <button class="knopf klein" id="btnFehlerBereinigen">Liste bereinigen</button>
+  </div>
   <div class="ablage" id="ablage">Dateien hierher ziehen oder „Beleg hochladen“ wählen. Auf dem Handy öffnet das die Kamera.</div>
 
   <div class="kacheln" id="kacheln"></div>
@@ -148,6 +164,12 @@ table.klein td, table.klein th { padding: 5px 8px; }
   </div>
   <div class="filter chips" id="fStatus"></div>
 
+  <div class="sammel" id="sammel">
+    <span id="sammelText"></span>
+    <button class="knopf klein haupt" id="btnSammelFrei">Ausgewählte freigeben</button>
+    <button class="knopf klein" id="btnSammelAus">Ausgewählte ausschließen</button>
+    <button class="knopf klein" id="btnSammelLeeren">Auswahl aufheben</button>
+  </div>
   <div id="liste"></div>
 </main>
 
@@ -174,6 +196,7 @@ table.klein td, table.klein th { padding: 5px 8px; }
         <div class="feld"><label>USt-IdNr. Partner</label><input type="text" name="partner_ustid"></div>
       </div>
       <div class="feld"><label>Beschreibung</label><input type="text" name="beschreibung"></div>
+      <div class="feld"><label>Leistungszeitraum</label><input type="text" name="leistungszeitraum" placeholder="TT.MM.JJJJ bis TT.MM.JJJJ"></div>
       <div class="zwei">
         <div class="feld"><label>Kategorie</label><select name="kategorie" id="pKat"></select></div>
         <div class="feld"><label>Konto SKR03 (Vorschlag)</label><input type="text" name="konto"></div>
@@ -204,6 +227,7 @@ table.klein td, table.klein th { padding: 5px 8px; }
         <button type="button" class="knopf" id="pGenau" title="Mit dem genaueren Modell auslesen, z. B. bei unscharfen Fotos">Genau auslesen</button>
       </div>
     </form>
+    <div class="tasten"><kbd>F</kbd> freigeben · <kbd>A</kbd> ausschließen · <kbd>J</kbd> nächster · <kbd>K</kbd> vorheriger · <kbd>Esc</kbd> schließen</div>
     <div class="meta" id="pMeta"></div>
   </div>
 </div>
@@ -223,7 +247,7 @@ table.klein td, table.klein th { padding: 5px 8px; }
 <div class="dialog" id="dPaket">
   <div class="inhalt">
     <h2>Monatspaket für den Steuerberater</h2>
-    <p class="leise">Enthält alle Belege des Monats mit Status Neu, Freigegeben oder Übermittelt: CSV und Excel-Liste, Belege als ZIP, abgelegt in Drive unter „Exporte“.</p>
+    <p class="leise">Enthält alle Belege des Monats mit Status Freigegeben oder Übermittelt: CSV und Excel-Liste, Belege als ZIP, abgelegt in Drive unter „Exporte“.</p>
     <div class="feld"><label>Monat</label><input type="month" id="paketMonat"></div>
     <div id="paketVorschau" class="leise"></div>
     <label class="check"><input type="checkbox" id="paketEntwurf" checked> Gmail-Entwurf an den Steuerberater anlegen (wird nicht gesendet)</label>
@@ -245,10 +269,14 @@ table.klein td, table.klein th { padding: 5px 8px; }
         <div class="feld"><label>USt-IdNr.</label><input type="text" name="FIRMA_USTID"></div>
         <div class="feld"><label>Sitz</label><input type="text" name="FIRMA_ORT"></div>
       </div>
+      <div class="feld"><label>Weitere Merkmale der eigenen Firma (kommagetrennt, z. B. Inhaber, Straße)</label><input type="text" name="FIRMA_MERKMALE"></div>
       <div class="feld"><label>Claude-API-Schlüssel <span id="eSchluesselStand" class="leise"></span></label><input type="text" name="ANTHROPIC_API_KEY" placeholder="sk-ant-… (leer lassen = unverändert)"></div>
       <div class="zwei">
         <div class="feld"><label>Modell (Standard)</label><input type="text" name="MODELL"></div>
         <div class="feld"><label>Modell für „Genau auslesen“</label><input type="text" name="GENAU_MODELL"></div>
+      </div>
+      <div class="zwei">
+        <div class="feld"><label>Unsichere Belege mit Genau-Modell nachlesen</label><select name="ZWEITE_RUNDE"><option value="true">ja</option><option value="false">nein</option></select></div>
       </div>
       <div class="zwei">
         <div class="feld"><label>Mails pro Lauf</label><input type="number" name="MAX_MAILS_PRO_LAUF" min="1" max="60"></div>
@@ -273,7 +301,9 @@ table.klein td, table.klein th { padding: 5px 8px; }
       <div class="meta">
         <strong>Wartung</strong><br>
         „Liste bereinigen“ liest Belege nach, die ohne API-Schlüssel erfasst wurden, und markiert doppelte Einträge als Dublette. Gelöscht wird nichts.
-        <div style="margin-top:8px"><button type="button" class="knopf" id="btnBereinigen">Liste bereinigen</button></div>
+        <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="knopf" id="btnBereinigen">Liste bereinigen</button>
+          <button type="button" class="knopf" id="btnHash">Dateien auf Veränderung prüfen</button></div>
+        <div class="leise" style="margin-top:6px">Die Prüfung berechnet für jede Datei in Drive den SHA-256 neu und vergleicht ihn mit der Liste (GoBD). Ergebnis im Blatt „Protokoll“.</div>
       </div>
     </form>
   </div>
@@ -282,9 +312,14 @@ table.klein td, table.klein th { padding: 5px 8px; }
 <div class="meldung" id="meldung"></div>
 
 <script>
+// Gleiche Rechenregeln wie auf dem Server (Logic.gs), damit Kacheln und Jahresübersicht übereinstimmen
+var STATUS = <?!= JSON.stringify(STATUS) ?>;
+<?!= gemeinsameFunktionen() ?>
+
 var D = null;            // Daten vom Server
 var filter = { monat: '', status: 'offen', richtung: '', bereich: '', suche: '' };
 var aktiv = null;        // geöffneter Beleg
+var auswahl = {};        // für Sammelfreigabe
 
 var $ = function (id) { return document.getElementById(id); };
 function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -310,6 +345,8 @@ function laden() {
 
 function aufbauen() {
   $('ohneSchluessel').style.display = D.hatSchluessel ? 'none' : 'block';
+  $('fehlerbox').style.display = D.fehlgeschlagen ? 'flex' : 'none';
+  $('fehlerText').textContent = D.fehlgeschlagen + ' Beleg(e) konnten nicht ausgelesen werden.';
   $('scanInfo').textContent = D.letzterScan ? 'Letzter vollständiger Scan: ' + new Date(D.letzterScan).toLocaleString('de-DE') : 'Noch kein Scan';
 
   var monate = {};
@@ -324,13 +361,19 @@ function aufbauen() {
   zeigen();
 }
 
+// Ausgeschlossen, aber nicht als "kein Beleg" erkannt: hier können echte Rechnungen durch Regeln gefallen sein
+function ausschlussZuPruefen(b) {
+  return b.status === 'Ausgeschlossen' && !/kein (buchungs)?beleg|kein kaufm/i.test(String(b.grund));
+}
+
 function passt(b, ohneStatus) {
   if (filter.monat && b.monat !== filter.monat) return false;
   if (filter.richtung && b.richtung !== filter.richtung) return false;
   if (filter.bereich && b.bereich !== filter.bereich) return false;
   if (!ohneStatus) {
     if (filter.status === 'offen' && ['Neu', 'Prüfen'].indexOf(b.status) < 0) return false;
-    if (filter.status && filter.status !== 'offen' && filter.status !== 'alle' && b.status !== filter.status) return false;
+    if (filter.status === 'ausschlussPruefen') { if (!ausschlussZuPruefen(b)) return false; }
+    else if (filter.status && filter.status !== 'offen' && filter.status !== 'alle' && b.status !== filter.status) return false;
   }
   if (filter.suche) {
     var q = filter.suche.toLowerCase();
@@ -350,43 +393,75 @@ function zeigen() {
     ['Übermittelt', 'Übermittelt', zahl(function (b) { return b.status === 'Übermittelt'; })],
     ['Dublette', 'Dubletten', zahl(function (b) { return b.status === 'Dublette'; })],
     ['Ausgeschlossen', 'Ausgeschlossen', zahl(function (b) { return b.status === 'Ausgeschlossen'; })],
+    ['ausschlussPruefen', 'Ausschluss prüfen', zahl(ausschlussZuPruefen)],
     ['alle', 'Alle', basis.length]
   ];
   $('fStatus').innerHTML = chips.map(function (c) {
     return '<span class="chip' + (filter.status === c[0] ? ' an' : '') + '" data-status="' + c[0] + '">' + c[1] + '<span class="n">' + c[2] + '</span></span>';
   }).join('');
 
-  // Kacheln über alle gültigen Belege im Filter
-  var gueltig = basis.filter(function (b) { return ['Neu', 'Freigegeben', 'Übermittelt'].indexOf(b.status) > -1; });
+  // Kacheln: gleiche Regeln wie die Jahresübersicht (zaehltFuerAuswertung, bruttoEur aus Logic.gs)
+  var gueltig = basis.filter(zaehltFuerAuswertung);
+  var ohneKurs = gueltig.filter(function (b) { return bruttoEur(b) === null; }).length;
+  var offenGezaehlt = gueltig.filter(function (b) { return b.status === 'Prüfen'; }).length;
   var summe = function (r) {
     return gueltig.filter(function (b) { return (r === 'Ausgang') === (b.richtung === 'Ausgang'); })
-      .reduce(function (s, b) { var v = b.brutto_eur !== '' ? b.brutto_eur : (b.waehrung === 'EUR' ? b.brutto : 0); return s + (Number(v) || 0); }, 0);
+      .reduce(function (s, b) { return s + (bruttoEur(b) || 0); }, 0);
   };
+  var bereich = (filter.monat ? monatName(filter.monat) : 'Alle Monate') + (filter.bereich ? ', ' + filter.bereich : '');
+  var unter = bereich + ', ohne Dubletten und Ausschlüsse' + (offenGezaehlt ? ', inkl. ' + offenGezaehlt + ' zu prüfen' : '') +
+    (ohneKurs ? ', ' + ohneKurs + ' ohne Euro-Betrag nicht enthalten' : '');
   $('kacheln').innerHTML = [
-    ['Ausgaben brutto', eur(summe('Eingang')) + ' €'],
-    ['Einnahmen brutto', eur(summe('Ausgang')) + ' €'],
-    ['Zu prüfen', zahl(function (b) { return b.status === 'Prüfen'; })],
-    ['Dubletten erkannt', zahl(function (b) { return b.status === 'Dublette'; })],
-    ['Belege gesamt', basis.length]
-  ].map(function (k) { return '<div class="kachel"><div class="titel">' + k[0] + '</div><div class="wert">' + k[1] + '</div></div>'; }).join('');
+    ['Ausgaben brutto', eur(summe('Eingang')) + ' €', unter],
+    ['Einnahmen brutto', eur(summe('Ausgang')) + ' €', unter],
+    ['Zu prüfen', zahl(function (b) { return b.status === 'Prüfen'; }), ''],
+    ['Nicht freigegeben', zahl(function (b) { return b.status === 'Neu' || b.status === 'Prüfen'; }), 'fehlen im Monatspaket'],
+    ['Dubletten erkannt', zahl(function (b) { return b.status === 'Dublette'; }), '']
+  ].map(function (k) { return '<div class="kachel"><div class="titel">' + k[0] + '</div><div class="wert">' + k[1] + '</div>' + (k[2] ? '<div class="unter">' + esc(k[2]) + '</div>' : '') + '</div>'; }).join('');
 
   var sicht = D.belege.filter(function (b) { return passt(b, false); });
   if (!sicht.length) {
     $('liste').innerHTML = '<div class="leer">' + (D.belege.length ? 'Keine Belege für diesen Filter.' : 'Noch keine Belege. „Postfach scannen“ startet die erste Suche in Gmail.') + '</div>';
     return;
   }
-  $('liste').innerHTML = '<table><thead><tr><th>Datum</th><th>Lieferant / Kunde</th><th class="nur-breit">Art</th><th class="nur-breit">Kategorie</th>' +
+  $('liste').innerHTML = '<table><thead><tr><th class="wahl"><input type="checkbox" id="alleWahl" title="Alle sichtbaren auswählen"></th><th>Datum</th><th>Lieferant / Kunde</th><th class="nur-breit">Art</th><th class="nur-breit">Kategorie</th>' +
     '<th class="betrag">Brutto</th><th>Status</th></tr></thead><tbody>' +
     sicht.map(function (b) {
-      return '<tr class="zeile' + (aktiv && aktiv.id === b.id ? ' aktiv' : '') + '" data-id="' + esc(b.id) + '">' +
+      return '<tr class="zeile rz-' + esc(b.richtung) + (aktiv && aktiv.id === b.id ? ' aktiv' : '') + '" data-id="' + esc(b.id) + '">' +
+        '<td class="wahl"><input type="checkbox" class="wahl" data-id="' + esc(b.id) + '"' + (auswahl[b.id] ? ' checked' : '') + '></td>' +
         '<td>' + (deDat(b.belegdatum) || '<span class="leise">' + deDat(b.eingang) + '</span>') + '</td>' +
         '<td><strong>' + esc(b.partner || '—') + '</strong> <span class="r-' + esc(b.richtung) + ' leise">' + esc(b.richtung === 'Eingang' ? '' : b.richtung) + '</span>' +
         '<div class="leise">' + esc(b.beschreibung || b.betreff) + (b.rechnungsnummer ? ' · Nr. ' + esc(b.rechnungsnummer) : '') + '</div></td>' +
         '<td class="nur-breit">' + esc(b.dokumentart) + '</td>' +
-        '<td class="nur-breit">' + esc(b.kategorie) + (b.bereich === 'Privat' ? ' <span class="marke s-Prüfen">Privat</span>' : '') + '</td>' +
-        '<td class="betrag">' + eur(b.brutto) + ' ' + esc(b.waehrung) + (b.waehrung && b.waehrung !== 'EUR' && b.brutto_eur !== '' ? '<div class="leise">' + eur(b.brutto_eur) + ' €</div>' : '') + '</td>' +
-        '<td><span class="marke s-' + esc(b.status) + '">' + esc(b.status) + '</span>' + (b.grund ? '<div class="leise">' + esc(String(b.grund).slice(0, 70)) + '</div>' : '') + '</td></tr>';
+        '<td class="nur-breit">' + esc(b.kategorie) + (b.bereich === 'Privat' ? ' <span class="marke s-Prüfen">Privat</span>' : '') +
+          (b.rc_art ? ' <span class="marke s-Neu" title="' + esc(b.rc_art) + '">§13b ' + (b.rc_art.indexOf('EU') === 0 ? 'EU' : 'Drittland') + '</span>' : '') + '</td>' +
+        '<td class="betrag">' + (b.richtung === 'Ausgang' ? '<span class="plus">+ </span>' : '') + eur(b.brutto) + ' ' + esc(b.waehrung) + (b.waehrung && b.waehrung !== 'EUR' && b.brutto_eur !== '' ? '<div class="leise">' + eur(b.brutto_eur) + ' €</div>' : '') + '</td>' +
+        '<td><span class="marke s-' + esc(b.status) + '">' + esc(b.status) + '</span>' + (b.grund ? '<div class="leise grund" title="' + esc(b.grund) + '">' + esc(b.grund) + '</div>' : '') + '</td></tr>';
     }).join('') + '</tbody></table>';
+  sammelleiste();
+}
+
+function sammelleiste() {
+  var ids = Object.keys(auswahl);
+  $('sammel').classList.toggle('an', ids.length > 0);
+  $('sammelText').textContent = ids.length + ' ausgewählt';
+}
+
+function sammelStatus(status) {
+  var ids = Object.keys(auswahl);
+  if (!ids.length) return;
+  var stapel = [];
+  for (var i = 0; i < ids.length; i += 25) stapel.push(ids.slice(i, i + 25));
+  melde(ids.length + ' Belege werden auf „' + status + '“ gesetzt …');
+  stapel.reduce(function (kette, teil) {
+    return kette.then(function () {
+      return server('belegeStatusSetzen', teil, status).then(function (liste) { liste.forEach(ersetzen); });
+    });
+  }, Promise.resolve()).then(function () {
+    melde(ids.length + ' Belege auf „' + status + '“ gesetzt');
+    auswahl = {};
+    zeigen();
+  });
 }
 
 function oeffnen(id) {
@@ -400,7 +475,7 @@ function oeffnen(id) {
   $('pHinweis').textContent = h;
   var f = $('pForm');
   ['status', 'richtung', 'dokumentart', 'belegdatum', 'partner', 'rechnungsnummer', 'partner_ustid', 'beschreibung', 'kategorie', 'konto',
-    'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung', 'zahlungsart', 'bezahlt', 'bereich', 'notiz'].forEach(function (k) {
+    'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung', 'zahlungsart', 'bezahlt', 'bereich', 'notiz', 'leistungszeitraum'].forEach(function (k) {
     var v = aktiv[k] == null ? '' : aktiv[k];
     if (['netto', 'ust_betrag', 'brutto'].indexOf(k) > -1) v = v === '' ? '' : eur(v);
     if (k === 'ust_satz') v = v === '' ? '' : String(v).replace('.', ',');
@@ -428,7 +503,7 @@ function formularWerte() {
   var f = $('pForm');
   var w = {};
   ['status', 'richtung', 'dokumentart', 'belegdatum', 'partner', 'rechnungsnummer', 'partner_ustid', 'beschreibung', 'kategorie', 'konto',
-    'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung', 'zahlungsart', 'bezahlt', 'bereich', 'notiz'].forEach(function (k) { w[k] = f.elements[k].value; });
+    'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung', 'zahlungsart', 'bezahlt', 'bereich', 'notiz', 'leistungszeitraum'].forEach(function (k) { w[k] = f.elements[k].value; });
   w.reverse_charge = f.elements.reverse_charge.checked ? 'ja' : '';
   return w;
 }
@@ -440,18 +515,24 @@ function ersetzen(b) {
 function speichern(extra) {
   var w = formularWerte();
   Object.keys(extra || {}).forEach(function (k) { w[k] = extra[k]; });
+  // Position merken: fällt der Beleg aus dem Filter, öffnet sich der, der an seine Stelle rückt
+  var pos = sichtbar().map(function (b) { return b.id; }).indexOf(aktiv.id);
   return server('belegAktualisieren', aktiv.id, w).then(function (b) {
     ersetzen(b); melde('Gespeichert: ' + b.id + ' (' + b.status + ')');
-    naechsterOffener(b.id);
+    var sicht = sichtbar();
+    if (sicht.some(function (x) { return x.id === b.id; })) oeffnen(b.id);
+    else if (sicht.length) oeffnen(sicht[Math.min(Math.max(pos, 0), sicht.length - 1)].id);
+    else schliessen();
   });
 }
 
-function naechsterOffener(id) {
-  var sicht = D.belege.filter(function (b) { return passt(b, false); });
-  var idx = sicht.map(function (b) { return b.id; }).indexOf(id);
-  if (idx > -1) oeffnen(id);
-  else if (sicht.length) oeffnen(sicht[0].id);
-  else schliessen();
+function sichtbar() { return D.belege.filter(function (b) { return passt(b, false); }); }
+
+function blaettern(schritt) {
+  var sicht = sichtbar();
+  var i = sicht.map(function (b) { return b.id; }).indexOf(aktiv && aktiv.id);
+  var j = Math.min(Math.max(i + schritt, 0), sicht.length - 1);
+  if (sicht[j]) oeffnen(sicht[j].id);
 }
 
 // Bilder vom Handy verkleinern, bevor sie hochgeladen werden
@@ -495,9 +576,33 @@ $('fRichtung').onchange = function () { filter.richtung = this.value; zeigen(); 
 $('fBereich').onchange = function () { filter.bereich = this.value; zeigen(); };
 $('fSuche').oninput = function () { filter.suche = this.value.trim(); zeigen(); };
 $('fStatus').onclick = function (e) { var c = e.target.closest('.chip'); if (c) { filter.status = c.dataset.status; zeigen(); } };
-$('liste').onclick = function (e) { var z = e.target.closest('tr.zeile'); if (z) oeffnen(z.dataset.id); };
+$('liste').onclick = function (e) {
+  if (e.target.id === 'alleWahl') {
+    sichtbar().forEach(function (b) { if (e.target.checked) auswahl[b.id] = true; else delete auswahl[b.id]; });
+    zeigen(); return;
+  }
+  if (e.target.classList.contains('wahl')) {
+    var id = e.target.dataset.id;
+    if (e.target.checked) auswahl[id] = true; else delete auswahl[id];
+    sammelleiste(); return;
+  }
+  if (e.target.closest('td.wahl')) return;
+  var z = e.target.closest('tr.zeile'); if (z) oeffnen(z.dataset.id);
+};
+$('btnSammelFrei').onclick = function () { sammelStatus('Freigegeben'); };
+$('btnSammelAus').onclick = function () { sammelStatus('Ausgeschlossen'); };
+$('btnSammelLeeren').onclick = function () { auswahl = {}; zeigen(); };
 $('pZu').onclick = schliessen;
-document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { schliessen(); document.querySelectorAll('.dialog.offen').forEach(function (d) { d.classList.remove('offen'); }); } });
+document.addEventListener('keydown', function (e) {
+  var tippt = /INPUT|SELECT|TEXTAREA/.test((document.activeElement || {}).tagName || '');
+  if (aktiv && !tippt && !e.ctrlKey && !e.metaKey && !e.altKey) {
+    var t = e.key.toLowerCase();
+    if (t === 'f') { e.preventDefault(); $('pFrei').click(); return; }
+    if (t === 'a') { e.preventDefault(); $('pAus').click(); return; }
+    if (t === 'j') { e.preventDefault(); blaettern(1); return; }
+    if (t === 'k') { e.preventDefault(); blaettern(-1); return; }
+  }
+  if (e.key === 'Escape') { schliessen(); document.querySelectorAll('.dialog.offen').forEach(function (d) { d.classList.remove('offen'); }); } });
 $('pForm').onsubmit = function (e) { e.preventDefault(); speichern(); };
 $('pFrei').onclick = function () { speichern({ status: 'Freigegeben' }); };
 $('pAus').onclick = function () { speichern({ status: 'Ausgeschlossen' }); };
@@ -593,9 +698,9 @@ $('btnPaket').onclick = function () {
 function paketVorschau() {
   var m = $('paketMonat').value;
   var im = D.belege.filter(function (b) { return b.monat === m; });
-  var rein = im.filter(function (b) { return ['Neu', 'Freigegeben', 'Übermittelt'].indexOf(b.status) > -1; }).length;
-  var offen = im.filter(function (b) { return b.status === 'Prüfen'; }).length;
-  $('paketVorschau').innerHTML = rein + ' Belege kommen ins Paket.' + (offen ? ' <strong style="color:var(--warn)">' + offen + ' Beleg(e) stehen noch auf „Prüfen“ und fehlen im Paket.</strong>' : '') +
+  var rein = im.filter(function (b) { return ['Freigegeben', 'Übermittelt'].indexOf(b.status) > -1; }).length;
+  var offen = im.filter(function (b) { return b.status === 'Neu' || b.status === 'Prüfen'; }).length;
+  $('paketVorschau').innerHTML = rein + ' freigegebene Belege kommen ins Paket.' + (offen ? ' <strong style="color:var(--warn)">' + offen + ' Beleg(e) sind noch nicht freigegeben und fehlen im Paket.</strong>' : '') +
     (D.einstellungen.STEUERBERATER_MAIL ? '' : ' Keine Steuerberater-Adresse hinterlegt, daher kein Entwurf.');
 }
 $('paketMonat').onchange = paketVorschau;
@@ -614,6 +719,12 @@ $('btnEinst').onclick = function () {
   $('eSchluesselStand').textContent = D.hatSchluessel ? '(hinterlegt)' : '(fehlt)';
   $('eLinks').innerHTML = '<a href="' + esc(D.links.tabelle) + '" target="_blank">Belegliste, Regeln und Kategorien in Google Sheets</a> · <a href="' + esc(D.links.ordner) + '" target="_blank">Drive-Ordner</a>';
   $('dEinst').classList.add('offen');
+};
+$('btnFehlerBereinigen').onclick = function () { $('btnBereinigen').click(); };
+$('btnHash').onclick = function () {
+  var k = this; k.disabled = true; k.textContent = 'Prüfe …';
+  server('hashPruefenAusApp').then(function (r) { melde(r.meldung, r.abweichend.length + r.fehlend.length > 0); })
+    .finally(function () { k.disabled = false; k.textContent = 'Dateien auf Veränderung prüfen'; });
 };
 $('btnBereinigen').onclick = function () {
   var k = this; k.disabled = true; k.textContent = 'Bereinige …';

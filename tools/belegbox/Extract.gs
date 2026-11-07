@@ -21,20 +21,20 @@ var AUSLESE_SCHEMA = {
     empfaenger_ustid: { type: 'string' },
     rechnungsnummer: { type: 'string' },
     belegdatum: { type: 'string', description: 'Rechnungs- oder Belegdatum im Format JJJJ-MM-TT, leer wenn unbekannt' },
-    leistungszeitraum: { type: 'string' },
+    leistungszeitraum: { type: 'string', description: 'Format TT.MM.JJJJ bis TT.MM.JJJJ, bei einem einzelnen Tag nur TT.MM.JJJJ, leer wenn nicht angegeben' },
     beschreibung: { type: 'string', description: 'Was wurde gekauft oder geliefert, höchstens 12 Wörter, deutsch' },
     netto: { anyOf: [{ type: 'number' }, { type: 'null' }] },
     ust_satz: { anyOf: [{ type: 'number' }, { type: 'null' }], description: 'Prozent, z. B. 19, 7 oder 0' },
     ust_betrag: { anyOf: [{ type: 'number' }, { type: 'null' }] },
     brutto: { anyOf: [{ type: 'number' }, { type: 'null' }], description: 'Zahlbetrag bzw. Gesamtbetrag' },
     waehrung: { type: 'string', description: 'ISO-Code, z. B. EUR, USD' },
-    reverse_charge: { type: 'boolean', description: 'true bei Hinweis auf Steuerschuldnerschaft des Leistungsempfängers / reverse charge oder ausländischem Leistenden ohne deutsche USt' },
+    reverse_charge: { type: 'boolean', description: 'true nur bei ausdrücklichem Hinweis auf Steuerschuldnerschaft des Leistungsempfängers / reverse charge oder bei 0 % USt eines ausländischen Unternehmers, wenn die USt-IdNr. der eigenen Firma auf dem Beleg steht' },
     zahlungsart: { type: 'string', description: 'z. B. Kreditkarte, PayPal, Lastschrift, Überweisung, leer wenn unbekannt' },
     bezahlt: { type: 'string', enum: ['ja', 'nein', 'unbekannt'] },
     kategorie: { type: 'string', description: 'Eine Kategorie aus der vorgegebenen Liste' },
     bereich_vorschlag: { type: 'string', enum: ['Geschäftlich', 'Privat', 'Unklar'] },
     vertrauen: { type: 'number', description: '0 bis 1: wie sicher die Angaben sind' },
-    hinweis: { type: 'string', description: 'Höchstens ein Satz mit 20 Wörtern für die Buchhaltung, leer wenn nichts auffällt' }
+    hinweis: { type: 'string', description: 'Nur echte Auffälligkeiten, höchstens ein Satz mit 20 Wörtern, Daten immer als TT.MM.JJJJ. Leistungszeitraum, Betrag und Zahlungsart nicht wiederholen. Leer, wenn nichts auffällt.' }
   },
   required: ['ist_beleg', 'dokumentart', 'richtung', 'aussteller_name', 'aussteller_ustid', 'empfaenger_name', 'empfaenger_ustid',
     'rechnungsnummer', 'belegdatum', 'leistungszeitraum', 'beschreibung', 'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung',
@@ -46,11 +46,14 @@ function systemPrompt(kategorien) {
   var f = eigeneFirma();
   return [
     'Du liest Belege für die Buchhaltung eines deutschen Unternehmens aus.',
-    'Eigene Firma: ' + f.name + ', Sitz ' + f.ort + ', USt-IdNr. ' + f.ustid + '. Ansprechpartner Alexios Donas.',
+    'Eigene Firma: ' + f.name + ', Sitz ' + f.ort + ', USt-IdNr. ' + f.ustid + '.' +
+      (f.merkmale.length ? ' Die eigene Firma erkennt man auch an: ' + f.merkmale.join(', ') + '. Ein Beleg an diese Person oder Anschrift ist an die eigene Firma gerichtet.' : ''),
     'Bestimme, wer Aussteller und wer Empfänger ist. Stellt die eigene Firma das Dokument aus, ist es ein Ausgangsbeleg.',
     'Unterscheide genau zwischen Rechnung, Quittung/Zahlungsbestätigung zu einer Rechnung, Angebot, Pro-forma, Auftragsbestätigung und Bestellung.',
     'Eine Bestellung oder Auftragsbestätigung eines Kunden an die eigene Firma ist kein Eingangsbeleg.',
     'Beträge als Zahl mit Punkt als Dezimaltrenner. Fehlende Angaben leer lassen bzw. null, nichts erfinden.',
+    'Bezeichne Reverse-Charge-Fälle als Steuerschuldnerschaft nach §13b UStG, niemals als Eigenverbrauch.',
+    'Schreibe Datumsangaben in Texten immer als TT.MM.JJJJ.',
     'Kategorien: ' + kategorien.join(', ') + '.',
     'Antworte nur mit dem geforderten JSON.'
   ].join('\n');
@@ -148,11 +151,19 @@ function auslesungUebernehmen(beleg, x) {
   beleg.reverse_charge = x.reverse_charge ? 'ja' : '';
   beleg.zahlungsart = x.zahlungsart || '';
   beleg.bezahlt = x.bezahlt || '';
-  beleg.kategorie = beleg.richtung === 'Ausgang' && !x.kategorie ? 'Erlöse 19 %' : (x.kategorie || '');
+  beleg.leistungszeitraum = x.leistungszeitraum || '';
+  var hinweise = [];
+  if (beleg.richtung === 'Ausgang') {
+    // Erlöskategorie nach Kunde: ohne USt oder ausländische USt-IdNr. heißt Ausland / steuerfrei
+    var erloes = erloesKategorie(beleg);
+    if (!x.kategorie || /^Erlöse/.test(x.kategorie)) beleg.kategorie = erloes;
+    else beleg.kategorie = x.kategorie;
+    if (erloes !== 'Erlöse 19 %') hinweise.push('Erlöse prüfen');
+  } else {
+    beleg.kategorie = x.kategorie || '';
+  }
   beleg.bereich = x.bereich_vorschlag === 'Privat' ? 'Privat' : 'Geschäftlich';
   beleg.vertrauen = typeof x.vertrauen === 'number' ? Math.round(x.vertrauen * 100) / 100 : '';
-  var hinweise = [];
-  if (x.leistungszeitraum) hinweise.push('Leistungszeitraum ' + x.leistungszeitraum);
   if (x.hinweis) hinweise.push(x.hinweis);
   if (x.bereich_vorschlag === 'Unklar') hinweise.push('Privat oder geschäftlich prüfen');
   if (!x.ist_beleg) { beleg.status = STATUS.AUSGESCHLOSSEN; hinweise.push('Kein Beleg'); }

@@ -8,6 +8,8 @@ var STANDARD_EINSTELLUNGEN = {
   FIRMA_NAME: 'PLANEGY',
   FIRMA_USTID: 'DE275026433',
   FIRMA_ORT: 'Waiblingen',
+  // Weitere Merkmale der eigenen Firma, kommagetrennt (Inhaber, Straße). Hilft bei Belegen ohne Firmennamen.
+  FIRMA_MERKMALE: 'Alexios Donas, Im Raisger 22',
   // Gmail-Suche nach Belegen. Wird pro Lauf um "after:" ergänzt.
   GMAIL_SUCHE: '((has:attachment (filename:pdf OR filename:jpg OR filename:jpeg OR filename:png) ' +
     '(rechnung OR invoice OR receipt OR quittung OR beleg OR zahlungsbestätigung OR "payment confirmation" OR gutschrift OR "credit note" OR bill)) ' +
@@ -22,6 +24,8 @@ var STANDARD_EINSTELLUNGEN = {
   // Claude-Modell für die Auslesung. Haiku ist günstig; "Genau auslesen" in der App nutzt GENAU_MODELL.
   MODELL: 'claude-haiku-5-5',
   GENAU_MODELL: 'claude-opus-5-5',
+  // Unsichere Fälle (Reverse Charge, Fremdwährung, KI-Sicherheit unter 0,85) automatisch mit GENAU_MODELL nachlesen
+  ZWEITE_RUNDE: 'true',
   // Optional: Beleg-Mailadresse von DATEV Unternehmen online (Upload Mail), lexoffice oder sevDesk.
   BELEGMAIL: '',
   // Freigegebene Belege sofort an BELEGMAIL senden.
@@ -49,7 +53,10 @@ function setzeEinstellung(schluessel, wert) {
 }
 
 function eigeneFirma() {
-  return { name: einstellung('FIRMA_NAME'), ustid: einstellung('FIRMA_USTID'), ort: einstellung('FIRMA_ORT') };
+  return {
+    name: einstellung('FIRMA_NAME'), ustid: einstellung('FIRMA_USTID'), ort: einstellung('FIRMA_ORT'),
+    merkmale: String(einstellung('FIRMA_MERKMALE') || '').split(',').map(function (s) { return s.trim(); }).filter(String)
+  };
 }
 
 function tabelle() {
@@ -85,16 +92,22 @@ function ablageordner(belegdatum, richtung) {
   return unterordner(monatOrdner, art);
 }
 
+// Je Ausführung zwischengespeichert, damit ein Scan Regeln und Kategorien nicht pro Datei neu liest
+var _cache = {};
+
 function kategorienKarte() {
+  if (_cache.kategorien) return _cache.kategorien;
   var werte = blatt('Kategorien').getDataRange().getValues().slice(1);
   var karte = {};
   werte.forEach(function (z) { if (z[0]) karte[String(z[0])] = String(z[1] || ''); });
+  _cache.kategorien = karte;
   return karte;
 }
 
 function regelnLaden() {
+  if (_cache.regeln) return _cache.regeln;
   var werte = blatt('Regeln').getDataRange().getValues().slice(1);
-  return werte.filter(function (z) { return z[1]; }).map(function (z) {
+  return _cache.regeln = werte.filter(function (z) { return z[1]; }).map(function (z) {
     return {
       aktiv: z[0] === true || String(z[0]).toLowerCase() === 'true' || String(z[0]).toLowerCase() === 'ja',
       feld: String(z[1]).trim(), bedingung: String(z[2]).trim(), wert: String(z[3]),

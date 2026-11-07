@@ -43,7 +43,9 @@ var BELEG_SPALTEN = [
   ['hash', 'SHA-256'],
   ['vertrauen', 'KI-Sicherheit'],
   ['uebermittelt', 'Übermittelt am'],
-  ['notiz', 'Notiz']
+  ['notiz', 'Notiz'],
+  // Neue Spalten nur hinten anhängen, damit bestehende Tabellen passen
+  ['leistungszeitraum', 'Leistungszeitraum']
 ];
 
 var STATUS = {
@@ -96,6 +98,11 @@ var STANDARD_REGELN = [
   [true, 'partner', 'enthält', 'Anthropic', 'kategorie', 'Software & Abos', ''],
   [true, 'partner', 'enthält', 'Netlify', 'kategorie', 'Hosting & Domains', ''],
   [true, 'partner', 'enthält', 'Caya', 'kategorie', 'Miete & Raumkosten', 'Digitaler Briefkasten'],
+  [true, 'partner', 'enthält', 'Calendly', 'kategorie', 'Software & Abos', ''],
+  [true, 'partner', 'enthält', 'Google Cloud', 'kategorie', 'Software & Abos', 'Google Workspace'],
+  [true, 'partner', 'enthält', 'HubSpot', 'kategorie', 'Software & Abos', ''],
+  [true, 'partner', 'enthält', 'Gamma', 'kategorie', 'Software & Abos', ''],
+  [true, 'partner', 'enthält', 'AEGEAN', 'kategorie', 'Reisekosten', ''],
   [false, 'absender', 'enthält', 'noreply@example.com', 'ausschließen', '', 'Vorlage: Absender ausschließen']
 ];
 
@@ -199,9 +206,14 @@ function istEigeneFirma(name, ustid, eigeneFirma) {
   var u1 = String(ustid || '').replace(/\s/g, '').toUpperCase();
   var u2 = String(eigeneFirma.ustid || '').replace(/\s/g, '').toUpperCase();
   if (u1 && u2 && u1 === u2) return true;
-  var firma = normalisiereName(eigeneFirma.name);
-  var n = normalisiereName(name);
-  return !!(firma && n && (' ' + n + ' ').indexOf(' ' + firma + ' ') > -1);
+  var n = ' ' + normalisiereName(name) + ' ';
+  if (!n.trim()) return false;
+  // Firmenname plus weitere Merkmale wie Inhabername oder Straße (Einstellung FIRMA_MERKMALE)
+  var merkmale = [eigeneFirma.name].concat(eigeneFirma.merkmale || []);
+  return merkmale.some(function (m) {
+    var x = normalisiereName(m);
+    return x && n.indexOf(' ' + x + ' ') > -1;
+  });
 }
 
 /**
@@ -348,6 +360,7 @@ var EXPORT_SPALTEN = [
   ['Richtung', function (b) { return b.richtung; }],
   ['Belegdatum', function (b) { return deDatum(b.belegdatum); }],
   ['Rechnungsnummer', function (b) { return b.rechnungsnummer; }],
+  ['Leistungszeitraum', function (b) { return b.leistungszeitraum; }],
   ['Lieferant / Kunde', function (b) { return b.partner; }],
   ['USt-IdNr.', function (b) { return b.partner_ustid; }],
   ['Beschreibung', function (b) { return b.beschreibung; }],
@@ -360,7 +373,8 @@ var EXPORT_SPALTEN = [
   ['Währung', function (b) { return b.waehrung; }],
   ['Kurs EUR', function (b) { return b.kurs === '' ? '' : String(b.kurs).replace('.', ','); }],
   ['Brutto EUR', function (b) { return betragDe(b.brutto_eur); }],
-  ['Reverse Charge §13b', function (b) { return b.reverse_charge === true || b.reverse_charge === 'TRUE' || b.reverse_charge === 'ja' ? 'ja' : ''; }],
+  ['Reverse Charge §13b', function (b) { return rcArt(b); }],
+  ['USt §13b EUR (19 %)', function (b) { var u = ustParagraf13b(b); return u === null ? '' : betragDe(u); }],
   ['Zahlungsart', function (b) { return b.zahlungsart; }],
   ['Bezahlt', function (b) { return b.bezahlt; }],
   ['Datei', function (b) { return b.datei_name; }],
@@ -378,8 +392,7 @@ function baueCsv(belege) {
 function summen(belege) {
   var s = { eingang: 0, ausgang: 0, anzahl: belege.length, ohneEur: 0 };
   belege.forEach(function (b) {
-    var eur = zahl(b.brutto_eur);
-    if (eur === null && (b.waehrung || 'EUR') === 'EUR') eur = zahl(b.brutto);
+    var eur = bruttoEur(b);
     if (eur === null) { s.ohneEur++; return; }
     if (b.richtung === 'Ausgang') s.ausgang += eur; else s.eingang += eur;
   });
@@ -388,9 +401,49 @@ function summen(belege) {
   return s;
 }
 
+// ---------- Reverse Charge ----------
+
+var EU_LAENDER = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DK', 'EE', 'ES', 'FI', 'FR', 'GR', 'EL', 'HR', 'HU', 'IE', 'IT',
+  'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK'];
+
+function istReverseCharge(b) {
+  return b.reverse_charge === true || b.reverse_charge === 'TRUE' || b.reverse_charge === 'ja';
+}
+
+/**
+ * Art des §13b-Falls nach Herkunft des Leistenden: EU-Unternehmer (Abs. 1) oder Drittland (Abs. 2).
+ * Grundlage ist das Länderpräfix der USt-IdNr. Kennungen wie "EU372082401" (OSS-Nummer von
+ * Drittlandsanbietern, z. B. Calendly) zählen als Drittland, weil "EU" kein Mitgliedstaat ist.
+ */
+function rcArt(b) {
+  if (!istReverseCharge(b)) return '';
+  var land = String(b.partner_ustid || '').replace(/\s/g, '').slice(0, 2).toUpperCase();
+  return EU_LAENDER.indexOf(land) > -1 ? 'EU §13b Abs. 1' : 'Drittland §13b Abs. 2';
+}
+
+// Selbst zu berechnende USt bei §13b, 19 % auf den Nettobetrag in Euro. Satz mit dem Steuerberater abstimmen.
+function ustParagraf13b(b) {
+  if (!istReverseCharge(b)) return null;
+  var n = nettoEur(b);
+  return n === null ? null : runden(n * 0.19);
+}
+
+// Erlöskategorie für Ausgangsrechnungen: Inland mit USt oder Ausland / steuerfrei
+function erloesKategorie(b) {
+  var ustid = String(b.partner_ustid || '').replace(/\s/g, '').toUpperCase();
+  var ohneUst = b.ust_satz !== '' && b.ust_satz !== null && b.ust_satz !== undefined && Number(b.ust_satz) === 0;
+  var ausland = ustid && ustid.slice(0, 2) !== 'DE';
+  return ohneUst || ausland ? 'Erlöse Ausland / steuerfrei' : 'Erlöse 19 %';
+}
+
 // Belege, die in ein Monatspaket gehören.
+// Nur geprüfte Belege gehen an den Steuerberater.
 function exportierbar(b) {
-  return b.status === STATUS.FREIGEGEBEN || b.status === STATUS.UEBERMITTELT || b.status === STATUS.NEU;
+  return b.status === STATUS.FREIGEGEBEN || b.status === STATUS.UEBERMITTELT;
+}
+
+function nochNichtFreigegeben(b) {
+  return b.status === STATUS.NEU || b.status === STATUS.PRUEFEN;
 }
 
 // ---------- Jahresübersicht und laufende Kosten ----------
@@ -534,7 +587,8 @@ if (typeof module !== 'undefined') {
     zeileZuObjekt: zeileZuObjekt, objektZuZeile: objektZuZeile, normalisiereName: normalisiereName, zahl: zahl,
     alsDatum: alsDatum, isoDatum: isoDatum, deDatum: deDatum, monatVon: monatVon, regelTrifft: regelTrifft,
     wendeRegelnAn: wendeRegelnAn, bestimmeRichtung: bestimmeRichtung, istEigeneFirma: istEigeneFirma, findeDublette: findeDublette, dateiname: dateiname, baueCsv: baueCsv,
-    summen: summen, exportierbar: exportierbar, betragDe: betragDe,
+    summen: summen, exportierbar: exportierbar, betragDe: betragDe, rcArt: rcArt, ustParagraf13b: ustParagraf13b,
+    erloesKategorie: erloesKategorie, nochNichtFreigegeben: nochNichtFreigegeben, zaehltFuerAuswertung: zaehltFuerAuswertung, bruttoEur: bruttoEur,
     jahresUebersicht: jahresUebersicht, laufendeKosten: laufendeKosten
   };
 }
@@ -551,6 +605,8 @@ var STANDARD_EINSTELLUNGEN = {
   FIRMA_NAME: 'PLANEGY',
   FIRMA_USTID: 'DE275026433',
   FIRMA_ORT: 'Waiblingen',
+  // Weitere Merkmale der eigenen Firma, kommagetrennt (Inhaber, Straße). Hilft bei Belegen ohne Firmennamen.
+  FIRMA_MERKMALE: 'Alexios Donas, Im Raisger 22',
   // Gmail-Suche nach Belegen. Wird pro Lauf um "after:" ergänzt.
   GMAIL_SUCHE: '((has:attachment (filename:pdf OR filename:jpg OR filename:jpeg OR filename:png) ' +
     '(rechnung OR invoice OR receipt OR quittung OR beleg OR zahlungsbestätigung OR "payment confirmation" OR gutschrift OR "credit note" OR bill)) ' +
@@ -565,6 +621,8 @@ var STANDARD_EINSTELLUNGEN = {
   // Claude-Modell für die Auslesung. Haiku ist günstig; "Genau auslesen" in der App nutzt GENAU_MODELL.
   MODELL: 'claude-haiku-5-5',
   GENAU_MODELL: 'claude-opus-5-5',
+  // Unsichere Fälle (Reverse Charge, Fremdwährung, KI-Sicherheit unter 0,85) automatisch mit GENAU_MODELL nachlesen
+  ZWEITE_RUNDE: 'true',
   // Optional: Beleg-Mailadresse von DATEV Unternehmen online (Upload Mail), lexoffice oder sevDesk.
   BELEGMAIL: '',
   // Freigegebene Belege sofort an BELEGMAIL senden.
@@ -592,7 +650,10 @@ function setzeEinstellung(schluessel, wert) {
 }
 
 function eigeneFirma() {
-  return { name: einstellung('FIRMA_NAME'), ustid: einstellung('FIRMA_USTID'), ort: einstellung('FIRMA_ORT') };
+  return {
+    name: einstellung('FIRMA_NAME'), ustid: einstellung('FIRMA_USTID'), ort: einstellung('FIRMA_ORT'),
+    merkmale: String(einstellung('FIRMA_MERKMALE') || '').split(',').map(function (s) { return s.trim(); }).filter(String)
+  };
 }
 
 function tabelle() {
@@ -628,16 +689,22 @@ function ablageordner(belegdatum, richtung) {
   return unterordner(monatOrdner, art);
 }
 
+// Je Ausführung zwischengespeichert, damit ein Scan Regeln und Kategorien nicht pro Datei neu liest
+var _cache = {};
+
 function kategorienKarte() {
+  if (_cache.kategorien) return _cache.kategorien;
   var werte = blatt('Kategorien').getDataRange().getValues().slice(1);
   var karte = {};
   werte.forEach(function (z) { if (z[0]) karte[String(z[0])] = String(z[1] || ''); });
+  _cache.kategorien = karte;
   return karte;
 }
 
 function regelnLaden() {
+  if (_cache.regeln) return _cache.regeln;
   var werte = blatt('Regeln').getDataRange().getValues().slice(1);
-  return werte.filter(function (z) { return z[1]; }).map(function (z) {
+  return _cache.regeln = werte.filter(function (z) { return z[1]; }).map(function (z) {
     return {
       aktiv: z[0] === true || String(z[0]).toLowerCase() === 'true' || String(z[0]).toLowerCase() === 'ja',
       feld: String(z[1]).trim(), bedingung: String(z[2]).trim(), wert: String(z[3]),
@@ -706,6 +773,8 @@ function einrichten() {
   var regeln = blattAnlegen(ss, 'Regeln', ['Aktiv', 'Feld', 'Bedingung', 'Wert', 'Aktion', 'Parameter', 'Beschreibung']);
   if (regeln.getLastRow() < 2) {
     regeln.getRange(2, 1, STANDARD_REGELN.length, 7).setValues(STANDARD_REGELN);
+  } else {
+    standardregelnErgaenzen(regeln);
   }
   regeln.getRange(2, 1, 200, 1).insertCheckboxes();
   regeln.getRange(2, 3, 200, 1).setDataValidation(SpreadsheetApp.newDataValidation()
@@ -750,6 +819,21 @@ function einrichten() {
   return { ordner: ordner.getUrl(), tabelle: ss.getUrl() };
 }
 
+// Hängt Standardregeln an, die im Blatt noch fehlen (gleiches Feld und gleicher Wert). Eigene Regeln bleiben unberührt.
+function standardregelnErgaenzen(regelBlatt) {
+  regelBlatt = regelBlatt || blatt('Regeln');
+  var werte = regelBlatt.getDataRange().getValues();
+  var vorhanden = {};
+  werte.slice(1).forEach(function (z) { if (z[1]) vorhanden[String(z[1]).toLowerCase() + '|' + String(z[3]).toLowerCase()] = true; });
+  var neu = STANDARD_REGELN.filter(function (r) { return !vorhanden[String(r[1]).toLowerCase() + '|' + String(r[3]).toLowerCase()]; });
+  if (!neu.length) return 0;
+  // In die erste leere Zeile schreiben (die Checkboxen reichen bis Zeile 201)
+  var erste = werte.length + 1;
+  for (var i = 1; i < werte.length; i++) { if (!werte[i][1]) { erste = i + 1; break; } }
+  regelBlatt.getRange(erste, 1, neu.length, 7).setValues(neu);
+  return neu.length;
+}
+
 function blattAnlegen(ss, name, kopf) {
   var b = ss.getSheetByName(name) || ss.insertSheet(name);
   b.getRange(1, 1, 1, kopf.length).setValues([kopf]).setFontWeight('bold').setBackground('#e8eef3');
@@ -787,20 +871,20 @@ var AUSLESE_SCHEMA = {
     empfaenger_ustid: { type: 'string' },
     rechnungsnummer: { type: 'string' },
     belegdatum: { type: 'string', description: 'Rechnungs- oder Belegdatum im Format JJJJ-MM-TT, leer wenn unbekannt' },
-    leistungszeitraum: { type: 'string' },
+    leistungszeitraum: { type: 'string', description: 'Format TT.MM.JJJJ bis TT.MM.JJJJ, bei einem einzelnen Tag nur TT.MM.JJJJ, leer wenn nicht angegeben' },
     beschreibung: { type: 'string', description: 'Was wurde gekauft oder geliefert, höchstens 12 Wörter, deutsch' },
     netto: { anyOf: [{ type: 'number' }, { type: 'null' }] },
     ust_satz: { anyOf: [{ type: 'number' }, { type: 'null' }], description: 'Prozent, z. B. 19, 7 oder 0' },
     ust_betrag: { anyOf: [{ type: 'number' }, { type: 'null' }] },
     brutto: { anyOf: [{ type: 'number' }, { type: 'null' }], description: 'Zahlbetrag bzw. Gesamtbetrag' },
     waehrung: { type: 'string', description: 'ISO-Code, z. B. EUR, USD' },
-    reverse_charge: { type: 'boolean', description: 'true bei Hinweis auf Steuerschuldnerschaft des Leistungsempfängers / reverse charge oder ausländischem Leistenden ohne deutsche USt' },
+    reverse_charge: { type: 'boolean', description: 'true nur bei ausdrücklichem Hinweis auf Steuerschuldnerschaft des Leistungsempfängers / reverse charge oder bei 0 % USt eines ausländischen Unternehmers, wenn die USt-IdNr. der eigenen Firma auf dem Beleg steht' },
     zahlungsart: { type: 'string', description: 'z. B. Kreditkarte, PayPal, Lastschrift, Überweisung, leer wenn unbekannt' },
     bezahlt: { type: 'string', enum: ['ja', 'nein', 'unbekannt'] },
     kategorie: { type: 'string', description: 'Eine Kategorie aus der vorgegebenen Liste' },
     bereich_vorschlag: { type: 'string', enum: ['Geschäftlich', 'Privat', 'Unklar'] },
     vertrauen: { type: 'number', description: '0 bis 1: wie sicher die Angaben sind' },
-    hinweis: { type: 'string', description: 'Höchstens ein Satz mit 20 Wörtern für die Buchhaltung, leer wenn nichts auffällt' }
+    hinweis: { type: 'string', description: 'Nur echte Auffälligkeiten, höchstens ein Satz mit 20 Wörtern, Daten immer als TT.MM.JJJJ. Leistungszeitraum, Betrag und Zahlungsart nicht wiederholen. Leer, wenn nichts auffällt.' }
   },
   required: ['ist_beleg', 'dokumentart', 'richtung', 'aussteller_name', 'aussteller_ustid', 'empfaenger_name', 'empfaenger_ustid',
     'rechnungsnummer', 'belegdatum', 'leistungszeitraum', 'beschreibung', 'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung',
@@ -812,11 +896,14 @@ function systemPrompt(kategorien) {
   var f = eigeneFirma();
   return [
     'Du liest Belege für die Buchhaltung eines deutschen Unternehmens aus.',
-    'Eigene Firma: ' + f.name + ', Sitz ' + f.ort + ', USt-IdNr. ' + f.ustid + '. Ansprechpartner Alexios Donas.',
+    'Eigene Firma: ' + f.name + ', Sitz ' + f.ort + ', USt-IdNr. ' + f.ustid + '.' +
+      (f.merkmale.length ? ' Die eigene Firma erkennt man auch an: ' + f.merkmale.join(', ') + '. Ein Beleg an diese Person oder Anschrift ist an die eigene Firma gerichtet.' : ''),
     'Bestimme, wer Aussteller und wer Empfänger ist. Stellt die eigene Firma das Dokument aus, ist es ein Ausgangsbeleg.',
     'Unterscheide genau zwischen Rechnung, Quittung/Zahlungsbestätigung zu einer Rechnung, Angebot, Pro-forma, Auftragsbestätigung und Bestellung.',
     'Eine Bestellung oder Auftragsbestätigung eines Kunden an die eigene Firma ist kein Eingangsbeleg.',
     'Beträge als Zahl mit Punkt als Dezimaltrenner. Fehlende Angaben leer lassen bzw. null, nichts erfinden.',
+    'Bezeichne Reverse-Charge-Fälle als Steuerschuldnerschaft nach §13b UStG, niemals als Eigenverbrauch.',
+    'Schreibe Datumsangaben in Texten immer als TT.MM.JJJJ.',
     'Kategorien: ' + kategorien.join(', ') + '.',
     'Antworte nur mit dem geforderten JSON.'
   ].join('\n');
@@ -914,11 +1001,19 @@ function auslesungUebernehmen(beleg, x) {
   beleg.reverse_charge = x.reverse_charge ? 'ja' : '';
   beleg.zahlungsart = x.zahlungsart || '';
   beleg.bezahlt = x.bezahlt || '';
-  beleg.kategorie = beleg.richtung === 'Ausgang' && !x.kategorie ? 'Erlöse 19 %' : (x.kategorie || '');
+  beleg.leistungszeitraum = x.leistungszeitraum || '';
+  var hinweise = [];
+  if (beleg.richtung === 'Ausgang') {
+    // Erlöskategorie nach Kunde: ohne USt oder ausländische USt-IdNr. heißt Ausland / steuerfrei
+    var erloes = erloesKategorie(beleg);
+    if (!x.kategorie || /^Erlöse/.test(x.kategorie)) beleg.kategorie = erloes;
+    else beleg.kategorie = x.kategorie;
+    if (erloes !== 'Erlöse 19 %') hinweise.push('Erlöse prüfen');
+  } else {
+    beleg.kategorie = x.kategorie || '';
+  }
   beleg.bereich = x.bereich_vorschlag === 'Privat' ? 'Privat' : 'Geschäftlich';
   beleg.vertrauen = typeof x.vertrauen === 'number' ? Math.round(x.vertrauen * 100) / 100 : '';
-  var hinweise = [];
-  if (x.leistungszeitraum) hinweise.push('Leistungszeitraum ' + x.leistungszeitraum);
   if (x.hinweis) hinweise.push(x.hinweis);
   if (x.bereich_vorschlag === 'Unklar') hinweise.push('Privat oder geschäftlich prüfen');
   if (!x.ist_beleg) { beleg.status = STATUS.AUSGESCHLOSSEN; hinweise.push('Kein Beleg'); }
@@ -956,15 +1051,24 @@ function eurKurs(waehrung, datum) {
 function inEuroUmrechnen(beleg) {
   var brutto = zahl(beleg.brutto);
   if (brutto === null) return beleg;
+  var kurs = null;
   try {
-    var kurs = eurKurs(beleg.waehrung, beleg.belegdatum);
-    if (kurs) {
-      beleg.kurs = kurs;
-      beleg.brutto_eur = Math.round(brutto * kurs * 100) / 100;
-    }
+    kurs = eurKurs(beleg.waehrung, beleg.belegdatum);
   } catch (e) {
     protokoll('Kurs nicht abrufbar', beleg.waehrung + ' ' + e.message);
   }
+  var grund = String(beleg.grund || '').split('; ').filter(function (g) { return g && g !== 'Kurs fehlt'; });
+  if (kurs) {
+    beleg.kurs = kurs;
+    beleg.brutto_eur = Math.round(brutto * kurs * 100) / 100;
+  } else {
+    // Ohne Kurs fehlt der Beleg in allen Euro-Summen, deshalb sichtbar auf Prüfen
+    beleg.kurs = '';
+    beleg.brutto_eur = '';
+    grund.push('Kurs fehlt');
+    if (beleg.status === STATUS.NEU) beleg.status = STATUS.PRUEFEN;
+  }
+  beleg.grund = grund.join('; ');
   return beleg;
 }
 
@@ -992,7 +1096,20 @@ function belegNachId(id) {
 }
 
 function belegAnhaengen(beleg) {
+  kopfzeileSicherstellen();
   blatt('Belege').appendRow(objektZuZeile(beleg));
+}
+
+// Ergänzt neue Spalten (z. B. Leistungszeitraum) in bestehenden Tabellen. Einmal je Ausführung.
+function kopfzeileSicherstellen() {
+  if (_cache.kopfOk) return;
+  var b = blatt('Belege');
+  var namen = spaltenNamen();
+  var ist = b.getRange(1, 1, 1, namen.length).getValues()[0];
+  if (String(ist[namen.length - 1]) !== namen[namen.length - 1]) {
+    b.getRange(1, 1, 1, namen.length).setValues([namen]).setFontWeight('bold').setBackground('#e8eef3');
+  }
+  _cache.kopfOk = true;
 }
 
 function belegSpeichern(beleg) {
@@ -1004,6 +1121,8 @@ function belegSpeichern(beleg) {
   blatt('Belege').getRange(beleg._zeile, 1, 1, BELEG_SPALTEN.length).setValues([objektZuZeile(beleg)]);
 }
 
+// Die Jahreszahl der Beleg-ID ist das Eingangsjahr, nicht das Belegjahr: Eine Dezemberrechnung,
+// die im Januar ankommt, heißt B2027-…. Für die Buchhaltung zählt das Belegdatum in der Tabelle.
 function neueBelegId() {
   // Eigene Benutzersperre. Die Skriptsperre hält währenddessen der Scan; sie hier freizugeben
   // hat früher parallele Scans und doppelte Einträge verursacht.
@@ -1029,6 +1148,26 @@ function hashVorhanden(hash) {
   var hashes = b.getRange(2, spalteHash, n - 1, 1).getValues();
   for (var i = 0; i < hashes.length; i++) if (hashes[i][0] === hash) return ids[i][0];
   return '';
+}
+
+/**
+ * Liest mit dem Standardmodell. Bei Reverse Charge, Fremdwährung oder KI-Sicherheit unter 0,85
+ * liest das genauere Modell (GENAU_MODELL) ein zweites Mal, statt den Beleg nur auf Prüfen zu setzen.
+ */
+function auslesenMitZweiterRunde(blob, meta) {
+  var x = belegAuslesen(blob, meta);
+  if (!x || !x.ist_beleg || einstellung('ZWEITE_RUNDE') !== 'true') return x;
+  var genau = einstellung('GENAU_MODELL');
+  if (!genau || genau === einstellung('MODELL')) return x;
+  var unsicher = x.reverse_charge || String(x.waehrung || 'EUR').toUpperCase() !== 'EUR' || !(Number(x.vertrauen) >= 0.85);
+  if (!unsicher) return x;
+  try {
+    var x2 = belegAuslesen(blob, meta, genau);
+    if (x2) { x2._zweiteRunde = genau; return x2; }
+  } catch (e) {
+    protokoll('Zweite Auslesung fehlgeschlagen', blob.getName() + ': ' + e.message);
+  }
+  return x;
 }
 
 function sha256(bytes) {
@@ -1074,10 +1213,9 @@ function dateiEinordnen(beleg) {
 function dateiVerarbeiten(blob, meta) {
   var bytes = blob.getBytes();
   var hash = sha256(bytes);
-  var bestehende = alleBelege();
-  for (var i = 0; i < bestehende.length; i++) {
-    if (bestehende[i].hash === hash) return { ergebnis: 'Datei schon vorhanden (' + bestehende[i].id + ')', id: bestehende[i].id };
-  }
+  // Nur die Hash-Spalte lesen, die volle Liste erst für die Dublettensuche nach der Auslesung
+  var vorhanden = hashVorhanden(hash);
+  if (vorhanden) return { ergebnis: 'Datei schon vorhanden (' + vorhanden + ')', id: vorhanden };
 
   var beleg = zeileZuObjekt([]);
   beleg.id = neueBelegId();
@@ -1092,9 +1230,10 @@ function dateiVerarbeiten(blob, meta) {
   beleg.bereich = 'Geschäftlich';
 
   try {
-    var x = belegAuslesen(blob, meta);
+    var x = auslesenMitZweiterRunde(blob, meta, beleg);
     if (x) {
       auslesungUebernehmen(beleg, x);
+      if (x._zweiteRunde) beleg.grund = [beleg.grund, 'Mit ' + x._zweiteRunde + ' nachgelesen'].filter(String).join('; ');
     } else {
       beleg.status = STATUS.PRUEFEN;
       beleg.grund = 'Nicht ausgelesen: ANTHROPIC_API_KEY fehlt';
@@ -1172,7 +1311,8 @@ function belegNeuAuslesen(id, modell) {
   var beleg = belegNachId(id);
   if (!beleg) throw new Error('Beleg nicht gefunden');
   var blob = DriveApp.getFileById(beleg.datei_id).getBlob();
-  var x = belegAuslesen(blob, { absender: beleg.absender, betreff: beleg.betreff }, modell);
+  var meta = { absender: beleg.absender, betreff: beleg.betreff };
+  var x = modell ? belegAuslesen(blob, meta, modell) : auslesenMitZweiterRunde(blob, meta);
   if (!x) throw new Error('ANTHROPIC_API_KEY fehlt');
   var notiz = beleg.notiz;
   beleg.status = STATUS.NEU;
@@ -1197,12 +1337,23 @@ function listeBereinigen() {
   var lock = LockService.getScriptLock();
   if (!lock.tryLock(5000)) return { meldung: 'Gerade läuft ein Scan. Bitte in ein paar Minuten erneut versuchen.' };
   var start = Date.now();
-  var ergebnis = { nachgelesen: 0, dubletten: 0, fehler: 0, unvollstaendig: false };
+  var ergebnis = { nachgelesen: 0, dubletten: 0, kurse: 0, regeln: 0, fehler: 0, unvollstaendig: false };
   try {
+    kopfzeileSicherstellen();
+    ergebnis.regeln = standardregelnErgaenzen();
+    _cache.regeln = null;
     alleBelege().forEach(function (b) {
       if (b.status !== STATUS.PRUEFEN || !/^(Nicht ausgelesen|Auslesung fehlgeschlagen)/.test(String(b.grund))) return;
       if (Date.now() - start > LAUFZEIT_MS - 60000) { ergebnis.unvollstaendig = true; return; }
       try { belegNeuAuslesen(b.id); ergebnis.nachgelesen++; } catch (e) { ergebnis.fehler++; protokoll('Nachlesen fehlgeschlagen', b.id + ': ' + e.message); }
+    });
+
+    // Fremdwährung ohne Euro-Betrag nachrechnen
+    alleBelege().forEach(function (b) {
+      if (String(b.waehrung || 'EUR').toUpperCase() === 'EUR' || b.brutto_eur !== '' || zahl(b.brutto) === null) return;
+      if ([STATUS.DUBLETTE, STATUS.AUSGESCHLOSSEN].indexOf(b.status) > -1) return;
+      inEuroUmrechnen(b);
+      if (b.brutto_eur !== '') { belegSpeichern(b); ergebnis.kurse++; }
     });
 
     var liste = alleBelege().sort(function (a, b) { return String(a.id).localeCompare(String(b.id)); });
@@ -1237,6 +1388,8 @@ function listeBereinigen() {
       }
     });
     ergebnis.meldung = ergebnis.nachgelesen + ' Belege nachgelesen, ' + ergebnis.dubletten + ' Dubletten markiert' +
+      (ergebnis.kurse ? ', ' + ergebnis.kurse + ' Euro-Beträge nachgerechnet' : '') +
+      (ergebnis.regeln ? ', ' + ergebnis.regeln + ' Standardregeln ergänzt' : '') +
       (ergebnis.fehler ? ', ' + ergebnis.fehler + ' Fehler (siehe Protokoll)' : '') +
       (ergebnis.unvollstaendig ? '. Noch nicht fertig, bitte erneut starten.' : '.');
     protokoll('Liste bereinigt', ergebnis.meldung);
@@ -1244,6 +1397,32 @@ function listeBereinigen() {
   } finally {
     lock.releaseLock();
   }
+}
+
+/**
+ * GoBD-Prüfung: berechnet für jede Drive-Datei den SHA-256 neu und vergleicht ihn mit der Tabelle.
+ * Abweichungen und fehlende Dateien landen im Protokoll. Ändert nichts.
+ */
+function hashPruefen() {
+  var start = Date.now();
+  var erg = { geprueft: 0, abweichend: [], fehlend: [], unvollstaendig: false };
+  alleBelege().forEach(function (b) {
+    if (!b.datei_id || !b.hash) return;
+    if (Date.now() - start > LAUFZEIT_MS) { erg.unvollstaendig = true; return; }
+    try {
+      var datei = DriveApp.getFileById(b.datei_id);
+      if (datei.isTrashed()) { erg.fehlend.push(b.id); return; }
+      if (sha256(datei.getBlob().getBytes()) !== b.hash) erg.abweichend.push(b.id);
+      erg.geprueft++;
+    } catch (e) {
+      erg.fehlend.push(b.id);
+    }
+  });
+  erg.meldung = erg.geprueft + ' Dateien geprüft, ' + erg.abweichend.length + ' verändert, ' + erg.fehlend.length + ' fehlen' +
+    (erg.unvollstaendig ? '. Zeitlimit erreicht, nicht alle geprüft.' : '.');
+  protokoll('Hash-Prüfung: ' + erg.meldung, (erg.abweichend.length ? 'Verändert: ' + erg.abweichend.join(', ') + '. ' : '') +
+    (erg.fehlend.length ? 'Fehlen: ' + erg.fehlend.join(', ') : ''));
+  return erg;
 }
 
 // ===== Gmail.gs =====
@@ -1452,7 +1631,7 @@ function monatspaketErstellen(monat, optionen) {
 
   var alle = alleBelege().filter(function (b) { return monatVon(b.belegdatum || b.eingang) === monat; });
   var belege = alle.filter(exportierbar);
-  var offen = alle.filter(function (b) { return b.status === STATUS.PRUEFEN; });
+  var offen = alle.filter(nochNichtFreigegeben);
   belege.sort(function (a, b) {
     return (a.richtung > b.richtung ? 1 : a.richtung < b.richtung ? -1 : 0) || ((alsDatum(a.belegdatum) || 0) - (alsDatum(b.belegdatum) || 0));
   });
@@ -1512,7 +1691,7 @@ function monatspaketErstellen(monat, optionen) {
 
   blatt('Exporte').appendRow([new Date(), monat, belege.length, s.eingang, s.ausgang, ordner.getUrl(),
     info.entwurf ? stb : '', optionen.entwurf ? 'Entwurf' : 'Nur Ablage']);
-  protokoll('Monatspaket ' + monat, belege.length + ' Belege, ' + offen.length + ' offen');
+  protokoll('Monatspaket ' + monat, belege.length + ' Belege, ' + offen.length + ' nicht freigegeben');
   return info;
 }
 
@@ -1569,7 +1748,7 @@ function monatspaketAutomatisch() {
   var info = monatspaketErstellen(monat, { entwurf: true });
   var ich = Session.getEffectiveUser().getEmail();
   GmailApp.sendEmail(ich, 'Belegbox: Monatspaket ' + monatText(monat) + ' bereit', [
-    info.anzahl + ' Belege im Paket, ' + info.offen + ' noch zu prüfen.',
+    info.anzahl + ' freigegebene Belege im Paket, ' + info.offen + ' noch nicht freigegeben und daher nicht enthalten.',
     info.entwurf ? 'Der Entwurf an den Steuerberater liegt in Gmail unter "Entwürfe".' : 'Keine Steuerberater-Adresse hinterlegt, daher kein Entwurf.',
     'Ordner: ' + info.ordner
   ].join('\n'));
@@ -1590,10 +1769,10 @@ function doGet() {
 
 var BEARBEITBAR = ['status', 'richtung', 'dokumentart', 'belegdatum', 'rechnungsnummer', 'partner', 'partner_ustid', 'beschreibung',
   'kategorie', 'konto', 'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung', 'reverse_charge', 'zahlungsart', 'bezahlt',
-  'bereich', 'notiz'];
+  'bereich', 'notiz', 'leistungszeitraum'];
 
 var SICHTBARE_EINSTELLUNGEN = ['FIRMA_NAME', 'FIRMA_USTID', 'FIRMA_ORT', 'GMAIL_SUCHE', 'SCAN_AB', 'HTML_ALS_PDF', 'MAX_MAILS_PRO_LAUF',
-  'MODELL', 'GENAU_MODELL', 'BELEGMAIL', 'AUTO_UEBERMITTELN', 'STEUERBERATER_MAIL', 'STEUERBERATER_NAME', 'MONATSPAKET_AUTO'];
+  'MODELL', 'GENAU_MODELL', 'ZWEITE_RUNDE', 'FIRMA_MERKMALE', 'BELEGMAIL', 'AUTO_UEBERMITTELN', 'STEUERBERATER_MAIL', 'STEUERBERATER_NAME', 'MONATSPAKET_AUTO'];
 
 function fuerClient(b) {
   var o = {};
@@ -1603,6 +1782,7 @@ function fuerClient(b) {
     o[s[0]] = v === undefined || v === null ? '' : v;
   });
   o.monat = monatVon(b.belegdatum || b.eingang);
+  o.rc_art = rcArt(b);
   return o;
 }
 
@@ -1622,6 +1802,7 @@ function appDaten() {
     status: Object.keys(STATUS).map(function (k) { return STATUS[k]; }),
     einstellungen: einst,
     hatSchluessel: !!einstellung('ANTHROPIC_API_KEY'),
+    fehlgeschlagen: belege.filter(function (b) { return /^(Auslesung fehlgeschlagen|Nicht ausgelesen)/.test(String(b.grund)); }).length,
     letzterScan: letzter ? new Date(Number(letzter)).toISOString() : '',
     links: {
       tabelle: tabelle().getUrl(),
@@ -1633,7 +1814,13 @@ function appDaten() {
 function belegAktualisieren(id, felder) {
   var beleg = belegNachId(id);
   if (!beleg) throw new Error('Beleg nicht gefunden');
-  var vorher = { brutto: beleg.brutto, waehrung: beleg.waehrung, belegdatum: String(beleg.belegdatum), kategorie: beleg.kategorie };
+  return fuerClient(aenderungAnwenden(beleg, felder));
+}
+
+// Übernimmt Formularwerte, schreibt die Zeile und protokolliert, welche Felder sich geändert haben.
+function aenderungAnwenden(beleg, felder) {
+  var vorher = {};
+  BEARBEITBAR.forEach(function (k) { vorher[k] = beleg[k]; });
   BEARBEITBAR.forEach(function (k) {
     if (!felder.hasOwnProperty(k)) return;
     var v = felder[k];
@@ -1642,24 +1829,42 @@ function belegAktualisieren(id, felder) {
     if (k === 'waehrung') v = String(v || 'EUR').toUpperCase();
     beleg[k] = v;
   });
-  if (beleg.kategorie !== vorher.kategorie && !felder.konto) {
+  var geaendert = BEARBEITBAR.filter(function (k) { return feldText(vorher[k]) !== feldText(beleg[k]); });
+  if (!geaendert.length) return beleg;
+  if (geaendert.indexOf('kategorie') > -1 && geaendert.indexOf('konto') < 0) {
     beleg.konto = kategorienKarte()[beleg.kategorie] || beleg.konto;
   }
-  if (beleg.brutto !== vorher.brutto || beleg.waehrung !== vorher.waehrung || String(beleg.belegdatum) !== vorher.belegdatum) {
+  if (['brutto', 'waehrung', 'belegdatum'].some(function (k) { return geaendert.indexOf(k) > -1; })) {
     beleg.kurs = '';
     beleg.brutto_eur = '';
     inEuroUmrechnen(beleg);
   }
-  dateiEinordnen(beleg);
-  belegSpeichern(beleg);
-  if (beleg.status === STATUS.FREIGEGEBEN && einstellung('AUTO_UEBERMITTELN') === 'true' && einstellung('BELEGMAIL')) {
-    beleg = anBelegmailSenden(id);
+  if (['status', 'richtung', 'belegdatum', 'partner', 'rechnungsnummer', 'brutto', 'waehrung'].some(function (k) { return geaendert.indexOf(k) > -1; })) {
+    dateiEinordnen(beleg);
   }
-  return fuerClient(beleg);
+  belegSpeichern(beleg);
+  protokoll('Geändert ' + beleg.id, geaendert.map(function (k) { return k + ': ' + feldText(vorher[k]) + ' > ' + feldText(beleg[k]); }).join('; '));
+  if (beleg.status === STATUS.FREIGEGEBEN && geaendert.indexOf('status') > -1 &&
+      einstellung('AUTO_UEBERMITTELN') === 'true' && einstellung('BELEGMAIL')) {
+    beleg = anBelegmailSenden(beleg.id);
+  }
+  return beleg;
 }
 
+function feldText(v) {
+  if (Object.prototype.toString.call(v) === '[object Date]') return deDatum(v);
+  if (typeof v === 'number') return betragDe(v);
+  return String(v === null || v === undefined ? '' : v);
+}
+
+// Sammelfreigabe: liest die Tabelle einmal und speichert nur die betroffenen Zeilen
 function belegeStatusSetzen(ids, status) {
-  return ids.map(function (id) { return belegAktualisieren(id, { status: status }); });
+  if (ids.length > 50) throw new Error('Höchstens 50 Belege auf einmal.');
+  var karte = {};
+  alleBelege().forEach(function (b) { karte[b.id] = b; });
+  return ids.filter(function (id) { return karte[id]; }).map(function (id) {
+    return fuerClient(aenderungAnwenden(karte[id], { status: status }));
+  });
 }
 
 function belegHochladen(name, mime, base64) {
@@ -1712,4 +1917,13 @@ function jahresUebersichtAusApp(jahr, mitPrivat) {
     uebersicht: jahresUebersicht(belege, jahr, { mitPrivat: !!mitPrivat, stichtag: stichtag }),
     laufend: laufendeKosten(belege, { mitPrivat: !!mitPrivat, stichtag: heute })
   };
+}
+
+function hashPruefenAusApp() {
+  return hashPruefen();
+}
+
+// Quelltext der Rechenregeln für die Seite (Index.html), damit Browser und Server gleich zählen
+function gemeinsameFunktionen() {
+  return [zahl, zaehltFuerAuswertung, bruttoEur].map(String).join('\n');
 }

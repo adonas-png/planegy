@@ -26,14 +26,23 @@ function eurKurs(waehrung, datum) {
 function inEuroUmrechnen(beleg) {
   var brutto = zahl(beleg.brutto);
   if (brutto === null) return beleg;
+  var kurs = null;
   try {
-    var kurs = eurKurs(beleg.waehrung, beleg.belegdatum);
-    if (kurs) {
-      beleg.kurs = kurs;
-      beleg.brutto_eur = Math.round(brutto * kurs * 100) / 100;
-    }
+    kurs = eurKurs(beleg.waehrung, beleg.belegdatum);
   } catch (e) {
     protokoll('Kurs nicht abrufbar', beleg.waehrung + ' ' + e.message);
   }
+  var grund = String(beleg.grund || '').split('; ').filter(function (g) { return g && g !== 'Kurs fehlt'; });
+  if (kurs) {
+    beleg.kurs = kurs;
+    beleg.brutto_eur = Math.round(brutto * kurs * 100) / 100;
+  } else {
+    // Ohne Kurs fehlt der Beleg in allen Euro-Summen, deshalb sichtbar auf Prüfen
+    beleg.kurs = '';
+    beleg.brutto_eur = '';
+    grund.push('Kurs fehlt');
+    if (beleg.status === STATUS.NEU) beleg.status = STATUS.PRUEFEN;
+  }
+  beleg.grund = grund.join('; ');
   return beleg;
 }

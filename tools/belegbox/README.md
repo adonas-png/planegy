@@ -14,8 +14,8 @@ Nicht für den Verkauf gedacht, keine Mandantenfähigkeit.
 | Dubletten | Gleiche Datei (SHA-256), gleiche Rechnungsnummer beim gleichen Partner, oder gleicher Partner mit gleichem Betrag innerhalb von 5 Tagen. Kommen Rechnung und Quittung zum selben Vorgang, bleibt die Rechnung. |
 | Euro | Fremdwährungen werden mit dem EZB-Referenzkurs des Belegdatums umgerechnet (über api.frankfurter.app). |
 | Ablage | Drive: `PLANEGY Belegbox/Belege/2026/2026-10/Eingang`, `…/Ausgang`, `…/Aussortiert`. Dateiname z. B. `2026-10-03_ER_Anthropic-PBC_INV-1234_21,42EUR.pdf`. |
-| Prüfen | Web-App mit Liste, Filtern, Vorschau und Formular. Status: Neu, Prüfen, Freigegeben, Übermittelt, Dublette, Ausgeschlossen. |
-| Weitergeben | Einzelbelege per Mail an eine Beleg-Adresse (DATEV Upload Mail, lexoffice, sevDesk). Monatspaket mit CSV (deutsches Format), Excel und ZIP, auf Wunsch als Gmail-Entwurf an den Steuerberater. Am 3. jedes Monats legt die App das Paket für den Vormonat automatisch als Entwurf an. Gesendet wird erst, wenn du den Entwurf abschickst. |
+| Prüfen | Web-App mit Liste, Filtern, Vorschau und Formular. Status: Neu, Prüfen, Freigegeben, Übermittelt, Dublette, Ausgeschlossen. Sammelfreigabe über Kontrollkästchen, Tasten F (freigeben), A (ausschließen), J/K (nächster/vorheriger). Jede Änderung steht im Blatt „Protokoll“. |
+| Weitergeben | Einzelbelege per Mail an eine Beleg-Adresse (DATEV Upload Mail, lexoffice, sevDesk). Monatspaket nur mit freigegebenen Belegen, mit CSV (deutsches Format), Excel und ZIP, auf Wunsch als Gmail-Entwurf an den Steuerberater. Am 3. jedes Monats legt die App das Paket für den Vormonat automatisch als Entwurf an. Gesendet wird erst, wenn du den Entwurf abschickst. |
 
 Kategorien tragen einen Kontovorschlag nach SKR03 (Blatt „Kategorien“, frei änderbar). Die endgültige Kontierung macht der Steuerberater.
 
@@ -97,7 +97,14 @@ Google Apps Script, Drive und Sheets sind im Workspace-Konto enthalten. Bezahlt 
 | `claude-haiku-5-5` (Standard) | ca. 0,1 Cent | ca. 0,10 USD |
 | `claude-opus-5-5` (Knopf „Genau auslesen“) | ca. 3–4 Cent | ca. 3–4 USD |
 
-Grundlage: etwa 4.000 Token Eingabe und 1.000 Token Antwort pro Beleg. Haiku reicht für normale PDF-Rechnungen. Bei unscharfen Fotos den Beleg in der App mit „Genau auslesen“ noch einmal mit Opus lesen lassen.
+Grundlage: etwa 4.000 Token Eingabe und 1.000 Token Antwort pro Beleg. Haiku reicht für normale PDF-Rechnungen. Belege mit Reverse Charge, Fremdwährung oder KI-Sicherheit unter 0,85 liest die App automatisch ein zweites Mal mit Opus (Einstellung „Unsichere Belege mit Genau-Modell nachlesen“). Ist das etwa jeder dritte Beleg, kosten 100 Belege im Monat grob 1 bis 1,50 USD. In der Anthropic-Konsole ein monatliches Ausgabenlimit für den Schlüssel setzen.
+
+## Steuerliche Felder
+
+- **Reverse Charge:** Die Liste und die CSV unterscheiden „EU §13b Abs. 1“ und „Drittland §13b Abs. 2“ nach dem Länderpräfix der USt-IdNr. des Lieferanten. Kennungen wie „EU372082401“ (OSS-Nummer von Drittlandsanbietern, z. B. Calendly) zählen als Drittland. Die Spalte „USt §13b EUR (19 %)“ rechnet 19 % auf den Nettobetrag. Kennzahlen und Steuersatz legt der Steuerberater fest.
+- **Erlöse:** Ausgangsrechnungen ohne USt oder an Kunden mit ausländischer USt-IdNr. bekommen die Kategorie „Erlöse Ausland / steuerfrei“ und den Hinweis „Erlöse prüfen“.
+- **Beleg-ID:** Die Jahreszahl in der ID ist das Eingangsjahr. Eine Dezemberrechnung, die im Januar ankommt, heißt B2027-…. Maßgeblich für Buchhaltung und Monatspaket ist das Belegdatum.
+- **SKR03-Konten** sind Vorschläge. Die Kontierung entscheidet der Steuerberater.
 
 ## Grenzen
 
@@ -121,6 +128,7 @@ Grundlage: etwa 4.000 Token Eingabe und 1.000 Token Antwort pro Beleg. Haiku rei
 | `Store.gs` | Belegliste, Ablage, Lieferantenstamm |
 | `Export.gs` | Beleg-Mail und Monatspaket |
 | `WebApp.gs`, `Index.html` | Weboberfläche |
+| `VERFAHRENSDOKUMENTATION.md` | Entwurf der Verfahrensdokumentation (GoBD), mit dem Steuerberater abzustimmen |
 | `test/logic.test.js` | Tests: `node tools/belegbox/test/logic.test.js` |
 
 Der Ordner `tools/` wird nicht mit der Website ausgeliefert (`.assetsignore`, `netlify.toml`).

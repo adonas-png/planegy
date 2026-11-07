@@ -48,6 +48,8 @@ function einrichten() {
   var regeln = blattAnlegen(ss, 'Regeln', ['Aktiv', 'Feld', 'Bedingung', 'Wert', 'Aktion', 'Parameter', 'Beschreibung']);
   if (regeln.getLastRow() < 2) {
     regeln.getRange(2, 1, STANDARD_REGELN.length, 7).setValues(STANDARD_REGELN);
+  } else {
+    standardregelnErgaenzen(regeln);
   }
   regeln.getRange(2, 1, 200, 1).insertCheckboxes();
   regeln.getRange(2, 3, 200, 1).setDataValidation(SpreadsheetApp.newDataValidation()
@@ -90,6 +92,21 @@ function einrichten() {
   console.log('Ordner: ' + ordner.getUrl());
   console.log('Tabelle: ' + ss.getUrl());
   return { ordner: ordner.getUrl(), tabelle: ss.getUrl() };
+}
+
+// Hängt Standardregeln an, die im Blatt noch fehlen (gleiches Feld und gleicher Wert). Eigene Regeln bleiben unberührt.
+function standardregelnErgaenzen(regelBlatt) {
+  regelBlatt = regelBlatt || blatt('Regeln');
+  var werte = regelBlatt.getDataRange().getValues();
+  var vorhanden = {};
+  werte.slice(1).forEach(function (z) { if (z[1]) vorhanden[String(z[1]).toLowerCase() + '|' + String(z[3]).toLowerCase()] = true; });
+  var neu = STANDARD_REGELN.filter(function (r) { return !vorhanden[String(r[1]).toLowerCase() + '|' + String(r[3]).toLowerCase()]; });
+  if (!neu.length) return 0;
+  // In die erste leere Zeile schreiben (die Checkboxen reichen bis Zeile 201)
+  var erste = werte.length + 1;
+  for (var i = 1; i < werte.length; i++) { if (!werte[i][1]) { erste = i + 1; break; } }
+  regelBlatt.getRange(erste, 1, neu.length, 7).setValues(neu);
+  return neu.length;
 }
 
 function blattAnlegen(ss, name, kopf) {

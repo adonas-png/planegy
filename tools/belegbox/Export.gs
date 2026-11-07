@@ -36,7 +36,7 @@ function monatspaketErstellen(monat, optionen) {
 
   var alle = alleBelege().filter(function (b) { return monatVon(b.belegdatum || b.eingang) === monat; });
   var belege = alle.filter(exportierbar);
-  var offen = alle.filter(function (b) { return b.status === STATUS.PRUEFEN; });
+  var offen = alle.filter(nochNichtFreigegeben);
   belege.sort(function (a, b) {
     return (a.richtung > b.richtung ? 1 : a.richtung < b.richtung ? -1 : 0) || ((alsDatum(a.belegdatum) || 0) - (alsDatum(b.belegdatum) || 0));
   });
@@ -96,7 +96,7 @@ function monatspaketErstellen(monat, optionen) {
 
   blatt('Exporte').appendRow([new Date(), monat, belege.length, s.eingang, s.ausgang, ordner.getUrl(),
     info.entwurf ? stb : '', optionen.entwurf ? 'Entwurf' : 'Nur Ablage']);
-  protokoll('Monatspaket ' + monat, belege.length + ' Belege, ' + offen.length + ' offen');
+  protokoll('Monatspaket ' + monat, belege.length + ' Belege, ' + offen.length + ' nicht freigegeben');
   return info;
 }
 
@@ -153,7 +153,7 @@ function monatspaketAutomatisch() {
   var info = monatspaketErstellen(monat, { entwurf: true });
   var ich = Session.getEffectiveUser().getEmail();
   GmailApp.sendEmail(ich, 'Belegbox: Monatspaket ' + monatText(monat) + ' bereit', [
-    info.anzahl + ' Belege im Paket, ' + info.offen + ' noch zu prüfen.',
+    info.anzahl + ' freigegebene Belege im Paket, ' + info.offen + ' noch nicht freigegeben und daher nicht enthalten.',
     info.entwurf ? 'Der Entwurf an den Steuerberater liegt in Gmail unter "Entwürfe".' : 'Keine Steuerberater-Adresse hinterlegt, daher kein Entwurf.',
     'Ordner: ' + info.ordner
   ].join('\n'));

@@ -39,7 +39,9 @@ var BELEG_SPALTEN = [
   ['hash', 'SHA-256'],
   ['vertrauen', 'KI-Sicherheit'],
   ['uebermittelt', 'Übermittelt am'],
-  ['notiz', 'Notiz']
+  ['notiz', 'Notiz'],
+  // Neue Spalten nur hinten anhängen, damit bestehende Tabellen passen
+  ['leistungszeitraum', 'Leistungszeitraum']
 ];
 
 var STATUS = {
@@ -92,6 +94,11 @@ var STANDARD_REGELN = [
   [true, 'partner', 'enthält', 'Anthropic', 'kategorie', 'Software & Abos', ''],
   [true, 'partner', 'enthält', 'Netlify', 'kategorie', 'Hosting & Domains', ''],
   [true, 'partner', 'enthält', 'Caya', 'kategorie', 'Miete & Raumkosten', 'Digitaler Briefkasten'],
+  [true, 'partner', 'enthält', 'Calendly', 'kategorie', 'Software & Abos', ''],
+  [true, 'partner', 'enthält', 'Google Cloud', 'kategorie', 'Software & Abos', 'Google Workspace'],
+  [true, 'partner', 'enthält', 'HubSpot', 'kategorie', 'Software & Abos', ''],
+  [true, 'partner', 'enthält', 'Gamma', 'kategorie', 'Software & Abos', ''],
+  [true, 'partner', 'enthält', 'AEGEAN', 'kategorie', 'Reisekosten', ''],
   [false, 'absender', 'enthält', 'noreply@example.com', 'ausschließen', '', 'Vorlage: Absender ausschließen']
 ];
 
@@ -195,9 +202,14 @@ function istEigeneFirma(name, ustid, eigeneFirma) {
   var u1 = String(ustid || '').replace(/\s/g, '').toUpperCase();
   var u2 = String(eigeneFirma.ustid || '').replace(/\s/g, '').toUpperCase();
   if (u1 && u2 && u1 === u2) return true;
-  var firma = normalisiereName(eigeneFirma.name);
-  var n = normalisiereName(name);
-  return !!(firma && n && (' ' + n + ' ').indexOf(' ' + firma + ' ') > -1);
+  var n = ' ' + normalisiereName(name) + ' ';
+  if (!n.trim()) return false;
+  // Firmenname plus weitere Merkmale wie Inhabername oder Straße (Einstellung FIRMA_MERKMALE)
+  var merkmale = [eigeneFirma.name].concat(eigeneFirma.merkmale || []);
+  return merkmale.some(function (m) {
+    var x = normalisiereName(m);
+    return x && n.indexOf(' ' + x + ' ') > -1;
+  });
 }
 
 /**
@@ -344,6 +356,7 @@ var EXPORT_SPALTEN = [
   ['Richtung', function (b) { return b.richtung; }],
   ['Belegdatum', function (b) { return deDatum(b.belegdatum); }],
   ['Rechnungsnummer', function (b) { return b.rechnungsnummer; }],
+  ['Leistungszeitraum', function (b) { return b.leistungszeitraum; }],
   ['Lieferant / Kunde', function (b) { return b.partner; }],
   ['USt-IdNr.', function (b) { return b.partner_ustid; }],
   ['Beschreibung', function (b) { return b.beschreibung; }],
@@ -356,7 +369,8 @@ var EXPORT_SPALTEN = [
   ['Währung', function (b) { return b.waehrung; }],
   ['Kurs EUR', function (b) { return b.kurs === '' ? '' : String(b.kurs).replace('.', ','); }],
   ['Brutto EUR', function (b) { return betragDe(b.brutto_eur); }],
-  ['Reverse Charge §13b', function (b) { return b.reverse_charge === true || b.reverse_charge === 'TRUE' || b.reverse_charge === 'ja' ? 'ja' : ''; }],
+  ['Reverse Charge §13b', function (b) { return rcArt(b); }],
+  ['USt §13b EUR (19 %)', function (b) { var u = ustParagraf13b(b); return u === null ? '' : betragDe(u); }],
   ['Zahlungsart', function (b) { return b.zahlungsart; }],
   ['Bezahlt', function (b) { return b.bezahlt; }],
   ['Datei', function (b) { return b.datei_name; }],
@@ -374,8 +388,7 @@ function baueCsv(belege) {
 function summen(belege) {
   var s = { eingang: 0, ausgang: 0, anzahl: belege.length, ohneEur: 0 };
   belege.forEach(function (b) {
-    var eur = zahl(b.brutto_eur);
-    if (eur === null && (b.waehrung || 'EUR') === 'EUR') eur = zahl(b.brutto);
+    var eur = bruttoEur(b);
     if (eur === null) { s.ohneEur++; return; }
     if (b.richtung === 'Ausgang') s.ausgang += eur; else s.eingang += eur;
   });
@@ -384,9 +397,49 @@ function summen(belege) {
   return s;
 }
 
+// ---------- Reverse Charge ----------
+
+var EU_LAENDER = ['AT', 'BE', 'BG', 'CY', 'CZ', 'DK', 'EE', 'ES', 'FI', 'FR', 'GR', 'EL', 'HR', 'HU', 'IE', 'IT',
+  'LT', 'LU', 'LV', 'MT', 'NL', 'PL', 'PT', 'RO', 'SE', 'SI', 'SK'];
+
+function istReverseCharge(b) {
+  return b.reverse_charge === true || b.reverse_charge === 'TRUE' || b.reverse_charge === 'ja';
+}
+
+/**
+ * Art des §13b-Falls nach Herkunft des Leistenden: EU-Unternehmer (Abs. 1) oder Drittland (Abs. 2).
+ * Grundlage ist das Länderpräfix der USt-IdNr. Kennungen wie "EU372082401" (OSS-Nummer von
+ * Drittlandsanbietern, z. B. Calendly) zählen als Drittland, weil "EU" kein Mitgliedstaat ist.
+ */
+function rcArt(b) {
+  if (!istReverseCharge(b)) return '';
+  var land = String(b.partner_ustid || '').replace(/\s/g, '').slice(0, 2).toUpperCase();
+  return EU_LAENDER.indexOf(land) > -1 ? 'EU §13b Abs. 1' : 'Drittland §13b Abs. 2';
+}
+
+// Selbst zu berechnende USt bei §13b, 19 % auf den Nettobetrag in Euro. Satz mit dem Steuerberater abstimmen.
+function ustParagraf13b(b) {
+  if (!istReverseCharge(b)) return null;
+  var n = nettoEur(b);
+  return n === null ? null : runden(n * 0.19);
+}
+
+// Erlöskategorie für Ausgangsrechnungen: Inland mit USt oder Ausland / steuerfrei
+function erloesKategorie(b) {
+  var ustid = String(b.partner_ustid || '').replace(/\s/g, '').toUpperCase();
+  var ohneUst = b.ust_satz !== '' && b.ust_satz !== null && b.ust_satz !== undefined && Number(b.ust_satz) === 0;
+  var ausland = ustid && ustid.slice(0, 2) !== 'DE';
+  return ohneUst || ausland ? 'Erlöse Ausland / steuerfrei' : 'Erlöse 19 %';
+}
+
 // Belege, die in ein Monatspaket gehören.
+// Nur geprüfte Belege gehen an den Steuerberater.
 function exportierbar(b) {
-  return b.status === STATUS.FREIGEGEBEN || b.status === STATUS.UEBERMITTELT || b.status === STATUS.NEU;
+  return b.status === STATUS.FREIGEGEBEN || b.status === STATUS.UEBERMITTELT;
+}
+
+function nochNichtFreigegeben(b) {
+  return b.status === STATUS.NEU || b.status === STATUS.PRUEFEN;
 }
 
 // ---------- Jahresübersicht und laufende Kosten ----------
@@ -530,7 +583,8 @@ if (typeof module !== 'undefined') {
     zeileZuObjekt: zeileZuObjekt, objektZuZeile: objektZuZeile, normalisiereName: normalisiereName, zahl: zahl,
     alsDatum: alsDatum, isoDatum: isoDatum, deDatum: deDatum, monatVon: monatVon, regelTrifft: regelTrifft,
     wendeRegelnAn: wendeRegelnAn, bestimmeRichtung: bestimmeRichtung, istEigeneFirma: istEigeneFirma, findeDublette: findeDublette, dateiname: dateiname, baueCsv: baueCsv,
-    summen: summen, exportierbar: exportierbar, betragDe: betragDe,
+    summen: summen, exportierbar: exportierbar, betragDe: betragDe, rcArt: rcArt, ustParagraf13b: ustParagraf13b,
+    erloesKategorie: erloesKategorie, nochNichtFreigegeben: nochNichtFreigegeben, zaehltFuerAuswertung: zaehltFuerAuswertung, bruttoEur: bruttoEur,
     jahresUebersicht: jahresUebersicht, laufendeKosten: laufendeKosten
   };
 }

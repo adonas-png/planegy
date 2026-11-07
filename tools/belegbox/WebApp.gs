@@ -11,10 +11,10 @@ function doGet() {
 
 var BEARBEITBAR = ['status', 'richtung', 'dokumentart', 'belegdatum', 'rechnungsnummer', 'partner', 'partner_ustid', 'beschreibung',
   'kategorie', 'konto', 'netto', 'ust_satz', 'ust_betrag', 'brutto', 'waehrung', 'reverse_charge', 'zahlungsart', 'bezahlt',
-  'bereich', 'notiz'];
+  'bereich', 'notiz', 'leistungszeitraum'];
 
 var SICHTBARE_EINSTELLUNGEN = ['FIRMA_NAME', 'FIRMA_USTID', 'FIRMA_ORT', 'GMAIL_SUCHE', 'SCAN_AB', 'HTML_ALS_PDF', 'MAX_MAILS_PRO_LAUF',
-  'MODELL', 'GENAU_MODELL', 'BELEGMAIL', 'AUTO_UEBERMITTELN', 'STEUERBERATER_MAIL', 'STEUERBERATER_NAME', 'MONATSPAKET_AUTO'];
+  'MODELL', 'GENAU_MODELL', 'ZWEITE_RUNDE', 'FIRMA_MERKMALE', 'BELEGMAIL', 'AUTO_UEBERMITTELN', 'STEUERBERATER_MAIL', 'STEUERBERATER_NAME', 'MONATSPAKET_AUTO'];
 
 function fuerClient(b) {
   var o = {};
@@ -24,6 +24,7 @@ function fuerClient(b) {
     o[s[0]] = v === undefined || v === null ? '' : v;
   });
   o.monat = monatVon(b.belegdatum || b.eingang);
+  o.rc_art = rcArt(b);
   return o;
 }
 
@@ -43,6 +44,7 @@ function appDaten() {
     status: Object.keys(STATUS).map(function (k) { return STATUS[k]; }),
     einstellungen: einst,
     hatSchluessel: !!einstellung('ANTHROPIC_API_KEY'),
+    fehlgeschlagen: belege.filter(function (b) { return /^(Auslesung fehlgeschlagen|Nicht ausgelesen)/.test(String(b.grund)); }).length,
     letzterScan: letzter ? new Date(Number(letzter)).toISOString() : '',
     links: {
       tabelle: tabelle().getUrl(),
@@ -54,7 +56,13 @@ function appDaten() {
 function belegAktualisieren(id, felder) {
   var beleg = belegNachId(id);
   if (!beleg) throw new Error('Beleg nicht gefunden');
-  var vorher = { brutto: beleg.brutto, waehrung: beleg.waehrung, belegdatum: String(beleg.belegdatum), kategorie: beleg.kategorie };
+  return fuerClient(aenderungAnwenden(beleg, felder));
+}
+
+// Übernimmt Formularwerte, schreibt die Zeile und protokolliert, welche Felder sich geändert haben.
+function aenderungAnwenden(beleg, felder) {
+  var vorher = {};
+  BEARBEITBAR.forEach(function (k) { vorher[k] = beleg[k]; });
   BEARBEITBAR.forEach(function (k) {
     if (!felder.hasOwnProperty(k)) return;
     var v = felder[k];
@@ -63,24 +71,42 @@ function belegAktualisieren(id, felder) {
     if (k === 'waehrung') v = String(v || 'EUR').toUpperCase();
     beleg[k] = v;
   });
-  if (beleg.kategorie !== vorher.kategorie && !felder.konto) {
+  var geaendert = BEARBEITBAR.filter(function (k) { return feldText(vorher[k]) !== feldText(beleg[k]); });
+  if (!geaendert.length) return beleg;
+  if (geaendert.indexOf('kategorie') > -1 && geaendert.indexOf('konto') < 0) {
     beleg.konto = kategorienKarte()[beleg.kategorie] || beleg.konto;
   }
-  if (beleg.brutto !== vorher.brutto || beleg.waehrung !== vorher.waehrung || String(beleg.belegdatum) !== vorher.belegdatum) {
+  if (['brutto', 'waehrung', 'belegdatum'].some(function (k) { return geaendert.indexOf(k) > -1; })) {
     beleg.kurs = '';
     beleg.brutto_eur = '';
     inEuroUmrechnen(beleg);
   }
-  dateiEinordnen(beleg);
-  belegSpeichern(beleg);
-  if (beleg.status === STATUS.FREIGEGEBEN && einstellung('AUTO_UEBERMITTELN') === 'true' && einstellung('BELEGMAIL')) {
-    beleg = anBelegmailSenden(id);
+  if (['status', 'richtung', 'belegdatum', 'partner', 'rechnungsnummer', 'brutto', 'waehrung'].some(function (k) { return geaendert.indexOf(k) > -1; })) {
+    dateiEinordnen(beleg);
   }
-  return fuerClient(beleg);
+  belegSpeichern(beleg);
+  protokoll('Geändert ' + beleg.id, geaendert.map(function (k) { return k + ': ' + feldText(vorher[k]) + ' > ' + feldText(beleg[k]); }).join('; '));
+  if (beleg.status === STATUS.FREIGEGEBEN && geaendert.indexOf('status') > -1 &&
+      einstellung('AUTO_UEBERMITTELN') === 'true' && einstellung('BELEGMAIL')) {
+    beleg = anBelegmailSenden(beleg.id);
+  }
+  return beleg;
 }
 
+function feldText(v) {
+  if (Object.prototype.toString.call(v) === '[object Date]') return deDatum(v);
+  if (typeof v === 'number') return betragDe(v);
+  return String(v === null || v === undefined ? '' : v);
+}
+
+// Sammelfreigabe: liest die Tabelle einmal und speichert nur die betroffenen Zeilen
 function belegeStatusSetzen(ids, status) {
-  return ids.map(function (id) { return belegAktualisieren(id, { status: status }); });
+  if (ids.length > 50) throw new Error('Höchstens 50 Belege auf einmal.');
+  var karte = {};
+  alleBelege().forEach(function (b) { karte[b.id] = b; });
+  return ids.filter(function (id) { return karte[id]; }).map(function (id) {
+    return fuerClient(aenderungAnwenden(karte[id], { status: status }));
+  });
 }
 
 function belegHochladen(name, mime, base64) {
@@ -133,4 +159,13 @@ function jahresUebersichtAusApp(jahr, mitPrivat) {
     uebersicht: jahresUebersicht(belege, jahr, { mitPrivat: !!mitPrivat, stichtag: stichtag }),
     laufend: laufendeKosten(belege, { mitPrivat: !!mitPrivat, stichtag: heute })
   };
+}
+
+function hashPruefenAusApp() {
+  return hashPruefen();
+}
+
+// Quelltext der Rechenregeln für die Seite (Index.html), damit Browser und Server gleich zählen
+function gemeinsameFunktionen() {
+  return [zahl, zaehltFuerAuswertung, bruttoEur].map(String).join('\n');
 }

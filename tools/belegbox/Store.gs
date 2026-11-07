@@ -20,7 +20,20 @@ function belegNachId(id) {
 }
 
 function belegAnhaengen(beleg) {
+  kopfzeileSicherstellen();
   blatt('Belege').appendRow(objektZuZeile(beleg));
+}
+
+// Ergänzt neue Spalten (z. B. Leistungszeitraum) in bestehenden Tabellen. Einmal je Ausführung.
+function kopfzeileSicherstellen() {
+  if (_cache.kopfOk) return;
+  var b = blatt('Belege');
+  var namen = spaltenNamen();
+  var ist = b.getRange(1, 1, 1, namen.length).getValues()[0];
+  if (String(ist[namen.length - 1]) !== namen[namen.length - 1]) {
+    b.getRange(1, 1, 1, namen.length).setValues([namen]).setFontWeight('bold').setBackground('#e8eef3');
+  }
+  _cache.kopfOk = true;
 }
 
 function belegSpeichern(beleg) {
@@ -32,6 +45,8 @@ function belegSpeichern(beleg) {
   blatt('Belege').getRange(beleg._zeile, 1, 1, BELEG_SPALTEN.length).setValues([objektZuZeile(beleg)]);
 }
 
+// Die Jahreszahl der Beleg-ID ist das Eingangsjahr, nicht das Belegjahr: Eine Dezemberrechnung,
+// die im Januar ankommt, heißt B2027-…. Für die Buchhaltung zählt das Belegdatum in der Tabelle.
 function neueBelegId() {
   // Eigene Benutzersperre. Die Skriptsperre hält währenddessen der Scan; sie hier freizugeben
   // hat früher parallele Scans und doppelte Einträge verursacht.
@@ -57,6 +72,26 @@ function hashVorhanden(hash) {
   var hashes = b.getRange(2, spalteHash, n - 1, 1).getValues();
   for (var i = 0; i < hashes.length; i++) if (hashes[i][0] === hash) return ids[i][0];
   return '';
+}
+
+/**
+ * Liest mit dem Standardmodell. Bei Reverse Charge, Fremdwährung oder KI-Sicherheit unter 0,85
+ * liest das genauere Modell (GENAU_MODELL) ein zweites Mal, statt den Beleg nur auf Prüfen zu setzen.
+ */
+function auslesenMitZweiterRunde(blob, meta) {
+  var x = belegAuslesen(blob, meta);
+  if (!x || !x.ist_beleg || einstellung('ZWEITE_RUNDE') !== 'true') return x;
+  var genau = einstellung('GENAU_MODELL');
+  if (!genau || genau === einstellung('MODELL')) return x;
+  var unsicher = x.reverse_charge || String(x.waehrung || 'EUR').toUpperCase() !== 'EUR' || !(Number(x.vertrauen) >= 0.85);
+  if (!unsicher) return x;
+  try {
+    var x2 = belegAuslesen(blob, meta, genau);
+    if (x2) { x2._zweiteRunde = genau; return x2; }
+  } catch (e) {
+    protokoll('Zweite Auslesung fehlgeschlagen', blob.getName() + ': ' + e.message);
+  }
+  return x;
 }
 
 function sha256(bytes) {
@@ -102,10 +137,9 @@ function dateiEinordnen(beleg) {
 function dateiVerarbeiten(blob, meta) {
   var bytes = blob.getBytes();
   var hash = sha256(bytes);
-  var bestehende = alleBelege();
-  for (var i = 0; i < bestehende.length; i++) {
-    if (bestehende[i].hash === hash) return { ergebnis: 'Datei schon vorhanden (' + bestehende[i].id + ')', id: bestehende[i].id };
-  }
+  // Nur die Hash-Spalte lesen, die volle Liste erst für die Dublettensuche nach der Auslesung
+  var vorhanden = hashVorhanden(hash);
+  if (vorhanden) return { ergebnis: 'Datei schon vorhanden (' + vorhanden + ')', id: vorhanden };
 
   var beleg = zeileZuObjekt([]);
   beleg.id = neueBelegId();
@@ -120,9 +154,10 @@ function dateiVerarbeiten(blob, meta) {
   beleg.bereich = 'Geschäftlich';
 
   try {
-    var x = belegAuslesen(blob, meta);
+    var x = auslesenMitZweiterRunde(blob, meta, beleg);
     if (x) {
       auslesungUebernehmen(beleg, x);
+      if (x._zweiteRunde) beleg.grund = [beleg.grund, 'Mit ' + x._zweiteRunde + ' nachgelesen'].filter(String).join('; ');
     } else {
       beleg.status = STATUS.PRUEFEN;
       beleg.grund = 'Nicht ausgelesen: ANTHROPIC_API_KEY fehlt';
@@ -200,7 +235,8 @@ function belegNeuAuslesen(id, modell) {
   var beleg = belegNachId(id);
   if (!beleg) throw new Error('Beleg nicht gefunden');
   var blob = DriveApp.getFileById(beleg.datei_id).getBlob();
-  var x = belegAuslesen(blob, { absender: beleg.absender, betreff: beleg.betreff }, modell);
+  var meta = { absender: beleg.absender, betreff: beleg.betreff };
+  var x = modell ? belegAuslesen(blob, meta, modell) : auslesenMitZweiterRunde(blob, meta);
   if (!x) throw new Error('ANTHROPIC_API_KEY fehlt');
   var notiz = beleg.notiz;
   beleg.status = STATUS.NEU;
@@ -225,12 +261,23 @@ function listeBereinigen() {
   var lock = LockService.getScriptLock();
   if (!lock.tryLock(5000)) return { meldung: 'Gerade läuft ein Scan. Bitte in ein paar Minuten erneut versuchen.' };
   var start = Date.now();
-  var ergebnis = { nachgelesen: 0, dubletten: 0, fehler: 0, unvollstaendig: false };
+  var ergebnis = { nachgelesen: 0, dubletten: 0, kurse: 0, regeln: 0, fehler: 0, unvollstaendig: false };
   try {
+    kopfzeileSicherstellen();
+    ergebnis.regeln = standardregelnErgaenzen();
+    _cache.regeln = null;
     alleBelege().forEach(function (b) {
       if (b.status !== STATUS.PRUEFEN || !/^(Nicht ausgelesen|Auslesung fehlgeschlagen)/.test(String(b.grund))) return;
       if (Date.now() - start > LAUFZEIT_MS - 60000) { ergebnis.unvollstaendig = true; return; }
       try { belegNeuAuslesen(b.id); ergebnis.nachgelesen++; } catch (e) { ergebnis.fehler++; protokoll('Nachlesen fehlgeschlagen', b.id + ': ' + e.message); }
+    });
+
+    // Fremdwährung ohne Euro-Betrag nachrechnen
+    alleBelege().forEach(function (b) {
+      if (String(b.waehrung || 'EUR').toUpperCase() === 'EUR' || b.brutto_eur !== '' || zahl(b.brutto) === null) return;
+      if ([STATUS.DUBLETTE, STATUS.AUSGESCHLOSSEN].indexOf(b.status) > -1) return;
+      inEuroUmrechnen(b);
+      if (b.brutto_eur !== '') { belegSpeichern(b); ergebnis.kurse++; }
     });
 
     var liste = alleBelege().sort(function (a, b) { return String(a.id).localeCompare(String(b.id)); });
@@ -265,6 +312,8 @@ function listeBereinigen() {
       }
     });
     ergebnis.meldung = ergebnis.nachgelesen + ' Belege nachgelesen, ' + ergebnis.dubletten + ' Dubletten markiert' +
+      (ergebnis.kurse ? ', ' + ergebnis.kurse + ' Euro-Beträge nachgerechnet' : '') +
+      (ergebnis.regeln ? ', ' + ergebnis.regeln + ' Standardregeln ergänzt' : '') +
       (ergebnis.fehler ? ', ' + ergebnis.fehler + ' Fehler (siehe Protokoll)' : '') +
       (ergebnis.unvollstaendig ? '. Noch nicht fertig, bitte erneut starten.' : '.');
     protokoll('Liste bereinigt', ergebnis.meldung);
@@ -272,4 +321,30 @@ function listeBereinigen() {
   } finally {
     lock.releaseLock();
   }
+}
+
+/**
+ * GoBD-Prüfung: berechnet für jede Drive-Datei den SHA-256 neu und vergleicht ihn mit der Tabelle.
+ * Abweichungen und fehlende Dateien landen im Protokoll. Ändert nichts.
+ */
+function hashPruefen() {
+  var start = Date.now();
+  var erg = { geprueft: 0, abweichend: [], fehlend: [], unvollstaendig: false };
+  alleBelege().forEach(function (b) {
+    if (!b.datei_id || !b.hash) return;
+    if (Date.now() - start > LAUFZEIT_MS) { erg.unvollstaendig = true; return; }
+    try {
+      var datei = DriveApp.getFileById(b.datei_id);
+      if (datei.isTrashed()) { erg.fehlend.push(b.id); return; }
+      if (sha256(datei.getBlob().getBytes()) !== b.hash) erg.abweichend.push(b.id);
+      erg.geprueft++;
+    } catch (e) {
+      erg.fehlend.push(b.id);
+    }
+  });
+  erg.meldung = erg.geprueft + ' Dateien geprüft, ' + erg.abweichend.length + ' verändert, ' + erg.fehlend.length + ' fehlen' +
+    (erg.unvollstaendig ? '. Zeitlimit erreicht, nicht alle geprüft.' : '.');
+  protokoll('Hash-Prüfung: ' + erg.meldung, (erg.abweichend.length ? 'Verändert: ' + erg.abweichend.join(', ') + '. ' : '') +
+    (erg.fehlend.length ? 'Fehlen: ' + erg.fehlend.join(', ') : ''));
+  return erg;
 }
