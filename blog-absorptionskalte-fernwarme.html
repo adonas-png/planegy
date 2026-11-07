@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Absorptionskälte aus Fernwärme: Technik, Temperaturen, Kosten – PLANEGY</title>
+  <meta name="description" content="Wie Absorptionskälte mit Fernwärme und Abwärme arbeitet: nötige Vorlauftemperaturen, Leistungszahlen, Strombedarf, Praxisbeispiele und Planungsschritte." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Absorptionskälte aus Fernwärme: Technik, Temperaturen, Kosten" />
+  <meta property="og:description" content="Wie Absorptionskälte mit Fernwärme und Abwärme arbeitet: nötige Vorlauftemperaturen, Leistungszahlen, Strombedarf, Praxisbeispiele und Planungsschritte." />
+  <link rel="canonical" href="https://planegy.de/blog-absorptionskalte-fernwarme" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Absorptionskälte aus Fernwärme: Technik, Temperaturen, Kosten",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-07",
+    "description": "Wie Absorptionskälte mit Fernwärme und Abwärme arbeitet: nötige Vorlauftemperaturen, Leistungszahlen, Strombedarf, Praxisbeispiele und Planungsschritte."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Absorptionskälte aus Fernwärme: Technik, Temperaturen, Kosten</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Absorptionskälte aus Fernwärme: Technik, Temperaturen, Kosten</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>13 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="absorptionskalte-aus-fernwarme-technik-temperaturen-kosten" tabindex="-1">Absorptionskälte aus Fernwärme: Technik, Temperaturen, Kosten</h1>
+
+<p>Eine Absorptionskältemaschine erzeugt aus Fernwärme oder Abwärme Kaltwasser für die Klimatisierung und die Prozesskühlung. Angetrieben wird der Kreisprozess nicht von einem elektrischen Verdichter, sondern von Wärme. Liefert das Netz auch im Sommer gesichert 80 bis 95 °C, arbeitet eine einstufige Lithiumbromid-Anlage zuverlässig. Der Strombedarf liegt deutlich unter dem einer Kompressionskälteanlage, und das Wärmenetz gewinnt im Sommer zusätzliche Abnehmer. Am wirtschaftlichsten ist die Technik bei großen, gleichmäßigen Kältelasten. Im Folgenden lesen Sie, wie der Prozess funktioniert, welche Temperaturen er braucht, welche Abwärmequellen geeignet sind und wie Sie ein Projekt Schritt für Schritt aufsetzen.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Wärme- und Kälteversorgung fundiert planen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY bewertet Energietechnologien neutral und unterstützt Unternehmen von der Analyse bis zur Umsetzung maßgeschneiderter Energielösungen.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Energielösungen entdecken<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li><strong>Prinzip:</strong> Wärme ersetzt den Stromverdichter. Ein Lösungsmittelkreislauf aus Absorber und Austreiber übernimmt die Aufgabe des Kompressors, als Kältemittel dient meist Wasser.</li>
+<li><strong>Temperaturen:</strong> Speziell für Fernwärme entwickelte Anlagen arbeiten mit Vorlauftemperaturen von etwa 70 bis 95 °C. Rund 90 °C gelten in der Praxis als gute Bedingung.</li>
+<li><strong>Effizienz:</strong> Einstufige Maschinen erreichen eine thermische Leistungszahl von etwa 0,6 bis 0,8. Der Strombedarf sinkt gegenüber Kompressionskälte um etwa 75 bis 90 %.</li>
+<li><strong>Wirtschaftlichkeit:</strong> Besonders lohnend ist die Technik bei großen Kälteleistungen ab etwa 500 bis 1.000 kW, bei Gebäudeverbünden und wenn Abwärme ohnehin vorhanden ist.</li>
+<li><strong>Klimabilanz:</strong> Wasser als Kältemittel hat kein Treibhauspotenzial. Kommt die Antriebswärme aus unvermeidbarer Abwärme, ist die Kälte nahezu CO₂-frei.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#so-wird-aus-warme-kalte">So wird aus Wärme Kälte</a></li>
+<li><a href="#welche-temperaturen-das-fernwarmenetz-liefern-muss">Welche Temperaturen das Fernwärmenetz liefern muss</a></li>
+<li><a href="#kalte-aus-abwarme-welche-quellen-sich-eignen">Kälte aus Abwärme: Welche Quellen sich eignen</a></li>
+<li><a href="#was-fernkalte-fur-warmenetze-und-betriebe-bringt">Was Fernkälte für Wärmenetze und Betriebe bringt</a></li>
+<li><a href="#wirtschaftlichkeit-leistungszahl-strombedarf-anlagengrosse">Wirtschaftlichkeit: Leistungszahl, Strombedarf, Anlagengröße</a></li>
+<li><a href="#ein-projekt-in-sieben-schritten-planen">Ein Projekt in sieben Schritten planen</a></li>
+<li><a href="#unsere-sicht-kalte-gehort-in-die-warmeplanung">Unsere Sicht: Kälte gehört in die Wärmeplanung</a></li>
+<li><a href="#kalteprojekt-mit-planegy-umsetzen">Kälteprojekt mit PLANEGY umsetzen</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="so-wird-aus-warme-kalte" tabindex="-1">So wird aus Wärme Kälte</h2>
+<p>Physikalisch wird Kälte nie zugeführt. Wie das <a href="https://www.umweltbundesamt.de/themen/klima-energie/fluorierte-treibhausgase-fckw/natuerliche-kaeltemittel-in-stationaeren-anlagen/allgemeine-informationen/funktionsweise" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt die Funktionsweise von Kältemaschinen</a> erklärt, entziehen sie einem Medium Wärme: Ein flüssiges Kältemittel verdampft, nimmt dabei Wärme aus der Umgebung auf und kühlt sie ab. Das gilt für jede Kältemaschine. Der Unterschied liegt darin, wie der Kältemitteldampf anschließend wieder auf ein höheres Druckniveau gebracht wird.</p>
+<p>Bei der Kompressionskälte erledigt das ein elektrisch angetriebener Verdichter. Bei der Absorptionskälte übernimmt diese Aufgabe ein Lösungsmittelkreislauf, der mit Wärme betrieben wird. Das <a href="https://www.igte.uni-stuttgart.de/forschung/kaeltetechnik-waermepumpen/absorptionskaeltemaschinen-bzw.-waermepumpen/grundlagen/" rel="nofollow noopener noreferrer" target="_blank">Institut für Gebäudeenergetik der Universität Stuttgart</a> beschreibt den Ablauf in vier Stationen:</p>
+<ol>
+<li><strong>Verdampfer:</strong> Das Kältemittel verdampft bei niedrigem Druck und Temperaturen zwischen -10 °C und 15 °C. Dabei nimmt es Wärme aus dem Kaltwasserkreis auf. Das ist die nutzbare Kälteleistung.</li>
+<li><strong>Absorber:</strong> Eine kältemittelarme Lösung nimmt den Dampf auf. So bleibt der Druck im Verdampfer niedrig, ohne dass ein Verdichter laufen muss.</li>
+<li><strong>Austreiber (Generator):</strong> Eine Pumpe fördert die nun reiche Lösung auf höheren Druck. Dort treibt Heißwasser aus der Fernwärme bei rund 80 °C bis 120 °C das Kältemittel wieder aus.</li>
+<li><strong>Kondensator:</strong> Der Kältemitteldampf verflüssigt sich, gibt seine Wärme an den Rückkühlkreis ab und strömt über eine Drossel zurück zum Verdampfer.</li>
+</ol>
+<p>Austreiber, Absorber und der dazwischen geschaltete Lösungsmittelwärmeübertrager bilden zusammen den „thermischen Verdichter“. Der Wärmeübertrager kühlt die arme Lösung vor und wärmt die reiche vor. Dadurch bleibt Wärme im Prozess und die Leistungszahl steigt. Strom braucht die Anlage nur noch für Lösungsmittelpumpe, Regelung und Rückkühlung.</p>
+<p>Für Klimakälte und viele Prozesskühlungen wird das Stoffpaar Wasser/Lithiumbromid eingesetzt. Wasser ist hier das Kältemittel, das Salz das Absorptionsmittel. Laut einer <a href="https://www.bifa.de/fileadmin/_migrated/pics/bifa-Texte/bifa_Text_43_ask-eu.pdf" rel="nofollow noopener noreferrer" target="_blank">Studie des BIFA Umweltinstituts zu Absorptionskälte an Müllverbrennungsanlagen</a> liegt die niedrigste Kaltwasseraustrittstemperatur dieser Anlagen bei etwa 5 °C. Wer Kälte unter dem Gefrierpunkt braucht, etwa in der Lebensmittel- oder Chemieindustrie, setzt auf das Stoffpaar Ammoniak/Wasser.</p>
+<h2 id="welche-temperaturen-das-fernwarmenetz-liefern-muss" tabindex="-1">Welche Temperaturen das Fernwärmenetz liefern muss</h2>
+<p>Wie gut eine Absorptionskältemaschine mit Fernwärme arbeitet, hängt vor allem von der Vorlauftemperatur ab. Klassische einstufige Maschinen sind für Heizwasser von 80 °C und mehr ausgelegt. Es gibt aber Anlagentypen, die gezielt für Fernwärmenetze entwickelt wurden. Die folgende Tabelle fasst die Werte aus Forschung und Praxis zusammen:</p>
+<table>
+<thead>
+<tr>
+<th>Kenngröße</th>
+<th>Wert</th>
+<th>Einordnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Antriebstemperatur einstufige LiBr-Maschine</td>
+<td>80 bis 180 °C</td>
+<td><a href="https://www.bifa.de/fileadmin/_migrated/pics/bifa-Texte/bifa_Text_43_ask-eu.pdf" rel="nofollow noopener noreferrer" target="_blank">BIFA-Studie</a></td>
+</tr>
+<tr>
+<td>Auslegung speziell für Fernwärme</td>
+<td>ca. 70 bis 95 °C Vorlauf</td>
+<td><a href="https://edocs.tib.eu/files/e001/265849586l.pdf" rel="nofollow noopener noreferrer" target="_blank">TIB-Abschlussbericht zu Absorptionskälte im Fernwärmenetz</a></td>
+</tr>
+<tr>
+<td>Ausgeführte Großanlage (Dortmund)</td>
+<td>Vorlauf 70 bis 110 °C, Rücklauf 60 bis 110 °C, Kaltwasser 4 bis 16 °C, COP 0,71 bis 0,795</td>
+<td><a href="https://edocs.tib.eu/files/e01fb25/1919313028.pdf" rel="nofollow noopener noreferrer" target="_blank">Projektarbeit IQDortmund</a></td>
+</tr>
+<tr>
+<td>Niedertemperatur-Versuchsanlage</td>
+<td>71 °C Heizwasser, 24 °C Kühlwasser, ca. 4 kW Kälte, Wärmeverhältnis 0,35</td>
+<td><a href="https://edocs.tib.eu/files/e01fb15/819245178.pdf" rel="nofollow noopener noreferrer" target="_blank">Forschungsbericht von 2014</a></td>
+</tr>
+<tr>
+<td>Erfahrungswert aus dem Betrieb</td>
+<td>unter 70 °C kritisch, rund 90 °C gute Bedingung</td>
+<td><a href="https://www.enercity.de/magazin/unsere-welt/klimaneutral-kuehlen-mit-abwaerme" rel="nofollow noopener noreferrer" target="_blank">Praxisbericht aus der Hamburger HafenCity</a></td>
+</tr>
+</tbody>
+</table>
+<p>Daraus ergeben sich drei Punkte für die Planung.</p>
+<p><strong>Erstens zählt die Sommertemperatur.</strong> Kälte wird vor allem zwischen Mai und September gebraucht. Viele Netze fahren genau dann mit abgesenktem Vorlauf. Klären Sie deshalb mit dem Netzbetreiber, welche Temperatur er in den Sommermonaten verbindlich zusichert. In der HafenCity liefert das Netz rund 90 °C über das ganze Jahr. Das ist eine der Voraussetzungen dafür, dass die Maschine dort die Grundlast der Kühlung übernimmt.</p>
+<p><strong>Zweitens prägt die Rücklauftemperatur das Konzept.</strong> Eine Absorptionskältemaschine kühlt das Heizwasser nur um eine begrenzte Spanne ab. Im Dortmunder Beispiel liegen die Rücklauftemperaturen zwischen 60 und 110 °C. Versorger, die ihre Netze auf niedrige Rückläufe trimmen, sollten das von Anfang an mit einplanen, zum Beispiel durch Reihenschaltung mit weiteren Verbrauchern. Welche Maßnahmen dabei wirken, beschreiben wir in unserem Beitrag zum Thema <a href="https://planegy.de/blog-fernwarme-rucklauftemperatur-senken" target="_blank" rel="noopener">Rücklauftemperatur bei Fernwärme senken</a>.</p>
+<p><strong>Drittens entscheidet die Rückkühlung mit.</strong> Je kühler das Kühlwasser, desto besser arbeitet die Maschine. Kühlturm oder Rückkühler, ihr Standort und die Möglichkeit zur freien Kühlung in der Übergangszeit gehören deshalb in die erste Konzeptskizze und nicht erst in die Ausführungsplanung.</p>
+
+<p>In <a href="https://planegy.de/blog-niedertemperatur-fernwarme" target="_blank" rel="noopener">Niedertemperatur-Fernwärmenetzen</a> mit 60 °C und weniger braucht es daher eigene Lösungen. Dazu zählen mehrstufige Maschinen, eine lokale Nacherwärmung oder eine direkt angeschlossene Abwärmequelle mit höherer Temperatur. Wie die BIFA-Studie zeigt, lassen sich mehrstufige Maschinen gezielter an Wärmequelle und Kältebedarf anpassen. Sie erreichen entweder eine höhere Leistungszahl oder kommen mit einer niedrigeren Antriebstemperatur aus.</p>
+<h2 id="kalte-aus-abwarme-welche-quellen-sich-eignen" tabindex="-1">Kälte aus Abwärme: Welche Quellen sich eignen</h2>
+<p>Nicht nur Fernwärme eignet sich als Antrieb. Absorptionskälte lohnt sich überall dort, wo thermische Energie vorhanden ist, insbesondere <a href="https://edocs.tib.eu/files/e001/265849586l.pdf" rel="nofollow noopener noreferrer" target="_blank">Abwärme, die sonst ungenutzt bliebe</a>. Typische Quellen sind:</p>
+<ul>
+<li><strong>Blockheizkraftwerke:</strong> Das Prinzip der Kraft-Wärme-Kälte-Kopplung (KWKK) nutzt die Motorabwärme im Sommer für Kälte. Das BHKW kommt so auf mehr Betriebsstunden, und der Wärmeüberschuss im Sommer entfällt.</li>
+<li><strong>Industrielle Prozesswärme:</strong> Ofen- und Kühlkreisläufe, Abgaswärmetauscher, Kondensat und Dampf aus Produktionsprozessen. Je höher die Temperatur, desto mehr Spielraum gibt es bei der Maschinenwahl.</li>
+<li><strong>Müllverbrennung und Biomasse:</strong> Die BIFA-Untersuchung zeigt am Beispiel bayerischer Müllverbrennungsanlagen, wie sich deren Energieeffizienz durch Absorptionskälte steigern lässt.</li>
+<li><strong>Dekarbonisierte Fernwärme:</strong> Netze, die bereits mit industrieller Abwärme gespeist werden, bieten besonders günstige Voraussetzungen, um erneuerbare Wärme und erneuerbare Kälte zusammenzuführen. Das bestätigen <a href="https://www.zfk.de/energie/waermewende/brauchen-wir-auch-eine-kaeltewende" rel="nofollow noopener noreferrer" target="_blank">Praktiker in der ZfK</a>.</li>
+</ul>
+<p>In Industriebetrieben lohnt es sich, zuerst alle Abwärmeströme zu erfassen: Temperatur, Menge, zeitliches Profil. Danach prüfen Sie, welche Verbraucher gleichzeitig Kälte brauchen. Wie Sie dabei vorgehen, zeigt unser <a href="https://planegy.de/blog-abwarmenutzung-industrie" target="_blank" rel="noopener">Leitfaden zur industriellen Abwärmenutzung</a>. In großen Produktions- und Logistikhallen gehört zur Gesamtbetrachtung neben dem Kaltwassernetz auch die Luftführung im Raum. Wie eine <a href="https://sierracalderina.es/productos/aerotermia-industrial" target="_blank" rel="noopener">Klimatisierung großer Industriehallen</a> mit großflächigen Ventilatoren und Verdunstungskühlern aufgebaut wird, hilft bei der Frage, welche Lasten das Kaltwasser tatsächlich decken muss.</p>
+<h2 id="was-fernkalte-fur-warmenetze-und-betriebe-bringt" tabindex="-1">Was Fernkälte für Wärmenetze und Betriebe bringt</h2>
+<p>Für Netzbetreiber ist Absorptionskälte vor allem ein Mittel, um im Sommer mehr Wärme abzusetzen. Die Erzeugungsanlagen laufen gleichmäßiger, und die Wärme, die im Sommer sonst übrig wäre, wird genutzt. Wie die <a href="https://www.tga-praxis.de/sites/default/files/public/data-fachartikel/MGT_2021_05_Umweltfreundlich-kuehlen-mit-Waerme_20-21.pdf" rel="nofollow noopener noreferrer" target="_blank">TGA-Praxis beschreibt</a>, wird so das bisher ungenutzte Potenzial der Fernwärme im Sommer erschlossen, ohne dass zusätzlicher Strom produziert werden muss. Das entlastet das Stromnetz gerade an heißen Tagen, an denen elektrische Kältemaschinen Lastspitzen verursachen.</p>
+<p>Zwei Beispiele aus Deutschland zeigen, wie das in der Praxis aussieht:</p>
+<p><strong>Dresden:</strong> Am Dresdner Fernwärmenetz waren nach der <a href="https://www.umweltbundesamt.de/themen/klima-energie/klimafolgen-anpassung/werkzeuge-der-anpassung/tatenbank/erzeugung-von-klimakaelte-aus-fernwaerme" rel="nofollow noopener noreferrer" target="_blank">Dokumentation des Umweltbundesamts</a> 27 sorptive Kälteanlagen mit verschiedenen Verfahren angeschlossen, mit einem Wärmeanschlusswert von zusammen rund 20 MW. Das zeigt, dass Fernkälte in einer deutschen Großstadt über viele Liegenschaften hinweg funktioniert.</p>
+<p><strong>Hamburg-HafenCity:</strong> Hier deckt eine Absorptionskälteanlage mit <a href="https://www.enercity.de/presse/pressemitteilungen/2025/premiere-in-der-hamburger-hafencity-klimaneutrale-waerme-fuer-kuehle-koepfe" rel="nofollow noopener noreferrer" target="_blank">941 kW Kälteanschlussleistung</a> die Grundlast der Gebäudekühlung ab. Der erwartete Kältebedarf liegt bei 480 MWh pro Jahr, dafür werden 483 MWh Fernwärme eingesetzt. 80 % der Kälte stammen aus unvermeidbarer Abwärme und freier Kühlung, nur rund 20 % liefert eine Kompressionskälteanlage für die Spitzenlast. Der Strombedarf liegt dadurch mindestens 50 % niedriger. Die Wärme stammt aus nahezu CO₂-freier Abwärme eines Kupferproduzenten, und durch den ganzjährigen Fernwärmebezug wird diese Quelle optimal ausgeschöpft.</p>
+<p>Für den Betrieb, der die Kälte bezieht, zählen drei Vorteile. Der Stromverbrauch sinkt, die Anschlussleistung beim Netzbetreiber bleibt kleiner, und die Kühlung arbeitet mit einem natürlichen Kältemittel. Laut TGA-Praxis senkt Wasser als Kältemittel das Treibhauspotenzial (GWP) des Kältekreises um 100 %, weil es keine Treibhausgase freisetzt. Bei Anlagen mit fluorierten Kältemitteln sind dagegen Leckageprüfungen und die künftige Verfügbarkeit der Kältemittel ein Dauerthema.</p>
+<h2 id="wirtschaftlichkeit-leistungszahl-strombedarf-anlagengrosse" tabindex="-1">Wirtschaftlichkeit: Leistungszahl, Strombedarf, Anlagengröße</h2>
+<p>Die thermische Leistungszahl (COP) einer Absorptionskältemaschine misst, wie viel Kälte aus einer Einheit Antriebswärme entsteht. Einstufige Maschinen erreichen unter Nennbedingungen 0,6 bis 0,75, die Dortmunder Anlage 0,71 bis 0,795. Dieser Wert lässt sich nicht mit dem COP einer Kompressionsmaschine vergleichen, denn er bezieht sich auf Wärme und nicht auf Strom. Entscheidend ist, was eine Kilowattstunde Wärme im Sommer kostet und wie viel Strom eingespart wird.</p>
+<p>Ein Rechenbeispiel zeigt die Größenordnungen. Eine Maschine mit 1.000 kW Kälteleistung und einem COP von 0,7 braucht rund 1.430 kW Antriebswärme. Über den Rückkühlkreis müssen Kälte und Antriebswärme zusammen abgeführt werden, also etwa 2.430 kW. Daraus folgt: Bei der Absorptionskälte ist die Rückkühlung größer ausgelegt als bei einer elektrischen Kältemaschine. Dafür fällt der Stromverbrauch des Verdichters weg. Laut TGA-Praxis liegt der Strombedarf einschließlich Pumpen und Rückkühlwerk etwa 75 bis 90 % unter dem einer Kompressionskälteanlage.</p>
+<p>Die Wirtschaftlichkeit hängt vor allem von diesen Faktoren ab:</p>
+<ul>
+<li><strong>Anlagengröße:</strong> Nach Erfahrungen aus Hamburg ist ein Projekt <a href="https://www.enercity.de/magazin/unsere-welt/klimaneutral-kuehlen-mit-abwaerme" rel="nofollow noopener noreferrer" target="_blank">unter etwa 500 kW Kälteleistung kaum wirtschaftlich</a>, richtig interessant wird es ab etwa 1.000 kW. Große Gebäude mit hohen Kältelasten oder ein Gebäudeverbund sind daher die typischen Einsatzfelder.</li>
+<li><strong>Volllaststunden:</strong> Je gleichmäßiger die Kältelast, desto besser. Rechenzentren, Kliniken, Prozesskühlung und große Bürokomplexe bieten lange Laufzeiten. Die Maschine in der HafenCity ist bewusst auf einen möglichst gleichmäßigen Dauerbetrieb im Sommer ausgelegt.</li>
+<li><strong>Wärmepreis im Sommer:</strong> Abwärme oder Sommerwärme aus einem Netz mit Überschuss ist günstig. Viele Versorger bieten dafür eigene Tarife an, weil die zusätzliche Abnahme ihre Anlagen besser auslastet.</li>
+<li><strong>Hybridkonzept:</strong> Absorptionsmaschine für die Grundlast, Umgebungsluft für die freie Kühlung und ein Kompressor für die Spitzenlast. In der <a href="https://www.zfk.de/energie/waermewende/brauchen-wir-auch-eine-kaeltewende" rel="nofollow noopener noreferrer" target="_blank">ZfK</a> werden mit dieser Kombination Stromeinsparungen von mehr als 50 % beziffert.</li>
+<li><strong>Speicher:</strong> Ein Kaltwasserspeicher glättet Lastspitzen und erlaubt eine kleinere Maschine mit mehr Volllaststunden. Die Unterschiede zwischen den Speicherarten erklären wir im Beitrag zu <a href="https://planegy.de/blog-sensible-vs-latente-warmespeicherung" target="_blank" rel="noopener">sensibler und latenter Wärmespeicherung</a>.</li>
+</ul>
+<p>In kleineren Liegenschaften lässt sich Absorptionskälte am besten über ein Quartier lösen: Mehrere Gebäude werden an eine gemeinsame Zentrale angeschlossen, sodass die Leistung die wirtschaftliche Schwelle erreicht. Wie man ein solches Konzept aufbaut, beschreibt unser Beitrag zum <a href="https://planegy.de/blog-quartierswarme-konzept" target="_blank" rel="noopener">Quartierswärme-Konzept</a>.</p>
+<h2 id="ein-projekt-in-sieben-schritten-planen" tabindex="-1">Ein Projekt in sieben Schritten planen</h2>
+<p>Ob Stadtwerk, Kommune oder Industriebetrieb: Die Planung folgt immer derselben Logik. Erst kommt der Bedarf, dann die Technik.</p>
+<ol>
+<li><strong>Kältelastprofil erfassen:</strong> Stündliche Last über das ganze Jahr, getrennt nach Klimakälte und Prozesskälte, mit den benötigten Kaltwassertemperaturen. Ohne Lastgang lässt sich keine Maschine sinnvoll auslegen.</li>
+<li><strong>Wärmequelle prüfen:</strong> Gesicherte Vorlauftemperatur im Sommer, zulässige Rücklauftemperatur, verfügbare Leistung und Preis. Bei Abwärme zusätzlich: Wie gleichmäßig ist sie, und wie viel Ausfallsicherheit braucht es?</li>
+<li><strong>Rückkühlung und Standort klären:</strong> Platz für Rückkühler oder Kühlturm, Schallschutz, Wasseraufbereitung und die Möglichkeit zur freien Kühlung.</li>
+<li><strong>Hybridkonzept festlegen:</strong> Welcher Anteil kommt aus Absorption, welcher aus freier Kühlung und welcher aus Kompression? Wird ein Speicher eingeplant?</li>
+<li><strong>Varianten vergleichen:</strong> Vollkostenrechnung über die Nutzungsdauer mit Investition, Wärme- und Stromkosten, Wartung und CO₂-Bilanz. Unser <a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik-Rechner</a> hilft bei einem ersten Vergleich der Systeme.</li>
+<li><strong>Förderung und Genehmigung sichern:</strong> Förderprogramme rechtzeitig vor der Beauftragung prüfen und Anträge stellen. Wie sich Programme sinnvoll verbinden lassen, zeigt unser Beitrag zum Thema <a href="https://planegy.de/blog-fordermittel-kombinieren" target="_blank" rel="noopener">Fördermittel kombinieren</a>. Zusätzlich müssen Rückkühlwerk und Heizzentrale genehmigungsrechtlich geprüft werden.</li>
+<li><strong>Betrieb überwachen:</strong> Kälte, Wärmeeinsatz, Strom und Temperaturen messen. Nur so lässt sich erkennen, ob die Maschine im Auslegungspunkt läuft.</li>
+</ol>
+<p>Für Kommunen lohnt sich dabei ein Blick auf die Wärmeplanung. Wer heute die Gebiete für Wärmenetze festlegt, sollte Standorte mit großen Kältelasten mit erfassen, etwa Kliniken, Hochschulen, Rechenzentren oder Gewerbegebiete. Dann kann ein künftiges Wärmenetz auch im Sommer gut ausgelastet werden. Grundlagen dazu liefert unser Beitrag <a href="https://planegy.de/blog-nahwaermenetze-planung-wirtschaftlichkeit" target="_blank" rel="noopener">Nahwärmenetze: Planung und Wirtschaftlichkeit</a>.</p>
+<h2 id="unsere-sicht-kalte-gehort-in-die-warmeplanung" tabindex="-1">Unsere Sicht: Kälte gehört in die Wärmeplanung</h2>
+<blockquote>
+<p>In unseren Projekten sehen wir immer wieder dasselbe Muster: Wärme wird sorgfältig geplant, Kälte erst dann, wenn ein Gebäude im Sommer zu warm wird. Dabei ist ein Wärmenetz im Sommer genau dann am wenigsten ausgelastet, wenn der Kältebedarf am höchsten ist. Absorptionskälte bringt beides zusammen.</p>
+<p>Wir arbeiten technologieoffen und bewerten jede Option neutral, ohne Herstellerinteressen. Deshalb fangen wir nie mit der Maschine an, sondern mit dem Lastgang, der Wärmequelle und den Temperaturen, die das Netz tatsächlich liefern kann. Daraus entsteht ein Konzept, das Absorption, freie Kühlung und Spitzenlast so kombiniert, dass jede Komponente dort läuft, wo sie am effizientesten ist.</p>
+<p>Aus über 20 Jahren im Energiesektor wissen wir, dass gute Kältekonzepte selten an der Technik scheitern. Viel öfter fehlen Fördermittel, oder die Genehmigung läuft zu spät an. Deshalb planen wir Förderakquise und Genehmigung von Anfang an mit ein. Für Stadtwerke wird Fernkälte so zu einem Produkt, das die Sommerauslastung erhöht. Für Industriebetriebe wird Abwärme, die sie bisher bezahlt haben, um sie loszuwerden, zu nutzbarer Kälte.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="kalteprojekt-mit-planegy-umsetzen" tabindex="-1">Kälteprojekt mit PLANEGY umsetzen</h2>
+<p>Sie haben Abwärme, ein Fernwärmenetz mit Sommerüberschuss oder Gebäude mit hohen Kältelasten? Wir begleiten Ihr Vorhaben von der Analyse bis zur Umsetzung. Dazu gehören die technologieoffene Anlagenkonzeption, die Wirtschaftlichkeitsbewertung, die Genehmigung und ein umfassender Förderservice, mit dem wir für unsere Kunden Förderungen von bis zu 1,2 Mio. € gesichert haben.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Stadtwerke finden unser Angebot auf der Seite <a href="https://planegy.de/stadtwerke" target="_blank" rel="noopener">Lösungen für Stadtwerke und Energieversorger</a>, Industriebetriebe unter <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieberatung für die Industrie</a>. Einen Überblick über alle Leistungsbereiche bietet die Seite <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">unsere Leistungen</a>.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="welche-fernwarme-temperatur-braucht-eine-absorptionskaltemaschine" tabindex="-1">Welche Fernwärme-Temperatur braucht eine Absorptionskältemaschine?</h3>
+<p>Für Fernwärme entwickelte Anlagen arbeiten mit Vorlauftemperaturen von etwa 70 bis 95 °C. Unter 70 °C wird es aus Sicht der Praxis kritisch, rund 90 °C gelten als gute Bedingung. Entscheidend ist die Temperatur, die das Netz im Sommer verbindlich liefert.</p>
+<h3 id="wie-viel-strom-spart-absorptionskalte-gegenuber-kompressionskalte" tabindex="-1">Wie viel Strom spart Absorptionskälte gegenüber Kompressionskälte?</h3>
+<p>Der Strombedarf einschließlich Pumpen und Rückkühlwerk liegt etwa 75 bis 90 % unter dem einer Kompressionskälteanlage. In Hybridkonzepten mit freier Kühlung und einem Kompressor für die Spitzenlast sind Einsparungen von mehr als 50 % üblich.</p>
+<h3 id="ab-welcher-grosse-lohnt-sich-eine-absorptionskalteanlage" tabindex="-1">Ab welcher Größe lohnt sich eine Absorptionskälteanlage?</h3>
+<p>Nach Praxiserfahrungen ab etwa 500 kW Kälteleistung, besonders interessant ab etwa 1.000 kW. Kleinere Gebäude erreichen diese Schwelle gemeinsam, wenn sie als Quartier oder Gebäudeverbund an eine Kältezentrale angeschlossen werden.</p>
+<h3 id="lasst-sich-kalte-auch-aus-bhkw-oder-prozessabwarme-erzeugen" tabindex="-1">Lässt sich Kälte auch aus BHKW- oder Prozessabwärme erzeugen?</h3>
+<p>Ja. Das Prinzip der Kraft-Wärme-Kälte-Kopplung nutzt die Abwärme von Blockheizkraftwerken im Sommer für Kälte, und industrielle Abwärme eignet sich ebenso. Wichtig sind ausreichend hohe Temperaturen und ein Wärmeangebot, das zeitlich zum Kältebedarf passt.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.umweltbundesamt.de/themen/klima-energie/fluorierte-treibhausgase-fckw/natuerliche-kaeltemittel-in-stationaeren-anlagen/allgemeine-informationen/funktionsweise" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt: Funktionsweise von Kälteanlagen</a></li>
+<li><a href="https://www.igte.uni-stuttgart.de/forschung/kaeltetechnik-waermepumpen/absorptionskaeltemaschinen-bzw.-waermepumpen/grundlagen/" rel="nofollow noopener noreferrer" target="_blank">Universität Stuttgart, IGTE: Grundlagen der Absorptionstechnik</a></li>
+<li><a href="https://www.bifa.de/fileadmin/_migrated/pics/bifa-Texte/bifa_Text_43_ask-eu.pdf" rel="nofollow noopener noreferrer" target="_blank">BIFA: Steigerung der Energieeffizienz bayerischer MVA durch Absorptionskälte</a></li>
+<li><a href="https://edocs.tib.eu/files/e001/265849586l.pdf" rel="nofollow noopener noreferrer" target="_blank">TIB: Entwicklung von Absorptionskälteanlagen für den Einsatz in Fernwärmenetzen</a></li>
+<li><a href="https://edocs.tib.eu/files/e01fb15/819245178.pdf" rel="nofollow noopener noreferrer" target="_blank">TIB: Abschlussbericht zu Absorptionskälte mit niedertemperiertem Rückkühlwasser (2014)</a></li>
+<li><a href="https://edocs.tib.eu/files/e01fb25/1919313028.pdf" rel="nofollow noopener noreferrer" target="_blank">TIB: IQDortmund (2024)</a></li>
+<li><a href="https://www.umweltbundesamt.de/themen/klima-energie/klimafolgen-anpassung/werkzeuge-der-anpassung/tatenbank/erzeugung-von-klimakaelte-aus-fernwaerme" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt Tatenbank: Erzeugung von Klimakälte aus Fernwärme</a></li>
+<li><a href="https://www.tga-praxis.de/sites/default/files/public/data-fachartikel/MGT_2021_05_Umweltfreundlich-kuehlen-mit-Waerme_20-21.pdf" rel="nofollow noopener noreferrer" target="_blank">TGA-Praxis: Umweltfreundlich kühlen mit Wärme (2021)</a></li>
+<li><a href="https://www.zfk.de/energie/waermewende/brauchen-wir-auch-eine-kaeltewende" rel="nofollow noopener noreferrer" target="_blank">ZfK: Brauchen wir auch eine Kältewende?</a></li>
+<li><a href="https://www.enercity.de/magazin/unsere-welt/klimaneutral-kuehlen-mit-abwaerme" rel="nofollow noopener noreferrer" target="_blank">Kühlen mit Abwärme: so funktioniert’s</a></li>
+<li><a href="https://www.enercity.de/presse/pressemitteilungen/2025/premiere-in-der-hamburger-hafencity-klimaneutrale-waerme-fuer-kuehle-koepfe" rel="nofollow noopener noreferrer" target="_blank">Premiere in der Hamburger HafenCity: Klimaneutrale Wärme für kühle Köpfe (2025)</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-niedertemperatur-fernwarme" target="_blank" rel="noopener">Niedertemperatur-Fernwärme: Machbarkeit und Wirtschaftlichkeit</a></li>
+<li><a href="https://planegy.de/blog-fernwarme-warmwasserspeicher" target="_blank" rel="noopener">Fernwärme-Warmwasserspeicher: Technik, Typen und Einbau</a></li>
+<li><a href="https://planegy.de/blog-nahwarmenetz-kosten" target="_blank" rel="noopener">Nahwärmenetz Kosten: Investitionen, Förderung und Wirtschaftlichkeit</a></li>
+<li><a href="https://planegy.de/blog-fernwarme-rucklauftemperatur-senken" target="_blank" rel="noopener">ΔT um 3 K: So senken Versorger die Rücklauftemperatur bei Fernwärme</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
