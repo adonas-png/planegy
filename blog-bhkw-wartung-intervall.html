@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BHKW-Wartungsintervall: Betriebsstunden, Wartungsstufen, Kosten – PLANEGY</title>
+  <meta name="description" content="Wie oft muss ein BHKW gewartet werden? Typische Intervalle nach Betriebsstunden, Wartungsstufen bis zur Generalüberholung, Kosten pro kWh und Prüfpflichten." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="BHKW-Wartungsintervall: Betriebsstunden, Wartungsstufen, Kosten" />
+  <meta property="og:description" content="Wie oft muss ein BHKW gewartet werden? Typische Intervalle nach Betriebsstunden, Wartungsstufen bis zur Generalüberholung, Kosten pro kWh und Prüfpflichten." />
+  <link rel="canonical" href="https://planegy.de/blog-bhkw-wartung-intervall" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "BHKW-Wartungsintervall: Betriebsstunden, Wartungsstufen, Kosten",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-08",
+    "description": "Wie oft muss ein BHKW gewartet werden? Typische Intervalle nach Betriebsstunden, Wartungsstufen bis zur Generalüberholung, Kosten pro kWh und Prüfpflichten."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">BHKW-Wartungsintervall: Betriebsstunden, Wartungsstufen, Kosten</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>BHKW-Wartungsintervall: Betriebsstunden, Wartungsstufen, Kosten</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="bhkw-wartungsintervall-betriebsstunden-wartungsstufen-kosten" tabindex="-1">BHKW-Wartungsintervall: Betriebsstunden, Wartungsstufen, Kosten</h1>
+
+<p>Ein Blockheizkraftwerk wird nach Betriebsstunden gewartet, nicht nach Kalender. Größere Module ab 50 kW elektrisch brauchen etwa alle 500 bis 2.000 Betriebsstunden eine Wartung. Bei kleinen Modulen nennen manche Hersteller Intervalle bis 10.000 Betriebsstunden (<a href="https://www.haustec.de/heizung/waermeerzeugung/service-und-wartung-worauf-es-beim-blockheizkraftwerk-ankommt" rel="nofollow noopener noreferrer" target="_blank">Haustec</a>). Bei einem BHKW, das 6.000 Stunden im Jahr läuft, sind das je nach Größe drei bis zwölf Termine pro Jahr. Verbindlich ist immer der Wartungsplan Ihres Herstellers. Sie zahlen für Inspektion, Wartung und Instandsetzung grob 1,0 bis 4,0 Cent je erzeugter Kilowattstunde Strom. Im Folgenden lesen Sie, wie die Stufen aufgebaut sind, was in jede Wartung gehört, wie Sie die Kosten für Ihre Anlage berechnen und welche Messpflichten unabhängig davon gelten.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">BHKW-Betrieb ganzheitlich planen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Unternehmen mit technologieoffener Energieberatung dabei, Energielösungen von der Analyse bis zur Umsetzung zu entwickeln.</div><a href="https://planegy.de" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Energieberatung entdecken<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li><strong>Takt nach Betriebsstunden:</strong> Große Module brauchen etwa alle 500 bis 2.000 Bh eine Wartung, kleine teils erst nach 5.000 bis 10.000 Bh. Maßgeblich ist der Wartungsplan des Herstellers.</li>
+<li><strong>Gestaffelte Stufen:</strong> Auf die kurze Regelwartung (Öl, Filter, Zündkerzen) folgen größere Inspektionen und schließlich die Generalüberholung nach etwa 25.000 bis 120.000 Bh.</li>
+<li><strong>Abschaltung bei Verzug:</strong> Viele Anlagen schalten sich selbst ab, wenn die fällige Wartung um wenige hundert Stunden überschritten ist.</li>
+<li><strong>Kosten pro kWh:</strong> Rechnen Sie mit 1,0 bis 4,0 Cent je erzeugter kWh Strom. Vollwartungsverträge liegen am oberen Ende, dafür sind Reparaturen und Ersatzteile abgedeckt.</li>
+<li><strong>Messpflichten zusätzlich:</strong> Schornsteinfegermessung nach der 1. BImSchV und ab 1 MW Feuerungswärmeleistung jährliche Emissionsmessungen nach der 44. BImSchV.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#warum-betriebsstunden-den-takt-vorgeben">Warum Betriebsstunden den Takt vorgeben</a></li>
+<li><a href="#typische-intervalle-aus-herstellerunterlagen">Typische Intervalle aus Herstellerunterlagen</a></li>
+<li><a href="#von-der-regelwartung-bis-zur-generaluberholung">Von der Regelwartung bis zur Generalüberholung</a></li>
+<li><a href="#was-die-bhkw-wartung-kostet">Was die BHKW-Wartung kostet</a></li>
+<li><a href="#gesetzliche-mess-und-dokumentationspflichten">Gesetzliche Mess- und Dokumentationspflichten</a></li>
+<li><a href="#unsere-sicht-wartung-beginnt-bei-der-planung">Unsere Sicht: Wartung beginnt bei der Planung</a></li>
+<li><a href="#bhkw-konzept-und-compliance-aus-einer-hand">BHKW-Konzept und Compliance aus einer Hand</a></li>
+<li><a href="#haufige-fragen-zur-bhkw-wartung">Häufige Fragen zur BHKW-Wartung</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="warum-betriebsstunden-den-takt-vorgeben" tabindex="-1">Warum Betriebsstunden den Takt vorgeben</h2>
+<p>Ein BHKW-Motor läuft viel mehr als ein Automotor. Nach einem Vergleich in der Fachpresse leistet ein BHKW-Motor mit 1.000 Betriebsstunden in knapp sechs Wochen so viel wie ein Auto auf etwa 50.000 km. Die erwartete Lebensdauer von rund 80.000 Betriebsstunden entspricht damit <a href="https://www.haustec.de/heizung/waermeerzeugung/service-und-wartung-worauf-es-beim-blockheizkraftwerk-ankommt" rel="nofollow noopener noreferrer" target="_blank">etwa vier Millionen Kfz-Kilometern</a>. Deshalb zählt der Stundenzähler und nicht das Datum.</p>
+<p>Wie lang das einzelne Intervall ist, hängt von mehreren Faktoren ab:</p>
+<ul>
+<li><strong>Hersteller und Motorenfabrikat:</strong> Jeder Motor hat einen eigenen Wartungsplan mit eigenen Stufen.</li>
+<li><strong>Brennstoff:</strong> Erdgas, Flüssiggas, Biogas und Heizöl belasten Öl, Zündkerzen und Ventile unterschiedlich stark. Bei Heizöl ist das Intervall meist kürzer als bei Gas.</li>
+<li><strong>Leistungsklasse:</strong> Große Motoren mit hoher Last brauchen öfter Service als kleine Module mit großem Ölvorrat.</li>
+<li><strong>Einbau- und Betriebsbedingungen:</strong> Zuluft, Temperatur im Aufstellraum, Teillast oder Volllast.</li>
+<li><strong>Fahrweise:</strong> Früher liefen viele Biogas-BHKW im Dauerbetrieb mit rund 8.500 Stunden im Jahr. Bei flexiblen Anlagen mit vielen Starts und Stopps sinkt die Laufzeit auf 2.000 bis 3.000 Stunden im Jahr, und die <a href="https://www.wochenblatt-dlv.de/feld-stall/energie/bhkw-wartung-bauern-folgekosten-ausfallzeiten-vermeiden-585116" rel="nofollow noopener noreferrer" target="_blank">Wartungsintervalle müssen entsprechend angepasst werden</a>.</li>
+</ul>
+<p>Für den Motor selbst schreibt kein Gesetz eine Wartung vor. Die sicherheitstechnischen Einrichtungen müssen aber gewartet werden. Wenn Sie deutlich vom Wartungsplan abweichen, können Garantie, Gewährleistung und Versicherungsschutz eingeschränkt werden oder ganz entfallen, wie dieselbe Quelle erklärt. Der Herstellerplan ist daher in der Praxis verbindlich.</p>
+<h2 id="typische-intervalle-aus-herstellerunterlagen" tabindex="-1">Typische Intervalle aus Herstellerunterlagen</h2>
+<p>Wie unterschiedlich die Vorgaben sind, zeigen Betriebsanleitungen und Wartungspläne. Die Beispiele zeigen die Spanne und ersetzen nicht den Plan Ihrer eigenen Anlage:</p>
+<table>
+<thead>
+<tr>
+<th>Anlage (Beispiel)</th>
+<th>Regelwartung</th>
+<th>Größere Stufen</th>
+<th>Verhalten bei Verzug</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mini-BHKW mit Gasmotor (Dachs)</td>
+<td>spätestens nach 3.500 Bh (Gas) bzw. 2.700 Bh (Heizöl)</td>
+<td>nach Herstellerplan</td>
+<td>Abschaltung 300 Bh nach Aufleuchten der Wartungsanzeige</td>
+</tr>
+<tr>
+<td>Kompakt-BHKW Vitobloc 200 EM-9/20</td>
+<td>mindestens einmal jährlich, spätestens nach 6.000 Bh</td>
+<td>nach Herstellerplan</td>
+<td>keine Angabe</td>
+</tr>
+<tr>
+<td>neoTower 8.0–30.0</td>
+<td>laut Wartungsplan</td>
+<td>laut Wartungsplan</td>
+<td>Hinweis 300 h vorher, danach 200 h mit Minimalleistung, dann Abschaltung</td>
+</tr>
+<tr>
+<td>neoTower 71.0 (ab ID 70.000)</td>
+<td>W1 alle 2.000 Bh oder alle 2 Jahre</td>
+<td>W2 bei 16.000/46.000/76.000 Bh, W5 (Motorrevision) bei 30.000/90.000 Bh, W3 (Motor) bei 60.000 Bh</td>
+<td>Abschaltung bei 200 Bh Überschreitung</td>
+</tr>
+</tbody>
+</table>
+<p>Quellen der Tabelle: <a href="https://www.senertec-service.de/html/wartung.html" rel="nofollow noopener noreferrer" target="_blank">Wartungsangaben zum Dachs</a>, <a href="https://www.manualslib.de/manual/853157/Viessmann-Vitobloc-200-Em-9-20.html?page=12" rel="nofollow noopener noreferrer" target="_blank">technische Beschreibung Vitobloc 200</a>, <a href="https://www.rmbenergie.com/downloadbereich/neotower-12.5/betriebsanleitung-neotower-8.0-30.0.pdf" rel="nofollow noopener noreferrer" target="_blank">Betriebsanleitung neoTower 8.0–30.0</a> und <a href="https://www.rmbenergie.com/downloadbereich/neotower-71.0/wartungsstufen-neotower-71.0-ab-id-70000.pdf" rel="nofollow noopener noreferrer" target="_blank">Wartungsstufen neoTower 71.0</a>.</p>
+<p>Zwei Dinge fallen auf. Erstens gelten bei vielen Plänen zwei Grenzen, Stunden oder Zeit, und die zuerst erreichte zählt. Ein BHKW mit wenig Laufzeit braucht also trotzdem regelmäßig Service. Zweitens überwachen moderne Steuerungen das Intervall selbst und stoppen die Anlage, wenn die Wartung zu lange ausbleibt. Eine verpasste Wartung kostet dann Strom- und Wärmeerlöse, bis der Techniker vor Ort war.</p>
+<h3 id="so-rechnen-sie-die-termine-pro-jahr-aus" tabindex="-1">So rechnen Sie die Termine pro Jahr aus</h3>
+<p>Teilen Sie die geplanten Jahresbetriebsstunden durch das Intervall der Regelwartung:</p>
+<ul>
+<li><strong>Gewerbe-BHKW, 50 kW el, 6.000 Bh/Jahr, Intervall 2.000 Bh:</strong> drei Regelwartungen im Jahr.</li>
+<li><strong>Industriemodul im Dauerbetrieb, 8.500 Bh/Jahr, Intervall 1.000 Bh:</strong> acht bis neun Termine im Jahr, praktisch jeden sechsten Wochenende-Einsatz einplanen.</li>
+<li><strong>Mini-BHKW im Mehrfamilienhaus, 5.000 Bh/Jahr, Intervall 3.500 Bh:</strong> ein bis zwei Termine im Jahr.</li>
+<li><strong>Flexibles Biogas-BHKW, 2.500 Bh/Jahr, Intervall 2.000 Bh:</strong> gut ein Termin im Jahr. Das Zeitkriterium des Herstellers und die vielen Starts werden hier wichtiger.</li>
+</ul>
+<p>Legen Sie Wartungen möglichst in Zeiten mit wenig Wärmebedarf oder in Stunden mit niedrigen Strompreisen. So verlieren Sie wenig Erlös.</p>
+<h2 id="von-der-regelwartung-bis-zur-generaluberholung" tabindex="-1">Von der Regelwartung bis zur Generalüberholung</h2>
+<p>Fast alle Wartungspläne sind gestaffelt. Die Namen unterscheiden sich, das Prinzip ist gleich: kurze, häufige Termine für Verschleißteile und seltene, große Eingriffe am Motor.</p>
+<h3 id="regelwartung-teilwartung" tabindex="-1">Regelwartung (Teilwartung)</h3>
+<p>Zur <a href="https://www.haustec.de/heizung/waermeerzeugung/service-und-wartung-worauf-es-beim-blockheizkraftwerk-ankommt" rel="nofollow noopener noreferrer" target="_blank">Regelwartung gehören laut Haustec</a> unter anderem:</p>
+<ol>
+<li>Wechsel von Motoröl und Ölfilter</li>
+<li>Wechsel von Luftfilter und Zündkerzen (bei Gasmotoren)</li>
+<li>Prüfung von Batterie und Kühlwasserdruck</li>
+<li>Sichtprüfung von Abgassammelrohr und Befestigungen</li>
+<li>Kontrolle des Ventilspiels, Auslesen des Fehlerspeichers, Funktionsprüfung</li>
+</ol>
+<p>Beim Dachs nennt der Herstellerservice zum Beispiel 12 Liter Motoröl, Ölfilter, beide Luftfilter, das Fetten des Generatorlagers und die Prüfung des Ventilspiels.</p>
+<h3 id="grosse-wartung-und-vollwartungsstufen" tabindex="-1">Große Wartung und Vollwartungsstufen</h3>
+<p>In größeren Abständen kommen Arbeiten an Bauteilen mit langsamem Verschleiß hinzu: Prüfung, Reinigung oder Tausch von Zylinderkopf, Katalysator, Plattenwärmetauscher und Abgaswärmetauscher sowie der Wechsel der Zündspulen. Der Abgaswärmetauscher entscheidet stark mit, wie viel Wärme die Anlage liefert. Ein verschmutzter Tauscher kostet Wirkungsgrad. Wie Sie dort zusätzliche Wärme gewinnen, lesen Sie in unserem Beitrag zur <a href="https://planegy.de/blog-brennwertnutzung-bhkw" target="_blank" rel="noopener">Brennwertnutzung im BHKW</a>.</p>
+<h3 id="generaluberholung" tabindex="-1">Generalüberholung</h3>
+<p>Nach hoher Laufleistung wird der Motor überholt oder getauscht. Laut <a href="https://www.bhkw-infozentrum.de/download/asue-bhkw-kenndaten-0311.pdf" rel="nofollow noopener noreferrer" target="_blank">ASUE-Kenndaten</a> ist das nach etwa 25.000 bis 120.000 Betriebsstunden fällig, je nach Auslegung, Belastung und Leistung des Motors. Bei einem Modul mit 6.000 Bh im Jahr liegt dieser Termin irgendwo zwischen dem vierten und dem zwanzigsten Betriebsjahr. Bei der Wirtschaftlichkeitsrechnung macht das einen großen Unterschied.</p>
+<h2 id="was-die-bhkw-wartung-kostet" tabindex="-1">Was die BHKW-Wartung kostet</h2>
+
+<p>Die Wartungskosten werden in der Branche fast immer pro erzeugter Kilowattstunde Strom angegeben. Laut <a href="https://www.haustec.de/heizung/waermeerzeugung/service-und-wartung-worauf-es-beim-blockheizkraftwerk-ankommt" rel="nofollow noopener noreferrer" target="_blank">Haustec</a> liegen die Kosten für Inspektion, Wartung und Instandsetzung je nach Anbieter und Modulgröße zwischen 1,0 und 4,0 Cent/kWh. Darin stecken Arbeitszeit, Schmieröl, Altölentsorgung, Material, Ersatzteile und anteilige Fahrtkosten. Am Markt kostet eine reine Regelwartung typischerweise 1,5 bis 2,5 Cent/kWh. Vollwartungsverträge liegen eher bei 2,8 bis 4,3 Cent/kWh, je nach Anlagentyp, Laufzeit und Anfahrtsweg.</p>
+<h3 id="rechenbeispiele" tabindex="-1">Rechenbeispiele</h3>
+<table>
+<thead>
+<tr>
+<th>Anlage</th>
+<th>Jahresstrom</th>
+<th>bei 1,0 ct/kWh</th>
+<th>bei 2,5 ct/kWh</th>
+<th>bei 4,0 ct/kWh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5 kW el, 5.000 Bh</td>
+<td>25.000 kWh</td>
+<td>250 €</td>
+<td>625 €</td>
+<td>1.000 €</td>
+</tr>
+<tr>
+<td>50 kW el, 6.000 Bh</td>
+<td>300.000 kWh</td>
+<td>3.000 €</td>
+<td>7.500 €</td>
+<td>12.000 €</td>
+</tr>
+<tr>
+<td>400 kW el, 7.000 Bh</td>
+<td>2.800.000 kWh</td>
+<td>28.000 €</td>
+<td>70.000 €</td>
+<td>112.000 €</td>
+</tr>
+</tbody>
+</table>
+<p>Die Rechnung zeigt, warum dieser Posten bei der Planung zählt. Die <a href="https://www.vdi.de/fileadmin/pages/vdi_de/redakteure/richtlinien/inhaltsverzeichnisse/1728621.pdf" rel="nofollow noopener noreferrer" target="_blank">VDI 4680</a> weist darauf hin, dass die Wartungskosten über die Lebensdauer eines Aggregats so hoch oder höher sein können als die Investition in das Aggregat selbst. Wer ein BHKW plant, sollte die Wartung deshalb gleich mit ins Konzept nehmen. Wie sich Wartung, Strompreis und KWKG-Zuschlag auf die Rendite auswirken, zeigen wir in unseren <a href="https://planegy.de/blog-bhkw-wirtschaftlichkeit" target="_blank" rel="noopener">Szenarien zur BHKW-Wirtschaftlichkeit</a>.</p>
+<h3 id="teilwartung-oder-vollwartung" tabindex="-1">Teilwartung oder Vollwartung?</h3>
+<table>
+<thead>
+<tr>
+<th>Kriterium</th>
+<th>Regel- bzw. Basiswartung</th>
+<th>Vollwartungsvertrag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Umfang</td>
+<td>festgelegte Wartungsarbeiten, Öl, Verschleißteile</td>
+<td>alle Wartungsstufen, Störungsbeseitigung, Ersatzteile, Lohn und Anfahrt</td>
+</tr>
+<tr>
+<td>Generalüberholung</td>
+<td>meist separat</td>
+<td>bei 10 Jahren Laufzeit in der Regel enthalten</td>
+</tr>
+<tr>
+<td>Kostenrisiko</td>
+<td>Reparaturen trägt der Betreiber</td>
+<td>planbarer Preis je kWh</td>
+</tr>
+<tr>
+<td>Passt zu</td>
+<td>Betreibern mit eigenem qualifiziertem Personal</td>
+<td>Betreibern, die feste Kosten und wenig Aufwand wollen</td>
+</tr>
+</tbody>
+</table>
+<p>Hersteller bieten Verträge oft nach Laufzeit gestaffelt an. Beim neoTower gibt es zum Beispiel <a href="https://www.rmbenergie.com/downloadbereich/wartungsvertraege_rmb.pdf" rel="nofollow noopener noreferrer" target="_blank">Vollwartungsvarianten bis 40.000, 60.000 oder 80.000 Betriebsstunden</a> beziehungsweise 10 Jahre, wahlweise 15 Jahre. Bis zur Grenze sind alle Wartungsstufen enthalten. Nach ASUE schließt ein Vollwartungsvertrag mit zehn Jahren Laufzeit in der Regel die Generalüberholung ein.</p>
+<h3 id="worauf-sie-im-vertrag-achten" tabindex="-1">Worauf Sie im Vertrag achten</h3>
+<p>Die VDI 4680 empfiehlt, Art, Umfang und Kosten der Servicearbeiten und der Grundüberholung schon vorab vertraglich festzulegen. Ihr Dienstleister sollte einen ausführlichen Leistungskatalog mit allen Arbeiten vorlegen, und die Zuständigkeiten sollten genau abgegrenzt sein. Prüfen Sie vor allem:</p>
+<ul>
+<li>Welche Wartungsstufen und welche Generalüberholung sind enthalten, bis zu welcher Stundengrenze?</li>
+<li>Ist eine Fernüberwachung enthalten, und wie schnell reagiert der Service bei Störungen?</li>
+<li>Wie wird der Preis je kWh angepasst, und wer zahlt Öl, Altöl und Anfahrt?</li>
+<li>Wer erledigt Messungen, Schornsteinfegertermine und die Dokumentation?</li>
+<li>Wenn Sie Arbeiten selbst übernehmen: Ist Ihr Personal dafür geschult? Die VDI 4680 fordert in diesem Fall geeignete Schulungen.</li>
+</ul>
+<p>Arbeiten an Gas- und Energieanlagen setzen außerdem eingewiesenes Personal voraus. Worauf es dabei ankommt, lesen Sie in unserem Beitrag zur <a href="https://planegy.de/blog-sicherheitsunterweisung-energieanlagen" target="_blank" rel="noopener">Sicherheitsunterweisung an Energieanlagen</a>.</p>
+<h2 id="gesetzliche-mess-und-dokumentationspflichten" tabindex="-1">Gesetzliche Mess- und Dokumentationspflichten</h2>
+<p>Neben dem Wartungsplan des Herstellers gelten für viele Anlagen Messpflichten. Diese Termine sollten Sie in den Wartungskalender eintragen.</p>
+<p><strong>Kleine und mittlere Anlagen (1. BImSchV):</strong> Für Öl- und Gasfeuerungsanlagen ab 4 kW Nennwärmeleistung schreibt § 15 der 1. BImSchV Messungen durch den Schornsteinfeger vor. Bei Anlagen, die höchstens zwölf Jahre in Betrieb sind, ist das einmal in jedem dritten Kalenderjahr nötig, bei älteren Anlagen in jedem zweiten. Bei einer selbstkalibrierenden kontinuierlichen Regelung der Verbrennung gilt ein Fünfjahresrhythmus.</p>
+
+<p><strong>Mittelgroße Anlagen ab 1 MW Feuerungswärmeleistung (44. BImSchV):</strong> Nach § 24 der 44. BImSchV müssen Verbrennungsmotoranlagen dieser Größe die Kohlenmonoxidemissionen jährlich ermitteln. Bei Anlagen mit Oxidationskatalysator müssen Sie den kontinuierlichen wirksamen Betrieb nachweisen. Bei Magergasmotoren werden die NOx-Emissionen als Tagesmittelwert überwacht. Das <a href="https://www.gewerbeaufsicht.bremen.de/sixcms/media.php/13/44.%20BImSchV%20Informationsblatt_V2.pdf" rel="nofollow noopener noreferrer" target="_blank">Gewerbeaufsichtsamt Bremen</a> weist darauf hin, dass diese Überwachungspflichten auch für bestehende Anlagen sofort gelten. Zum Nachweis gehört die Dokumentation von Betriebsstunden, Brennstoffart und -menge, Störungen und Überschreitungen der Grenzwerte.</p>
+<p>Der Katalysator ist damit doppelt wichtig: Ohne Wartung verschlechtert sich die Effizienz, und es drohen Probleme mit der Aufsicht. Welche Grenzwerte für größere Gasfeuerungen und BHKW gelten, zeigt unser Beitrag zur <a href="https://planegy.de/blog-ta-luft-gasfeuerung-anforderungen" target="_blank" rel="noopener">TA Luft bei Gasfeuerungen</a>. Ob Ihre Anlage unter die 1. BImSchV, die 44. BImSchV oder eine Genehmigung nach BImSchG fällt, hängt von der Feuerungswärmeleistung und dem Brennstoff ab. Klären Sie das mit Ihrer Immissionsschutzbehörde oder einem Fachplaner, bevor Sie Messintervalle festlegen.</p>
+<h2 id="unsere-sicht-wartung-beginnt-bei-der-planung" tabindex="-1">Unsere Sicht: Wartung beginnt bei der Planung</h2>
+<blockquote>
+<p>Viele Betreiber denken erst über Wartungsintervalle nach, wenn das BHKW läuft. Dann ist ein großer Teil der Kosten schon festgelegt: Modulgröße, Brennstoff, Fahrweise und Vertragsform bestimmen, wie oft ein Techniker kommt und was jede erzeugte Kilowattstunde kostet.</p>
+<p>Wir bei PLANEGY planen technologieoffen. Wir verkaufen keine eigenen Motoren und haben keine Herstellerbindung. So können wir BHKW, Gasturbine, Kessel oder Nahwärme neutral über die gesamte Lebensdauer vergleichen, einschließlich Wartung und Generalüberholung. Die Wartungskosten gehören für uns in die Wirtschaftlichkeitsrechnung, nicht in eine Fußnote.</p>
+<p>In der Praxis bewährt sich, Wartungsplan, Messpflichten nach BImSchV und Dokumentation zusammen zu denken. Dazu kommen Explosionsschutzdokumente, Gefährdungsbeurteilungen und Unterweisungen. Wenn dieses Paket von Anfang an steht, gibt es weniger Stillstand, weniger Probleme bei Behördenterminen und eine Kostenkurve, die zur Förderung und zum KWKG-Zuschlag passt.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="bhkw-konzept-und-compliance-aus-einer-hand" tabindex="-1">BHKW-Konzept und Compliance aus einer Hand</h2>
+<p>Planen Sie ein neues BHKW, wollen Sie eine bestehende Anlage neu bewerten oder brauchen Sie Ordnung bei Genehmigungen und Prüfungen? Wir begleiten Industrie, Gewerbe, Kommunen und Stadtwerke von der technologieoffenen Anlagenkonzeption über das Genehmigungsverfahren bis zur Förderakquise aus Programmen wie BEW, KfW und BAFA.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Auch Compliance-Leistungen gehören dazu: Explosionsschutzdokumente, Gefährdungsbeurteilungen, Prüfungen und Einweisungen. Einen Überblick finden Sie auf unserer Seite <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieberatung für Industrie</a> und in unseren <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen rund um Energieanlagen</a>.</p>
+<h2 id="haufige-fragen-zur-bhkw-wartung" tabindex="-1">Häufige Fragen zur BHKW-Wartung</h2>
+<h3 id="wie-oft-muss-ein-mini-bhkw-gewartet-werden" tabindex="-1">Wie oft muss ein Mini-BHKW gewartet werden?</h3>
+<p>Kleine Module haben oft lange Intervalle. Beim Dachs sind es zum Beispiel höchstens 3.500 Betriebsstunden bei Gas. Andere Kompaktanlagen verlangen eine Wartung mindestens einmal im Jahr, spätestens nach 6.000 Bh. Bei 5.000 Laufstunden im Jahr sind das meist ein bis zwei Termine.</p>
+<h3 id="was-passiert-wenn-ich-die-wartung-uberziehe" tabindex="-1">Was passiert, wenn ich die Wartung überziehe?</h3>
+<p>Viele Steuerungen warnen einige hundert Stunden vorher. Nach einer kurzen Toleranz von etwa 200 bis 300 Bh drosseln oder stoppen sie die Anlage, bis gewartet wurde. Wer deutlich vom Herstellerplan abweicht, riskiert außerdem Garantie- und Versicherungsschutz.</p>
+<h3 id="wie-lange-halt-ein-bhkw" tabindex="-1">Wie lange hält ein BHKW?</h3>
+<p>Für den Motor nennt die Fachpresse eine erwartete Lebensdauer von rund 80.000 Betriebsstunden, wenn er regelmäßig gewartet wird. Dazwischen liegt meist eine Generalüberholung, die nach etwa 25.000 bis 120.000 Bh fällig ist. Mit Überholung kann ein Modul deutlich länger laufen.</p>
+<h3 id="lohnt-sich-ein-vollwartungsvertrag" tabindex="-1">Lohnt sich ein Vollwartungsvertrag?</h3>
+<p>Ein Vollwartungsvertrag kostet mehr je kWh, deckt aber Störungen, Ersatzteile, Anfahrt und meist auch die Generalüberholung ab. Er lohnt sich für Betreiber, die planbare Kosten wollen und kein eigenes Fachpersonal haben. Wer eigene Techniker hat, vergibt oft nur die Generalüberholung nach außen.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.haustec.de/heizung/waermeerzeugung/service-und-wartung-worauf-es-beim-blockheizkraftwerk-ankommt" rel="nofollow noopener noreferrer" target="_blank">Haustec: Service und Wartung beim Blockheizkraftwerk</a></li>
+<li><a href="https://www.wochenblatt-dlv.de/feld-stall/energie/bhkw-wartung-bauern-folgekosten-ausfallzeiten-vermeiden-585116" rel="nofollow noopener noreferrer" target="_blank">Wochenblatt: Risiko Wartungsstau bei Biogas-BHKW</a></li>
+<li><a href="https://www.senertec-service.de/html/wartung.html" rel="nofollow noopener noreferrer" target="_blank">SenerTec Service: Wartung</a></li>
+<li><a href="https://www.manualslib.de/manual/853157/Viessmann-Vitobloc-200-Em-9-20.html?page=12" rel="nofollow noopener noreferrer" target="_blank">Viessmann Vitobloc 200 EM-9/20: Wartung und Instandsetzung</a></li>
+<li><a href="https://www.rmbenergie.com/downloadbereich/neotower-12.5/betriebsanleitung-neotower-8.0-30.0.pdf" rel="nofollow noopener noreferrer" target="_blank">RMB/ENERGIE: Betriebsanleitung neoTower 8.0–30.0</a></li>
+<li><a href="https://www.rmbenergie.com/downloadbereich/neotower-71.0/wartungsstufen-neotower-71.0-ab-id-70000.pdf" rel="nofollow noopener noreferrer" target="_blank">RMB/ENERGIE: Wartungsstufen neoTower 71.0</a></li>
+<li><a href="https://www.rmbenergie.com/downloadbereich/wartungsvertraege_rmb.pdf" rel="nofollow noopener noreferrer" target="_blank">RMB/ENERGIE: Wartungsverträge neoTower</a></li>
+<li><a href="https://www.bhkw-infozentrum.de/download/asue-bhkw-kenndaten-0311.pdf" rel="nofollow noopener noreferrer" target="_blank">ASUE: BHKW-Kenndaten 2011</a></li>
+<li><a href="https://www.vdi.de/fileadmin/pages/vdi_de/redakteure/richtlinien/inhaltsverzeichnisse/1728621.pdf" rel="nofollow noopener noreferrer" target="_blank">VDI 4680</a></li>
+<li><a href="https://www.gewerbeaufsicht.bremen.de/sixcms/media.php/13/44.%20BImSchV%20Informationsblatt_V2.pdf" rel="nofollow noopener noreferrer" target="_blank">Gewerbeaufsichtsamt Bremen: Informationsblatt 44. BImSchV</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-bhkw-wirtschaftlichkeit" target="_blank" rel="noopener">3 Szenarien für BHKW 2026: KWKG Folgen, Sensitivität und Förderung</a></li>
+<li><a href="https://planegy.de/blog-gasturbine-kraftwarmekopplung" target="_blank" rel="noopener">Gasturbine in der Kraft-Wärme-Kopplung: Wann sie sich lohnt</a></li>
+<li><a href="https://planegy.de/blog-brennwertnutzung-bhkw" target="_blank" rel="noopener">Brennwertnutzung im BHKW: So holt der Abgaswärmetauscher mehr Wärme</a></li>
+<li><a href="https://planegy.de/blog-ta-luft-gasfeuerung-anforderungen" target="_blank" rel="noopener">TA Luft bei Gasfeuerungen: Anforderungen, Grenzwerte und BHKW-Pflichten</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
