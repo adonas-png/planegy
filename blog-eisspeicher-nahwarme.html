@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eisspeicher in der Nahwärme: Technik, Planung und Förderung – PLANEGY</title>
+  <meta name="description" content="Eisspeicher in der Nahwärme: wie Eis als Latentwärmespeicher arbeitet, welche Kennzahlen und Kosten gelten und wie die BEW-Förderung für Quartiere greift." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Eisspeicher in der Nahwärme: Technik, Planung und Förderung" />
+  <meta property="og:description" content="Eisspeicher in der Nahwärme: wie Eis als Latentwärmespeicher arbeitet, welche Kennzahlen und Kosten gelten und wie die BEW-Förderung für Quartiere greift." />
+  <link rel="canonical" href="https://planegy.de/blog-eisspeicher-nahwarme" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Eisspeicher in der Nahwärme: Technik, Planung und Förderung",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-09",
+    "description": "Eisspeicher in der Nahwärme: wie Eis als Latentwärmespeicher arbeitet, welche Kennzahlen und Kosten gelten und wie die BEW-Förderung für Quartiere greift."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Eisspeicher in der Nahwärme: Technik, Planung und Förderung</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Eisspeicher in der Nahwärme: Technik, Planung und Förderung</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="eisspeicher-in-der-nahwarme-technik-planung-und-forderung" tabindex="-1">Eisspeicher in der Nahwärme: Technik, Planung und Förderung</h1>
+
+<p>Ein Eisspeicher macht im Nahwärmenetz aus einer Zisterne voll Wasser eine Wärmequelle für Wärmepumpen. Beim Gefrieren gibt das Wasser große Mengen latenter Wärme ab, im Sommer liefert das Eis Kälte für die Gebäudekühlung. Am besten passt die Technik zu kalten oder Niedertemperatur-Nahwärmenetzen in effizienten Neubauquartieren, Gewerbegebieten und Schulstandorten. Hier lesen Sie, wie Eis als Latentwärmespeicher arbeitet, welche Kennzahlen Sie ansetzen können, was Kommunen und Unternehmen bei Fläche, Wasserrecht und Kosten früh klären sollten und wie die Bundesförderung für effiziente Wärmenetze greift.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Nahwärme technologieoffen planen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt Kommunen und Unternehmen mit neutraler Energieberatung und begleitet maßgeschneiderte Lösungen von der Analyse bis zur Umsetzung.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Energieberatung entdecken<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li><strong>Physik:</strong> Wenn 0 °C kaltes Wasser zu 0 °C kaltem Eis wird, werden rund 93 Wattstunden je Kilogramm frei, ohne dass die Temperatur sinkt.</li>
+<li><strong>Netzrolle:</strong> Im Quartier dient der Eisspeicher meist als zentrale Quelle eines kalten Netzes, aus dem Wärmepumpen in den Gebäuden schöpfen.</li>
+<li><strong>Regeneration:</strong> Solar-Luftabsorber, das umgebende Erdreich, Abwärme und die sommerliche Gebäudekühlung laden den Speicher wieder auf.</li>
+<li><strong>Effizienz:</strong> Ein gut abgestimmtes Gesamtsystem in Kupferzell erreicht eine Jahresarbeitszahl von 6,5 und kommt ohne Erdgas aus.</li>
+<li><strong>Förderung:</strong> Die BEW bezuschusst Wärmenetze ab 16 Gebäuden oder 100 Wohneinheiten mit bis zu 40 %, Machbarkeitsstudien mit bis zu 50 % (Stand 2026).</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#so-speichert-eis-warme">So speichert Eis Wärme</a></li>
+<li><a href="#wie-der-eisspeicher-ins-nahwarmenetz-kommt">Wie der Eisspeicher ins Nahwärmenetz kommt</a></li>
+<li><a href="#regeneration-woher-der-speicher-seine-energie-holt">Regeneration: woher der Speicher seine Energie holt</a></li>
+<li><a href="#kennzahlen-fur-die-planung">Kennzahlen für die Planung</a></li>
+<li><a href="#fur-welche-quartiere-und-betriebe-sich-der-eisspeicher-eignet">Für welche Quartiere und Betriebe sich der Eisspeicher eignet</a></li>
+<li><a href="#was-kommunen-und-unternehmen-fruh-klaren-sollten">Was Kommunen und Unternehmen früh klären sollten</a></li>
+<li><a href="#forderung-uber-die-bew">Förderung über die BEW</a></li>
+<li><a href="#beispiele-aus-deutschland">Beispiele aus Deutschland</a></li>
+<li><a href="#unsere-einschatzung-eisspeicher-gehoren-in-den-variantenvergleich">Unsere Einschätzung: Eisspeicher gehören in den Variantenvergleich</a></li>
+<li><a href="#eisspeicher-nahwarme-mit-planegy-planen">Eisspeicher-Nahwärme mit PLANEGY planen</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="so-speichert-eis-warme" tabindex="-1">So speichert Eis Wärme</h2>
+<p>Der Trick liegt im Phasenwechsel. Laut <a href="https://www.dwd.de/DE/wetter/thema_des_tages/2021/4/4.html" rel="nofollow noopener noreferrer" target="_blank">Deutschem Wetterdienst beträgt die Kristallisationsenergie 93 Wattstunden pro Kilogramm Wasser</a>. Ein Speicher mit 10 Kubikmetern liefert damit etwa so viel Energie wie die Verbrennung von 110 Litern Heizöl. Anders gesagt: Beim Gefrieren wird ungefähr dieselbe Energiemenge frei, die nötig wäre, um dieselbe Wassermenge von 0 auf 80 °C zu erwärmen.</p>
+<p>Wie groß der Vorteil gegenüber einem klassischen Wasserspeicher ist, zeigt ein Vergleich von Prof. Michael Kauffeld (Hochschule Karlsruhe): Eis erreicht eine <a href="https://www.tga-fachplaner.de/energietechnik/alternative-waermequellen-fuer-waermepumpen-eisspeicher-und-kalte-nahwaerme" rel="nofollow noopener noreferrer" target="_blank">latente Speicherdichte von bis zu 84 kWh/m³</a>, Wasser bei 6 K Temperaturdifferenz dagegen nur 7 kWh/m³. Den Grundsatz dahinter erklären wir ausführlicher im Beitrag zu <a href="https://planegy.de/blog-sensible-vs-latente-warmespeicherung" target="_blank" rel="noopener">sensibler und latenter Wärmespeicherung</a>.</p>
+
+<h3 id="aufbau-des-speichers" tabindex="-1">Aufbau des Speichers</h3>
+<p>Ein Eisspeicher ist eine <a href="https://www.viessmann.de/de/wissen/technik-und-systeme/eisspeicher.html" rel="nofollow noopener noreferrer" target="_blank">unter der Erdoberfläche vergrabene, nicht isolierte Betonzisterne</a> mit spiralförmig verlegten Rohren, durch die eine frostsichere Sole fließt. Die Rohre teilen sich in zwei Kreise:</p>
+<ul>
+<li><strong>Entzugswärmetauscher:</strong> Über ihn entzieht die Wärmepumpe dem Wasser Energie, bis es nach und nach gefriert.</li>
+<li><strong>Regenerationswärmetauscher:</strong> Über ihn fließt Wärme aus Absorbern, Abwärme oder Kühlung zurück in die Zisterne und lässt das Eis wieder schmelzen.</li>
+</ul>
+<p>Weil die Zisterne nicht gedämmt ist, bezieht sie zusätzlich Wärme aus dem Erdreich, das laut DWD ganzjährig nahezu konstant 8 bis 12 °C hat. Durch das Wechselspiel aus Entzug und Regeneration lässt sich der <a href="https://www.viessmann.de/content/dam/public-brands/master/products/heat-pump/ice-energy-systems/referenzbroschuere-eis-energiespeicher-deutschland.pdf/_jcr_content/renditions/original./referenzbroschuere-eis-energiespeicher-deutschland.pdf" rel="nofollow noopener noreferrer" target="_blank">Gefrierprozess innerhalb einer Heizperiode mehrmals wiederholen</a>. Das Wasservolumen wird also nicht einmal im Jahr „verbraucht“, sondern über die Saison immer wieder genutzt.</p>
+<h2 id="wie-der-eisspeicher-ins-nahwarmenetz-kommt" tabindex="-1">Wie der Eisspeicher ins Nahwärmenetz kommt</h2>
+<p>In der Nahwärme sind drei Einbindungen üblich. Welche passt, entscheiden Temperaturniveau, Gebäudebestand und die Frage, ob auch gekühlt werden soll.</p>
+<h3 id="zentraler-speicher-im-kalten-netz" tabindex="-1">Zentraler Speicher im kalten Netz</h3>
+<p>Bei der kalten Nahwärme verbindet ein ungedämmtes Leitungsnetz alle Gebäude mit einer zentralen Quelle, etwa einem Eisspeicher, Erdkollektoren oder beidem. Das Trägermedium fließt dabei auf dem Temperaturniveau des Erdreichs, <a href="https://www.waermepumpe.de/presse/pressefahrten/schleswig-holstein-2021/details/neues-quartier-mit-erd-eis-speicher/" rel="nofollow noopener noreferrer" target="_blank">saisonal von leicht unter 0 °C bis maximal 20 °C</a>. Jedes Gebäude hat eine eigene Sole-Wasser-Wärmepumpe, die die Vorlauftemperatur erzeugt. Im Sommer läuft der Kreislauf umgekehrt: Die Gebäude geben Wärme ins Netz ab, kühlen sich dabei und regenerieren den Speicher.</p>
+<h3 id="speicher-als-quelle-einer-heizzentrale" tabindex="-1">Speicher als Quelle einer Heizzentrale</h3>
+<p>Alternativ hebt eine zentrale Großwärmepumpe die Wärme aus dem Eisspeicher auf Netztemperatur und speist ein warmes Niedertemperaturnetz. Die Hausübergabe wird einfacher, dafür steigen Anforderungen an Trasse und Dämmung. Wichtig für die Trinkwarmwasserbereitung: Liegt die Netztemperatur unter 55 °C, ist laut der Studie <a href="https://www.gebaeudeforum.de/fileadmin/gebaeudeforum/Downloads/Studie-Bericht/STUDIE_Thermische_Energiespeicher_fuer_Quartiere.pdf" rel="nofollow noopener noreferrer" target="_blank">„Thermische Energiespeicher für Quartiere“</a> eine Nachheizung nötig, damit das Warmwasser mindestens 55 °C erreicht. Wie sich solche Netze rechnen, zeigen wir im Beitrag zur <a href="https://planegy.de/blog-niedertemperatur-fernwarme" target="_blank" rel="noopener">Niedertemperatur-Fernwärme</a>.</p>
+<h3 id="mehrere-quellen-mit-warmequellenmanagement" tabindex="-1">Mehrere Quellen mit Wärmequellenmanagement</h3>
+<p>In größeren Anlagen ist der Eisspeicher eine von mehreren Quellen. Ein intelligentes Wärmequellenmanagement versorgt die Wärmepumpe jeweils mit der günstigsten Quelle. Beim Befestigungstechnik-Hersteller MEFA in Kupferzell wird die Wärme laut <a href="https://www.dena.de/energy-award/good-practice/kupferzell-mefa/" rel="nofollow noopener noreferrer" target="_blank">dena zunächst aus dem Eisspeicher bezogen</a>, bei höherem Bedarf vorrangig aus Solarkollektoren und zuletzt aus Erdkollektoren. Diese Reihenfolge hält die Temperaturen für die Wärmepumpe stabil und den Strombedarf niedrig.</p>
+<h2 id="regeneration-woher-der-speicher-seine-energie-holt" tabindex="-1">Regeneration: woher der Speicher seine Energie holt</h2>
+<p>Ein Eisspeicher ist nur so leistungsfähig wie seine Regeneration. Die oben genannte Quartiersstudie nennt eine breite Palette an Quellen:</p>
+<ul>
+<li><strong>Solar-Luftabsorber</strong> auf dem Dach, die Wärme aus Sonne und Umgebungsluft aufnehmen</li>
+<li><strong>Solarthermie</strong> und <strong>Massivabsorber</strong>, etwa in Fassaden oder Bodenplatten</li>
+<li><strong>Erdreich</strong> rund um die ungedämmte Zisterne</li>
+<li><strong>Abwärme</strong> aus Gewerbe und Industrie, zum Beispiel aus Kälteanlagen, Druckluft oder Serverräumen</li>
+<li><strong>Grauwasser</strong> und <strong>Abwasserwärmerückgewinnung</strong></li>
+<li><strong>Geothermische Erträge</strong> aus Erdkollektoren</li>
+<li><strong>Power-to-Heat</strong> in Zeiten mit Stromüberschuss</li>
+<li><strong>Gebäudekühlung</strong> im Sommer, bei der die Raumwärme direkt in den Speicher wandert</li>
+</ul>
+<p>Für Gewerbe- und Industriestandorte ist der letzte Punkt oft der interessanteste: Wer Büros, Produktionsbereiche oder Lager kühlen muss, gewinnt mit jeder Kilowattstunde Kälte auch Wärme für den nächsten Winter zurück.</p>
+<h2 id="kennzahlen-fur-die-planung" tabindex="-1">Kennzahlen für die Planung</h2>
+<p>Für die erste Auslegung helfen belastbare Richtwerte. Die folgenden Werte stammen aus der Studie „Thermische Energiespeicher für Quartiere“ des Gebäudeforums, die Jahresarbeitszahl aus dem dena-Projekt in Kupferzell.</p>
+<table>
+<thead>
+<tr>
+<th>Kennzahl</th>
+<th>Richtwert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Speichertemperatur bei Be- und Entladung</td>
+<td>–7 °C bis 25 °C</td>
+</tr>
+<tr>
+<td>Spezifische Wärmekapazität</td>
+<td>50–150 kWh_th/m³</td>
+</tr>
+<tr>
+<td>Wirkungsgrad</td>
+<td>80 %</td>
+</tr>
+<tr>
+<td>Speicherdauer</td>
+<td>Stunden bis Monate</td>
+</tr>
+<tr>
+<td>Reaktionszeit</td>
+<td>Minuten</td>
+</tr>
+<tr>
+<td>Lebensdauer</td>
+<td>50 Jahre</td>
+</tr>
+<tr>
+<td>Jahresarbeitszahl Gewerbebetrieb Kupferzell</td>
+<td>6,5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rechenbeispiel-fur-eine-erste-grossenordnung" tabindex="-1">Rechenbeispiel für eine erste Größenordnung</h3>
+<p>Angenommen, ein Neubauquartier plant einen zentralen Speicher mit 500 m³ Wasserinhalt. Mit 50 bis 150 kWh je Kubikmeter ergibt das rund 25 bis 75 MWh Wärme pro vollständigem Lade- und Entladezyklus. Weil der Speicher innerhalb einer Heizperiode mehrfach gefriert und wieder auftaut, liegt die nutzbare Jahresmenge deutlich darüber. Wie oft das gelingt, hängt an der Regeneration: Absorberfläche, Erdreich und Kühllast bestimmen, wie schnell das Eis wieder schmilzt. Genau deshalb ersetzt die Faustformel keine Jahressimulation, sie zeigt aber schnell, ob Fläche und Volumen grundsätzlich zum Bedarf passen.</p>
+<p>Das Kupferzeller System kombiniert drei Sole-Wasser-Wärmepumpen mit rund 600 kW Heizleistung, Eisspeicher, oberflächennahe Erdwärme und Solarkollektoren. Der jährliche Stromverbrauch der Wärmepumpen liegt laut dena bei 185 MWh, auf Erdgas verzichtet der Betrieb vollständig. Wie Sie das Speichervolumen sauber herleiten, beschreiben wir im Beitrag zur <a href="https://planegy.de/blog-warmespeicher-dimensionierung" target="_blank" rel="noopener">Wärmespeicher-Dimensionierung</a>.</p>
+
+<h2 id="fur-welche-quartiere-und-betriebe-sich-der-eisspeicher-eignet" tabindex="-1">Für welche Quartiere und Betriebe sich der Eisspeicher eignet</h2>
+<p>Der Eisspeicher spielt seine Stärken dort aus, wo niedrige Vorlauftemperaturen genügen. Die Quartiersstudie nennt als typische Einsatzfelder:</p>
+<ul>
+<li>gut gedämmte Neubauten mit Fußboden- oder anderen Flächenheizungen</li>
+<li>Niedertemperatur- und kalte Nahwärmenetze in Neubaugebieten</li>
+<li>gebäudeintegrierte Systemlösungen, etwa in Schulen, Verwaltungsbauten oder Gewerbeobjekten</li>
+<li>Standorte, an denen nicht nur geheizt, sondern auch gekühlt werden soll</li>
+</ul>
+<p>Gerade die Kombination aus Heizen und Kühlen macht den Speicher für Gewerbegebiete attraktiv. Bei großen Hallen arbeitet die Kälte aus dem Speicher am besten mit einem durchdachten Luftkonzept zusammen: Wie Ventilatoren mit großem Durchmesser, Verdunstungskühler und automatische Steuerungen in <a href="https://sierracalderina.es/productos/aerotermia-industrial" target="_blank" rel="noopener">Aerothermie für Industriehallen</a> zusammenspielen, hilft bei der Abstimmung von Kühllast und Speichergröße.</p>
+<p>Ein weiterer Pluspunkt: Der Speicher liegt oberflächennah und kommt ohne Tiefenbohrungen aus. Das kann dort eine Option eröffnen, wo Erdsonden schwierig sind. Die wasserrechtlichen Rahmenbedingungen gehören trotzdem früh auf die Agenda.</p>
+<h2 id="was-kommunen-und-unternehmen-fruh-klaren-sollten" tabindex="-1">Was Kommunen und Unternehmen früh klären sollten</h2>
+<p>Diese sechs Punkte entscheiden, ob ein Eisspeicher-Konzept genehmigungsfähig und wirtschaftlich wird:</p>
+<ol>
+<li><strong>Wärmebedarf und Temperaturen:</strong> Wie hoch ist der Heizwärmebedarf der Gebäude, welche Vorlauftemperaturen brauchen sie, wie viel Kühlung fällt an? Effiziente Gebäude mit geringem Heizwärmebedarf sind die Voraussetzung.</li>
+<li><strong>Fläche und Lage:</strong> Große Eisspeicher entstehen unterirdisch. Laut Quartiersstudie sollte der Überlauf mindestens 1 m tief oder unterhalb der Frostgrenze liegen, zu angrenzenden Gebäuden ist ein Abstand von etwa 2 m einzuhalten. Für Solar-Luftabsorber werden Dachflächen gebraucht.</li>
+<li><strong>Wasserrecht:</strong> Klären Sie mit der Unteren Wasserbehörde, welche Anzeige oder Erlaubnis nötig ist. Die Anforderungen unterscheiden sich nach Bundesland und Standort.</li>
+<li><strong>Trinkwarmwasser:</strong> Planen Sie die Nachheizung auf mindestens 55 °C von Anfang an ein, ob über die Hauswärmepumpe oder einen Heizstab.</li>
+<li><strong>Betreiber- und Abrechnungsmodell:</strong> Bei kalter Nahwärme ist die Abrechnung komplexer als bei klassischer Wärmelieferung. Häufig ist ein Anschluss- und Benutzungszwang Teil des Konzepts, damit das Netz ausreichend Abnehmer hat.</li>
+<li><strong>Investition:</strong> Die Quartiersstudie nennt für einen Speicher mit 100 m³ folgende Kostenansätze.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Komponente</th>
+<th>Investitionskosten</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sole-Wasser-Wärmepumpe</td>
+<td>300–2.000 €/kW_th</td>
+</tr>
+<tr>
+<td>Eisspeicher (100 m³)</td>
+<td>555 €/m³</td>
+</tr>
+<tr>
+<td>Solarabsorber</td>
+<td>250 €/m²</td>
+</tr>
+<tr>
+<td>Gesamtsystem inklusive Peripherie</td>
+<td>ca. 45–50 €/kWh_th</td>
+</tr>
+</tbody>
+</table>
+<p>Hinzu kommen Netz, Übergabestationen und Planung. Einen Überblick über die Gesamtkosten gibt unser Beitrag zu den <a href="https://planegy.de/blog-nahwarmenetz-kosten" target="_blank" rel="noopener">Kosten eines Nahwärmenetzes</a>, Details zur Leitungsführung der Beitrag zur <a href="https://planegy.de/blog-trassenplanung-nahwarme" target="_blank" rel="noopener">Trassenplanung in der Nahwärme</a>.</p>
+<h3 id="einbettung-in-die-kommunale-warmeplanung" tabindex="-1">Einbettung in die kommunale Wärmeplanung</h3>
+<p>Für Kommunen beginnt die Frage nach dem Eisspeicher nicht beim Bauantrag, sondern im Wärmeplan. Dort werden Gebiete ausgewiesen, die sich für Wärmenetze eignen, und Neubaugebiete mit geringem Wärmebedarf sind typische Kandidaten für kalte Nahwärme. Wer früh prüft, welche Abwärmequellen, Dachflächen und Freiflächen im Gebiet verfügbar sind, kann den Eisspeicher gezielt als Variante in die Netzplanung aufnehmen. Wie das im Detail abläuft, beschreiben wir in unseren Beiträgen zum <a href="https://planegy.de/blog-quartierswarme-konzept" target="_blank" rel="noopener">Quartierswärme-Konzept</a> und zur <a href="https://planegy.de/blog-nahwaermenetze-planung-wirtschaftlichkeit" target="_blank" rel="noopener">Planung von Nahwärmenetzen</a>.</p>
+<h2 id="forderung-uber-die-bew" tabindex="-1">Förderung über die BEW</h2>
+<p>Das wichtigste Programm für Eisspeicher-Netze ist die <a href="https://www.bafa.de/DE/Energie/Energieeffizienz/Waermenetze/Effiziente_Waermenetze/effiziente_waermenetze_node.html" rel="nofollow noopener noreferrer" target="_blank">Bundesförderung für effiziente Wärmenetze (BEW)</a>. Sie fördert den Neubau von Wärmenetzen mit hohen Anteilen erneuerbarer Energien. Antragsberechtigt sind unter anderem Unternehmen, wirtschaftlich tätige Kommunen, kommunale Eigenbetriebe und Zweckverbände, eingetragene Genossenschaften sowie Contractoren.</p>
+<p>Nach der <a href="https://www.carmen-ev.de/2026/09/01/bundesfoerderung-fuer-effiziente-waermenetze-bew/" rel="nofollow noopener noreferrer" target="_blank">Übersicht von C.A.R.M.E.N. (Stand 2026)</a> gilt:</p>
+<ul>
+<li><strong>Machbarkeitsstudien</strong> werden mit bis zu 50 % bezuschusst.</li>
+<li><strong>Wärmenetze ab 16 Gebäuden oder 100 Wohneinheiten</strong> erhalten bis zu 40 % Investitionszuschuss.</li>
+<li><strong>Modul 4</strong> unterstützt die Betriebskosten für Wärme aus Solarthermie oder strombetriebenen Wärmepumpen, die ins Netz eingespeist wird. Das ist für Eisspeicher-Systeme mit Wärmepumpe besonders relevant.</li>
+</ul>
+<p>Förderbedingungen ändern sich. Maßgeblich ist die jeweils aktuelle Richtlinie auf der BAFA-Seite, prüfen Sie Fristen und Antragsschritte dort vor jeder Auftragsvergabe. Ein strukturiertes <a href="https://planegy.de/blog-nahwarme-konzept" target="_blank" rel="noopener">Nahwärmekonzept</a> als Machbarkeitsstudie ist deshalb der sinnvolle erste Schritt.</p>
+<h2 id="beispiele-aus-deutschland" tabindex="-1">Beispiele aus Deutschland</h2>
+<p>Eisspeicher in der Nahwärme sind längst in der Praxis angekommen:</p>
+<ul>
+<li><strong>Schleswig:</strong> In einem Neubauquartier setzen die Schleswiger Stadtwerke auf <a href="https://www.treffpunkt-kommune.de/kalte-nahwaerme-im-neubauquartier-schleswig-setzt-auf-erd-eisspeicher/" rel="nofollow noopener noreferrer" target="_blank">kalte Nahwärme mit Erd-Eisspeicher</a> und oberflächennaher Geothermie. Die Stadtwerke planen, errichten und betreiben das System, das zu einem sektorengekoppelten Energiesystem ausgebaut werden soll.</li>
+<li><strong>Rommerskirchen-Widdeshoven:</strong> Für ein Neubaugebiet entstand 2021 ein <a href="https://www.energie.de/et/news-detailansicht/nsctrl/detail/News/zwischenbilanz-beim-eisspeicher-projekt-in-rommerskirchen" rel="nofollow noopener noreferrer" target="_blank">Quartierskonzept mit kalter Nahwärme aus einem Eisspeicher</a>.</li>
+<li><strong>Friedrichsdorf (Taunus):</strong> Eine Öko-Siedlung nutzt einen großen Eisspeicher als Teil der Energieversorgung. Die <a href="https://www.lea-hessen.de/energiewende-in-hessen/energiespeicher/" rel="nofollow noopener noreferrer" target="_blank">LandesEnergieAgentur Hessen</a> betont, dass ein Eisspeicher je nach Größe ein einzelnes Gebäude oder ein ganzes Quartier versorgen kann.</li>
+<li><strong>Schweich und Nürnberg:</strong> Eisspeicher versorgen ein <a href="https://www.energie.de/euroheatpower/news-detailansicht/nsctrl/detail/News/eisspeicher-versorgen-schulkomplex-und-quartier-kuenftig-mit-waerme-und-kaelte" rel="nofollow noopener noreferrer" target="_blank">Schulprojekt an der Mosel und das Quartier Hansapark</a> mit Wärme und Kälte.</li>
+<li><strong>Kupferzell:</strong> Der oben beschriebene Gewerbebetrieb heizt und kühlt ohne Erdgas.</li>
+</ul>
+<h2 id="unsere-einschatzung-eisspeicher-gehoren-in-den-variantenvergleich" tabindex="-1">Unsere Einschätzung: Eisspeicher gehören in den Variantenvergleich</h2>
+<blockquote>
+<p>Wir erleben in der kommunalen Wärmeplanung immer wieder, dass Neubaugebiete reflexartig mit einer einzigen Standardlösung geplant werden. Dabei ist gerade dort, wo effiziente Gebäude, Flächenheizungen und Kühlbedarf zusammenkommen, der Eisspeicher eine ernsthafte Option, die in jeden Variantenvergleich gehört.</p>
+<p>Weil wir keine eigenen Produkte verkaufen und an keinen Hersteller gebunden sind, bewerten wir Eisspeicher, Erdkollektoren, Großwärmepumpen und weitere Quellen nebeneinander, technisch, wirtschaftlich und regulatorisch. Entscheidend ist für uns das Gesamtsystem: Wie viel Regeneration liefern Dächer, Abwärme und Kühlung? Wie sieht das Abrechnungsmodell aus? Welche wasserrechtlichen Schritte stehen an?</p>
+<p>Den größten Hebel sehen wir in der Förderung. Wer die Machbarkeitsstudie sauber über die BEW aufsetzt, schafft die Basis für den Investitionszuschuss und für eine belastbare Entscheidung im Gemeinderat oder in der Geschäftsführung.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="eisspeicher-nahwarme-mit-planegy-planen" tabindex="-1">Eisspeicher-Nahwärme mit PLANEGY planen</h2>
+<p>Sie prüfen für ein Neubaugebiet, ein Gewerbequartier oder einen Betriebsstandort, ob ein Eisspeicher die richtige Wärmequelle ist? Wir begleiten Kommunen, Stadtwerke und Unternehmen von der Wärmeplanung nach WPG über die technologieoffene Anlagenkonzeption bis zur Genehmigung. Unser Förderservice identifiziert passende Mittel aus BEW, KfW, BAFA und EU-Programmen; für unsere Kunden haben wir bereits Förderungen bis zu 1,2 Millionen Euro gesichert.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Für Gemeinden finden Sie alle Schritte auf unserer Seite zur <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">kommunalen Wärmeplanung für Kommunen</a>, Unternehmen und Versorger auf unserer <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungsübersicht</a>.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="was-ist-ein-latentwarmespeicher-aus-eis" tabindex="-1">Was ist ein Latentwärmespeicher aus Eis?</h3>
+<p>Ein Latentwärmespeicher nutzt die Energie eines Phasenwechsels statt einer Temperaturänderung. Beim Eisspeicher ist das der Übergang von Wasser zu Eis bei 0 °C, bei dem rund 93 Wh je Kilogramm frei werden. Die Wärmepumpe entzieht diese Energie und hebt sie auf Heiztemperatur.</p>
+<h3 id="wie-gross-muss-ein-eisspeicher-fur-ein-quartier-sein" tabindex="-1">Wie groß muss ein Eisspeicher für ein Quartier sein?</h3>
+<p>Das hängt vom Wärmebedarf, von den Regenerationsquellen und vom gewünschten Kühlanteil ab. Als Orientierung dient eine spezifische Wärmekapazität von 50 bis 150 kWh je Kubikmeter. Belastbar wird die Größe erst durch eine Simulation über das ganze Jahr im Rahmen der Machbarkeitsstudie.</p>
+<h3 id="kann-ein-eisspeicher-auch-kuhlen" tabindex="-1">Kann ein Eisspeicher auch kühlen?</h3>
+<p>Ja. Im Sommer nimmt das Eis Wärme aus den Gebäuden auf und taut dabei langsam ab. Diese Kühlung regeneriert zugleich den Speicher für die nächste Heizperiode, was ihn für Büros, Schulen und Gewerbe besonders interessant macht.</p>
+<h3 id="braucht-ein-eisspeicher-eine-genehmigung" tabindex="-1">Braucht ein Eisspeicher eine Genehmigung?</h3>
+<p>Je nach Bundesland und Standort sind wasserrechtliche Schritte nötig, auch wenn nur reines Wasser gespeichert wird und keine Tiefenbohrung anfällt. Klären Sie die Anforderungen früh mit der Unteren Wasserbehörde. Bei Netzen kommen Fragen zu Trasse, Wegerechten und gegebenenfalls Satzungen hinzu.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.dwd.de/DE/wetter/thema_des_tages/2021/4/4.html" rel="nofollow noopener noreferrer" target="_blank">Deutscher Wetterdienst: Thema des Tages zum Eisspeicher</a></li>
+<li><a href="https://www.tga-fachplaner.de/energietechnik/alternative-waermequellen-fuer-waermepumpen-eisspeicher-und-kalte-nahwaerme" rel="nofollow noopener noreferrer" target="_blank">tga-fachplaner.de: Eisspeicher und kalte Nahwärme</a></li>
+<li><a href="https://www.viessmann.de/de/wissen/technik-und-systeme/eisspeicher.html" rel="nofollow noopener noreferrer" target="_blank">Viessmann: Eisspeicher, Aufbau und Funktion</a></li>
+<li><a href="https://www.viessmann.de/content/dam/public-brands/master/products/heat-pump/ice-energy-systems/referenzbroschuere-eis-energiespeicher-deutschland.pdf/_jcr_content/renditions/original./referenzbroschuere-eis-energiespeicher-deutschland.pdf" rel="nofollow noopener noreferrer" target="_blank">Viessmann: Referenzbroschüre Eis-Energiespeicher</a></li>
+<li><a href="https://www.waermepumpe.de/presse/pressefahrten/schleswig-holstein-2021/details/neues-quartier-mit-erd-eis-speicher/" rel="nofollow noopener noreferrer" target="_blank">Bundesverband Wärmepumpe: Neues Quartier mit Erd-Eis-Speicher</a></li>
+<li><a href="https://www.gebaeudeforum.de/fileadmin/gebaeudeforum/Downloads/Studie-Bericht/STUDIE_Thermische_Energiespeicher_fuer_Quartiere.pdf" rel="nofollow noopener noreferrer" target="_blank">Gebäudeforum: Thermische Energiespeicher für Quartiere</a></li>
+<li><a href="https://www.dena.de/energy-award/good-practice/kupferzell-mefa/" rel="nofollow noopener noreferrer" target="_blank">dena: Kombinierte geo- und solarthermische Heizung und Kühlung in Kupferzell</a></li>
+<li><a href="https://www.bafa.de/DE/Energie/Energieeffizienz/Waermenetze/Effiziente_Waermenetze/effiziente_waermenetze_node.html" rel="nofollow noopener noreferrer" target="_blank">BAFA: Bundesförderung für effiziente Wärmenetze</a></li>
+<li><a href="https://www.carmen-ev.de/2026/09/01/bundesfoerderung-fuer-effiziente-waermenetze-bew/" rel="nofollow noopener noreferrer" target="_blank">C.A.R.M.E.N. e.V.: Bundesförderung für effiziente Wärmenetze</a></li>
+<li><a href="https://www.treffpunkt-kommune.de/kalte-nahwaerme-im-neubauquartier-schleswig-setzt-auf-erd-eisspeicher/" rel="nofollow noopener noreferrer" target="_blank">Treffpunkt Kommune: Kalte Nahwärme im Neubauquartier Schleswig</a></li>
+<li><a href="https://www.energie.de/et/news-detailansicht/nsctrl/detail/News/zwischenbilanz-beim-eisspeicher-projekt-in-rommerskirchen" rel="nofollow noopener noreferrer" target="_blank">energie.de: Zwischenbilanz beim Eisspeicher-Projekt in Rommerskirchen</a></li>
+<li><a href="https://www.lea-hessen.de/energiewende-in-hessen/energiespeicher/" rel="nofollow noopener noreferrer" target="_blank">LEA Hessen: Energiespeicher</a></li>
+<li><a href="https://www.energie.de/euroheatpower/news-detailansicht/nsctrl/detail/News/eisspeicher-versorgen-schulkomplex-und-quartier-kuenftig-mit-waerme-und-kaelte" rel="nofollow noopener noreferrer" target="_blank">energie.de: Eisspeicher versorgen Schulkomplex und Quartier</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-nahwaermenetze-planung-wirtschaftlichkeit" target="_blank" rel="noopener">Nahwärmenetze: Planung und Wirtschaftlichkeit</a></li>
+<li><a href="https://planegy.de/blog-nahwarmenetz-kosten" target="_blank" rel="noopener">Nahwärmenetz Kosten: Investitionen, Förderung und Wirtschaftlichkeit</a></li>
+<li><a href="https://planegy.de/blog-nahwarme-konzept" target="_blank" rel="noopener">13 Monate bis zur Entscheidungsgrundlage, Nahwärmekonzept für Kommunen und Planer</a></li>
+<li><a href="https://planegy.de/blog-warmespeicher-dimensionierung" target="_blank" rel="noopener">20 l/kW als Richtwert: Wärmespeicherdimensionierung für Planer</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
