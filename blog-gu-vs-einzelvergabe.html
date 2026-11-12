@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generalunternehmer oder Einzelvergabe: der Vergleich für Bauherren – PLANEGY</title>
+  <meta name="description" content="GU oder Einzelvergabe? Kosten, Haftung, Bauzeit und Vergaberecht im Vergleich, mit Rechenbeispiel und Hinweisen für Kommunen und Energieprojekte." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Generalunternehmer oder Einzelvergabe: der Vergleich für Bauherren" />
+  <meta property="og:description" content="GU oder Einzelvergabe? Kosten, Haftung, Bauzeit und Vergaberecht im Vergleich, mit Rechenbeispiel und Hinweisen für Kommunen und Energieprojekte." />
+  <link rel="canonical" href="https://planegy.de/blog-gu-vs-einzelvergabe" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Generalunternehmer oder Einzelvergabe: der Vergleich für Bauherren",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-12",
+    "description": "GU oder Einzelvergabe? Kosten, Haftung, Bauzeit und Vergaberecht im Vergleich, mit Rechenbeispiel und Hinweisen für Kommunen und Energieprojekte."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"⚡"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Generalunternehmer oder Einzelvergabe: der Vergleich für Bauherren</span>
+    </div>
+    <div class="article-cat">Energie</div>
+    <h1>Generalunternehmer oder Einzelvergabe: der Vergleich für Bauherren</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="generalunternehmer-oder-einzelvergabe-der-vergleich-fur-bauherren" tabindex="-1">Generalunternehmer oder Einzelvergabe: der Vergleich für Bauherren</h1>
+
+<p>Ob Sie einen Generalunternehmer (GU) beauftragen oder die Gewerke einzeln vergeben, entscheidet vor allem darüber, wer koordiniert und wer das Schnittstellenrisiko trägt. Der GU liefert Ihnen einen Vertrag, einen Ansprechpartner und meist einen schnelleren Ablauf, verlangt dafür aber einen Zuschlag für Koordination und Risiko. Die Einzelvergabe ist häufig günstiger und lässt Ihnen mehr Einfluss, verlangt aber eigene Steuerungskapazität oder eine Projektsteuerung, der Sie vertrauen. Für Kommunen und andere öffentliche Auftraggeber ist die Frage zusätzlich rechtlich vorgeprägt: Dort ist die Vergabe in Losen der Regelfall.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="strip" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(14px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 22px;padding:20px 24px;"><div style="flex:1 1 260px;min-width:0;"><div style="margin:0 0 8px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:19px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Energieprojekte von Anfang an mitdenken</div><div style="font-size:14px;line-height:1.5;color:#64748b;margin-top:4px;">PLANEGY unterstützt Kommunen und Unternehmen dabei, Energielösungen technologieoffen zu entwickeln und von der Analyse bis zur Umsetzung zu begleiten.</div></div><div style="flex:0 1 auto;min-width:0;"><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Besuchen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li><strong>GU-Vergabe:</strong> ein Vertrag für die gesamte Bauleistung, der GU koordiniert seine Nachunternehmer und haftet Ihnen gegenüber für das ganze Werk.</li>
+<li><strong>Einzelvergabe:</strong> ein Vertrag pro Gewerk, Sie (oder Ihre Bauleitung) koordinieren die Schnittstellen selbst.</li>
+<li><strong>Kosten:</strong> Der GU-Zuschlag entfällt bei der Einzelvergabe, dafür fallen Kosten für Bauleitung und Steuerung an. Vergleichen Sie Gesamtprojektkosten, nicht Angebotssummen.</li>
+<li><strong>Öffentliche Auftraggeber:</strong> Losvergabe ist nach § 97 Abs. 4 GWB der Regelfall, eine GU-Vergabe braucht eine dokumentierte technische oder wirtschaftliche Begründung.</li>
+<li><strong>Energieanlagen:</strong> Bei Nahwärmenetzen, Heizzentralen oder BHKW hängen Vergabeform, Genehmigung und Förderung eng zusammen und sollten gemeinsam geplant werden.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-gu-vergabe-und-einzelvergabe-unterscheidet">Was GU-Vergabe und Einzelvergabe unterscheidet</a></li>
+<li><a href="#haftung-was-der-gu-ubernimmt-und-was-bei-ihnen-bleibt">Haftung: was der GU übernimmt und was bei Ihnen bleibt</a></li>
+<li><a href="#kosten-gu-zuschlag-gegen-eigene-steuerung">Kosten: GU-Zuschlag gegen eigene Steuerung</a></li>
+<li><a href="#bauzeit-koordination-und-schnittstellen">Bauzeit, Koordination und Schnittstellen</a></li>
+<li><a href="#die-rechtslage-in-deutschland">Die Rechtslage in Deutschland</a></li>
+<li><a href="#welche-vergabeform-passt-zu-ihrem-vorhaben">Welche Vergabeform passt zu Ihrem Vorhaben?</a></li>
+<li><a href="#besonderheiten-bei-energieanlagen-und-warmenetzen">Besonderheiten bei Energieanlagen und Wärmenetzen</a></li>
+<li><a href="#unsere-sicht-auf-die-vergabeentscheidung">Unsere Sicht auf die Vergabeentscheidung</a></li>
+<li><a href="#energieprojekte-von-der-konzeption-bis-zur-umsetzung-begleiten">Energieprojekte von der Konzeption bis zur Umsetzung begleiten</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-gu-vergabe-und-einzelvergabe-unterscheidet" tabindex="-1">Was GU-Vergabe und Einzelvergabe unterscheidet</h2>
+<p>Bei der GU-Vergabe überträgt der Bauherr die Bauleistung an ein Unternehmen, das wesentliche Teile selbst erbringt und die Gesamtleistung koordiniert. Bei der losweisen Vergabe werden die Leistungen in Teil- und Fachlose aufgeteilt. So beschreibt es die <a href="https://www.ilb.de/media/dokumente/dokumente-fuer-programme/programmuebergreifende-dokumente/vergabe/20241211_infov_gu_gue.pdf" rel="nofollow noopener noreferrer" target="_blank">Investitionsbank des Landes Brandenburg in ihren Vergabehinweisen</a> für Förderempfänger.</p>
+<p>In der Praxis heißt das:</p>
+<ul>
+<li><strong>Einzelvergabe:</strong> Sie schließen mehrere Verträge, etwa für Erdbau, Rohbau, Heizungstechnik, Elektro und Dach. Jeder Auftragnehmer erbringt genau sein Gewerk, wie es auch das <a href="https://dvpev.de/wp-content/uploads/2022/05/DVP_Vertragsmuster_online_I-Bauvertrag-Einzelvergabe-nach-VOB-B_210211.pdf" rel="nofollow noopener noreferrer" target="_blank">Vertragsmuster des DVP für den Bauvertrag bei Einzelvergabe</a> vorsieht. Die Koordination liegt bei Ihnen, bei Ihrem Architekten oder bei einer beauftragten Projektsteuerung.</li>
+<li><strong>GU-Vergabe:</strong> Sie schließen einen einzigen Bauvertrag. Der GU beauftragt seine Nachunternehmer selbst und ist Ihr einziger Vertragspartner für die Ausführung.</li>
+</ul>
+<p>Vom Generalunternehmer abzugrenzen ist der Generalübernehmer (GÜ). Er erbringt in der Regel keine Bauleistungen selbst, sondern vergibt sie vollständig weiter. Übernimmt ein Anbieter zusätzlich die Planung, spricht man von Totalunternehmer beziehungsweise Totalübernehmer. Für den Vergleich in diesem Beitrag zählt vor allem der klassische GU: Planung von Ihnen, Ausführung aus einer Hand.</p>
+<h2 id="haftung-was-der-gu-ubernimmt-und-was-bei-ihnen-bleibt" tabindex="-1">Haftung: was der GU übernimmt und was bei Ihnen bleibt</h2>
+<p>Der wichtigste Vorteil des GU ist die gebündelte Verantwortung. Er haftet Ihnen gegenüber für ein vertragsgerechtes und mangelfreies Werk, und zwar auch für die Leistungen seiner Subunternehmer, die ihm <a href="https://www.ibau.de/akademie/glossar/generalunternehmer-gu/" rel="nofollow noopener noreferrer" target="_blank">nach § 278 BGB zugerechnet werden</a>. Tritt ein Mangel an der Grenze zwischen zwei Gewerken auf, müssen Sie nicht klären, welcher Betrieb ihn verursacht hat: Ihr Ansprechpartner ist der GU.</p>
+<p>Diese Bündelung hat Grenzen, die viele Bauherren unterschätzen. <a href="https://kanzlei-herfurtner.de/generalunternehmer/" rel="nofollow noopener noreferrer" target="_blank">Baugrund-, Planungs-, Genehmigungs- und Änderungsrisiken gehen nicht automatisch auf den GU über</a>, entscheidend ist, was im Vertrag steht. Wer die Planung liefert, trägt in der Regel auch das Risiko, dass sie lückenhaft ist. Und jede Änderung nach Vertragsschluss wird zum Nachtrag, den der GU kalkuliert.</p>
+<p>Bei der Einzelvergabe haftet jeder Auftragnehmer für sein Gewerk. Dafür liegt das Schnittstellenrisiko bei Ihnen: Wenn der Heizungsbauer nicht beginnen kann, weil der Rohbau nicht fertig ist, müssen Sie oder Ihre Bauleitung den Ablauf neu ordnen. Ein weiterer Punkt: Bei der GU-Vergabe haben Sie bei der Auswahl der Subunternehmer <a href="https://www.advocado.de/ratgeber/bau-und-architektenrecht/bauplanung/der-generalunternehmervertrag.html" rel="nofollow noopener noreferrer" target="_blank">grundsätzlich kein Mitspracherecht</a>, sofern Sie nichts anderes vereinbaren. Bei der Einzelvergabe wählen Sie jeden Betrieb selbst.</p>
+
+<p>Auch das Ausfallrisiko ist unterschiedlich verteilt. Gerät bei der Einzelvergabe ein Betrieb in Schwierigkeiten, betrifft das ein Gewerk, das Sie neu vergeben können. Fällt ein GU aus, steht im ungünstigsten Fall das gesamte Projekt. Eine Vertragserfüllungsbürgschaft und eine sorgfältige Bonitätsprüfung gehören deshalb zu jeder GU-Vergabe.</p>
+<h2 id="kosten-gu-zuschlag-gegen-eigene-steuerung" tabindex="-1">Kosten: GU-Zuschlag gegen eigene Steuerung</h2>
+<p>Ein GU kalkuliert Koordination, Risikoübernahme und Marge in seinen Preis ein. Das ist kein Nachteil an sich, sondern der Preis für die Leistung, die er Ihnen abnimmt. Schon eine <a href="https://www.dai.org/oeffentlichkeitsarbeit/nachrichten/meldungen/627-einzelvergabe-ist-fuer-bauherren-meist-guenstiger-als-gu-oder-gue-vergabe" rel="nofollow noopener noreferrer" target="_blank">Auswertung, über die der Dachverband Deutscher Architekten- und Ingenieurverbände berichtete</a>, kam zu dem Ergebnis, dass die erleichterte Abwicklung durch relativ hohe Risikozuschläge erkauft wird und Verteuerungen auch bei GU-Verträgen nicht ausgeschlossen sind.</p>
+<p>Wie groß der Unterschied werden kann, zeigt ein <a href="https://reso.berlin/blog/generalunternehmer-vs-einzelvergabe" rel="nofollow noopener noreferrer" target="_blank">Rechenbeispiel aus einem Berliner Mieterausbau im Frühjahr 2024</a>:</p>
+<table>
+<thead>
+<tr>
+<th>Kostenposition</th>
+<th>GU-Vergabe</th>
+<th>Einzelvergabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bauleistung (netto)</td>
+<td>200.000 € (GU-Angebot)</td>
+<td>160.000 € (Summe der Gewerke)</td>
+</tr>
+<tr>
+<td>Bauleitung</td>
+<td>im GU-Preis enthalten</td>
+<td>7.100 €</td>
+</tr>
+<tr>
+<td>Honorar</td>
+<td>im GU-Preis enthalten</td>
+<td>5.000 €</td>
+</tr>
+<tr>
+<td><strong>Gesamt (netto)</strong></td>
+<td><strong>200.000 €</strong></td>
+<td><strong>rund 172.100 €</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Die Quelle selbst nennt für die Einzelvergabe 165.000 € Gesamtkosten. Rechnen Sie die ausgewiesenen Positionen zusammen, kommen Sie auf gut 172.000 €. Die Ersparnis liegt in diesem Beispiel also bei rund 14 bis 17 Prozent. Wichtiger als die genaue Zahl ist die Logik: Der Zuschlag des GU steht den Kosten gegenüber, die Sie für eigene Steuerung aufwenden.</p>
+<p>Drei Faktoren kippen diese Rechnung schnell:</p>
+<ol>
+<li><strong>Planungsqualität.</strong> Bei unvollständiger Planung entstehen Nachträge, bei der Einzelvergabe oft gleich in mehreren Gewerken.</li>
+<li><strong>Eigene Kapazität.</strong> Wenn Ihre Mitarbeiter die Koordination nebenbei leisten, tauchen deren Stunden in keinem Angebot auf, kosten aber trotzdem.</li>
+<li><strong>Zeit.</strong> Verzögerungen durch Schnittstellen verursachen Folgekosten, bei Betrieben etwa durch Produktionsausfall, bei Kommunen durch verschobene Inbetriebnahmen.</li>
+</ol>
+<p>Vergleichen Sie daher die Gesamtprojektkosten: Angebotssumme plus Steuerung, Risikovorsorge und mögliche Ausfallkosten.</p>
+<h3 id="der-gu-zuschlag-und-das-planerhonorar" tabindex="-1">Der GU-Zuschlag und das Planerhonorar</h3>
+<p>Für Bauherren, die Planer nach HOAI beauftragen, ist ein aktuelles Urteil relevant. Das <a href="https://www.ltmk.de/gu-zuschlag-zaehlt-nicht-zu-den-anrechenbaren-kosten-was-planer-und-auftraggeber-jetzt-beachten-sollten-urteil-des-olg-duesseldorf/" rel="nofollow noopener noreferrer" target="_blank">OLG Düsseldorf entschied am 19.12.2025 (Az. 22 U 26/25)</a>, dass der GU-Zuschlag nicht zu den anrechenbaren Kosten zählt. Er bilde Bauherrenaufwand für Koordination sowie Schnittstellen- und Zuordnungsrisiken ab. Die Wahl der Vergabeform soll das Planerhonorar also nicht erhöhen. Prüfen Sie bei laufenden Planerverträgen, wie die anrechenbaren Kosten ermittelt werden.</p>
+<h2 id="bauzeit-koordination-und-schnittstellen" tabindex="-1">Bauzeit, Koordination und Schnittstellen</h2>
+<p>Bei der GU-Vergabe liegen Koordination, Überwachung und Abnahme der Nachunternehmerleistungen beim GU. Bei der Einzelvergabe müssen Sie jedes Gewerk ausschreiben und die Schnittstellen selbst definieren und steuern. Laut dem <a href="https://kowid.de/wp-content/uploads/2020/03/2020-02-25-Leitfaden-GU-Vergaben.pdf" rel="nofollow noopener noreferrer" target="_blank">Leitfaden zur Vergabe an Generalunternehmer</a> lassen sich GU-Projekte vielfach zügiger realisieren. Eine Terminüberschreitung ist allerdings bei keiner Projektorganisation ausgeschlossen.</p>
+<p>Der Zeitgewinn entsteht vor allem an zwei Stellen: Es gibt nur ein Vergabeverfahren statt vieler, und der GU kann Gewerke überlappend takten, weil er seine Nachunternehmer direkt steuert. Bei der Einzelvergabe lässt sich ein ähnlicher Ablauf erreichen, wenn die Ausschreibungen früh und in sinnvollen Paketen vorbereitet werden.</p>
+<table>
+<thead>
+<tr>
+<th>Kriterium</th>
+<th>GU-Vergabe</th>
+<th>Einzelvergabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verträge</td>
+<td>einer</td>
+<td>einer pro Gewerk oder Los</td>
+</tr>
+<tr>
+<td>Koordination</td>
+<td>beim GU</td>
+<td>beim Bauherrn oder seiner Projektsteuerung</td>
+</tr>
+<tr>
+<td>Haftung für Schnittstellen</td>
+<td>beim GU</td>
+<td>beim Bauherrn</td>
+</tr>
+<tr>
+<td>Einfluss auf Betriebe</td>
+<td>gering, wenn nicht vereinbart</td>
+<td>hoch</td>
+</tr>
+<tr>
+<td>Preis</td>
+<td>inklusive Koordinations- und Risikozuschlag</td>
+<td>ohne GU-Zuschlag, plus eigene Steuerungskosten</td>
+</tr>
+<tr>
+<td>Bauzeit</td>
+<td>vielfach kürzer</td>
+<td>abhängig von Steuerung und Vergabezeitplan</td>
+</tr>
+<tr>
+<td>Ausfallrisiko</td>
+<td>konzentriert auf ein Unternehmen</td>
+<td>auf viele Betriebe verteilt</td>
+</tr>
+<tr>
+<td>Planungsanforderung</td>
+<td>funktional präzise Leistungsbeschreibung</td>
+<td>detaillierte Leistungsverzeichnisse je Gewerk</td>
+</tr>
+</tbody>
+</table>
+<h2 id="die-rechtslage-in-deutschland" tabindex="-1">Die Rechtslage in Deutschland</h2>
+<h3 id="private-bauherren-und-unternehmen" tabindex="-1">Private Bauherren und Unternehmen</h3>
+<p>Für Bauverträge gelten die werkvertraglichen Vorschriften der §§ 631 ff. BGB und die besonderen Bauvertragsregeln der §§ 650a ff. BGB. Mängelrechte ergeben sich vor allem aus § 634 BGB, die Abnahme regelt § 640 BGB. Die VOB/B ist <a href="https://kanzlei-herfurtner.de/generalunternehmer/" rel="nofollow noopener noreferrer" target="_blank">kein Gesetz, sondern gilt nur, wenn sie wirksam in den Vertrag einbezogen wird</a>. Das gilt für den GU-Vertrag genauso wie für jeden Einzelvertrag. Bei der Einzelvergabe sollten alle Verträge auf derselben Grundlage stehen, sonst laufen Gewährleistungsfristen und Abnahmeregeln auseinander.</p>
+<h3 id="kommunen-und-offentliche-auftraggeber" tabindex="-1">Kommunen und öffentliche Auftraggeber</h3>
+<p>Für öffentliche Auftraggeber ist die Wahl kein reines Abwägen. Nach § 97 Abs. 4 GWB ist die <a href="https://kpmg-law.de/vergabe-an-generalunternehmer-leitfaden-fuer-oeffentliche-auftraggeber/" rel="nofollow noopener noreferrer" target="_blank">losweise Vergabe der gesetzliche Regelfall</a>, um den Mittelstand zu stärken. Eine Gesamtvergabe an einen GU ist nur zulässig, wenn technische oder wirtschaftliche Gründe sie rechtfertigen. Diese Gründe müssen ausführlich im Vergabevermerk dokumentiert werden.</p>
+<p>Der <a href="https://kowid.de/wp-content/uploads/2020/03/2020-02-25-Leitfaden-GU-Vergaben.pdf" rel="nofollow noopener noreferrer" target="_blank">Leitfaden zur GU-Vergabe</a> verweist dafür auf § 5 EU VOB/A. Der bloße Wunsch nach einem einzigen Vertragspartner reicht als Begründung nicht ohne Weiteres aus. In Betracht kommt eine GU-Vergabe nach dem Leitfaden vor allem, wenn eine Losvergabe sehr viele Ausschreibungen erfordern würde und qualifiziertes Personal fehlt, wenn sich die Qualität funktional präzise beschreiben lässt oder wenn ein früher Fertigstellungstermin wichtig ist. Auch Paketvergaben, also mehrere Gewerke in einem Los, sind möglich.</p>
+<p>Wer Fördermittel erhält, muss die Vergabevorgaben des Förderprogramms ebenfalls einhalten. Förderbanken wie die <a href="https://www.ilb.de/media/dokumente/dokumente-fuer-programme/programmuebergreifende-dokumente/vergabe/20241211_infov_gu_gue.pdf" rel="nofollow noopener noreferrer" target="_blank">ILB geben eigene Hinweise zur Vergabe an GU und GÜ</a> heraus. Klären Sie die Vergabeform deshalb, bevor Sie den Förderantrag stellen, nicht erst bei der Ausschreibung. Welche Positionen in einem Energieprojekt überhaupt förderfähig sind, haben wir im Beitrag zu <a href="https://planegy.de/blog-forderfahige-kosten-energieprojekte" target="_blank" rel="noopener">förderfähigen Kosten bei Energieprojekten</a> zusammengefasst.</p>
+
+<h2 id="welche-vergabeform-passt-zu-ihrem-vorhaben" tabindex="-1">Welche Vergabeform passt zu Ihrem Vorhaben?</h2>
+<p>Eine pauschale Antwort gibt es nicht. Diese Fragen helfen bei der Entscheidung:</p>
+<p><strong>Die GU-Vergabe spricht für Sie, wenn</strong></p>
+<ul>
+<li>Ihnen eigenes Personal für Ausschreibung und Bauleitung fehlt,</li>
+<li>die Leistung sich funktional klar beschreiben lässt, etwa eine Heizzentrale mit definierter Leistung und Effizienz,</li>
+<li>ein fester Fertigstellungstermin zählt, zum Beispiel wegen eines Förderzeitraums oder eines Produktionsstarts,</li>
+<li>Sie einen Ansprechpartner für Gewährleistung wollen.</li>
+</ul>
+<p><strong>Die Einzelvergabe spricht für Sie, wenn</strong></p>
+<ul>
+<li>Sie als Kommune oder öffentlicher Auftraggeber an die Losvergabe gebunden sind,</li>
+<li>Sie eine erfahrene Bauleitung oder Projektsteuerung haben,</li>
+<li>Sie bestimmte Fachbetriebe einsetzen wollen, etwa für Spezialtechnik,</li>
+<li>die Planung detailliert vorliegt und Sie den GU-Zuschlag sparen möchten.</li>
+</ul>
+<p>Zwischen beiden Modellen liegen Mischformen. Häufig ist es sinnvoll, Risiken dort zu platzieren, wo sie sich technisch, organisatorisch und wirtschaftlich beeinflussen lassen, statt sie pauschal weiterzugeben. Ein Beispiel: Tiefbau und Trasse eines Nahwärmenetzes einzeln, die Energiezentrale als Paket an einen Anlagenbauer.</p>
+<h2 id="besonderheiten-bei-energieanlagen-und-warmenetzen" tabindex="-1">Besonderheiten bei Energieanlagen und Wärmenetzen</h2>
+<p>Bei Energieprojekten hängt die Vergabeform an mehr als nur Bauablauf und Preis. Drei Punkte sehen wir in unserer Beratung immer wieder:</p>
+<ol>
+<li><strong>Genehmigung.</strong> Für Anlagen nach der 4. BImSchV, Flüssiggas- oder LNG-Lager bestimmen die Genehmigungsunterlagen, was technisch gebaut werden darf. Diese Planung bleibt beim Bauherrn, auch wenn ein GU ausführt. Den Ablauf beschreiben wir im Beitrag zum <a href="https://planegy.de/blog-genehmigungsprozess-energieanlagen" target="_blank" rel="noopener">Genehmigungsprozess für Energieanlagen</a>.</li>
+<li><strong>Förderung.</strong> Programme wie die BEW, KfW- oder BAFA-Förderung stellen Anforderungen an Kosten, Nachweise und Zeitpunkte. Eine Vergabeform, die dazu nicht passt, gefährdet im schlimmsten Fall die Zuwendung.</li>
+<li><strong>Technologieentscheidung.</strong> Ob Wärmepumpe, BHKW, Biomasse oder BioLPG: Die Technik sollte feststehen, bevor Sie ausschreiben. Sonst entscheidet ein Anbieter mit eigenen Produktinteressen, was gebaut wird.</li>
+</ol>
+<p>Bei Nahwärmenetzen kommt die Trasse hinzu, deren Planung nach HOAI und deren Förderung über die BEW wir im Beitrag zur <a href="https://planegy.de/blog-trassenplanung-nahwarme" target="_blank" rel="noopener">Trassenplanung bei Nahwärme</a> erläutern. Kommunen, die zuerst die Wärmeplanung vergeben, finden das Vorgehen im <a href="https://planegy.de/blog-warmeplanung-ausschreibung" target="_blank" rel="noopener">Leitfaden zur Ausschreibung der Wärmeplanung</a>. Wer Planung, Bau und Betrieb komplett abgeben möchte, sollte zusätzlich <a href="https://planegy.de/blog-contracting-definition" target="_blank" rel="noopener">Contracting-Modelle</a> prüfen.</p>
+<h2 id="unsere-sicht-auf-die-vergabeentscheidung" tabindex="-1">Unsere Sicht auf die Vergabeentscheidung</h2>
+<blockquote>
+<p>Bei Energieprojekten wird die Vergabeform oft zu spät diskutiert. Dann liegt die Technik schon fest, der Förderantrag ist gestellt und die Genehmigung beantragt, und die Frage „GU oder Einzelvergabe“ wird nur noch nach dem Preis entschieden.</p>
+<p>Wir sehen das anders. Die Vergabestrategie gehört an den Anfang, zusammen mit der Technologiebewertung, der Genehmigungsplanung und der Fördermittelstrategie. Erst wenn klar ist, welche Anlage wirtschaftlich und genehmigungsfähig ist und welche Förderung sie trägt, lässt sich sinnvoll entscheiden, welche Pakete ein Generalunternehmer übernehmen soll und welche Gewerke einzeln besser aufgehoben sind.</p>
+<p>Weil wir technologieoffen arbeiten und keine eigenen Produkte verkaufen, können wir diese Bewertung neutral vornehmen. Wir begleiten Projekte von der Konzeption bis zur Umsetzung und verbinden die technische, wirtschaftliche und regulatorische Seite. So entsteht eine Lösung, die zu Ihrem Haus passt und die im Förderverfahren wie in der Genehmigung trägt.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="energieprojekte-von-der-konzeption-bis-zur-umsetzung-begleiten" tabindex="-1">Energieprojekte von der Konzeption bis zur Umsetzung begleiten</h2>
+<p>Sie planen eine Heizzentrale, ein Nahwärmenetz oder die Umstellung einer Industrieanlage und fragen sich, wie Sie Bauleistungen vergeben sollen? PLANEGY begleitet Industrie, Gewerbe, Kommunen und Energieversorger von der technologieoffenen Anlagenkonzeption über Genehmigungsverfahren bis zur Akquise von Fördermitteln aus BEW, KfW, BAFA und EU-Programmen.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Einen Überblick über alle Leistungen finden Sie auf unserer Seite zu <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Wärmeplanung, Energieanlagen und Genehmigung</a>. Kommunen finden ihr Angebot unter <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">kommunale Wärmeplanung nach WPG</a>. Oder Sie <a href="https://planegy.de/kontakt" target="_blank" rel="noopener">besprechen Ihr Projekt direkt mit uns</a>.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="ist-die-einzelvergabe-immer-gunstiger-als-ein-generalunternehmer" tabindex="-1">Ist die Einzelvergabe immer günstiger als ein Generalunternehmer?</h3>
+<p>Nicht automatisch. Der GU-Zuschlag entfällt, doch Bauleitung, Projektsteuerung und eigener Personalaufwand kommen hinzu. Bei lückenhafter Planung können Nachträge in mehreren Gewerken den Preisvorteil aufzehren. Entscheidend sind die Gesamtprojektkosten.</p>
+<h3 id="durfen-kommunen-uberhaupt-an-einen-generalunternehmer-vergeben" tabindex="-1">Dürfen Kommunen überhaupt an einen Generalunternehmer vergeben?</h3>
+<p>Ja, aber nur ausnahmsweise. Nach § 97 Abs. 4 GWB ist die Vergabe in Losen der Regelfall. Eine Gesamtvergabe braucht technische oder wirtschaftliche Gründe, die im Vergabevermerk ausführlich dokumentiert werden.</p>
+<h3 id="wer-haftet-bei-mangeln-die-ein-subunternehmer-des-gu-verursacht" tabindex="-1">Wer haftet bei Mängeln, die ein Subunternehmer des GU verursacht?</h3>
+<p>Der Generalunternehmer. Er haftet Ihnen gegenüber für das gesamte Werk, Fehler seiner Nachunternehmer werden ihm nach § 278 BGB zugerechnet. Planungs- und Baugrundrisiken bleiben aber bei Ihnen, sofern der Vertrag nichts anderes regelt.</p>
+<h3 id="gilt-die-vobb-automatisch-fur-meinen-bauvertrag" tabindex="-1">Gilt die VOB/B automatisch für meinen Bauvertrag?</h3>
+<p>Nein. Die VOB/B ist kein Gesetz und gilt nur, wenn sie wirksam in den Vertrag einbezogen wird. Ohne diese Vereinbarung gilt das Bauvertragsrecht des BGB.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.ilb.de/media/dokumente/dokumente-fuer-programme/programmuebergreifende-dokumente/vergabe/20241211_infov_gu_gue.pdf" rel="nofollow noopener noreferrer" target="_blank">Investitionsbank des Landes Brandenburg: Hinweise zur Vergabe an GU und GÜ</a></li>
+<li><a href="https://dvpev.de/wp-content/uploads/2022/05/DVP_Vertragsmuster_online_I-Bauvertrag-Einzelvergabe-nach-VOB-B_210211.pdf" rel="nofollow noopener noreferrer" target="_blank">DVP: Vertragsmuster Bauvertrag Einzelvergabe nach VOB/B</a></li>
+<li><a href="https://www.ibau.de/akademie/glossar/generalunternehmer-gu/" rel="nofollow noopener noreferrer" target="_blank">ibau: Definition Generalunternehmer</a></li>
+<li><a href="https://kanzlei-herfurtner.de/generalunternehmer/" rel="nofollow noopener noreferrer" target="_blank">Kanzlei Herfurtner: Generalunternehmer, Vertrag, Haftung und Risiken</a></li>
+<li><a href="https://www.advocado.de/ratgeber/bau-und-architektenrecht/bauplanung/der-generalunternehmervertrag.html" rel="nofollow noopener noreferrer" target="_blank">advocado: Der Generalunternehmervertrag</a></li>
+<li><a href="https://www.dai.org/oeffentlichkeitsarbeit/nachrichten/meldungen/627-einzelvergabe-ist-fuer-bauherren-meist-guenstiger-als-gu-oder-gue-vergabe" rel="nofollow noopener noreferrer" target="_blank">DAI: Einzelvergabe ist für Bauherren meist günstiger</a></li>
+<li><a href="https://reso.berlin/blog/generalunternehmer-vs-einzelvergabe" rel="nofollow noopener noreferrer" target="_blank">reso.berlin: Generalunternehmer oder Einzelvergabe, Rechenbeispiel</a></li>
+<li><a href="https://www.ltmk.de/gu-zuschlag-zaehlt-nicht-zu-den-anrechenbaren-kosten-was-planer-und-auftraggeber-jetzt-beachten-sollten-urteil-des-olg-duesseldorf/" rel="nofollow noopener noreferrer" target="_blank">LTMK: GU-Zuschlag zählt nicht zu den anrechenbaren Kosten</a></li>
+<li><a href="https://kowid.de/wp-content/uploads/2020/03/2020-02-25-Leitfaden-GU-Vergaben.pdf" rel="nofollow noopener noreferrer" target="_blank">Leitfaden: Vergabe an Generalunternehmer</a></li>
+<li><a href="https://kpmg-law.de/vergabe-an-generalunternehmer-leitfaden-fuer-oeffentliche-auftraggeber/" rel="nofollow noopener noreferrer" target="_blank">KPMG Law: Vergabe an Generalunternehmer, Leitfaden für öffentliche Auftraggeber</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-warmeplanung-ausschreibung" target="_blank" rel="noopener">Wärmeplanung ausschreiben: Leitfaden für Kommunen 2026</a></li>
+<li><a href="https://planegy.de/blog-fordermittel-kombinieren" target="_blank" rel="noopener">Fördermittel kombinieren: KfW, BAFA und Co. richtig kumulieren</a></li>
+<li><a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik Rechner – Heizsysteme vergleichen</a></li>
+<li><a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen: Wärmeplanung, Energieanlagen, Genehmigung</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
