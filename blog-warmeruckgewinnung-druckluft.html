@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wärmerückgewinnung bei Druckluft: Kompressorwärme richtig nutzen – PLANEGY</title>
+  <meta name="description" content="Bis zu 94 % der Kompressorenergie sind als Wärme nutzbar. Hier lesen Sie Verfahren, Temperaturen, ein Rechenbeispiel, die BAFA-Förderung und die Umsetzung." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Wärmerückgewinnung bei Druckluft: Kompressorwärme richtig nutzen" />
+  <meta property="og:description" content="Bis zu 94 % der Kompressorenergie sind als Wärme nutzbar. Hier lesen Sie Verfahren, Temperaturen, ein Rechenbeispiel, die BAFA-Förderung und die Umsetzung." />
+  <meta property="og:image" content="https://planegy.de/assets/og-planegy.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="PLANEGY, Ingenieurbüro für Energieplanung" />
+  <meta property="og:url" content="https://planegy.de/blog-warmeruckgewinnung-druckluft" />
+  <meta property="og:site_name" content="PLANEGY" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://planegy.de/assets/og-planegy.png" />
+  <link rel="canonical" href="https://planegy.de/blog-warmeruckgewinnung-druckluft" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Wärmerückgewinnung bei Druckluft: Kompressorwärme richtig nutzen",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-14",
+    "description": "Bis zu 94 % der Kompressorenergie sind als Wärme nutzbar. Hier lesen Sie Verfahren, Temperaturen, ein Rechenbeispiel, die BAFA-Förderung und die Umsetzung."
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Wärmerückgewinnung bei Druckluft: Kompressorwärme richtig nutzen</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Wärmerückgewinnung bei Druckluft: Kompressorwärme richtig nutzen</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="warmeruckgewinnung-bei-druckluft-kompressorwarme-richtig-nutzen" tabindex="-1">Wärmerückgewinnung bei Druckluft: Kompressorwärme richtig nutzen</h1>
+
+<p>Ein Druckluftkompressor ist vor allem eine Heizung, die nebenbei Druckluft liefert. Nach Angaben des Bayerischen Landesamts für Umwelt lassen sich <a href="https://www.lfu.bayern.de/publikationen/get_pdf.htm?art_nr=lfu_klima_00076&amp;pdf_nr=0" rel="nofollow noopener noreferrer" target="_blank">70 bis 90 % der eingesetzten elektrischen Energie als Wärme zurückgewinnen</a>. Nur rund 4 % bleiben in der Druckluft. Wer diese Wärme in Heizung, Warmwasser oder Prozesse einspeist, senkt den Gas- oder Ölverbrauch oft deutlich und hat die Technik in wenigen Jahren wieder eingespielt. Ob und wie schnell sich das rechnet, entscheidet allerdings nicht der Kompressor, sondern die Planung. Laufzeiten, Wärmeabnehmer, Temperaturniveau und Förderung müssen zusammenpassen. Genau hier setzt eine herstellerneutrale Energieberatung wie die von PLANEGY an: Sie bewertet alle Optionen technologieoffen und erschließt die Fördermittel gleich mit.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="split" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="display:flex;flex-wrap:wrap;"><div style="flex:1 0 36%;min-width:220px;box-sizing:border-box;padding:30px 76px 30px 26px;color:#ffffff;background:linear-gradient(104deg,#0c3c65 0%,#07233a 82%,rgba(0,0,0,0) 82.15%);"><div style="margin:0 0 14px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#ffffff;color:#0f4b7e;">PLANEGY</span></div><div style="font-size:12px;opacity:0.75;">planegy.de</div></div><div style="flex:999 1 300px;min-width:0;padding:30px 28px;"><div style="font-size:23px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Kompressorwärme gezielt nutzen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 22px;">PLANEGY bewertet Energielösungen technologieoffen und unterstützt Unternehmen von der Analyse bis zur Umsetzung, einschließlich der Förderakquise.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Besuchen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li>Bis zu 94 % der Antriebsenergie eines öleingespritzten Schraubenkompressors sind als Wärme nutzbar, der größte Teil davon über den Ölkühler.</li>
+<li>Eine Warmluftführung hebt die Zulufttemperatur um 20 bis 25 °C. Warmwasser-Systeme liefern typisch 60 bis 70 °C, mit Sondertauschern bis 90 °C.</li>
+<li>Wirtschaftlich wird es ab etwa 5 kW Antriebsleistung und mehr als 2.000 Betriebsstunden in der Heizperiode, am besten mit ganzjährigem Wärmebedarf.</li>
+<li>Die BAFA-Förderung (EEW Modul 4, Premiumförderung) bezuschusst Effizienzmaßnahmen mit bis zu 45 % für kleine Unternehmen, auf Basis eines Einsparkonzepts.</li>
+<li>Der Schlüssel ist eine saubere Bestandsaufnahme: Welcher Kompressor läuft wann, und wer im Betrieb braucht genau dann Wärme?</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#warum-ein-kompressor-fast-nur-warme-erzeugt">Warum ein Kompressor fast nur Wärme erzeugt</a></li>
+<li><a href="#warmluft-oder-warmwasser-die-zwei-verfahren">Warmluft oder Warmwasser: die zwei Verfahren</a></li>
+<li><a href="#wofur-sich-die-zuruckgewonnene-warme-eignet">Wofür sich die zurückgewonnene Wärme eignet</a></li>
+<li><a href="#wann-sich-warmeruckgewinnung-rechnet">Wann sich Wärmerückgewinnung rechnet</a></li>
+<li><a href="#rechenbeispiel-fur-einen-mittelstandischen-betrieb">Rechenbeispiel für einen mittelständischen Betrieb</a></li>
+<li><a href="#in-sechs-schritten-zur-warmeruckgewinnung">In sechs Schritten zur Wärmerückgewinnung</a></li>
+<li><a href="#forderung-und-gesetzliche-pflichten">Förderung und gesetzliche Pflichten</a></li>
+<li><a href="#unsere-sicht-auf-die-kompressorwarme">Unsere Sicht auf die Kompressorwärme</a></li>
+<li><a href="#kompressorwarme-mit-planegy-erschliessen">Kompressorwärme mit PLANEGY erschließen</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="warum-ein-kompressor-fast-nur-warme-erzeugt" tabindex="-1">Warum ein Kompressor fast nur Wärme erzeugt</h2>
+<p>Beim Verdichten steigt die Temperatur der angesaugten Luft, abhängig von Druckniveau und Volumenstrom. Hinzu kommen Verluste in Motor und Verdichter. Das Faktenblatt der Initiative Energieeffizienz- und Klimaschutz-Netzwerke beziffert die Folge klar: <a href="https://www.effizienznetzwerke.org/fileadmin/user_upload/2023/06/Netzwerkinitiative_Factsheet_Waermerueckgewinnung_bei_der_Erzeugung_von_Druckluft.pdf" rel="nofollow noopener noreferrer" target="_blank">70 bis 90 % der elektrischen Kompressorleistung können als Abwärme genutzt werden</a>. Ohne Rückgewinnung geht diese Energie über Kühlluft oder Kühlwasser verloren. Sie bezahlen sie dann zweimal: einmal als Strom für den Kompressor und einmal als Gas oder Öl für die Heizung nebenan.</p>
+<p>Wo die Wärme anfällt, bestimmt, wie Sie sie abgreifen. Das LfU nennt für einen öleingespritzten Schraubenkompressor folgende Aufteilung:</p>
+<table>
+<thead>
+<tr>
+<th>Wärmequelle im Kompressor</th>
+<th>Anteil an der zugeführten Energie</th>
+<th>Typischer Nutzungsweg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ölkühler</td>
+<td>72 %</td>
+<td>Wärmetauscher im Ölkreislauf, Warmwasser</td>
+</tr>
+<tr>
+<td>Nachkühler der Druckluft</td>
+<td>13 %</td>
+<td>Wärmetauscher oder Kühlluft</td>
+</tr>
+<tr>
+<td>Weitere nutzbare Wärme (Motor, Gehäuse)</td>
+<td>rund 9 %</td>
+<td>Kühlluft, Warmluftführung</td>
+</tr>
+<tr>
+<td>Insgesamt nutzbar</td>
+<td>94 %</td>
+<td></td>
+</tr>
+<tr>
+<td>Verbleibt in der Druckluft</td>
+<td>rund 4 %</td>
+<td>nicht nutzbar</td>
+</tr>
+</tbody>
+</table>
+<p>Die Zahlen zeigen, warum ein Wärmetauscher am Ölkreislauf der wichtigste Hebel ist. Dort steckt fast drei Viertel der Energie, und zwar auf einem Temperaturniveau, das für Heizwasser reicht. Für Sie wichtig: Druckluftmenge und Enddruck ändern sich durch die Rückgewinnung nicht, denn die Wärme fällt ohnehin an.</p>
+<h2 id="warmluft-oder-warmwasser-die-zwei-verfahren" tabindex="-1">Warmluft oder Warmwasser: die zwei Verfahren</h2>
+<p>Grundsätzlich gibt es zwei Wege. Welcher passt, hängt davon ab, wo die Wärme gebraucht wird und auf welcher Temperatur.</p>
+<p><strong>Warmluftführung.</strong> Die erwärmte Kühlluft luftgekühlter Kompressoren wird über Kanäle und Klappen in Hallen, Lager oder Werkstätten geleitet, im Sommer per Klappe nach außen. Laut Faktenblatt der Netzwerkinitiative hebt das die Zulufttemperatur um rund 20 bis 25 °C. Das System ist einfach und günstig, eignet sich aber nur, wenn der beheizte Raum nah am Kompressorraum liegt.</p>
+<p><strong>Warmwasser über Wärmetauscher.</strong> Ein Platten- oder Sicherheitswärmetauscher entzieht dem Öl- oder Kühlwasserkreislauf die Wärme und gibt sie an einen Heiz-, Brauchwasser- oder Prozesskreislauf ab. Typisch sind 60 bis 70 °C, mit Sondertauschern bis 90 °C. Das LfU nennt <a href="https://www.lfu.bayern.de/publikationen/get_pdf.htm?art_nr=lfu_klima_00076&amp;pdf_nr=0" rel="nofollow noopener noreferrer" target="_blank">Wassertemperaturen von 70 bis 80 °C</a>. Ältere Kompressoren lassen sich nachrüsten, die Investition liegt dann etwa 30 % höher als bei werkseitiger Vorbereitung.</p>
+<table>
+<thead>
+<tr>
+<th>Kriterium</th>
+<th>Warmluftführung</th>
+<th>Warmwasser über Wärmetauscher</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temperatur</td>
+<td>Zuluft plus 20 bis 25 °C</td>
+<td>60 bis 70 °C, mit Sondertauschern bis 90 °C</td>
+</tr>
+<tr>
+<td>Sinnvoll ab</td>
+<td>etwa 5 kW</td>
+<td>in der Regel ab 10 kW</td>
+</tr>
+<tr>
+<td>Typische Nutzung</td>
+<td>Hallen- und Raumheizung</td>
+<td>Heizungsrücklauf, Brauchwasser, Prozesswasser</td>
+</tr>
+<tr>
+<td>Investition</td>
+<td>niedrig</td>
+<td>höher, je nach Hydraulik und Speicher</td>
+</tr>
+<tr>
+<td>Ganzjährig nutzbar</td>
+<td>meist nur in der Heizperiode</td>
+<td>ja, wenn ein Prozess Wärme abnimmt</td>
+</tr>
+</tbody>
+</table>
+<p>Der Kompressor liefert nur Wärme, wenn er läuft. Deshalb gehört zum Warmwassersystem fast immer ein Pufferspeicher. Wie Sie den passenden Speicher wählen, erklären wir im Beitrag zur <a href="https://planegy.de/blog-sensible-vs-latente-warmespeicherung" target="_blank" rel="noopener">sensiblen und latenten Wärmespeicherung</a>.</p>
+<h2 id="wofur-sich-die-zuruckgewonnene-warme-eignet" tabindex="-1">Wofür sich die zurückgewonnene Wärme eignet</h2>
+<p>Am nächsten liegt die Gebäudeheizung. Laut LfU lässt sich Kompressorabwärme in vorhandene Warmwasser-Heizsysteme und Brauchwarmwasser-Anlagen einspeisen oder als Warmluft direkt zum Heizen verwenden. Mehr wert ist sie, wenn sie das ganze Jahr über Abnehmer findet:</p>
+<ul>
+<li><strong>Heizungsrücklauf anheben:</strong> Der Kessel muss weniger nachheizen, die Kompressorwärme deckt die Grundlast.</li>
+<li><strong>Brauch- und Sanitärwasser:</strong> Duschen, Waschräume und Reinigung brauchen Wärme unabhängig von der Jahreszeit.</li>
+<li><strong>Prozesswärme:</strong> Reinigungs- und Spülbäder, Trocknung, Vorwärmung von Kesselspeisewasser oder Lackierbädern.</li>
+<li><strong>Kälte aus Wärme:</strong> Über eine Absorptionskälteanlage wird Abwärme im Sommer zu Kühlung.</li>
+</ul>
+<p>Wie weit das trägt, zeigt das Werk der Paul Hartmann AG in Herbrechtingen. Im Winter fließt die Kompressorabwärme in den Heizkreis, im Sommer treibt sie eine Absorptionskälteanlage an. So sank der <a href="https://www.diekaelte.de/kaeltetechnik/waermerueckgewinnung-kompressoren-abwaerme-versorgt-kaelteanlage-viel-gas-und-strom" rel="nofollow noopener noreferrer" target="_blank">Gasverbrauch von 2 Mio. kWh auf 450.000 kWh</a>, also um mehr als drei Viertel.</p>
+<p>In Handwerksbetrieben mit nur gelegentlichem Druckluftbedarf fällt die Bilanz kleiner aus. Eine Untersuchung des LfU stuft die Rückgewinnung dort als <a href="https://www.lfu.bayern.de/publikationen/get_pdf.htm?art_nr=lfu_klima_00021" rel="nofollow noopener noreferrer" target="_blank">vernachlässigbar ein und sieht die Raumlufterwärmung als sinnvollste Anwendung</a>. Je mehr Laststunden Ihre Station fährt, desto interessanter wird das Thema.</p>
+<p>Kompressoren sind dabei oft nur eine von mehreren Wärmequellen im Betrieb. Wie Sie Abwärme aus Öfen, Kälteanlagen oder Abgas systematisch erfassen, zeigt unser <a href="https://planegy.de/blog-abwarmenutzung-industrie" target="_blank" rel="noopener">Leitfaden zur industriellen Abwärmenutzung</a>.</p>
+<h2 id="wann-sich-warmeruckgewinnung-rechnet" tabindex="-1">Wann sich Wärmerückgewinnung rechnet</h2>
+<p>Die Technik ist erprobt, über die Wirtschaftlichkeit entscheidet das Nutzungsprofil. Das LfU nennt klare Schwellen: Eine Abwärmenutzung rechnet sich ab etwa 5 kW elektrischer Antriebsleistung und mehr als 2.000 Betriebsstunden pro Jahr in der Heizperiode. Optimal sind Abnehmer mit ganzjährigem Wärmebedarf. Diese vier Fragen prüfen wir deshalb zuerst:</p>
+<ol>
+<li><strong>Laufzeit unter Last:</strong> Leerlaufstunden liefern kaum Wärme. Entscheidend sind die Laststunden, die die Kompressorsteuerung ausweist.</li>
+<li><strong>Gleichzeitigkeit:</strong> Läuft der Kompressor, wenn Wärme gebraucht wird? Eine Station, die nachts steht, heizt nachts nicht.</li>
+<li><strong>Entfernung:</strong> Je näher der Abnehmer, desto kürzer und günstiger die Leitung und desto geringer die Verluste.</li>
+<li><strong>Temperaturniveau:</strong> Eine Fußbodenheizung mit 35 °C Vorlauf nimmt die Wärme problemlos auf. Ein Prozess mit 90 °C braucht einen Sondertauscher oder eine Nachheizung.</li>
+</ol>
+<p>Ein technischer Punkt wird oft übersehen. Laut Unternehmensnetzwerk Klimaschutz darf die Luft im Kompressorraum <a href="https://www.klima-plattform.de/klimaguide/guideinhalte/artikel/abwaermenutzung-aus-luftgekuehlten-kompressoren" rel="nofollow noopener noreferrer" target="_blank">35 °C nicht überschreiten</a>, weil die Verdichtung sonst nicht mehr optimal läuft. Eine Warmluftführung braucht deshalb eine Regelung, die überschüssige Wärme zuverlässig abführt.</p>
+<p>Zur Amortisation nennt das LfU für Plattenwärmetauscher mit Einspeisung ins Heizsystem Herstellerangaben von einem halben bis zwei Jahren. Das Unternehmensnetzwerk Klimaschutz gibt im Durchschnitt drei bis sechs Jahre an. Die Spanne ergibt sich aus Laufzeit, Leitungslänge und Energiepreis. Ein Praxisfall aus Baden-Württemberg liegt am unteren Ende: Die Südbadischen Gummiwerke nutzen über einen Wärmetauscher am Ölkreislauf mehr als 180.000 kWh im Jahr. Eine <a href="https://www.elektroniknet.de/smarter-world/smart-energy/waermerueckgewinnung-aus-kompressoren-amortisiert-sich-nach-10-monaten.100920.html" rel="nofollow noopener noreferrer" target="_blank">Investition von 10.500 € spart jährlich Brennstoff für 12.000 €</a>.</p>
+<h2 id="rechenbeispiel-fur-einen-mittelstandischen-betrieb" tabindex="-1">Rechenbeispiel für einen mittelständischen Betrieb</h2>
+<p>So überschlagen Sie das Potenzial Ihrer eigenen Station. Die Annahmen sind ein Beispiel, kein Angebot: ein Schraubenkompressor mit 37 kW, 4.000 Laststunden im Jahr, 70 % nutzbare Abwärme (die untere Grenze der LfU-Spanne), ein Gaskessel mit 90 % Nutzungsgrad und ein angenommener Gaspreis von 8 ct/kWh.</p>
+<table>
+<thead>
+<tr>
+<th>Rechenschritt</th>
+<th>Ergebnis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stromeinsatz: 37 kW × 4.000 h</td>
+<td>148.000 kWh</td>
+</tr>
+<tr>
+<td>Nutzbare Wärme: 70 % davon</td>
+<td>103.600 kWh</td>
+</tr>
+<tr>
+<td>Eingespartes Gas: 103.600 kWh ÷ 0,9</td>
+<td>rund 115.100 kWh</td>
+</tr>
+<tr>
+<td>Ersparnis bei 8 ct/kWh</td>
+<td>rund 9.200 € pro Jahr</td>
+</tr>
+<tr>
+<td>Thermische Leistung: 37 kW × 70 %</td>
+<td>rund 26 kW</td>
+</tr>
+<tr>
+<td>Investition bei 35 bis 460 € je kW (LfU)</td>
+<td>rund 900 bis 11.900 €</td>
+</tr>
+</tbody>
+</table>
+<p>Selbst am oberen Ende der vom LfU genannten <a href="https://www.lfu.bayern.de/publikationen/get_pdf.htm?art_nr=lfu_klima_00076&amp;pdf_nr=0" rel="nofollow noopener noreferrer" target="_blank">Spanne von 35 bis 460 € je kW Abwärmenutzung</a> wäre die Anlage in diesem Beispiel nach rund 16 Monaten bezahlt. Die Rechnung geht aber nur auf, wenn die 103.600 kWh auch abgenommen werden. Wer im Sommer keinen Abnehmer hat, nutzt vielleicht nur die Hälfte. Deshalb rechnen wir mit dem Lastgang der Station und dem Wärmebedarf Stunde für Stunde, nicht mit Jahressummen. Für einen ersten Vergleich verschiedener Heizsysteme können Sie unseren <a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik-Rechner</a> nutzen.</p>
+<h2 id="in-sechs-schritten-zur-warmeruckgewinnung" tabindex="-1">In sechs Schritten zur Wärmerückgewinnung</h2>
+<p><strong>1. Bestand erfassen.</strong> Listen Sie alle Kompressoren nach Bauart, Leistung, Betriebsstunden und Kühlungsart auf, wie es auch die Netzwerkinitiative empfiehlt. Häufiger Fehler: nur Typenschilder notieren, ohne die Lastprofile auszulesen. Bei einem Energieaudit nach DIN EN 16247 erfassen wir die Druckluftstation zusammen mit allen anderen Verbrauchern. So wird die Kompressorwärme im Gesamtbild des Betriebs bewertet.</p>
+<p><strong>2. Wärmesenken finden.</strong> Wo im Betrieb wird Wärme gebraucht, wann und auf welcher Temperatur? Infrage kommen Heizung, Warmwasser, Prozessbäder und Trocknung. Häufiger Fehler: nur an die Hallenheizung denken und ganzjährige Prozessabnehmer übersehen.</p>
+<p><strong>3. Konzept auslegen.</strong> Verfahren wählen, Wärmetauscher, Speicher und Hydraulik dimensionieren, die Einbindung in die bestehende Heizung klären. Häufiger Fehler: Es wird nur das Gerät geplant, nicht seine Einbindung in Kessel, Netz und Prozesse. Wir arbeiten technologieoffen und ohne eigene Produkte. Deshalb vergleichen wir die Rückgewinnung auch mit Alternativen wie Wärmepumpe oder Power-to-Heat und kombinieren, was an Ihrem Standort am meisten bringt.</p>
+<p><strong>4. Förderung sichern.</strong> Klären Sie, welches Programm passt und welche Nachweise verlangt werden, bevor Sie Aufträge vergeben. Häufiger Fehler: Wer den Auftrag vor dem Antrag vergibt, riskiert den Zuschuss. Unser Förderservice findet passende Programme von BAFA, KfW und EU und begleitet den Antrag. Für unsere Kunden haben wir bereits Förderungen bis zu 1,2 Mio. € gesichert.</p>
+<p><strong>5. Umsetzen und einregeln.</strong> Installation, hydraulischer Abgleich, Regelung von Klappen und Pumpen. Häufiger Fehler: eine zu hohe Rücklauftemperatur, die den Wärmetauscher ausbremst. Wir begleiten Projekte von der Konzeption bis zur Umsetzung.</p>
+<p><strong>6. Messen und berichten.</strong> Bauen Sie Wärmemengenzähler ein und dokumentieren Sie die eingesparten kWh und Tonnen CO₂. Diese Werte fließen in Ihr Energiemanagement nach ISO 50001 und in Ihr ESG- oder CSRD-Reporting, das wir mit automatisierten KPI-Dashboards abbilden.</p>
+
+<h2 id="forderung-und-gesetzliche-pflichten" tabindex="-1">Förderung und gesetzliche Pflichten</h2>
+<p>Für Unternehmen ist die Bundesförderung für Energie- und Ressourceneffizienz in der Wirtschaft (EEW) der wichtigste Zuschusstopf. Es handelt sich um einen nicht rückzahlbaren Investitionszuschuss des Bundes, der beim BAFA beantragt wird. In der <a href="https://www.bafa.de/DE/Energie/Energieeffizienz/Energieeffizienz_und_Prozesswaerme/Modul4_Energiebezogene_Optimierung_Premiumfoerderung/modul4_energiebezogene_optimierung_premiumfoerderung.html" rel="nofollow noopener noreferrer" target="_blank">Premiumförderung von Modul 4</a> kann der Zuschuss bis zu 45 % der förderfähigen Investitionskosten betragen bei kleinen Unternehmen, bis zu 35 % bei mittleren und bis zu 25 % bei Unternehmen ohne KMU-Status. Voraussetzung ist ein Einsparkonzept, das Treibhausgaseinsparungen in einer bestimmten Höhe nachweist. Die Förderbedingungen ändern sich regelmäßig, die aktuelle Fassung steht jeweils auf der Programmseite des BAFA.</p>
+
+<p>Hinzu kommen Pflichten aus dem Energieeffizienzgesetz (EnEfG). Es verpflichtet Unternehmen unter anderem zur Einführung von Energie- oder Umweltmanagementsystemen und zur Erfassung von Abwärme. Betroffene Unternehmen müssen der Bundesstelle für Energieeffizienz <a href="https://www.ihk.de/halle/produktmarken/umwelt-und-energie/energieverbrauch-senken/energieeffizienzgesetz-neue-pflichten-fuer-unternehmen-5786558" rel="nofollow noopener noreferrer" target="_blank">Auskunft über ihre Abwärmepotenziale geben</a>. Diese Angaben werden in die Plattform für Abwärme eingetragen. In vielen Betrieben ist die Druckluftstation eine der größten Abwärmequellen, die Bestandsaufnahme aus Schritt 1 liefert also gleich die nötigen Daten.</p>
+<p>Auch für Kommunen und Versorger lohnt der Blick. In der kommunalen Wärmeplanung werden Abwärmepotenziale von Betrieben als mögliche Wärmequelle betrachtet. Gewerbegebiete mit großen Druckluftstationen können so zu Bausteinen eines Nahwärmenetzes werden. Wie Kommunen dabei vorgehen, beschreibt unsere Seite zur <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">kommunalen Wärmeplanung nach WPG</a>.</p>
+<h2 id="unsere-sicht-auf-die-kompressorwarme" tabindex="-1">Unsere Sicht auf die Kompressorwärme</h2>
+<blockquote>
+<p>Wenn wir in Betrieben die Energieflüsse aufnehmen, ist die Druckluftstation fast immer ein Kandidat für schnelle Einsparungen. Die Wärme ist bereits bezahlt, sie fällt ohnehin an, und die Technik zur Rückgewinnung ist ausgereift. Selten fehlt das Gerät. Meist fehlen der passende Abnehmer und eine Auslegung, die zum Lastgang passt.</p>
+<p>Deshalb betrachten wir die Kompressorwärme nie isoliert. Wir bewerten sie zusammen mit Heizung, Prozesswärme, Speichern und Alternativen wie Wärmepumpe oder Power-to-Heat, neutral und ohne Herstellerinteresse. Am Ende steht ein Konzept, das technisch funktioniert, sich wirtschaftlich trägt und förderfähig ist.</p>
+<p>Aus über 20 Jahren im Energiesektor wissen wir: Die besten Projekte entstehen, wenn Analyse, Förderung und Umsetzung in einer Hand liegen. Dann wird aus einem verlorenen Kühlluftstrom ein Baustein Ihrer CO₂-Strategie, den Sie messen, berichten und weiter ausbauen können.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="kompressorwarme-mit-planegy-erschliessen" tabindex="-1">Kompressorwärme mit PLANEGY erschließen</h2>
+<p>Sie möchten wissen, wie viel Wärme in Ihrer Druckluftstation steckt und wie Sie sie förderfähig nutzen? Wir analysieren Ihre Anlagen, legen die Wärmerückgewinnung technologieoffen aus, erschließen die passenden Fördermittel und begleiten die Umsetzung bis zum Reporting.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Mehr zu Energieaudit und Förderbegleitung für Industrie und Mittelstand finden Sie auf unserer Seite zur <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieberatung in der Industrie</a>.</p>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="lasst-sich-jeder-kompressor-nachrusten" tabindex="-1">Lässt sich jeder Kompressor nachrüsten?</h3>
+<p>Laut LfU lassen sich ältere Kompressoren nachrüsten, die Investition liegt dann etwa 30 % höher als bei werkseitiger Vorbereitung. Für neue Anlagen ab rund 5 kW werden Rückgewinnungssysteme bereits ab Werk angeboten. Ob sich das lohnt, hängt vor allem von den Laststunden ab.</p>
+<h3 id="kann-die-kompressorwarme-meinen-heizkessel-ersetzen" tabindex="-1">Kann die Kompressorwärme meinen Heizkessel ersetzen?</h3>
+<p>In der Regel ergänzt sie den Kessel, statt ihn zu ersetzen, denn Wärme gibt es nur, wenn der Kompressor läuft. Sie deckt die Grundlast und senkt den Brennstoffverbrauch spürbar. Mit Pufferspeicher und ganzjährigen Abnehmern lässt sich ihr Anteil deutlich erhöhen.</p>
+<h3 id="beeintrachtigt-die-warmeruckgewinnung-die-druckluftversorgung" tabindex="-1">Beeinträchtigt die Wärmerückgewinnung die Druckluftversorgung?</h3>
+<p>Nein. Druckluftmenge und Enddruck bleiben gleich, weil nur Wärme genutzt wird, die ohnehin anfällt. Wichtig ist, dass die Kühlung jederzeit gesichert bleibt, etwa über einen Notkühler oder eine Abluftklappe, wenn gerade keine Wärme gebraucht wird.</p>
+<h3 id="welche-temperaturen-sind-realistisch" tabindex="-1">Welche Temperaturen sind realistisch?</h3>
+<p>Bei Warmluftführung steigt die Zulufttemperatur um 20 bis 25 °C. Warmwasser-Systeme erreichen typisch 60 bis 70 °C, mit Sondertauschern bis 90 °C. Das reicht für Heizung, Brauchwasser und viele Reinigungsprozesse.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.lfu.bayern.de/publikationen/get_pdf.htm?art_nr=lfu_klima_00076&amp;pdf_nr=0" rel="nofollow noopener noreferrer" target="_blank">Bayerisches Landesamt für Umwelt: Abwärmenutzung im Betrieb</a></li>
+<li><a href="https://www.lfu.bayern.de/publikationen/get_pdf.htm?art_nr=lfu_klima_00021" rel="nofollow noopener noreferrer" target="_blank">Bayerisches Landesamt für Umwelt: Untersuchung von Druckluftanlagen in Handwerksbetrieben</a></li>
+<li><a href="https://www.effizienznetzwerke.org/fileadmin/user_upload/2023/06/Netzwerkinitiative_Factsheet_Waermerueckgewinnung_bei_der_Erzeugung_von_Druckluft.pdf" rel="nofollow noopener noreferrer" target="_blank">Initiative Energieeffizienz- und Klimaschutz-Netzwerke: Wärmerückgewinnung bei der Erzeugung von Druckluft</a></li>
+<li><a href="https://www.klima-plattform.de/klimaguide/guideinhalte/artikel/abwaermenutzung-aus-luftgekuehlten-kompressoren" rel="nofollow noopener noreferrer" target="_blank">Unternehmensnetzwerk Klimaschutz: Abwärmenutzung aus luftgekühlten Kompressoren</a></li>
+<li><a href="https://www.diekaelte.de/kaeltetechnik/waermerueckgewinnung-kompressoren-abwaerme-versorgt-kaelteanlage-viel-gas-und-strom" rel="nofollow noopener noreferrer" target="_blank">Die Kälte: Kompressoren-Abwärme versorgt Kälteanlage</a></li>
+<li><a href="https://www.elektroniknet.de/smarter-world/smart-energy/waermerueckgewinnung-aus-kompressoren-amortisiert-sich-nach-10-monaten.100920.html" rel="nofollow noopener noreferrer" target="_blank">Elektroniknet: Wärmerückgewinnung aus Kompressoren amortisiert sich nach 10 Monaten</a></li>
+<li><a href="https://www.bafa.de/DE/Energie/Energieeffizienz/Energieeffizienz_und_Prozesswaerme/Modul4_Energiebezogene_Optimierung_Premiumfoerderung/modul4_energiebezogene_optimierung_premiumfoerderung.html" rel="nofollow noopener noreferrer" target="_blank">BAFA: EEW Modul 4, Premiumförderung und Dekarbonisierungsbonus</a></li>
+<li><a href="https://www.ihk.de/halle/produktmarken/umwelt-und-energie/energieverbrauch-senken/energieeffizienzgesetz-neue-pflichten-fuer-unternehmen-5786558" rel="nofollow noopener noreferrer" target="_blank">IHK Halle-Dessau: Energieeffizienzgesetz, neue Pflichten für Unternehmen</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-brennwertnutzung-bhkw" target="_blank" rel="noopener">Brennwertnutzung im BHKW: So holt der Abgaswärmetauscher mehr Wärme</a></li>
+<li><a href="https://planegy.de/blog-gasturbine-prozessdampf" target="_blank" rel="noopener">Gasturbine für Prozessdampf: Abhitzekessel richtig auslegen</a></li>
+<li><a href="https://planegy.de/waermetechnik-rechner" target="_blank" rel="noopener">Wärmetechnik Rechner – Heizsysteme vergleichen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
