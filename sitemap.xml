@@ -946,6 +946,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+    <url>
+    <loc>https://planegy.de/blog-druckhaltung-warmenetz</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- SITEMAP_ARTICLES_END -->
 
 </urlset>
