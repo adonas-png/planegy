@@ -15,7 +15,8 @@
     // /blog liefert blog.html, /blog.html leitet auf /blog um (wie pretty_urls bei Netlify)
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "none",
-    "run_worker_first": ["/.netlify/functions/*", "/api/*", "/danke", "/blog"]
+    // /blog/* : 301 von /blog/<slug> auf /blog-<slug> (BabyLoveGrowth erwartet dieses Muster)
+    "run_worker_first": ["/.netlify/functions/*", "/api/*", "/danke", "/blog", "/blog/*"]
   },
 
   // Secrets (nicht hier eintragen): GITHUB_TOKEN, BLG_WEBHOOK_SECRET, BREVO_API_KEY

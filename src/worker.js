@@ -7,6 +7,8 @@
 //   /api/blg-publish                 derselbe Webhook unter neuem Pfad
 //   /danke  (POST)                   Kontaktformular (ersetzt Netlify Forms)
 //   /blog   (POST)                   Newsletter-Formular (ersetzt Netlify Forms)
+//   /blog/<slug>  (GET/HEAD)         301 auf /blog-<slug>, falls der Artikel existiert.
+//                                    BabyLoveGrowth prüft Artikel unter /blog/<slug>.
 //
 // Formular-Mails gehen über die Brevo-API (Secret BREVO_API_KEY) von FORM_FROM an FORM_TO.
 
@@ -45,9 +47,27 @@ export default {
       return withHeaders(await handleForm(request, env), SECURITY_HEADERS);
     }
 
+    if (url.pathname.startsWith("/blog/")) {
+      const redirect = await blogSlugRedirect(request, env, url);
+      if (redirect) return redirect;
+    }
+
     return env.ASSETS.fetch(request);
   },
 };
+
+// /blog/<slug> und /blog/<slug>/ → 301 auf /blog-<slug>. Weitergeleitet wird nur,
+// wenn blog-<slug>.html wirklich existiert; alles andere läuft wie bisher in den 404.
+async function blogSlugRedirect(request, env, url) {
+  if (request.method !== "GET" && request.method !== "HEAD") return null;
+  const match = url.pathname.match(/^\/blog\/([a-z0-9][a-z0-9-]*)\/?$/);
+  if (!match) return null;
+  const target = new URL(`/blog-${match[1]}`, url);
+  const probe = await env.ASSETS.fetch(new Request(target, { method: "HEAD" }));
+  if (probe.status !== 200) return null;
+  target.search = url.search;
+  return withHeaders(Response.redirect(target.toString(), 301), SECURITY_HEADERS);
+}
 
 function withHeaders(response, headers) {
   const res = new Response(response.body, response);
