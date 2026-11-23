@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="/assets/fonts.css" />
   <link rel="stylesheet" href="/assets/planegy.css" />
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://planegy.de/datenschutz#webpage", "url": "https://planegy.de/datenschutz", "name": "Datenschutzerklärung nach DSGVO | PLANEGY Energieplanung", "description": "Datenschutzerklärung von PLANEGY: Verantwortlicher, erhobene Daten, Kontaktformular, Chatbot, Hosting und Ihre Rechte nach DSGVO.", "inLanguage": "de", "isPartOf": {"@id": "https://planegy.de/#website"}, "publisher": {"@id": "https://planegy.de/#organization"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://planegy.de/"}, {"@type": "ListItem", "position": 2, "name": "Datenschutzerklärung", "item": "https://planegy.de/datenschutz"}]}]}</script>
+  <script src="/assets/consent.js" defer></script>
 </head>
 <body>
 
@@ -121,6 +122,7 @@
       <li><a href="#hosting">Hosting & Server-Logs</a></li>
       <li><a href="#rechte">Ihre Rechte</a></li>
       <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#analytics">Google Analytics 4 (Reichweitenmessung)</a></li>
       <li><a href="#aenderungen">Änderungen dieser Erklärung</a></li>
     </ol>
   </div>
@@ -247,18 +249,41 @@
   </div>
 
   <!-- 8 -->
+  <!-- ENTWURF – PRÜFUNG DURCH ALEXIOS DONAS: Abschnitt 8 neu gefasst, weil mit GA4 nicht mehr nur technisch notwendige Cookies eingesetzt werden. Bisheriger Text siehe Git-Historie. -->
   <div class="section-block" id="cookies">
-    <h2>8. Cookies</h2>
-    <p>Diese Website verwendet nur <strong>technisch notwendige Cookies</strong>, die für den Betrieb der Website erforderlich sind. Es werden keine Tracking- oder Werbe-Cookies eingesetzt.</p>
+    <h2>8. Cookies und Einwilligung</h2>
+    <p>Technisch notwendige Speichervorgänge erfolgen ohne Einwilligung (§ 25 Abs. 2 TDDDG). Dazu gehört die Speicherung Ihrer Auswahl im Einwilligungsbanner im lokalen Speicher Ihres Browsers (Schlüssel <code>planegy-consent</code>), damit das Banner nicht bei jedem Seitenaufruf erneut erscheint.</p>
     <p>Der Chatbot (Botpress) setzt ggf. eine Sitzungs-Cookie für die Gesprächskontinuität. Dieser wird nach dem Schließen des Browsers gelöscht.</p>
-    <div class="highlight">
-      ℹ️ Da keine Analyse- oder Marketing-Cookies verwendet werden, ist kein Cookie-Banner erforderlich.
-    </div>
+    <p>Cookies zur Reichweitenmessung (Google Analytics) setzen wir nur mit Ihrer Einwilligung (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO). Sie können Ihre Auswahl jederzeit über den Link <a href="#cookie-einstellungen" data-consent-settings>Cookie-Einstellungen</a> im Footer ändern oder widerrufen.</p>
   </div>
+  <!-- /ENTWURF -->
+
+  <!-- 9 (neu) -->
+  <!-- ENTWURF – PRÜFUNG DURCH ALEXIOS DONAS: neuer Abschnitt zu Google Analytics 4. Vor Veröffentlichung prüfen: Auftragsverarbeitungsvertrag mit Google abgeschlossen? Datenaufbewahrung in GA4 auf 2 bzw. 14 Monate eingestellt? Google-Signale deaktiviert? -->
+  <div class="section-block" id="analytics">
+    <h2>9. Google Analytics 4 (Reichweitenmessung)</h2>
+    <p>Sofern Sie eingewilligt haben, nutzen wir Google Analytics 4, einen Webanalysedienst der <strong>Google Ireland Limited</strong>, Gordon House, Barrow Street, Dublin 4, Irland („Google“).</p>
+    <p><strong>Zweck:</strong> Wir möchten verstehen, welche Seiten und Fachartikel gelesen werden und wie Besucher auf unsere Website gelangen, um das Angebot zu verbessern.</p>
+    <p><strong>Verarbeitete Daten:</strong></p>
+    <ul>
+      <li>IP-Adresse (wird von Google Analytics 4 nicht gespeichert, aber zur Bestimmung des ungefähren Standorts genutzt)</li>
+      <li>aufgerufene Seiten, Verweildauer, Klicks und Scrolltiefe</li>
+      <li>Referrer-URL (zuvor besuchte Seite)</li>
+      <li>Geräte- und Browserinformationen, Bildschirmauflösung, Sprache</li>
+      <li>eine pseudonyme Kennung in den Cookies <code>_ga</code> und <code>_ga_&lt;ID&gt;</code></li>
+    </ul>
+    <p><strong>Rechtsgrundlage:</strong> Ihre Einwilligung nach § 25 Abs. 1 TDDDG für das Speichern und Auslesen von Informationen auf Ihrem Endgerät sowie nach Art. 6 Abs. 1 lit. a DSGVO für die weitere Verarbeitung. Ohne Einwilligung wird das Google-Analytics-Skript nicht geladen und es findet keine Verbindung zu Google statt.</p>
+    <p><strong>Widerruf:</strong> Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie im Footer auf <a href="#cookie-einstellungen" data-consent-settings>Cookie-Einstellungen</a> klicken und „Ablehnen“ wählen. Die Analytics-Cookies werden dabei gelöscht.</p>
+    <p><strong>Google Consent Mode:</strong> Wir verwenden den Einwilligungsmodus von Google. Standardmäßig sind alle Kategorien auf „abgelehnt“ gesetzt; Werbe- und Personalisierungsfunktionen bleiben auch nach Ihrer Einwilligung deaktiviert.</p>
+    <p><strong>Speicherdauer:</strong> Die Cookies <code>_ga</code> und <code>_ga_&lt;ID&gt;</code> werden nach 2 Jahren gelöscht. Die erhobenen Daten bewahrt Google Analytics [ENTWURF: 2 oder 14 Monate, gemäß Einstellung in der GA4-Property] auf.</p>
+    <p><strong>Empfänger und Drittlandübermittlung:</strong> Google verarbeitet die Daten in unserem Auftrag; wir haben mit Google einen Auftragsverarbeitungsvertrag nach Art. 28 DSGVO geschlossen. Eine Übermittlung an Google LLC in die USA ist möglich. Google LLC ist nach dem EU-U.S. Data Privacy Framework zertifiziert (Angemessenheitsbeschluss gemäß Art. 45 DSGVO).</p>
+    <p><strong>Weitere Informationen:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a> und <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener">Datenschutz in Google Analytics</a></p>
+  </div>
+  <!-- /ENTWURF -->
 
   <!-- 9 -->
   <div class="section-block" id="aenderungen">
-    <h2>9. Änderungen dieser Erklärung</h2>
+    <h2>10. Änderungen dieser Erklärung</h2>
     <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie stets den aktuellen rechtlichen Anforderungen und unserem Webangebot entsprechend zu halten. Die jeweils aktuelle Version ist auf dieser Seite abrufbar.</p>
     <p><strong>Stand:</strong> September 2026</p>
   </div>
@@ -315,6 +340,7 @@
       <nav aria-label="Rechtliches">
         <a href="/impressum">Impressum</a>
         <a href="/datenschutz">Datenschutz</a>
+        <a href="#cookie-einstellungen" data-consent-settings>Cookie-Einstellungen</a>
       </nav>
     </div>
   </div>

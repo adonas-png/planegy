@@ -178,6 +178,7 @@ function generateArticleHtml({ title, slug, content_html, metaDescription, categ
     "description": "${(metaDescription || "").replace(/"/g, '\\"')}"
   }
   <\/script>
+  <script src="/assets/consent.js" defer><\/script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@700;800&display=swap" rel="stylesheet" />
@@ -306,6 +307,7 @@ function generateArticleHtml({ title, slug, content_html, metaDescription, categ
     <a href="/blog">Blog</a>
     <a href="/impressum">Impressum</a>
     <a href="/datenschutz">Datenschutz</a>
+    <a href="#cookie-einstellungen" data-consent-settings>Cookie-Einstellungen</a>
   </p>
   <p style="margin-top:.8rem">© ${new Date().getFullYear()} PLANEGY – Alexios Donas · Waiblingen</p>
 </footer>
