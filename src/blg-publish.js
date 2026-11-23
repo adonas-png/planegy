@@ -175,6 +175,7 @@ function generateArticleHtml({ title, slug, content_html, metaDescription, categ
     "author": { "@type": "Person", "name": "Alexios Donas" },
     "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
     "datePublished": "${schemaDate}",
+    "dateModified": "${new Date().toISOString().split("T")[0]}",
     "description": "${(metaDescription || "").replace(/"/g, '\\"')}"
   }
   <\/script>
