@@ -27,5 +27,14 @@
     "FORM_FROM": "formular@planegy.de"
   },
 
+  // www.planegy.de → planegy.de: nicht im Worker, sondern als Redirect Rule im
+  // Cloudflare-Dashboard (Rules → Redirect Rules → Single Redirects), damit der
+  // Worker nicht für jede Anfrage laufen muss:
+  //   Wenn:  Hostname equals "www.planegy.de"
+  //   Dann:  Dynamic, URL: concat("https://planegy.de", http.request.uri.path)
+  //          Status 301, "Preserve query string" an
+  // Voraussetzung: DNS-Eintrag für www existiert und ist "Proxied" (orange Wolke).
+  // Kanonische Adresse überall (Canonical, og:url, Sitemap, JSON-LD): https://planegy.de
+
   "observability": { "enabled": true }
 }
