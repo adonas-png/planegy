@@ -316,7 +316,7 @@ function generateArticleHtml({ title, slug, content_html, metaDescription, categ
 
 function generateArticleCard({ title, slug, excerpt, category, catStyle, dateStr, readTime }) {
   return `
-    <a href="blog-${slug}.html" class="article-card" data-cat="${category}">
+    <a href="/blog-${slug}" class="article-card" data-cat="${category}">
       <div class="article-thumb" style="background:${catStyle.grad}">${catStyle.emoji}</div>
       <div class="article-body">
         <div class="article-cat">${catStyle.label}</div>
@@ -328,6 +328,21 @@ function generateArticleCard({ title, slug, excerpt, category, catStyle, dateStr
         </div>
       </div>
     </a>`;
+}
+
+// Ist der Artikel schon in blog.html verlinkt (alte .html- oder neue saubere Adresse)?
+function isListed(blogHtml, slug) {
+  return blogHtml.includes(`href="/blog-${slug}"`) || blogHtml.includes(`href="blog-${slug}.html"`);
+}
+
+// Artikelzahl im HTML aktualisieren (jede Adresse einmal, inkl. hervorgehobenem Artikel).
+// Im Browser zählt blog.html zusätzlich selbst nach.
+function updateArticleCount(blogHtml) {
+  const urls = new Set();
+  for (const m of blogHtml.matchAll(/href="([^"]+)" class="(?:article|featured)-card"/g)) {
+    urls.add(m[1].replace(/^\//, "").replace(/\.html$/, ""));
+  }
+  return blogHtml.replace(/(id="article-count(?:-visible)?"[^>]*>)\d+ Beiträge/g, `$1${urls.size} Beiträge`);
 }
 
 // ── Main handler ─────────────────────────────────────────────────────────────
@@ -404,11 +419,14 @@ export async function handleBlgPublish(request, env) {
         getFile(env, "sitemap.xml"),
       ]);
 
-      if (blogFile) {
+      // Karte nur einfügen, wenn der Artikel noch nicht gelistet ist. BLG schickt
+      // denselben Artikel teils mehrfach (z. B. nach einer Überarbeitung); ohne
+      // diese Prüfung entstanden doppelte Karten in der Übersicht.
+      if (blogFile && !isListed(blogFile.content, slug)) {
         const newCard = generateArticleCard({ title, slug, excerpt, category, catStyle, dateStr, readTime });
         const marker = "<!-- BLOG_ARTICLES_START -->";
         if (blogFile.content.includes(marker)) {
-          filesToCommit["blog.html"] = blogFile.content.replace(marker, marker + newCard);
+          filesToCommit["blog.html"] = updateArticleCount(blogFile.content.replace(marker, marker + newCard));
         }
       }
 
