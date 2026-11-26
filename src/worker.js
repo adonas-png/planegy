@@ -7,8 +7,9 @@
 //   /api/blg-publish                 derselbe Webhook unter neuem Pfad
 //   /danke  (POST)                   Kontaktformular (ersetzt Netlify Forms)
 //   /blog   (POST)                   Newsletter-Formular (ersetzt Netlify Forms)
-//   /blog/<slug>  (GET/HEAD)         301 auf /blog-<slug>, falls der Artikel existiert.
-//                                    BabyLoveGrowth prüft Artikel unter /blog/<slug>.
+//   /blog-<slug>  (GET/HEAD)         301 auf /blog/<slug> (alte Adressen vor dem Umzug).
+//                                    Die Artikel selbst liegen als blog/<slug>.html und
+//                                    werden direkt aus den Assets geliefert.
 //
 // Formular-Mails gehen über die Brevo-API (Secret BREVO_API_KEY) von FORM_FROM an FORM_TO.
 
@@ -47,8 +48,8 @@ export default {
       return withHeaders(await handleForm(request, env), SECURITY_HEADERS);
     }
 
-    if (url.pathname.startsWith("/blog/")) {
-      const redirect = await blogSlugRedirect(request, env, url);
+    if (url.pathname.startsWith("/blog-")) {
+      const redirect = await legacyBlogRedirect(request, url);
       if (redirect) return redirect;
     }
 
@@ -56,15 +57,17 @@ export default {
   },
 };
 
-// /blog/<slug> und /blog/<slug>/ → 301 auf /blog-<slug>. Weitergeleitet wird nur,
-// wenn blog-<slug>.html wirklich existiert; alles andere läuft wie bisher in den 404.
-async function blogSlugRedirect(request, env, url) {
+// Alte Artikeladressen: /blog-<slug> (auch mit /) → 301 auf /blog/<slug>.
+//
+// Es wird bewusst NICHT geprüft, ob der Artikel existiert: sonst müsste der Worker
+// für jede alte Adresse einen Unterabruf machen. Gibt es den Slug nicht, landet die
+// Weiterleitung auf /blog/<slug> und die Assets liefern dort 404 – ohne Schleife,
+// weil /blog/<slug> den Worker gar nicht mehr erreicht (run_worker_first).
+async function legacyBlogRedirect(request, url) {
   if (request.method !== "GET" && request.method !== "HEAD") return null;
-  const match = url.pathname.match(/^\/blog\/([a-z0-9][a-z0-9-]*)\/?$/);
+  const match = url.pathname.match(/^\/blog-([a-z0-9][a-z0-9-]*)\/?$/);
   if (!match) return null;
-  const target = new URL(`/blog-${match[1]}`, url);
-  const probe = await env.ASSETS.fetch(new Request(target, { method: "HEAD" }));
-  if (probe.status !== 200) return null;
+  const target = new URL(`/blog/${match[1]}`, url);
   target.search = url.search;
   return withHeaders(Response.redirect(target.toString(), 301), SECURITY_HEADERS);
 }

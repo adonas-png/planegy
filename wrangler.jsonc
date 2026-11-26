@@ -15,8 +15,10 @@
     // /blog liefert blog.html, /blog.html leitet auf /blog um (wie pretty_urls bei Netlify)
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "none",
-    // /blog/* : 301 von /blog/<slug> auf /blog-<slug> (BabyLoveGrowth erwartet dieses Muster)
-    "run_worker_first": ["/.netlify/functions/*", "/api/*", "/danke", "/blog", "/blog/*"]
+    // Artikel liegen als blog/<slug>.html und werden unter /blog/<slug> direkt aus den
+    // Assets geliefert – der Worker läuft dafür NICHT mit.
+    // /blog-* : alte Adressen, 301 auf /blog/<slug> (siehe legacyBlogRedirect in worker.js)
+    "run_worker_first": ["/.netlify/functions/*", "/api/*", "/danke", "/blog", "/blog-*"]
   },
 
   // Secrets (nicht hier eintragen): GITHUB_TOKEN, BLG_WEBHOOK_SECRET, BREVO_API_KEY
