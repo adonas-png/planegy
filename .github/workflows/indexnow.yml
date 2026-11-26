@@ -4,7 +4,7 @@ name: IndexNow
 on:
   push:
     branches: [main]
-    paths: ['*.html']
+    paths: ['*.html', 'blog/*.html']
 concurrency:
   group: indexnow
   cancel-in-progress: false
@@ -31,9 +31,16 @@ jobs:
               before = after + '~1'
           files = subprocess.run(['git', 'diff', '--name-only', f'{before}..{after}', '--', '*.html'],
                                  capture_output=True, text=True, check=True).stdout.split()
+          # Gemeldet werden die Seiten im Repo-Root und die Blogartikel unter blog/.
+          # Artikel liegen seit dem Pfadumzug als blog/<slug>.html und werden unter
+          # https://planegy.de/blog/<slug> ausgeliefert.
+          def included(f):
+              if f == 'danke.html' or not os.path.exists(f):
+                  return False
+              return '/' not in f or f.startswith('blog/')
           urls = sorted({
               'https://planegy.de/' if f == 'index.html' else 'https://planegy.de/' + f[:-5]
-              for f in files if '/' not in f and f != 'danke.html' and os.path.exists(f)
+              for f in files if included(f)
           })
           if not urls:
               print('No changed pages')

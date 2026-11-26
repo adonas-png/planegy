@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gefahranalyse für LPG-Abfüllanlagen: Ablauf, Regeln, Pflichten – PLANEGY</title>
+  <meta name="description" content="Gefährdungsbeurteilung für LPG-Abfüllanlagen nach TRBS 3151/TRGS 751: Anlagenteile, Gefahren, Ex-Zonen, Explosionsschutzdokument und Prüfungen Schritt für Schritt." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Gefahranalyse für LPG-Abfüllanlagen: Ablauf, Regeln, Pflichten" />
+  <meta property="og:description" content="Gefährdungsbeurteilung für LPG-Abfüllanlagen nach TRBS 3151/TRGS 751: Anlagenteile, Gefahren, Ex-Zonen, Explosionsschutzdokument und Prüfungen Schritt für Schritt." />
+  <meta property="og:image" content="https://planegy.de/assets/og-planegy.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="PLANEGY, Ingenieurbüro für Energieplanung" />
+  <meta property="og:url" content="https://planegy.de/blog/gefahranalyse-lpg-abfullanlage" />
+  <meta property="og:site_name" content="PLANEGY" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://planegy.de/assets/og-planegy.png" />
+  <link rel="canonical" href="https://planegy.de/blog/gefahranalyse-lpg-abfullanlage" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://planegy.de/blog/gefahranalyse-lpg-abfullanlage" },
+    "headline": "Gefahranalyse für LPG-Abfüllanlagen: Ablauf, Regeln, Pflichten",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-25",
+    "dateModified": "2026-11-25",
+    "description": "Gefährdungsbeurteilung für LPG-Abfüllanlagen nach TRBS 3151/TRGS 751: Anlagenteile, Gefahren, Ex-Zonen, Explosionsschutzdokument und Prüfungen Schritt für Schritt."
+  }
+  </script>
+  <script src="/assets/consent.js" defer></script>
+  <link rel="stylesheet" href="/assets/fonts.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"⚡"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Gefahranalyse für LPG-Abfüllanlagen: Ablauf, Regeln, Pflichten</span>
+    </div>
+    <div class="article-cat">Energie</div>
+    <h1>Gefahranalyse für LPG-Abfüllanlagen: Ablauf, Regeln, Pflichten</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="gefahranalyse-fur-lpg-abfullanlagen-ablauf-regeln-pflichten" tabindex="-1">Gefahranalyse für LPG-Abfüllanlagen: Ablauf, Regeln, Pflichten</h1>
+
+<p>Wer eine LPG-Abfüllanlage betreibt, plant oder umbaut, braucht keine lose „Gefahranalyse“. Gefordert ist eine Gefährdungsbeurteilung nach Arbeitsschutz-, Gefahrstoff- und Betriebssicherheitsrecht. Sie hängt direkt mit dem Explosionsschutzdokument, der Erlaubnis und den Prüfungen zusammen. Fehlt an einer Stelle etwas, fällt das spätestens bei der Behörde oder der Prüfstelle auf. Am sichersten fahren Sie deshalb, wenn ein Team die Beurteilung, die Dokumentation und das Genehmigungsverfahren aus einer Hand bearbeitet. Genau das machen wir bei PLANEGY mit unseren Compliance- und Genehmigungsleistungen für Flüssiggasanlagen. Dieser Leitfaden zeigt, was in die Beurteilung gehört, wie sie Schritt für Schritt entsteht und wo Betreiber in der Praxis typischerweise Lücken lassen.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Compliance für LPG-Anlagen im Blick</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY unterstützt bei Compliance und Genehmigungen für Flüssiggasanlagen, von der Analyse bis zur Umsetzung.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Besuchen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li>Maßgeblich für Gasfüllanlagen ist die TRBS 3151/TRGS 751 (Ausgabe Februar 2024, zuletzt geändert im Oktober 2026). Sie verweist für das Vorgehen auf TRBS 1111 und TRGS 400.</li>
+<li>Die Beurteilung deckt alle Anlagenteile ab, vom Lagerbehälter bis zum Potentialausgleich, und dazu Normalbetrieb, Störungen und äußere Einflüsse.</li>
+<li>An Flüssiggas-Füllanlagen lässt sich explosionsfähige Atmosphäre in der Regel nicht sicher verhindern. Ex-Zonen und ein Explosionsschutzdokument sind deshalb Pflicht.</li>
+<li>Schutzmaßnahmen folgen einer festen Rangfolge: erst technisch, dann organisatorisch, zuletzt personenbezogen.</li>
+<li>Betreiber müssen Erlaubnisbescheid, Prüfbescheinigungen, Betriebsanweisungen und Unterweisungen immer aktuell vorhalten.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-mit-gefahranalyse-gemeint-ist">Was mit „Gefahranalyse“ gemeint ist</a></li>
+<li><a href="#welche-anlagenteile-und-betriebszustande-in-die-beurteilung-gehoren">Welche Anlagenteile und Betriebszustände in die Beurteilung gehören</a></li>
+<li><a href="#welche-gefahren-flussiggas-mit-sich-bringt">Welche Gefahren Flüssiggas mit sich bringt</a></li>
+<li><a href="#die-gefahrdungsbeurteilung-schritt-fur-schritt">Die Gefährdungsbeurteilung Schritt für Schritt</a></li>
+<li><a href="#ex-zonen-und-explosionsschutzdokument">Ex-Zonen und Explosionsschutzdokument</a></li>
+<li><a href="#schutzmassnahmen-in-der-richtigen-rangfolge">Schutzmaßnahmen in der richtigen Rangfolge</a></li>
+<li><a href="#erlaubnis-prufungen-und-unterlagen">Erlaubnis, Prüfungen und Unterlagen</a></li>
+<li><a href="#gefahrdungsbeurteilung-und-genehmigung-mit-planegy">Gefährdungsbeurteilung und Genehmigung mit PLANEGY</a></li>
+<li><a href="#unsere-sicht-die-beurteilung-ist-ein-system-kein-formular">Unsere Sicht: Die Beurteilung ist ein System, kein Formular</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-mit-gefahranalyse-gemeint-ist" tabindex="-1">Was mit „Gefahranalyse“ gemeint ist</h2>
+<p>Im Sprachgebrauch heißt es oft „Gefahranalyse“. Das deutsche Recht spricht von der <strong>Gefährdungsbeurteilung</strong>: Der Arbeitgeber ermittelt systematisch, welche Gefährdungen von einer Anlage oder Tätigkeit ausgehen, bewertet sie und legt Schutzmaßnahmen fest. Bei einer LPG-Abfüllanlage greifen dafür drei Rechtsbereiche ineinander: das Arbeitsschutzgesetz (ArbSchG), die Gefahrstoffverordnung (GefStoffV) und die Betriebssicherheitsverordnung (BetrSichV).</p>
+<p>Die <a href="https://www.schankanlagen-fachbetrieb.de/pdf/TRGS-407.pdf" rel="nofollow noopener noreferrer" target="_blank">TRGS 407 „Tätigkeiten mit Gasen“</a> verlangt, dass der Arbeitgeber im Rahmen der Gefährdungsbeurteilung nach § 5 ArbSchG, § 6 GefStoffV und § 3 BetrSichV klärt, ob durch Tätigkeiten mit Gasen Gefährdungen für Beschäftigte oder andere Personen entstehen. Für Anlagen zum Befüllen von Fahrzeugen mit Flüssiggas wird das in einer eigenen technischen Regel konkretisiert. Technische Regeln (TRBS für Betriebssicherheit, TRGS für Gefahrstoffe) sind die amtlichen Auslegungshilfen zu den Verordnungen: Wer sie einhält, kann davon ausgehen, die Anforderungen zu erfüllen.</p>
+<table>
+<thead>
+<tr>
+<th>Regelwerk</th>
+<th>Wofür es bei der LPG-Abfüllanlage steht</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TRBS 3151/TRGS 751</td>
+<td>Brand-, Explosions- und Druckgefährdungen an Tankstellen und Gasfüllanlagen</td>
+</tr>
+<tr>
+<td>TRBS 1111 / TRGS 400</td>
+<td>Methodik der Gefährdungsbeurteilung</td>
+</tr>
+<tr>
+<td>TRGS 407</td>
+<td>Tätigkeiten mit Gasen, typische Gefährdungen</td>
+</tr>
+<tr>
+<td>TRGS 720 ff. / TRBS 2152</td>
+<td>Explosionsschutz, Zoneneinteilung</td>
+</tr>
+<tr>
+<td>TRBS 1122, 1123, 1201</td>
+<td>Änderungen und Prüfungen</td>
+</tr>
+<tr>
+<td>§ 18 BetrSichV</td>
+<td>Erlaubnispflicht für Errichtung, Betrieb und Änderung</td>
+</tr>
+</tbody>
+</table>
+<p>Die <a href="https://www.baua.de/DE/Angebote/Regelwerk/TRBS/TRBS" rel="nofollow noopener noreferrer" target="_blank">BAuA führt die TRBS 3151/TRGS 751</a> in der Ausgabe Februar 2024 als geltende Regel. Die letzte Änderung wurde am 20. Oktober 2026 im Gemeinsamen Ministerialblatt (GMBl 2026 S. 693) veröffentlicht. Wenn Ihre Gefährdungsbeurteilung älter ist, sollten Sie sie deshalb gegen die aktuelle Fassung prüfen. Nach <a href="https://gewerbeaufsicht.baden-wuerttemberg.de/documents/20121/55168/5_3151.pdf" rel="nofollow noopener noreferrer" target="_blank">TRBS 3151/TRGS 751</a> gilt die Regel für ortsbewegliche und ortsfeste Gasfüllanlagen, für Tankstellen und für Kombinationen aus beidem zur Befüllung von Landfahrzeugen.</p>
+<h2 id="welche-anlagenteile-und-betriebszustande-in-die-beurteilung-gehoren" tabindex="-1">Welche Anlagenteile und Betriebszustände in die Beurteilung gehören</h2>
+<p>Die Gefährdungsbeurteilung umfasst nach <a href="https://vorschriften.bgn-branchenwissen.de/daten/tr/trbs3151/3.htm" rel="nofollow noopener noreferrer" target="_blank">Abschnitt 3 der TRBS 3151/TRGS 751</a> den gesamten Lebensweg der Anlage: Bereitstellung, Montage, Installation, Benutzung und Betrieb. Zu berücksichtigen sind Normalbetrieb, Betriebsstörungen und vorhersehbare äußere Einflüsse.</p>
+<p>Welche Anlagenteile dazugehören, zählt die Regel ausdrücklich auf. Für eine LPG-Abfüllanlage sind das unter anderem:</p>
+<ul>
+<li>Lagerbehälter und druckspezifische Anlagenteile</li>
+<li>Leitungen und Abgabeeinrichtungen</li>
+<li>Schächte, zum Beispiel Dom- und Pumpenschächte</li>
+<li>sicherheitsrelevante Mess-, Steuer- und Regeleinrichtungen (MSR)</li>
+<li>Kühleinrichtungen und Isolierungen</li>
+<li>Brandschutzmaßnahmen und Blitzschutz</li>
+<li>Erdung und Potentialausgleich</li>
+<li>Verkehrsflächen, auf denen Fahrzeuge an- und abfahren</li>
+</ul>
+<p>In der Praxis bleiben oft gerade die Randbereiche unbeachtet: die Verkehrsfläche, auf der ein Lieferfahrzeug eine Abgabeeinrichtung rammen kann, der Blitzschutz bei einer Erweiterung oder die MSR-Technik, die nach einem Softwareupdate anders schaltet. Eine Beurteilung, die nur Behälter und Zapfsäule betrachtet, ist unvollständig.</p>
+<h2 id="welche-gefahren-flussiggas-mit-sich-bringt" tabindex="-1">Welche Gefahren Flüssiggas mit sich bringt</h2>
+<p>Flüssiggas steht unter Druck, ist entzündbar und verdrängt Luftsauerstoff. Die <a href="https://www.schankanlagen-fachbetrieb.de/pdf/TRGS-407.pdf" rel="nofollow noopener noreferrer" target="_blank">TRGS 407</a> nennt die Gefährdungen, die bei Tätigkeiten mit Gasen zu prüfen sind:</p>
+<ul>
+<li>Druck in Druckgasbehältern oder Druckanlagen</li>
+<li>betriebsbedingte Freisetzung, etwa beim An- und Abkuppeln</li>
+<li>Freisetzung durch unbeabsichtigtes Öffnen unter Druck stehender Anlagenteile</li>
+<li>Undichtigkeiten und störungsbedingte Freisetzung</li>
+<li>äußere Einwirkungen wie Anfahren oder Hitze</li>
+<li>Mischen von Gasen</li>
+<li>Erstickungsgefahr durch Verdrängung des Luftsauerstoffs</li>
+<li>unsachgemäße Wartungs- und Instandsetzungsarbeiten</li>
+</ul>
+<p>Bei entzündbaren Gasen muss die Beurteilung zusätzlich klären, ob sich explosionsfähige Gemische bilden können. Für Explosionsgefährdungen bei Instandhaltungsarbeiten verweist die TRGS 407 auf die TRBS 1112 Teil 1, für Schutzmaßnahmen unter anderem auf die TRGS 800 zum Brandschutz und auf die TRBS 2152/TRGS 720 ff. Gerade Wartungsarbeiten werden häufig unterschätzt: Wer eine Leitung öffnet, schafft für kurze Zeit genau die Bedingungen, gegen die die Anlage im Normalbetrieb geschützt ist.</p>
+<h2 id="die-gefahrdungsbeurteilung-schritt-fur-schritt" tabindex="-1">Die Gefährdungsbeurteilung Schritt für Schritt</h2>
+<p>Die <a href="https://gewerbeaufsicht.baden-wuerttemberg.de/documents/20121/55168/5_3151.pdf" rel="nofollow noopener noreferrer" target="_blank">TRBS 3151/TRGS 751</a> gibt den Rahmen vor: Gefährdungen ermitteln, bewerten, Schutzmaßnahmen in fester Rangfolge festlegen und alles dokumentieren. In der Praxis hat sich dieser Ablauf bewährt.</p>
+<ol>
+<li>
+<p><strong>Anlage und Grenzen festlegen.</strong> Beschreiben Sie, was zur Anlage gehört: Lagerbehälter, Rohrleitungen, Pumpen, Abgabeeinrichtungen, Steuerung, Verkehrsflächen. Typischer Fehler: Die Grenze zur Nachbaranlage, etwa einer Gasdruckregelanlage oder einem Gebäude, bleibt offen. Wir legen die Anlagengrenzen gemeinsam mit Ihnen fest, bevor die erste Gefährdung bewertet wird.</p>
+</li>
+<li>
+<p><strong>Tätigkeiten und Betriebszustände erfassen.</strong> Befüllung, Anlieferung per Tankwagen, Wartung, Störungsbeseitigung, Außerbetriebnahme. Wer nur den Normalbetrieb aufschreibt, übersieht die Situationen, in denen die meisten Freisetzungen entstehen.</p>
+</li>
+<li>
+<p><strong>Gefährdungen ermitteln.</strong> Gehen Sie die Liste der TRGS 407 für jedes Anlagenteil und jeden Betriebszustand durch: Druck, Freisetzung, Zündquellen, äußere Einwirkungen, Erstickung.</p>
+</li>
+<li>
+<p><strong>Gefährdungen bewerten.</strong> Die TRBS 3151/TRGS 751 nennt dafür <a href="https://vorschriften.bgn-branchenwissen.de/daten/tr/trbs3151/3.htm" rel="nofollow noopener noreferrer" target="_blank">fünf Bewertungskriterien</a>: Zugänglichkeit für Beschäftigte und andere Personen, Aufstellung mit Schutzabständen, Eigenschaften der Kraft- und Betriebsstoffe, technische Ausführung und Zustand der Anlage sowie die Ausrüstung mit Schutzeinrichtungen. Eine öffentlich zugängliche Autogas-Zapfstelle ist anders zu bewerten als eine Betriebstankstelle hinter dem Werkstor.</p>
+</li>
+<li>
+<p><strong>Explosionsgefährdete Bereiche festlegen.</strong> Ex-Zonen einteilen und das Explosionsschutzdokument erstellen (siehe nächster Abschnitt). Explosionsschutzdokumente gehören ausdrücklich zu unseren Compliance-Leistungen.</p>
+</li>
+<li>
+<p><strong>Schutzmaßnahmen festlegen.</strong> Technisch vor organisatorisch vor personenbezogen. Jede Maßnahme braucht eine Zuständigkeit und einen Termin.</p>
+</li>
+<li>
+<p><strong>Dokumentieren, unterweisen, prüfen.</strong> Betriebsanweisungen schreiben, Beschäftigte einweisen, Prüffristen festlegen. Häufiger Fehler: Die Beurteilung ist sauber, aber die Unterweisung ist nicht nachweisbar. Einweisungen und Gefährdungsbeurteilungen übernehmen wir als Teil unserer Compliance-Services.</p>
+</li>
+<li>
+<p><strong>Aktuell halten.</strong> Nach jeder Änderung an der Anlage, nach Störungen und nach Änderungen der technischen Regeln wird die Beurteilung überprüft und fortgeschrieben.</p>
+</li>
+</ol>
+<p>Wie Sie die Explosionsgefährdung allgemein methodisch bewerten, zeigen wir ausführlicher in unserem Leitfaden zur <a href="https://planegy.de/blog/gefahrdungsbeurteilung-explosionsschutz" target="_blank" rel="noopener">Gefährdungsbeurteilung im Explosionsschutz</a>.</p>
+<h2 id="ex-zonen-und-explosionsschutzdokument" tabindex="-1">Ex-Zonen und Explosionsschutzdokument</h2>
+<p>An Teilen von Gasfüllanlagen lässt sich die Bildung gefährlicher explosionsfähiger Atmosphäre in der Regel nicht sicher verhindern. Die betroffenen Bereiche sind deshalb nach <a href="https://vorschriften.bgn-branchenwissen.de/daten/tr/trbs3151/4.htm" rel="nofollow noopener noreferrer" target="_blank">TRBS 3151/TRGS 751</a> als explosionsgefährdete Bereiche auszuweisen. Die Zoneneinteilung richtet sich nach Anhang 1 Nr. 1.6 Abs. 3 GefStoffV, und es ist ein Explosionsschutzdokument nach § 6 Abs. 9 GefStoffV zu erstellen.</p>
+<p>Ex-Zonen beschreiben, wie häufig und wie lange explosionsfähige Atmosphäre auftreten kann: Zone 0 ständig oder langzeitig, Zone 1 gelegentlich im Normalbetrieb, Zone 2 selten und nur kurz. Die Regel gibt für Flüssiggas konkrete Beispiele vor. Nach der <a href="https://www.baua.de/DE/Angebote/Regelwerk/TRBS/pdf/TRBS-3151.pdf?__blob=publicationFile&amp;v=9" rel="nofollow noopener noreferrer" target="_blank">Fassung der TRBS 3151 bei der BAuA</a> sind etwa das Innere des Armaturenteils von Abgabeeinrichtungen, die Sockelschächte und das Innere von Fernfüllschränken Zone 1, ebenso das Innere von Dom-, Pumpen- und Verteilerschächten. Der Bereich außerhalb des Armaturenteils bis zum Erdboden ist Zone 2.</p>
+
+<p>Die <a href="https://www.dguv.de/fb-etem/sachgebiete/energie_wasser/gasversorgung/explosionsschutz-in-der-gasversorgung/index.jsp" rel="nofollow noopener noreferrer" target="_blank">DGUV</a> hält fest, dass Brand- und Explosionsgefahren in der Gefährdungsbeurteilung gesondert zu beurteilen sind. Bei Gasanlagen mit Zoneneinteilung wird in der Regel ein Explosionsschutzdokument nötig, das die technischen und organisatorischen Schutzmaßnahmen der Anlage beschreibt. Das Dokument ist also kein Anhang, sondern der Kern Ihrer Nachweise. Wie es aufgebaut ist, erklären wir im <a href="https://planegy.de/blog/explosionsschutzdokument-erstellen" target="_blank" rel="noopener">Praxisleitfaden zum Explosionsschutzdokument</a>. Wie die Zonen im Einzelnen abgegrenzt werden, steht in unserem Beitrag zur <a href="https://planegy.de/blog/ex-zonen-klassifizierung" target="_blank" rel="noopener">Klassifizierung von Ex-Zonen</a>.</p>
+<h2 id="schutzmassnahmen-in-der-richtigen-rangfolge" tabindex="-1">Schutzmaßnahmen in der richtigen Rangfolge</h2>
+<p>Die <a href="https://gewerbeaufsicht.baden-wuerttemberg.de/documents/20121/55168/5_3151.pdf" rel="nofollow noopener noreferrer" target="_blank">TRBS 3151/TRGS 751</a> legt die Reihenfolge verbindlich fest. Erst wenn technische Maßnahmen ausgeschöpft sind, kommen organisatorische und zuletzt personenbezogene Maßnahmen zum Zug.</p>
+<table>
+<thead>
+<tr>
+<th>Stufe</th>
+<th>Beispiele an der LPG-Abfüllanlage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Technisch</td>
+<td>Explosionsgeschützte Betriebsmittel in Ex-Zonen, Erdung und Potentialausgleich, Anfahrschutz, Gaswarneinrichtungen, Lüftung, Not-Aus, Schutzabstände</td>
+</tr>
+<tr>
+<td>2. Organisatorisch</td>
+<td>Betriebsanweisungen, Arbeitsfreigaben für Wartung, Kennzeichnung der Ex-Bereiche, Alarmierungsregeln</td>
+</tr>
+<tr>
+<td>3. Personenbezogen</td>
+<td>Geeignete Schutzkleidung und Schutzausrüstung bei Befüll- und Wartungsarbeiten</td>
+</tr>
+</tbody>
+</table>
+<p>Dazu kommt ein Punkt, den viele Betreiber nicht als Schutzmaßnahme sehen: Die Funktionsfähigkeit sicherheitsrelevanter Anlagenteile ist durch Wartung, Instandsetzung und Prüfung sicherzustellen. Die Prüfungen werden in TRBS 1122, TRBS 1123 und TRBS 1201 mit ihren Teilen konkretisiert. Eine Gaswarnanlage, die nie geprüft wird, ist auf dem Papier eine technische Maßnahme, in der Praxis aber keine.</p>
+<p>Eine Unterweisung zählt nur, wenn sie verstanden und nachgewiesen ist. Wie Sie sie aufbauen, lesen Sie in unserem Beitrag zur <a href="https://planegy.de/blog/sicherheitsunterweisung-energieanlagen" target="_blank" rel="noopener">Sicherheitsunterweisung an Energieanlagen</a>.</p>
+<h2 id="erlaubnis-prufungen-und-unterlagen" tabindex="-1">Erlaubnis, Prüfungen und Unterlagen</h2>
+<p>Die Gefährdungsbeurteilung ist auch Grundlage des Erlaubnisverfahrens. Nach § 18 BetrSichV bedürfen Errichtung, Betrieb und sicherheitsrelevante Änderungen von Gasfüllanlagen einer Erlaubnis der zuständigen Behörde. Den Antragsunterlagen ist ein Prüfbericht einer zugelassenen Überwachungsstelle (ZÜS) beizufügen. Eine ZÜS ist eine staatlich zugelassene Prüforganisation. Dieser Schritt ist gesetzlich ihr vorbehalten. Antrag und Unterlagen bereiten wir so vor, dass die Prüfung reibungslos durchläuft, und begleiten das Verfahren bis zum Bescheid. Details zum Verfahren stehen in unserem Beitrag zur <a href="https://planegy.de/blog/lpg-anlage-genehmigung" target="_blank" rel="noopener">Genehmigung von LPG-Anlagen</a>.</p>
+<p>Auch spätere Umbauten lösen Pflichten aus. Nach der <a href="https://gewerbeaufsicht.baden-wuerttemberg.de/documents/20121/55168/5_1122.pdf" rel="nofollow noopener noreferrer" target="_blank">TRBS 1122</a> bedürfen prüfpflichtige Änderungen an Gasfüllanlagen, die Bauart oder Betriebsweise betreffen, einer Erlaubnis. Die Regel enthält Beispiele, welche Maßnahmen darunter fallen. Ein zusätzlicher Abgabepunkt, ein größerer Behälter oder eine neue Steuerung kann also ein neues Verfahren auslösen. Die Gefährdungsbeurteilung wird dann ohnehin fortgeschrieben.</p>
+<p>Für den laufenden Betrieb verlangt die <a href="https://rp-darmstadt.hessen.de/sites/rp-darmstadt.hessen.de/files/2022-03/handlungshilfe-erlaubnisverfahren-fuer-tankstellen-und-gastankstellen_august-2010.pdf" rel="nofollow noopener noreferrer" target="_blank">Handlungshilfe des Regierungspräsidiums Darmstadt</a>, dass folgende Unterlagen vorliegen und aktuell gehalten werden:</p>
+<ul>
+<li>technische Dokumentation der Anlage</li>
+<li>Erlaubnisbescheid mit Antragsunterlagen</li>
+<li>Prüfbescheinigungen der ZÜS und Aufzeichnungen der befähigten Personen</li>
+<li>Explosionsschutzdokument</li>
+<li>Betriebsanweisungen und Nachweise der Unterweisungen</li>
+<li>Regelungen zur Alarmierung von Feuerwehr und Rettungsdienst</li>
+</ul>
+<p>Wiederkehrende Prüfungen und ihre Fristen richten sich nach der sicherheitstechnischen Bewertung und der BetrSichV. Eine Übersicht der Fristen finden Sie in unserer <a href="https://planegy.de/blog/betrsichv-prufungen" target="_blank" rel="noopener">Checkliste zu Prüfungen nach BetrSichV</a>, für die Behälter selbst in unserem Beitrag zu den <a href="https://planegy.de/blog/prufpflichten-druckbehalter" target="_blank" rel="noopener">Prüfpflichten bei Druckbehältern</a>.</p>
+<h2 id="gefahrdungsbeurteilung-und-genehmigung-mit-planegy" tabindex="-1">Gefährdungsbeurteilung und Genehmigung mit PLANEGY</h2>
+<p>Bei PLANEGY erstellen wir Gefährdungsbeurteilungen und Explosionsschutzdokumente, führen Einweisungen durch und begleiten Genehmigungsverfahren für Flüssiggas- und LNG-Anlagen. Wir arbeiten technologieoffen und ohne eigene Produkte oder Herstellerinteressen. Unsere Empfehlung für Ihre Anlage richtet sich deshalb nur nach Sicherheit, Wirtschaftlichkeit und Genehmigungsfähigkeit.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Wenn Sie eine LPG-Abfüllanlage neu planen, erweitern oder Ihre Unterlagen für die nächste Prüfung auf Stand bringen wollen, finden Sie unsere Leistungen für Genehmigung, Energieanlagen und Compliance auf der Seite <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen von PLANEGY</a>. Industriebetriebe finden ihre Schwerpunkte unter <a href="https://planegy.de/industrie" target="_blank" rel="noopener">Energieberatung für die Industrie</a>.</p>
+<h2 id="unsere-sicht-die-beurteilung-ist-ein-system-kein-formular" tabindex="-1">Unsere Sicht: Die Beurteilung ist ein System, kein Formular</h2>
+<blockquote>
+<p>Wir erleben oft, dass Betreiber die Gefährdungsbeurteilung als einmaliges Dokument verstehen, das man für die Erlaubnis braucht und dann ablegt. Bei einer LPG-Abfüllanlage greift das zu kurz. Die Beurteilung bestimmt die Ex-Zonen, die Zonen bestimmen die Geräteauswahl, die Geräte bestimmen die Prüfungen, und die Prüfungen fließen wieder in die Beurteilung ein.</p>
+<p>Deshalb arbeiten wir von der Analyse bis zur Umsetzung. Technische, wirtschaftliche und regulatorische Fragen betrachten wir gemeinsam: Ein Behälterstandort, der die Schutzabstände entspannt, spart später Aufwand bei Ex-Schutz und Prüfung. Eine Anlagenänderung, die früh mit Blick auf die Erlaubnispflicht geplant wird, vermeidet Nacharbeiten im Verfahren.</p>
+<p>Weil wir technologieoffen beraten, schauen wir dabei auch auf die Energieversorgung insgesamt, etwa auf BioLPG als Brückentechnologie zur Wärmewende oder auf passende Fördermittel für Investitionen in die Anlage. So entsteht aus der Pflichtaufgabe eine Grundlage für eine sichere, genehmigungsfähige und zukunftsfähige Versorgung.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="ist-eine-gefahranalyse-dasselbe-wie-eine-gefahrdungsbeurteilung" tabindex="-1">Ist eine Gefahranalyse dasselbe wie eine Gefährdungsbeurteilung?</h3>
+<p>Im Alltag werden beide Begriffe gleich verwendet. Rechtlich gefordert ist die Gefährdungsbeurteilung nach ArbSchG, GefStoffV und BetrSichV. Für Gasfüllanlagen wird sie in der TRBS 3151/TRGS 751 konkretisiert und um Explosionsschutzdokument und Prüfkonzept ergänzt.</p>
+<h3 id="brauche-ich-fur-jede-lpg-abfullanlage-ein-explosionsschutzdokument" tabindex="-1">Brauche ich für jede LPG-Abfüllanlage ein Explosionsschutzdokument?</h3>
+<p>Für Gasfüllanlagen schreibt die TRBS 3151/TRGS 751 die Ausweisung explosionsgefährdeter Bereiche und ein Explosionsschutzdokument nach § 6 Abs. 9 GefStoffV vor. Bei Flüssiggas lässt sich explosionsfähige Atmosphäre an Teilen der Anlage in der Regel nicht sicher verhindern. Das Dokument gehört daher zur Grundausstattung jeder solchen Anlage.</p>
+<h3 id="wann-muss-ich-die-gefahrdungsbeurteilung-aktualisieren" tabindex="-1">Wann muss ich die Gefährdungsbeurteilung aktualisieren?</h3>
+<p>Nach jeder Änderung an der Anlage oder an den Abläufen, nach Störungen und Unfällen und wenn sich die technischen Regeln ändern. Die TRBS 3151/TRGS 751 wurde zuletzt im Oktober 2026 geändert. Ältere Beurteilungen sollten Sie deshalb gegen die aktuelle Fassung prüfen.</p>
+<h3 id="lost-ein-umbau-eine-neue-erlaubnis-aus" tabindex="-1">Löst ein Umbau eine neue Erlaubnis aus?</h3>
+<p>Änderungen, die Bauart oder Betriebsweise betreffen und die Sicherheit beeinflussen, sind nach § 18 BetrSichV erlaubnispflichtig. Die TRBS 1122 nennt Beispiele, welche Maßnahmen dazu zählen. Klären Sie die Frage vor dem Umbau, damit Planung und Verfahren zusammenpassen.</p>
+<h3 id="wer-darf-die-gefahrdungsbeurteilung-erstellen" tabindex="-1">Wer darf die Gefährdungsbeurteilung erstellen?</h3>
+<p>Verantwortlich ist der Arbeitgeber bzw. Betreiber. Er muss die Beurteilung fachkundig durchführen lassen, wenn er selbst nicht über die nötige Fachkunde verfügt. Viele Betreiber übertragen die Erstellung daher an spezialisierte Berater, die Verantwortung für die Umsetzung bleibt beim Betreiber.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://vorschriften.bgn-branchenwissen.de/daten/tr/trbs3151/3.htm" rel="nofollow noopener noreferrer" target="_blank">TRBS 3151/TRGS 751, Abschnitt 3: Gefährdungsbeurteilung (BGN)</a></li>
+<li><a href="https://vorschriften.bgn-branchenwissen.de/daten/tr/trbs3151/4.htm" rel="nofollow noopener noreferrer" target="_blank">TRBS 3151/TRGS 751, Abschnitt 4: Anforderungen an Gasfüllanlagen (BGN)</a></li>
+<li><a href="https://gewerbeaufsicht.baden-wuerttemberg.de/documents/20121/55168/5_3151.pdf" rel="nofollow noopener noreferrer" target="_blank">TRBS 3151/TRGS 751 (Gewerbeaufsicht Baden-Württemberg)</a></li>
+<li><a href="https://www.baua.de/DE/Angebote/Regelwerk/TRBS/pdf/TRBS-3151.pdf?__blob=publicationFile&amp;v=9" rel="nofollow noopener noreferrer" target="_blank">TRBS 3151/TRGS 751 (BAuA, PDF)</a></li>
+<li><a href="https://www.baua.de/DE/Angebote/Regelwerk/TRBS/TRBS" rel="nofollow noopener noreferrer" target="_blank">BAuA: Übersicht der Technischen Regeln für Betriebssicherheit</a></li>
+<li><a href="https://www.schankanlagen-fachbetrieb.de/pdf/TRGS-407.pdf" rel="nofollow noopener noreferrer" target="_blank">TRGS 407 Tätigkeiten mit Gasen</a></li>
+<li><a href="https://www.dguv.de/fb-etem/sachgebiete/energie_wasser/gasversorgung/explosionsschutz-in-der-gasversorgung/index.jsp" rel="nofollow noopener noreferrer" target="_blank">DGUV: Explosionsschutz in der Gasversorgung</a></li>
+<li><a href="https://gewerbeaufsicht.baden-wuerttemberg.de/documents/20121/55168/5_1122.pdf" rel="nofollow noopener noreferrer" target="_blank">TRBS 1122: Änderungen von Gasfüllanlagen (Gewerbeaufsicht Baden-Württemberg)</a></li>
+<li><a href="https://rp-darmstadt.hessen.de/sites/rp-darmstadt.hessen.de/files/2022-03/handlungshilfe-erlaubnisverfahren-fuer-tankstellen-und-gastankstellen_august-2010.pdf" rel="nofollow noopener noreferrer" target="_blank">RP Darmstadt: Handlungshilfe Erlaubnisverfahren für Tankstellen und Gastankstellen</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog/lpg-anlage-genehmigung" target="_blank" rel="noopener">LPG-Anlage-Genehmigung: Regeln für Kommunen und Betriebe</a></li>
+<li><a href="https://planegy.de/blog/lng-anlage-genehmigung" target="_blank" rel="noopener">LNG-Anlage-Genehmigung in Deutschland: Was Antragsteller wissen müssen</a></li>
+<li><a href="https://planegy.de/blog/gasdruckregelanlage-genehmigung" target="_blank" rel="noopener">Gasdruckregelanlage: Genehmigung, Anzeige und Abnahme 2026</a></li>
+<li><a href="https://planegy.de/blog/prufpflichten-druckbehalter" target="_blank" rel="noopener">Prüfpflichten bei Druckbehältern: Fristen und Zuständigkeiten</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+    <a href="#cookie-einstellungen" data-consent-settings>Cookie-Einstellungen</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>

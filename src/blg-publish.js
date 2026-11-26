@@ -161,16 +161,17 @@ function generateArticleHtml({ title, slug, content_html, metaDescription, categ
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="PLANEGY, Ingenieurbüro für Energieplanung" />
-  <meta property="og:url" content="https://planegy.de/blog-${slug}" />
+  <meta property="og:url" content="https://planegy.de/blog/${slug}" />
   <meta property="og:site_name" content="PLANEGY" />
   <meta property="og:locale" content="de_DE" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://planegy.de/assets/og-planegy.png" />
-  <link rel="canonical" href="https://planegy.de/blog-${slug}" />
+  <link rel="canonical" href="https://planegy.de/blog/${slug}" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://planegy.de/blog/${slug}" },
     "headline": "${title.replace(/"/g, '\\"')}",
     "author": { "@type": "Person", "name": "Alexios Donas" },
     "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
@@ -317,7 +318,7 @@ function generateArticleHtml({ title, slug, content_html, metaDescription, categ
 
 function generateArticleCard({ title, slug, excerpt, category, catStyle, dateStr, readTime }) {
   return `
-    <a href="/blog-${slug}" class="article-card" data-cat="${category}">
+    <a href="/blog/${slug}" class="article-card" data-cat="${category}">
       <div class="article-thumb" style="background:${catStyle.grad}">${catStyle.emoji}</div>
       <div class="article-body">
         <div class="article-cat">${catStyle.label}</div>
@@ -331,9 +332,14 @@ function generateArticleCard({ title, slug, excerpt, category, catStyle, dateStr
     </a>`;
 }
 
-// Ist der Artikel schon in blog.html verlinkt (alte .html- oder neue saubere Adresse)?
+// Ist der Artikel schon in blog.html verlinkt? Geprueft werden die aktuelle Adresse
+// /blog/<slug> und die beiden Formen von vor dem Pfadumzug.
 function isListed(blogHtml, slug) {
-  return blogHtml.includes(`href="/blog-${slug}"`) || blogHtml.includes(`href="blog-${slug}.html"`);
+  return (
+    blogHtml.includes(`href="/blog/${slug}"`) ||
+    blogHtml.includes(`href="/blog-${slug}"`) ||
+    blogHtml.includes(`href="blog-${slug}.html"`)
+  );
 }
 
 // Artikelzahl im HTML aktualisieren (jede Adresse einmal, inkl. hervorgehobenem Artikel).
@@ -401,7 +407,7 @@ export async function handleBlgPublish(request, env) {
   const plainText = cleanHtml.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
   const excerpt = metaDescription || plainText.slice(0, 160) + (plainText.length > 160 ? "…" : "");
 
-  const articleFileName = `blog-${slug}.html`;
+  const articleFileName = `blog/${slug}.html`;
   const articleHtml = generateArticleHtml({ title, slug, content_html: cleanHtml, metaDescription: excerpt, category, catStyle, readTime, dateStr });
 
   if (!env.GITHUB_TOKEN || !env.GITHUB_REPO) {
@@ -432,7 +438,7 @@ export async function handleBlgPublish(request, env) {
       }
 
       if (sitemapFile) {
-        const articleUrl = `https://planegy.de/blog-${slug}`;
+        const articleUrl = `https://planegy.de/blog/${slug}`;
         if (!sitemapFile.content.includes(articleUrl)) {
           const isoDate = new Date(dateStr).toISOString().slice(0, 10);
           const newEntry = `  <url>\n    <loc>${articleUrl}</loc>\n    <lastmod>${isoDate}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  `;

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Druckhaltung im Wärmenetz: Aufgaben, Systeme und Auslegung – PLANEGY</title>
+  <meta name="description" content="Druckhaltung im Wärmenetz: Aufgaben, statische und dynamische Systeme, Auslegung in fünf Schritten, FW 442, Warnzeichen und BEW-Förderung." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Druckhaltung im Wärmenetz: Aufgaben, Systeme und Auslegung" />
+  <meta property="og:description" content="Druckhaltung im Wärmenetz: Aufgaben, statische und dynamische Systeme, Auslegung in fünf Schritten, FW 442, Warnzeichen und BEW-Förderung." />
+  <meta property="og:image" content="https://planegy.de/assets/og-planegy.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="PLANEGY, Ingenieurbüro für Energieplanung" />
+  <meta property="og:url" content="https://planegy.de/blog/druckhaltung-warmenetz" />
+  <meta property="og:site_name" content="PLANEGY" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://planegy.de/assets/og-planegy.png" />
+  <link rel="canonical" href="https://planegy.de/blog/druckhaltung-warmenetz" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://planegy.de/blog/druckhaltung-warmenetz" },
+    "headline": "Druckhaltung im Wärmenetz: Aufgaben, Systeme und Auslegung",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-18",
+    "dateModified": "2026-11-18",
+    "description": "Druckhaltung im Wärmenetz: Aufgaben, statische und dynamische Systeme, Auslegung in fünf Schritten, FW 442, Warnzeichen und BEW-Förderung."
+  }
+  </script>
+  <link rel="stylesheet" href="/assets/fonts.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+  <script src="/assets/consent.js" defer></script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">Druckhaltung im Wärmenetz: Aufgaben, Systeme und Auslegung</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>Druckhaltung im Wärmenetz: Aufgaben, Systeme und Auslegung</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>13 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      <h1 id="druckhaltung-im-warmenetz-aufgaben-systeme-und-auslegung" tabindex="-1">Druckhaltung im Wärmenetz: Aufgaben, Systeme und Auslegung</h1>
+
+<p>Die Druckhaltung entscheidet, ob ein Wärmenetz an jedem Punkt und zu jeder Zeit sicher läuft: Sie hält den Druck zwischen einer Untergrenze, unter der Wasser verdampft oder Luft eindringt, und einer Obergrenze, die Rohre, Armaturen und Übergabestationen schützt. Ob ein Membrangefäß reicht oder eine pumpen- bzw. kompressorgesteuerte Station nötig ist, ergibt sich aus Netzgröße, Höhenprofil, Temperaturen und den Druckstufen der Bauteile. Weil diese Werte in der Netzplanung festgelegt werden und später nur teuer zu korrigieren sind, gehört die Druckhaltung von Anfang an in das Gesamtkonzept des Netzes, zusammen mit Wärmeerzeugung, Genehmigung und Förderung. Genau so planen wir bei PLANEGY Nahwärmesysteme: technologieoffen und von der Analyse bis zur Umsetzung.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Wärmenetze von Anfang an durchdacht planen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY begleitet Nahwärmesysteme technologieoffen von der Analyse bis zur Umsetzung, einschließlich Hydraulik, Genehmigung und Förderfragen.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Besuchen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li>Die Druckhaltung hat drei Kernaufgaben: Druck in zulässigen Grenzen halten, temperaturbedingte Volumenänderungen ausgleichen und eine Wasservorlage für Verluste bereithalten.</li>
+<li>Statische Membran-Druckausdehnungsgefäße arbeiten ohne Hilfsenergie und passen zu kleinen Netzen; dynamische Stationen mit Pumpe oder Kompressor halten den Druck nahezu konstant und sind in größeren Netzen üblich.</li>
+<li>Maßgebend für die Auslegung sind die geodätische Höhe, der Wasserinhalt, die Temperaturen und die schwächste Komponente im Netz.</li>
+<li>Für ganzjährig betriebene Wärmenetze gilt in Deutschland das AGFW-Arbeitsblatt FW 442, für Anlagen mit regulärem Stillstand die VDI 4708.</li>
+<li>Machbarkeitsstudien und Planung neuer Wärmenetze, und damit auch die Hydraulik samt Druckhaltung, sind über die BEW förderfähig.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-die-druckhaltung-im-warmenetz-leistet">Was die Druckhaltung im Wärmenetz leistet</a></li>
+<li><a href="#statisch-oder-dynamisch-die-systeme-im-vergleich">Statisch oder dynamisch: die Systeme im Vergleich</a></li>
+<li><a href="#wo-die-druckhaltung-eingebunden-wird">Wo die Druckhaltung eingebunden wird</a></li>
+<li><a href="#auslegung-in-funf-schritten">Auslegung in fünf Schritten</a></li>
+<li><a href="#welche-regeln-in-deutschland-gelten">Welche Regeln in Deutschland gelten</a></li>
+<li><a href="#schnittstelle-hausubergabestation">Schnittstelle Hausübergabestation</a></li>
+<li><a href="#betrieb-uberwachung-und-warnzeichen">Betrieb, Überwachung und Warnzeichen</a></li>
+<li><a href="#forderung-netzplanung-uber-die-bew-finanzieren">Förderung: Netzplanung über die BEW finanzieren</a></li>
+<li><a href="#unsere-sicht-druckhaltung-ist-eine-planungsentscheidung">Unsere Sicht: Druckhaltung ist eine Planungsentscheidung</a></li>
+<li><a href="#warmenetz-planen-mit-planegy">Wärmenetz planen mit PLANEGY</a></li>
+<li><a href="#haufige-fragen-zur-druckhaltung-im-warmenetz">Häufige Fragen zur Druckhaltung im Wärmenetz</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-die-druckhaltung-im-warmenetz-leistet" tabindex="-1">Was die Druckhaltung im Wärmenetz leistet</h2>
+<p>Ein Wärmenetz ist ein geschlossener Wasserkreislauf. Wird das Wasser wärmer, dehnt es sich aus, kühlt es ab, zieht es sich zusammen. Ohne einen Ausgleich würde der Druck mit jeder Temperaturänderung steigen oder fallen. Das <a href="https://www.agfw-shop.de/regelwerk/4-warmeverteilung/fw-442c-druckhaltung-in-heizwasser-fernwarmenetzen-druckfassung.html" rel="nofollow noopener noreferrer" target="_blank">AGFW-Arbeitsblatt FW 442</a>, das Regelwerk des Fernwärmeverbands AGFW, beschreibt dafür drei Kernaufgaben:</p>
+<ol>
+<li><strong>Druck begrenzen:</strong> Der Druck bleibt zu jeder Zeit und an jeder Stelle des Systems innerhalb der zulässigen Grenzen.</li>
+<li><strong>Volumen ausgleichen:</strong> Die temperaturbedingten Volumenänderungen des Netzwassers werden aufgenommen und wieder abgegeben.</li>
+<li><strong>Verluste decken:</strong> Eine Wasservorlage gleicht kleine Wasserverluste aus. Dazu kommt Behältervolumen, etwa für Abspeisungen und Entleerungen.</li>
+</ol>
+<p>Was passiert, wenn eine Grenze verletzt wird, ist schnell erklärt. Fällt der Druck zu tief, drohen Unterdruck, Kavitation (Dampfblasen, die an Pumpen und Ventilen implodieren und Material abtragen) und Verdampfung an heißen Stellen; an Hochpunkten kann zudem Luft ins Netz gelangen. Steigt er zu hoch, werden Rohre, Armaturen und Wärmeübertrager überlastet, und Sicherheitsventile sprechen an. Ein <a href="https://www.heizungsjournal.de/moeglichkeiten-moderner-druckhaltungssysteme_12164" rel="nofollow noopener noreferrer" target="_blank">Fachbeitrag im HeizungsJournal</a> fasst die Hauptaufgabe genau so zusammen: Unterdruck und Kavitation vermeiden, zulässige Höchstdrücke nicht überschreiten und dafür genug Volumen für das Ausdehnungswasser bereitstellen.</p>
+<p>Für Netzbetreiber, Stadtwerke und Kommunen heißt das: Die Druckhaltung ist kein Zubehörteil im Technikraum, sondern eine Sicherheitsfunktion für das gesamte Netz, von der Heizzentrale bis zur letzten Hausübergabestation.</p>
+<h2 id="statisch-oder-dynamisch-die-systeme-im-vergleich" tabindex="-1">Statisch oder dynamisch: die Systeme im Vergleich</h2>
+<p>Grundsätzlich gibt es zwei Bauarten. Bei der <strong>statischen Druckhaltung</strong> trennt eine Membran in einem Druckausdehnungsgefäß (MAG) das Wasser von einem Gaspolster. Steigt das Wasservolumen, wird das Gas zusammengedrückt, und der Druck steigt mit dem Füllstand. Das Gefäß arbeitet laut <a href="https://www.shk-profi.de/artikel/faq-zur-druckhaltung-3992119.html" rel="nofollow noopener noreferrer" target="_blank">SHK Profi</a> ohne Strom, Kompressor oder Pumpe.</p>
+<p>Bei der <strong>dynamischen Druckhaltung</strong> wird der Druck aktiv geregelt. Kompressorgesteuerte Anlagen lassen Luft in das Gaspolster oder ab. Pumpengesteuerte Anlagen leiten Ausdehnungswasser über ein Ventil in einen drucklosen Behälter, entgasen es dort und pumpen es bei Bedarf zurück.</p>
+<table>
+<thead>
+<tr>
+<th>Kriterium</th>
+<th>Statisch (MAG)</th>
+<th>Dynamisch, kompressorgesteuert</th>
+<th>Dynamisch, pumpengesteuert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hilfsenergie</td>
+<td>keine</td>
+<td>Kompressor</td>
+<td>Pumpe</td>
+</tr>
+<tr>
+<td>Druckverlauf</td>
+<td>steigt mit dem Füllstand</td>
+<td>sehr konstant, etwa ±0,1 bar</td>
+<td>konstant, etwa ±0,2 bar</td>
+</tr>
+<tr>
+<td>Nutzbares Gefäßvolumen</td>
+<td>rund 30 % des Nennvolumens</td>
+<td>nahezu vollständig</td>
+<td>nahezu vollständig</td>
+</tr>
+<tr>
+<td>Typischer Einsatz</td>
+<td>kleine Anlagen und Netze</td>
+<td>mittlere Anlagen</td>
+<td>große Anlagen und Netze</td>
+</tr>
+<tr>
+<td>Zusatznutzen</td>
+<td>einfache Technik</td>
+<td>geringer Platzbedarf je nutzbarem Liter</td>
+<td>Entgasung im drucklosen Behälter</td>
+</tr>
+</tbody>
+</table>
+<p>Die Werte zu Druckband und Volumennutzung stammen aus dem genannten <a href="https://www.heizungsjournal.de/moeglichkeiten-moderner-druckhaltungssysteme_12164" rel="nofollow noopener noreferrer" target="_blank">HeizungsJournal-Beitrag</a>; dort wird das MAG bis etwa 300 kW beziehungsweise 3 bar eingeordnet. Für ein kleines Nahwärmenetz mit wenigen Gebäuden kann ein Membrangefäß ausreichen. Sobald das Netz wächst, das Höhenprofil ausgeprägt ist oder mehrere Erzeuger einspeisen, wird ein konstantes Druckband wichtiger, und dynamische Stationen setzen sich durch. Bei Membranen lohnt der Blick auf die Bauart: Halbmembranen sind fest eingebaut, Vollmembranen (Blasen) lassen sich je nach Gefäß tauschen, und das Wasser berührt die Behälterwand nicht, wie die <a href="https://www.ikz.de/medien/ikz-fachplaner/heftarchiv/jahrgang-2022/ausgabe-17/news/detail/volle-power/" rel="nofollow noopener noreferrer" target="_blank">IKZ</a> beschreibt.</p>
+<h2 id="wo-die-druckhaltung-eingebunden-wird" tabindex="-1">Wo die Druckhaltung eingebunden wird</h2>
+<p>Wichtig ist nicht nur das System, sondern auch, wo es ans Netz angeschlossen wird. Der Einbindepunkt ist der Punkt, an dem der Druck auch bei laufender Pumpe fest bleibt; von dort aus verteilt sich der Pumpendruck im Netz. Unterschieden werden:</p>
+<ul>
+<li><strong>Vordruck- oder Saugdruckhaltung:</strong> Einbindung im Rücklauf auf der Saugseite der Umwälzpumpe. Der Arbeitsdruck liegt dann nahezu vollständig über dem Ruhedruck, sodass am Hochpunkt bei laufender Pumpe kein Unterdruck entsteht. Nach Einschätzung im <a href="https://www.heizungsjournal.de/moeglichkeiten-moderner-druckhaltungssysteme_12164" rel="nofollow noopener noreferrer" target="_blank">HeizungsJournal</a> kommt sie in schätzungsweise 90 % aller Anlagen zum Einsatz.</li>
+<li><strong>Nachdruckhaltung:</strong> Einbindung auf der Druckseite der Pumpe. Sie kommt infrage, wenn der Netzdruck insgesamt niedriger liegen soll, verlangt aber eine genaue Prüfung der Saugseite.</li>
+<li><strong>Mitteldruckhaltung:</strong> Der feste Druckpunkt liegt rechnerisch zwischen Vor- und Rücklauf, etwa um die Druckbelastung in ausgedehnten Netzen gleichmäßiger zu verteilen.</li>
+</ul>
+<p>In großen Netzen mit mehreren Erzeugungsanlagen, Speichern oder Pumpstationen wird diese Frage zur Systemfrage: Jeder Teilkreis braucht eine abgestimmte Druckhaltung, sonst arbeiten die Anlagen gegeneinander. Die FW 442 verlangt deshalb klare Zuständigkeiten über Erzeugung, Verteilung und Kundenanlagen hinweg und einen Systemverantwortlichen für das Gesamtkonzept.</p>
+<h2 id="auslegung-in-funf-schritten" tabindex="-1">Auslegung in fünf Schritten</h2>
+<p>Die genaue Auslegung eines Wärmenetzes folgt der FW 442 und einer hydraulischen Netzberechnung. Der Rechenweg lässt sich aber in fünf Schritten nachvollziehen. Die Formeln unten stammen aus der Gebäudetechnik nach EN 12828, wie sie ein <a href="https://pumpen-heizung.de/mediafiles/datenblatt/IMI/hedbwico_in_de_low.pdf" rel="nofollow noopener noreferrer" target="_blank">Herstellerdatenblatt für Druckausdehnungsgefäße</a> wiedergibt, und eignen sich als erster Überschlag.</p>
+
+<h3 id="hohenprofil-und-mindestdruck-bestimmen" tabindex="-1">1. Höhenprofil und Mindestdruck bestimmen</h3>
+<p>Der Mindestdruck am Einbindepunkt folgt aus der statischen Höhe Hst, also dem Höhenunterschied zwischen Einbindepunkt und höchstem Anlagenpunkt. Die Faustformel lautet p₀ = Hst/10 + 0,2 bar. In einem Wärmenetz kommt eine zweite Bedingung hinzu: Am Hochpunkt muss der Druck auch über dem Verdampfungsdruck der heißesten Vorlaufstelle liegen. Je höher die Vorlauftemperatur, desto höher die Untergrenze.</p>
+<p><strong>Wo es schiefgeht:</strong> Ein Neubaugebiet am Hang oder ein später angeschlossenes Gebäude auf einem Hügel verschiebt den Hochpunkt. Wer das Höhenprofil nur für den ersten Bauabschnitt prüft, legt den Vordruck zu knapp aus.</p>
+<h3 id="obergrenze-an-der-schwachsten-komponente-festmachen" tabindex="-1">2. Obergrenze an der schwächsten Komponente festmachen</h3>
+<p>Die zulässige Obergrenze bestimmt nicht das stärkste Rohr, sondern das schwächste Bauteil: eine Armatur, ein Wärmeübertrager oder eine Kundenanlage. Das <a href="https://qmthermischenetze.ch/wp-content/uploads/sites/3/2024/08/THENA_1.1.1_Manual.pdf" rel="nofollow noopener noreferrer" target="_blank">THENA-Handbuch zur Bewertung thermischer Netze</a> unterscheidet dafür den minimalen Betriebsdruck am Hochpunkt vom maximal zulässigen Betriebsdruck am Tiefpunkt. Der maximale Netzdruck setzt sich aus dem statischen Anteil und dem Pumpendruck zusammen und entscheidet über die Druckstufe PN von Rohren und Armaturen.</p>
+<p><strong>Wo es schiefgeht:</strong> Ein Tal im Netz plus hoher Pumpendruck ergeben am Tiefpunkt Drücke, die eine PN-6-Komponente überfordern. Das zeigt sich oft erst bei der Inbetriebnahme.</p>
+<h3 id="ausdehnungsvolumen-und-wasservorlage-berechnen" tabindex="-1">3. Ausdehnungsvolumen und Wasservorlage berechnen</h3>
+<p>Das Ausdehnungsvolumen ergibt sich aus dem gesamten Wasserinhalt des Netzes und der Temperaturspanne zwischen Füll- und maximaler Betriebstemperatur. Dazu kommt die Wasservorlage; nach EN 12828 mindestens 0,5 % des Anlagenvolumens. In Wärmenetzen steckt das meiste Wasser in den Trassen, daher wächst das Ausdehnungsvolumen mit jedem Kilometer Leitung. Wie Sie Trassen und Leitungsquerschnitte dimensionieren, zeigt unser Beitrag zur <a href="https://planegy.de/blog/warmenetz-dimensionierung" target="_blank" rel="noopener">Wärmenetz-Dimensionierung</a>.</p>
+<h3 id="druckband-und-gefassgrosse-festlegen" tabindex="-1">4. Druckband und Gefäßgröße festlegen</h3>
+<p>Zwischen dem Anfangsdruck (mindestens p₀ + 0,3 bar) und dem Enddruck (bei Heizanlagen höchstens Sicherheitsventil-Ansprechdruck geteilt durch 1,3) liegt das Arbeitsband. Je schmaler es ist, desto größer muss ein statisches Gefäß werden. Der Druckfaktor PF = (pₑ + 1)/(pₑ − p₀) zeigt das.</p>
+<p><strong>Ein Rechenbeispiel:</strong> Der höchste Punkt liegt 25 m über dem Einbindepunkt. Dann ist p₀ = 2,5 + 0,2 = 2,7 bar und der Anfangsdruck mindestens 3,0 bar. Bei einem Sicherheitsventil mit 6 bar liegt der Enddruck bei höchstens 4,6 bar. Der Druckfaktor beträgt (4,6 + 1)/(4,6 − 2,7) = 5,6/1,9 ≈ 2,9. Ein Membrangefäß muss also etwa dreimal so groß sein wie das Volumen, das es aufnehmen soll. Genau an dieser Stelle kippt die Entscheidung in größeren Netzen zur dynamischen Station, weil sie ihr Gefäß nahezu vollständig nutzt.</p>
+
+<h3 id="betriebsfalle-und-storfalle-durchspielen" tabindex="-1">5. Betriebsfälle und Störfälle durchspielen</h3>
+<p>Die FW 442 dient sowohl der Auslegung neuer Anlagen als auch der Überprüfung bestehender Anlagen im Ruhezustand und im Netzbetrieb. Zu prüfen sind deshalb nicht nur Volllast und Sommerbetrieb, sondern auch Pumpenausfall, Stromausfall, Abspeisungen und das Zuschalten neuer Erzeuger oder Speicher.</p>
+<p>Diese fünf Schritte sind Teil unserer technologieoffenen Anlagenkonzeption für Nahwärmesysteme: Wir legen die Druckhaltung nicht isoliert aus, sondern zusammen mit Erzeugung, Trassenführung und den genehmigungsrelevanten Unterlagen. Mehr zu Aufgaben und typischen Störungen im Fernwärmebetrieb finden Sie im Beitrag <a href="https://planegy.de/blog/druckhaltung-fernwarme" target="_blank" rel="noopener">Druckhaltung in der Fernwärme</a>.</p>
+<h2 id="welche-regeln-in-deutschland-gelten" tabindex="-1">Welche Regeln in Deutschland gelten</h2>
+<p>Das zentrale Regelwerk ist die AGFW FW 442. Sie gilt für Heizwasser-Wärmenetze, die grundsätzlich ganzjährig betrieben werden. Laut der Regelwerksübersicht der AGFW gibt es neben der Fassung von 2011 und ihrer Änderung von 2019 seit Januar 2024 ein Arbeitsblatt FW 442 zu Druckhaltung und Fahrweisen von Fernwärmesystemen mit Wasser. Planer sollten deshalb prüfen, welche Fassung für ihr Projekt maßgeblich ist.</p>
+<p>Für Heizkreise, in denen Stillstand ein regulärer Betriebsfall ist, gilt die <a href="https://www.vdi.de/fileadmin/pages/vdi_de/redakteure/richtlinien/inhaltsverzeichnisse/1902376.pdf" rel="nofollow noopener noreferrer" target="_blank">VDI 4708 Blatt 1</a>. Die Richtlinie stellt ausdrücklich klar, dass ständig beheizte und umgewälzte Netze wie Fernwärmenetze nach FW 442 zu behandeln sind.</p>
+<p>Hinzu kommt das Arbeitsschutzrecht. Druckhaltestationen enthalten Druckgeräte und sicherheitsrelevante Mess-, Steuer- und Regeleinrichtungen. Die <a href="https://www.baua.de/DE/Angebote/Regelwerk/TRBS/TRBS" rel="nofollow noopener noreferrer" target="_blank">Technischen Regeln für Betriebssicherheit der BAuA</a> wurden hier zuletzt angepasst: TRBS 1201 Teil 2 zu Prüfungen bei Gefährdungen durch Dampf und Druck im Juni 2026, TRBS 1115 zu sicherheitsrelevanten MSR-Einrichtungen am 29. Juni 2026 und TRBS 1115 Teil 1 zu deren Cybersicherheit am 15. Januar 2026. Für vernetzte, fernüberwachte Druckhaltestationen ist der letzte Punkt besonders relevant. Welche Pflichten aus der europäischen Druckgeräterichtlinie folgen, fasst unser Überblick zu den <a href="https://planegy.de/blog/druckgeraterichtlinie-anforderungen" target="_blank" rel="noopener">Anforderungen der Druckgeräterichtlinie</a> zusammen.</p>
+<h2 id="schnittstelle-hausubergabestation" tabindex="-1">Schnittstelle Hausübergabestation</h2>
+<p>An der Hausübergabestation treffen Netzdruck und Kundenanlage aufeinander. Die Technischen Anschlussbedingungen (TAB), also die Anschlussregeln des jeweiligen Netzbetreibers, legen fest, was dort einzuhalten ist. Zwei Beispiele:</p>
+<ul>
+<li>Die <a href="https://www.netze-heidelberg.de/de/Installation-Gas-Waerme-Wasser/Gas-Wasser-und-Waerme-Anlagen/Technische-Anschlussbedingungen-TAB-Fernwaerme.pdf" rel="nofollow noopener noreferrer" target="_blank">TAB der Stadtwerke Heidelberg Netze</a> verlangen eine Druckabsicherung der Hausstation nach DIN 4747-1, wenn der maximale Netzdruck den zulässigen Druck der Hausanlage übersteigt. Stellantriebe müssen gegen den maximalen Netzdifferenzdruck schließen können.</li>
+<li>Die <a href="https://www.bew.berlin/binaries/content/assets/website/warme/fernwarme/technische-anschlussbedingungen-anschluss.pdf" rel="nofollow noopener noreferrer" target="_blank">TAB der BEW Berliner Energie und Wärme</a> (Ausgabe Januar 2025) fordern vor der Inbetriebnahme eine dreistündige Druckprobe nach DIN 18380 am tiefsten Punkt. Nachfüllungen aus dem Netz sind melde- und kostenpflichtig.</li>
+</ul>
+<p>Für Kommunen und Versorger, die ein neues Netz aufbauen, folgt daraus: Die eigenen TAB müssen zur Druckhaltung passen. Wer Druckband und Druckstufen festlegt, schreibt damit auch die Anforderungen an jede künftige Kundenanlage fest.</p>
+<h2 id="betrieb-uberwachung-und-warnzeichen" tabindex="-1">Betrieb, Überwachung und Warnzeichen</h2>
+<p>Eine sauber ausgelegte Druckhaltung muss auch im Betrieb funktionieren. Die FW 442 sieht dafür Mess- und Regeltechnik, Dokumentation, festgelegte Verantwortlichkeiten und Handlungsanweisungen für besondere Betriebs- und Störfälle vor. Die <a href="https://www.ikz.de/heizungstechnik/news/detail/druckhaltung-vielfach-unterschaetzt/" rel="nofollow noopener noreferrer" target="_blank">IKZ</a> nennt typische Warnzeichen einer nicht einwandfrei arbeitenden Druckhaltung:</p>
+<ul>
+<li>starke Druckschwankungen unter den Anfangs- oder über den Enddruck,</li>
+<li>häufiges Ansprechen des Sicherheitsventils,</li>
+<li>Kavitationsgeräusche an Pumpen und Ventilen,</li>
+<li>Abschalten des Wärmeerzeugers, weil der Mindestdruck unterschritten wird.</li>
+</ul>
+<p>Am einfachsten lassen sich solche Schwankungen mit einem Manometer mit Schleppzeigern erkennen, das Minimal- und Maximaldruck festhält. Membrangefäße sollten einmal jährlich gewartet werden. Steigt der Nachspeisebedarf dauerhaft, deutet das auf Wasserverluste hin; dann hilft eine systematische <a href="https://planegy.de/blog/leckageortung-warmenetz-methoden" target="_blank" rel="noopener">Leckageortung im Wärmenetz</a>. Wichtig für Betreiber: Arbeiten an Druckgeräten und an der Druckhaltung gehören in die Hände unterwiesener Fachkräfte, und Prüfpflichten richten sich nach der Betriebssicherheitsverordnung.</p>
+<h2 id="forderung-netzplanung-uber-die-bew-finanzieren" tabindex="-1">Förderung: Netzplanung über die BEW finanzieren</h2>
+<p>Die Druckhaltung wird in der Regel nicht einzeln gefördert, sondern als Teil der Netzplanung. Über die <a href="https://www.bafa.de/DE/Energie/Energieeffizienz/Waermenetze/Effiziente_Waermenetze/effiziente_waermenetze_node.html" rel="nofollow noopener noreferrer" target="_blank">Bundesförderung für effiziente Wärmenetze (BEW) des BAFA</a> sind in Modul 1 Machbarkeitsstudien, Transformationspläne und Planungsleistungen nach HOAI-Leistungsphasen 2 bis 4 förderfähig. Laut <a href="https://www.foerderdatenbank.de/FDB/Content/DE/Foerderprogramm/Bund/BMWi/bundesfoerderung-effiziente-waermenetze.html" rel="nofollow noopener noreferrer" target="_blank">Förderdatenbank des Bundes</a> richtet sich das Programm an Netze für mehr als 16 Gebäude oder mehr als 100 Wohneinheiten. Die aktuellen Fördersätze und das Antragsverfahren nennt das BAFA auf seiner Programmseite. Wie Sie Programme sinnvoll verbinden, zeigt unser Beitrag <a href="https://planegy.de/blog/fordermittel-kombinieren" target="_blank" rel="noopener">Fördermittel kombinieren</a>.</p>
+<h2 id="unsere-sicht-druckhaltung-ist-eine-planungsentscheidung" tabindex="-1">Unsere Sicht: Druckhaltung ist eine Planungsentscheidung</h2>
+<blockquote>
+<p>Wir sehen die Druckhaltung nicht als Bauteil, das man am Ende aus einem Katalog auswählt. Sie ist die Konsequenz aus Entscheidungen, die viel früher fallen: Welche Vorlauftemperatur fährt das Netz, welche Erzeuger speisen ein, wie verläuft die Trasse durch das Gelände, welche Bauabschnitte kommen später dazu?</p>
+<p>Deshalb arbeiten wir technologieoffen. Wir bewerten alle Optionen neutral, ohne eigene Produkte oder Herstellerinteressen, und verbinden die technische Auslegung mit der wirtschaftlichen und regulatorischen Seite. Ein Nahwärmenetz mit niedrigen Temperaturen und flachem Gelände braucht eine andere Druckhaltung als ein Netz mit Hochtemperatur-Vorlauf und großen Höhenunterschieden. Diese Unterschiede gehören in die Machbarkeitsstudie, nicht in die Mängelliste nach der Inbetriebnahme.</p>
+<p>Für Kommunen hängt das eng an der Wärmeplanung nach WPG: Wo der Wärmeplan ein Wärmenetzgebiet ausweist, beginnt die Frage nach Hydraulik und Druckhaltung. Wir begleiten diesen Weg von der Analyse über Genehmigung und Fördermittel bis zur Umsetzung, damit am Ende ein Netz steht, das genehmigungsfähig, förderfähig und sicher im Betrieb ist.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="warmenetz-planen-mit-planegy" tabindex="-1">Wärmenetz planen mit PLANEGY</h2>
+<p>Sie planen ein neues Nahwärmenetz, erweitern ein bestehendes Netz oder müssen nach der kommunalen Wärmeplanung die nächsten Schritte gehen? PLANEGY bringt über 20 Jahre Erfahrung im Energiesektor mit und begleitet Kommunen, Stadtwerke, Industrie und Mittelstand von der Analyse bis zur Umsetzung: mit technologieoffener Anlagenkonzeption, der Begleitung von Genehmigungsverfahren und einem vollumfänglichen Förderservice für Programme wie BEW, KfW und BAFA.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Was wir für Versorger leisten, finden Sie unter <a href="https://planegy.de/stadtwerke" target="_blank" rel="noopener">Lösungen für Stadtwerke und Energieversorger</a>; Kommunen starten am besten mit der <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">kommunalen Wärmeplanung nach WPG</a>.</p>
+<h2 id="haufige-fragen-zur-druckhaltung-im-warmenetz" tabindex="-1">Häufige Fragen zur Druckhaltung im Wärmenetz</h2>
+<h3 id="welchen-druck-hat-ein-warmenetz" tabindex="-1">Welchen Druck hat ein Wärmenetz?</h3>
+<p>Das hängt vor allem vom Höhenprofil, der Vorlauftemperatur und dem Pumpendruck ab. Der Mindestdruck ergibt sich aus der Höhe des höchsten Punkts plus einem Sicherheitszuschlag und muss über dem Verdampfungsdruck der heißesten Stelle liegen. Die Obergrenze bestimmt die schwächste Komponente im Netz, ein fester Pauschalwert für alle Netze existiert daher nicht.</p>
+<h3 id="reicht-fur-ein-kleines-nahwarmenetz-ein-ausdehnungsgefass" tabindex="-1">Reicht für ein kleines Nahwärmenetz ein Ausdehnungsgefäß?</h3>
+<p>Bei kleinen Anlagen und Netzen mit geringem Wasserinhalt kann ein statisches Membran-Druckausdehnungsgefäß genügen. Weil ein solches Gefäß nur einen Teil seines Nennvolumens nutzt und der Druck mit dem Füllstand steigt, wird es mit wachsendem Netz schnell groß. Ob statisch oder dynamisch die bessere Lösung ist, zeigt die Auslegung nach Höhenprofil, Volumen und Druckband.</p>
+<h3 id="welche-norm-gilt-fur-die-druckhaltung-in-fernwarmenetzen" tabindex="-1">Welche Norm gilt für die Druckhaltung in Fernwärmenetzen?</h3>
+<p>Für ganzjährig betriebene Heizwasser-Wärmenetze ist das AGFW-Arbeitsblatt FW 442 maßgeblich. Für Heizkreise mit regulärem Stillstand gilt die VDI 4708 Blatt 1. Dazu kommen die TAB des Netzbetreibers und die Technischen Regeln für Betriebssicherheit.</p>
+<h3 id="wie-erkenne-ich-eine-gestorte-druckhaltung" tabindex="-1">Wie erkenne ich eine gestörte Druckhaltung?</h3>
+<p>Typische Zeichen sind starke Druckschwankungen, häufig auslösende Sicherheitsventile, Kavitationsgeräusche an Pumpen und Ventilen und Störabschaltungen wegen Druckmangels. Ein Manometer mit Schleppzeigern macht Spitzen und Tiefpunkte sichtbar. Ein dauerhaft hoher Nachspeisebedarf ist ein Hinweis auf Leckagen.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.agfw-shop.de/regelwerk/4-warmeverteilung/fw-442c-druckhaltung-in-heizwasser-fernwarmenetzen-druckfassung.html" rel="nofollow noopener noreferrer" target="_blank">AGFW FW 442: Druckhaltung in Heizwasser-Fernwärmenetzen</a></li>
+<li><a href="https://www.vdi.de/fileadmin/pages/vdi_de/redakteure/richtlinien/inhaltsverzeichnisse/1902376.pdf" rel="nofollow noopener noreferrer" target="_blank">VDI 4708 Blatt 1: Inhaltsverzeichnis</a></li>
+<li><a href="https://www.baua.de/DE/Angebote/Regelwerk/TRBS/TRBS" rel="nofollow noopener noreferrer" target="_blank">BAuA: Technische Regeln für Betriebssicherheit</a></li>
+<li><a href="https://www.heizungsjournal.de/moeglichkeiten-moderner-druckhaltungssysteme_12164" rel="nofollow noopener noreferrer" target="_blank">HeizungsJournal: Möglichkeiten moderner Druckhaltungssysteme</a></li>
+<li><a href="https://www.shk-profi.de/artikel/faq-zur-druckhaltung-3992119.html" rel="nofollow noopener noreferrer" target="_blank">SHK Profi: FAQ zur Druckhaltung</a></li>
+<li><a href="https://www.ikz.de/medien/ikz-fachplaner/heftarchiv/jahrgang-2022/ausgabe-17/news/detail/volle-power/" rel="nofollow noopener noreferrer" target="_blank">IKZ: Volle Power</a></li>
+<li><a href="https://www.ikz.de/heizungstechnik/news/detail/druckhaltung-vielfach-unterschaetzt/" rel="nofollow noopener noreferrer" target="_blank">IKZ: Druckhaltung? Vielfach unterschätzt!</a></li>
+<li><a href="https://pumpen-heizung.de/mediafiles/datenblatt/IMI/hedbwico_in_de_low.pdf" rel="nofollow noopener noreferrer" target="_blank">Datenblatt Druckausdehnungsgefäße mit Auslegung nach EN 12828</a></li>
+<li><a href="https://qmthermischenetze.ch/wp-content/uploads/sites/3/2024/08/THENA_1.1.1_Manual.pdf" rel="nofollow noopener noreferrer" target="_blank">THENA-Handbuch zur Bewertung thermischer Netze</a></li>
+<li><a href="https://www.netze-heidelberg.de/de/Installation-Gas-Waerme-Wasser/Gas-Wasser-und-Waerme-Anlagen/Technische-Anschlussbedingungen-TAB-Fernwaerme.pdf" rel="nofollow noopener noreferrer" target="_blank">Stadtwerke Heidelberg Netze: TAB Fernwärme</a></li>
+<li><a href="https://www.bew.berlin/binaries/content/assets/website/warme/fernwarme/technische-anschlussbedingungen-anschluss.pdf" rel="nofollow noopener noreferrer" target="_blank">BEW Berliner Energie und Wärme: Technische Anschlussbedingungen</a></li>
+<li><a href="https://www.bafa.de/DE/Energie/Energieeffizienz/Waermenetze/Effiziente_Waermenetze/effiziente_waermenetze_node.html" rel="nofollow noopener noreferrer" target="_blank">BAFA: Bundesförderung für effiziente Wärmenetze</a></li>
+<li><a href="https://www.foerderdatenbank.de/FDB/Content/DE/Foerderprogramm/Bund/BMWi/bundesfoerderung-effiziente-waermenetze.html" rel="nofollow noopener noreferrer" target="_blank">Förderdatenbank des Bundes: BEW</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog/druckhaltung-fernwarme" target="_blank" rel="noopener">Druckhaltung in der Fernwärme: Aufgaben, Auslegung, Störungen</a></li>
+<li><a href="https://planegy.de/blog/warmenetz-verluste-reduzieren" target="_blank" rel="noopener">Wärmenetz Verluste reduzieren: Die wirksamsten technischen Hebel</a></li>
+<li><a href="https://planegy.de/blog/warmenetz-dimensionierung" target="_blank" rel="noopener">Wärmenetz Dimensionierung: Richtwerte und Rechenweg für Planer</a></li>
+<li><a href="https://planegy.de/blog/leckageortung-warmenetz-methoden" target="_blank" rel="noopener">Leckageortung im Wärmenetz: Methoden, Ablauf und Grenzen</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+    <a href="#cookie-einstellungen" data-consent-settings>Cookie-Einstellungen</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
