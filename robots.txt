@@ -4,5 +4,6 @@ User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /.netlify/
+Disallow: /intern/
 
 Sitemap: https://planegy.de/sitemap.xml
