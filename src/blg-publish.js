@@ -408,11 +408,15 @@ export async function handleBlgPublish(request, env) {
   const excerpt = metaDescription || plainText.slice(0, 160) + (plainText.length > 160 ? "…" : "");
 
   const articleFileName = `blog/${slug}.html`;
+  // Öffentliche Adresse des Artikels: genau die Form, die auch in canonical,
+  // og:url, JSON-LD und sitemap.xml steht – ohne .html, ohne www und keine
+  // Adresse, die erst weiterleitet. BabyLoveGrowth ruft diese URL direkt ab.
+  const articleUrl = `https://planegy.de/blog/${slug}`;
   const articleHtml = generateArticleHtml({ title, slug, content_html: cleanHtml, metaDescription: excerpt, category, catStyle, readTime, dateStr });
 
   if (!env.GITHUB_TOKEN || !env.GITHUB_REPO) {
     console.warn("GitHub credentials not configured — skipping commit. Set GITHUB_TOKEN and GITHUB_REPO.");
-    return json(200, { success: true, file: articleFileName, slug, warning: "GitHub not configured" });
+    return json(200, { success: true, link: articleUrl, file: articleFileName, slug, warning: "GitHub not configured" });
   }
 
   try {
@@ -438,7 +442,6 @@ export async function handleBlgPublish(request, env) {
       }
 
       if (sitemapFile) {
-        const articleUrl = `https://planegy.de/blog/${slug}`;
         if (!sitemapFile.content.includes(articleUrl)) {
           const isoDate = new Date(dateStr).toISOString().slice(0, 10);
           const newEntry = `  <url>\n    <loc>${articleUrl}</loc>\n    <lastmod>${isoDate}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n  `;
@@ -456,7 +459,7 @@ export async function handleBlgPublish(request, env) {
     await commitFilesAtomic(env, buildFiles, `blog: add article "${title}"`);
 
     console.log(`Article "${title}" committed to GitHub — Cloudflare deploy follows via GitHub Actions`);
-    return json(200, { success: true, file: articleFileName, slug });
+    return json(200, { success: true, link: articleUrl, file: articleFileName, slug });
   } catch (err) {
     console.error("Publish error:", err.message);
     return json(502, { success: false, error: err.message });
