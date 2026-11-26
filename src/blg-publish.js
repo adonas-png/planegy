@@ -36,6 +36,12 @@ async function getFile(env, filePath) {
       sha: res.data.sha,
     };
   }
+  // Nur 404 heißt "gibt es nicht". Jede andere Antwort (Rate Limit, Ausfall) wird
+  // zum Fehler: sonst würde ein vorübergehender Fehler wie eine fehlende Datei
+  // aussehen und der Webhook einen bestehenden Artikel neu schreiben.
+  if (res.status !== 404) {
+    throw new Error(`Cannot read ${filePath} (HTTP ${res.status}): ` + JSON.stringify(res.data));
+  }
   return null;
 }
 
@@ -73,7 +79,9 @@ async function commitFilesAtomic(env, buildFiles, message, maxAttempts = 3) {
     }
 
     const newCommitRes = await githubRequest(env, "POST", "/git/commits", {
-      message,
+      // Die Nachricht darf eine Funktion sein: ob der Artikel neu ist oder
+      // ersetzt wird, steht erst fest, nachdem buildFiles() gelaufen ist.
+      message: typeof message === "function" ? message() : message,
       tree: treeRes.data.sha,
       parents: [latestCommitSha],
     });
@@ -93,6 +101,48 @@ async function commitFilesAtomic(env, buildFiles, message, maxAttempts = 3) {
     }
     console.warn(`Ref moved concurrently, retrying commit (attempt ${attempt + 1}/${maxAttempts})`);
   }
+}
+
+// Doppelte H1 vermeiden: BabyLoveGrowth stellt dem Inhalt den Titel noch einmal
+// als <h1> voran, obwohl die Seite ihn schon im Hero trägt. Stimmt der Text mit
+// dem Titel überein, fällt die H1 im Inhalt weg. Weicht sie ab, wird sie zur H2
+// herabgestuft, damit die Überschrift nicht verloren geht.
+function dedupeHeading(html = "", title = "") {
+  const norm = (s) =>
+    s.replace(/<[^>]+>/g, "")
+      .replace(/&amp;/g, "&")
+      .replace(/&nbsp;/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase();
+  return html.replace(/^(\s*)<h1([^>]*)>([\s\S]*?)<\/h1>/, (_full, ws, attrs, inner) =>
+    norm(inner) === norm(title) ? ws : `${ws}<h2${attrs}>${inner}</h2>`
+  );
+}
+
+// Metadaten eines bereits veröffentlichten Artikels auslesen.
+//
+// BLG sendet Artikel gelegentlich erneut. Dann darf der Webhook die Datei nicht
+// einfach neu schreiben: Titel und Beschreibung sind nach der Erstveröffentlichung
+// oft von Hand nachgeschärft worden (etwa die Titellänge für die Suchergebnisse),
+// und das Veröffentlichungsdatum gehört zum Original. Übernommen werden deshalb
+// <title>, Meta-Description, og:title, og:description, die JSON-LD-headline und
+// datePublished. Neu gesetzt werden nur der Inhalt und dateModified.
+function extractExistingMeta(html = "") {
+  const pick = (re) => {
+    const m = re.exec(html);
+    return m ? m[1] : null;
+  };
+  const meta = {
+    pageTitle: pick(/<title>([\s\S]*?)<\/title>/),
+    description: pick(/<meta name="description" content="([^"]*)"/),
+    ogTitle: pick(/<meta property="og:title" content="([^"]*)"/),
+    ogDescription: pick(/<meta property="og:description" content="([^"]*)"/),
+    headline: pick(/"headline":\s*"((?:[^"\\]|\\.)*)"/),
+    datePublished: pick(/"datePublished":\s*"([^"]*)"/),
+  };
+  // Nur als Bestand behandeln, wenn die Datei wirklich wie ein Artikel aussieht.
+  return meta.pageTitle || meta.datePublished ? meta : null;
 }
 
 // ── HTML generators ─────────────────────────────────────────────────────────
@@ -144,19 +194,29 @@ function formatDate(dateStr) {
   return d.toLocaleDateString("de-DE", { month: "long", year: "numeric" });
 }
 
-function generateArticleHtml({ title, slug, content_html, metaDescription, category, catStyle, readTime, dateStr }) {
+function generateArticleHtml({ title, slug, content_html, metaDescription, category, catStyle, readTime, dateStr, existing = null }) {
   const schemaDate = new Date(dateStr || Date.now()).toISOString().split("T")[0];
+  // Bei einem bereits veröffentlichten Artikel stehen die Textfelder aus der
+  // bestehenden Datei (siehe extractExistingMeta); sonst werden sie erzeugt.
+  const esc = (v) => (v || "").replace(/"/g, "&quot;");
+  const escJson = (v) => (v || "").replace(/"/g, '\\"');
+  const pageTitle = existing?.pageTitle || `${title} – PLANEGY`;
+  const ogTitle = existing?.ogTitle || title;
+  const description = existing?.description || esc(metaDescription);
+  const ogDescription = existing?.ogDescription || esc(metaDescription);
+  const headline = existing?.headline || escJson(title);
+  const datePublished = existing?.datePublished || schemaDate;
   return `<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${title} – PLANEGY</title>
-  <meta name="description" content="${(metaDescription || "").replace(/"/g, "&quot;")}" />
+  <title>${pageTitle}</title>
+  <meta name="description" content="${description}" />
   <meta name="author" content="Alexios Donas, PLANEGY" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="${title}" />
-  <meta property="og:description" content="${(metaDescription || "").replace(/"/g, "&quot;")}" />
+  <meta property="og:title" content="${ogTitle}" />
+  <meta property="og:description" content="${ogDescription}" />
   <meta property="og:image" content="https://planegy.de/assets/og-planegy.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -172,12 +232,12 @@ function generateArticleHtml({ title, slug, content_html, metaDescription, categ
     "@context": "https://schema.org",
     "@type": "Article",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://planegy.de/blog/${slug}" },
-    "headline": "${title.replace(/"/g, '\\"')}",
+    "headline": "${headline}",
     "author": { "@type": "Person", "name": "Alexios Donas" },
     "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
-    "datePublished": "${schemaDate}",
+    "datePublished": "${datePublished}",
     "dateModified": "${new Date().toISOString().split("T")[0]}",
-    "description": "${(metaDescription || "").replace(/"/g, '\\"')}"
+    "description": "${escJson(existing?.description ? existing.description.replace(/&quot;/g, '"') : metaDescription)}"
   }
   <\/script>
   <script src="/assets/consent.js" defer><\/script>
@@ -397,8 +457,8 @@ export async function handleBlgPublish(request, env) {
     return json(400, { error: "Missing title or content_html" });
   }
 
-  const cleanHtml = removeBranding(content_html);
   const slug = rawSlug || toSlug(title);
+  const cleanHtml = dedupeHeading(removeBranding(content_html), title);
   const category = detectCategory(title, tags);
   const catStyle = CAT_STYLE[category] || CAT_STYLE.default;
   const readTime = estimateReadTime(cleanHtml);
@@ -412,23 +472,38 @@ export async function handleBlgPublish(request, env) {
   // og:url, JSON-LD und sitemap.xml steht – ohne .html, ohne www und keine
   // Adresse, die erst weiterleitet. BabyLoveGrowth ruft diese URL direkt ab.
   const articleUrl = `https://planegy.de/blog/${slug}`;
-  const articleHtml = generateArticleHtml({ title, slug, content_html: cleanHtml, metaDescription: excerpt, category, catStyle, readTime, dateStr });
+  const articleArgs = { title, slug, content_html: cleanHtml, metaDescription: excerpt, category, catStyle, readTime, dateStr };
 
   if (!env.GITHUB_TOKEN || !env.GITHUB_REPO) {
     console.warn("GitHub credentials not configured — skipping commit. Set GITHUB_TOKEN and GITHUB_REPO.");
     return json(200, { success: true, link: articleUrl, file: articleFileName, slug, warning: "GitHub not configured" });
   }
 
+  // Wird in buildFiles() gesetzt und danach für die Commit-Nachricht gelesen.
+  let isUpdate = false;
+
   try {
     // Re-read blog.html on every attempt so a retry (see commitFilesAtomic)
     // injects the card into the latest content instead of a stale copy.
     const buildFiles = async () => {
-      const filesToCommit = { [articleFileName]: articleHtml };
-
-      const [blogFile, sitemapFile] = await Promise.all([
+      const [existingArticle, blogFile, sitemapFile] = await Promise.all([
+        getFile(env, articleFileName),
         getFile(env, "blog.html"),
         getFile(env, "sitemap.xml"),
       ]);
+
+      // Gibt es den Artikel schon, werden seine Metadaten übernommen statt
+      // überschrieben – siehe extractExistingMeta. Das Veröffentlichungsdatum
+      // bestimmt dann auch das im Hero angezeigte Datum.
+      const existing = existingArticle ? extractExistingMeta(existingArticle.content) : null;
+      isUpdate = Boolean(existing);
+      const filesToCommit = {
+        [articleFileName]: generateArticleHtml({
+          ...articleArgs,
+          dateStr: existing?.datePublished || dateStr,
+          existing,
+        }),
+      };
 
       // Karte nur einfügen, wenn der Artikel noch nicht gelistet ist. BLG schickt
       // denselben Artikel teils mehrfach (z. B. nach einer Überarbeitung); ohne
@@ -449,6 +524,18 @@ export async function handleBlgPublish(request, env) {
             "<!-- SITEMAP_ARTICLES_END -->",
             newEntry + "<!-- SITEMAP_ARTICLES_END -->"
           );
+        } else if (isUpdate) {
+          // Artikel überarbeitet: lastmod auf heute, damit Suchmaschinen die
+          // Änderung sehen. Die übrigen Felder des Eintrags bleiben unberührt.
+          const lastmod = new RegExp(
+            `(<loc>${articleUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}</loc>\\s*<lastmod>)[^<]*`
+          );
+          if (lastmod.test(sitemapFile.content)) {
+            filesToCommit["sitemap.xml"] = sitemapFile.content.replace(
+              lastmod,
+              `$1${new Date().toISOString().slice(0, 10)}`
+            );
+          }
         }
       }
 
@@ -456,9 +543,13 @@ export async function handleBlgPublish(request, env) {
     };
 
     // Single atomic commit for article + blog.html → one push → one deploy.
-    await commitFilesAtomic(env, buildFiles, `blog: add article "${title}"`);
+    await commitFilesAtomic(env, buildFiles, () =>
+      `blog: ${isUpdate ? "update" : "add"} article "${title}"`
+    );
 
-    console.log(`Article "${title}" committed to GitHub — Cloudflare deploy follows via GitHub Actions`);
+    console.log(
+      `Article "${title}" ${isUpdate ? "updated" : "committed"} on GitHub — Cloudflare deploy follows`
+    );
     return json(200, { success: true, link: articleUrl, file: articleFileName, slug });
   } catch (err) {
     console.error("Publish error:", err.message);
