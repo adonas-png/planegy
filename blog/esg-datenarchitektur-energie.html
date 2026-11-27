@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESG-Datenarchitektur für Energiedaten: Aufbau in fünf Schritten – PLANEGY</title>
+  <meta name="description" content="Wie Sie Energie- und Emissionsdaten zu einer belastbaren ESG-Datenarchitektur verbinden: Ebenen, Emissionsfaktoren, Prüfregeln und Dashboards für Ihr Reporting." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="ESG-Datenarchitektur für Energiedaten: Aufbau in fünf Schritten" />
+  <meta property="og:description" content="Wie Sie Energie- und Emissionsdaten zu einer belastbaren ESG-Datenarchitektur verbinden: Ebenen, Emissionsfaktoren, Prüfregeln und Dashboards für Ihr Reporting." />
+  <meta property="og:image" content="https://planegy.de/assets/og-planegy.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="PLANEGY, Ingenieurbüro für Energieplanung" />
+  <meta property="og:url" content="https://planegy.de/blog/esg-datenarchitektur-energie" />
+  <meta property="og:site_name" content="PLANEGY" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://planegy.de/assets/og-planegy.png" />
+  <link rel="canonical" href="https://planegy.de/blog/esg-datenarchitektur-energie" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://planegy.de/blog/esg-datenarchitektur-energie" },
+    "headline": "ESG-Datenarchitektur für Energiedaten: Aufbau in fünf Schritten",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-27",
+    "dateModified": "2026-11-27",
+    "description": "Wie Sie Energie- und Emissionsdaten zu einer belastbaren ESG-Datenarchitektur verbinden: Ebenen, Emissionsfaktoren, Prüfregeln und Dashboards für Ihr Reporting."
+  }
+  </script>
+  <script src="/assets/consent.js" defer></script>
+  <link rel="stylesheet" href="/assets/fonts.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#3b0764,#7c3aed); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"📊"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#7c3aed; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">ESG-Datenarchitektur für Energiedaten: Aufbau in fünf Schritten</span>
+    </div>
+    <div class="article-cat">ESG / CSRD</div>
+    <h1>ESG-Datenarchitektur für Energiedaten: Aufbau in fünf Schritten</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      
+<p><img src="https://media.ai-fast-cdn.com/blog-images/organization-20616/1795601087815_Energieverantwortlicher-pruft-einen-Strom-Unterzahler.jpeg" alt="Ein Energieverantwortlicher überprüft einen Strom-Unterzähler."></p>
+<p>Eine ESG-Datenarchitektur legt fest, wie Ihre Energie- und Emissionsdaten erfasst, zusammengeführt, in CO₂ umgerechnet und berichtet werden: vom Gaszähler im Kesselhaus bis zur Kennzahl im Nachhaltigkeitsbericht. In Unternehmen, Stadtwerken und Kommunen entscheidet fast immer die Energieseite darüber, ob diese Architektur trägt. Scope 1 und 2 bestehen zum größten Teil aus Brennstoffen, Strom und Wärme. Wer die Daten also so aufbaut, dass sie zugleich dem Energiemanagement, der Fördermittelbeantragung und dem ESG-Reporting dienen, erfasst jede Zahl nur einmal und kann sie trotzdem überall verwenden. Genau an dieser Schnittstelle zwischen Anlagentechnik und Reporting arbeiten wir bei PLANEGY, mit automatisierten ESG-Reporting-Dashboards und ERP-Integration.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="split" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="display:flex;flex-wrap:wrap;"><div style="flex:1 0 36%;min-width:220px;box-sizing:border-box;padding:30px 76px 30px 26px;color:#ffffff;background:linear-gradient(104deg,#0c3c65 0%,#07233a 82%,rgba(0,0,0,0) 82.15%);"><div style="margin:0 0 14px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#ffffff;color:#0f4b7e;">PLANEGY</span></div><div style="font-size:12px;opacity:0.75;">planegy.de</div></div><div style="flex:999 1 300px;min-width:0;padding:30px 28px;"><div style="font-size:23px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Energiedaten für ESG nutzbar machen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 22px;">PLANEGY verbindet Energieberatung mit automatisierten ESG-Reporting-Dashboards und ERP-Integration, von der Analyse bis zur Umsetzung.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Besuchen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li>Eine ESG-Datenarchitektur hat vier Ebenen: Erfassung in den Quellsystemen, Zusammenführung an einem zentralen Ort, Berechnung mit Emissionsfaktoren sowie Auswertung in Dashboards und Berichten.</li>
+<li>Im Energiekontext stammen die meisten Datenpunkte aus Zählern, Brennstoffrechnungen, Fuhrpark und Kältemitteln. Zugekaufte Energie, die Sie an Kunden weitergeben, zählt zu Scope 3.</li>
+<li>Emissionsfaktoren sind eigene Stammdaten: Sie müssen versioniert, dokumentiert und regelmäßig aktualisiert werden.</li>
+<li>Prüfregeln wie Vorjahresvergleiche und das Vier-Augen-Prinzip machen Ihre Zahlen prüfungssicher.</li>
+<li>Auch ohne CSRD-Pflicht fragen Banken und Großkunden ESG-Daten ab. Eine saubere Architektur beantwortet diese Anfragen aus einer Quelle.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-esg-daten-im-energiekontext-umfassen">Was ESG-Daten im Energiekontext umfassen</a></li>
+<li><a href="#die-vier-ebenen-einer-esg-datenarchitektur">Die vier Ebenen einer ESG-Datenarchitektur</a></li>
+<li><a href="#die-architektur-in-funf-schritten-aufbauen">Die Architektur in fünf Schritten aufbauen</a></li>
+<li><a href="#warum-die-architektur-auch-ohne-berichtspflicht-lohnt">Warum die Architektur auch ohne Berichtspflicht lohnt</a></li>
+<li><a href="#unsere-perspektive-die-energieseite-zuerst">Unsere Perspektive: Die Energieseite zuerst</a></li>
+<li><a href="#esg-reporting-und-energieberatung-aus-einer-hand">ESG-Reporting und Energieberatung aus einer Hand</a></li>
+<li><a href="#haufige-fragen-zur-esg-datenarchitektur">Häufige Fragen zur ESG-Datenarchitektur</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-esg-daten-im-energiekontext-umfassen" tabindex="-1">Was ESG-Daten im Energiekontext umfassen</h2>
+<p>ESG-Daten sind Kennzahlen zu Umwelt (Environment), Sozialem (Social) und Unternehmensführung (Governance). Für Energieverbraucher und Energieversorger liegt der Schwerpunkt fast immer beim „E“, und dort bei den Treibhausgasemissionen.</p>
+<p>Die Emissionen werden nach dem GHG Protocol, dem international verbreiteten Standard für Treibhausgasbilanzen, in drei Bereiche geteilt. Das <a href="https://www.umweltbundesamt.de/system/files/medien/479/publikationen/2026-05/UBA_Leitfaden%20fuer%20Klimamanagement%20in%20Unternehmen_0.pdf" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt beschreibt in seinem Leitfaden Klimamanagement</a> die Abgrenzung so: Scope 1 sind direkte Emissionen aus eigenen Quellen, Scope 2 indirekte Emissionen aus zugekauftem Strom, Wärme oder Kälte, Scope 3 die Emissionen der vor- und nachgelagerten Wertschöpfungskette in 15 Kategorien. Die Norm ISO 14064-1 gliedert anders, in fünf Kategorien. Laut UBA sollen beide Standards bis Ende 2027 zusammengeführt werden. Wie sich die beiden Regelwerke in der Praxis unterscheiden, zeigen wir im Beitrag <a href="https://planegy.de/blog-ghg-protocol-vs-iso-14064" target="_blank" rel="noopener">GHG Protocol vs. ISO 14064</a>.</p>
+<p>Für Stadtwerke und Versorger ist die Zuordnung besonders kleinteilig. Die <a href="https://bankenverband.de/sites/default/files/medien/3/dokumente/handreichung-stadtwerke-und-versorgungsunternehmen_esg-datenkatalog.pdf" rel="nofollow noopener noreferrer" target="_blank">Handreichung zum ESG-Datenkatalog für Stadtwerke und Versorgungsunternehmen</a>, erarbeitet von Bankenverband, GDV und VÖB und mit BDEW und VKU erörtert, rechnet zu Scope 1 unter anderem Emissionen aus Strom- und Wärmeerzeugung, Wasseraufbereitung, Fahrzeugflotte und Kältemitteln. Energie für den Eigenverbrauch landet in Scope 2. Energie, die Sie zukaufen und an Kunden abgeben, gehört dagegen zu Scope 3: vorgelagert in Kategorie 3.3, nachgelagert in Kategorie 3.11.</p>
+<p>Für die Architektur heißt das: Ein Kilowattstunden-Wert allein reicht nicht. Jeder Datensatz braucht Merkmale wie Energieträger, Standort, Zeitraum und Verwendungszweck, sonst lässt er sich später nicht dem richtigen Scope zuordnen.</p>
+<h2 id="die-vier-ebenen-einer-esg-datenarchitektur" tabindex="-1">Die vier Ebenen einer ESG-Datenarchitektur</h2>
+<p>In der Praxis hat sich ein Modell mit vier Ebenen durchgesetzt. Das <a href="https://edmcouncil.org/wp-content/uploads/2024/04/EDM-Council_Playbook_ESG-and-Sustainability-Data-Mgmt_April-2024.pdf" rel="nofollow noopener noreferrer" target="_blank">Playbook des EDM Council zu ESG-Daten</a> aus dem April 2024 betont dabei zwei Punkte, die viele Projekte unterschätzen: Erstens müssen Sie alle Datenquellen und die maßgeblichen Datenlieferanten kennen. Zweitens sollte das ESG-Datenmodell in die bestehenden Datenmodelle des Unternehmens eingebunden werden und kein Inselsystem sein.</p>
+<table>
+<thead>
+<tr>
+<th>Ebene</th>
+<th>Was dort passiert</th>
+<th>Typische Energiedaten</th>
+<th>Häufiger Fehler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Erfassung</td>
+<td>Daten entstehen in Quellsystemen</td>
+<td>Zählerstände, Lastgänge, Brennstoffrechnungen, Tankkarten, Kältemittel-Nachfüllungen</td>
+<td>Werte aus Excel-Listen ohne Bezug zum Zählpunkt</td>
+</tr>
+<tr>
+<td>2. Zusammenführung</td>
+<td>Daten werden zentral gesammelt und vereinheitlicht</td>
+<td>Verbräuche je Standort, Anlage und Monat in einer Einheit</td>
+<td>Doppelte Erfassung, weil Energiemanagement und Reporting getrennt sammeln</td>
+</tr>
+<tr>
+<td>3. Berechnung</td>
+<td>Aktivitätsdaten werden mit Emissionsfaktoren verknüpft</td>
+<td>t CO₂e je Scope, Standort, Energieträger</td>
+<td>Veraltete oder unpassende Faktoren, keine Versionierung</td>
+</tr>
+<tr>
+<td>4. Steuerung</td>
+<td>Kennzahlen erscheinen in Dashboards und Berichten</td>
+<td>Emissionsintensität, Anteil erneuerbarer Energie, Zielpfade</td>
+<td>Berichtszahlen, die niemand zum Steuern nutzt</td>
+</tr>
+</tbody>
+</table>
+<p>Die Ebenen sagen noch nichts über eine bestimmte Software. Ob Sie ein ERP-System, eine Energiemanagement-Software oder eine spezialisierte ESG-Plattform einsetzen, ist eine Frage der Umsetzung. Entscheidend ist, dass die Übergänge zwischen den Ebenen definiert sind: Wer liefert was, in welchem Format, bis wann, und wer prüft es? Worauf es bei der Wahl der Werkzeuge ankommt, beschreiben wir im Beitrag zur <a href="https://planegy.de/blog-esg-reporting-software-auswahl-und-implementierung-2026" target="_blank" rel="noopener">Auswahl von ESG-Reporting-Software</a>.</p>
+<h2 id="die-architektur-in-funf-schritten-aufbauen" tabindex="-1">Die Architektur in fünf Schritten aufbauen</h2>
+<p><img src="https://media.ai-fast-cdn.com/blog-images/organization-20616/1795601138743_Funf-Schritte-zur-ESG-Datenarchitektur.jpeg" alt="Fünf Schritte zur ESG-Datenarchitektur"></p>
+<h3 id="datenpunkte-vom-bedarf-her-festlegen" tabindex="-1">1. Datenpunkte vom Bedarf her festlegen</h3>
+<p>Beginnen Sie nicht mit den Daten, die Sie haben, sondern mit denen, die Sie berichten müssen. Laut einer <a href="https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Publikationen/Wirtschaft/emissionserfassung-und-berichterstattung-von-unternehmen.pdf?__blob=publicationFile&amp;v=1" rel="nofollow noopener noreferrer" target="_blank">Publikation des Bundeswirtschaftsministeriums zur Emissionserfassung</a> sieht allein der Klimastandard ESRS E1 neun Offenlegungspflichten mit über 60 Datenpunkten zum Klimaschutz vor. Die ESRS sind die europäischen Standards für Nachhaltigkeitsberichte. Diese Datenpunkte setzen eine ordnungsgemäße Bilanz nach GHG Protocol oder ISO 14064-1 voraus.</p>
+<p>Wo es schiefgeht: Unternehmen übernehmen die komplette Datenpunktliste, obwohl ein Großteil für sie nicht wesentlich ist, und ersticken im Aufwand. Besser ist eine Liste, die Pflichtangaben, Anfragen von Banken und Kunden sowie die eigenen Energieziele zusammenführt. Eine Roadmap dafür finden Sie im Beitrag zu <a href="https://planegy.de/blog-csrd-datenpunkte" target="_blank" rel="noopener">CSRD-Datenpunkten</a>, die Anforderungen des Klimastandards im Detail unter <a href="https://planegy.de/blog-esrs-e1-anforderungen" target="_blank" rel="noopener">ESRS E1 Anforderungen</a>.</p>
+<h3 id="quellen-inventarisieren-und-verantwortliche-benennen" tabindex="-1">2. Quellen inventarisieren und Verantwortliche benennen</h3>
+<p>Im zweiten Schritt ordnen Sie jedem Datenpunkt eine Quelle und eine verantwortliche Person zu, den sogenannten Data Owner. Im Energiebereich sind das typischerweise:</p>
+<ul>
+<li>Messstellen und Lastgänge für Strom, Gas und Wärme</li>
+<li>Abrechnungen von Lieferanten, häufig im ERP-System hinterlegt</li>
+<li>Brennstoffbezüge wie Heizöl, Flüssiggas oder Biomasse</li>
+<li>Fuhrparkdaten aus Tankkarten oder Ladeinfrastruktur</li>
+<li>Wartungsprotokolle für Kälte- und Klimaanlagen mit Kältemittelmengen</li>
+<li>Einkaufs- und Logistikdaten für Scope 3</li>
+</ul>
+<p>Wo es schiefgeht: bei Scope 3. Das <a href="https://www.ipa.fraunhofer.de/de/Publikationen/studien/data-readiness-fuer-corporate-und-product-carbon-footprint.html" rel="nofollow noopener noreferrer" target="_blank">Fraunhofer IPA</a> hat aus über 30 Projekten mit produzierenden Unternehmen in Baden-Württemberg die Datenverfügbarkeit als eine der größten Hürden für vollständige Bilanzen herausgearbeitet, gerade bei Einkaufswerten, Transportdistanzen, Abfallmengen und Emissionsfaktoren. Planen Sie deshalb früh, welche Scope-3-Kategorien Sie mit Primärdaten und welche mit Durchschnittswerten abdecken.</p>
+<p>Das ERP-System ist dabei oft die ergiebigste Quelle, weil Rechnungen, Mengen und Kostenstellen dort ohnehin liegen. Wie es zur Datenbasis wird, zeigen wir unter <a href="https://planegy.de/blog-csrd-erp-integration" target="_blank" rel="noopener">CSRD-ERP-Integration</a>. Für die Zählerseite lohnt der Blick in unseren Leitfaden zum <a href="https://planegy.de/blog-energiedatenmanagement-aufbau" target="_blank" rel="noopener">Aufbau eines Energiedatenmanagements</a>.</p>
+<h3 id="emissionsfaktoren-als-eigene-stammdaten-fuhren" tabindex="-1">3. Emissionsfaktoren als eigene Stammdaten führen</h3>
+<p>Emissionsfaktoren rechnen eine Kilowattstunde oder einen Liter in Treibhausgase um. Sie sind das Herzstück der Berechnungsebene und verdienen eine eigene, versionierte Tabelle. Das UBA nennt in seinem Leitfaden fünf Qualitätskriterien: Ein Faktor muss spezifisch für Energieträger, Material oder Transportart sein, regional passen, aktuell sein, aus einer vertrauenswürdigen und dokumentierten Quelle stammen und vollständig sein, also alle Treibhausgase und nicht nur CO₂ abbilden.</p>
+<p>Das UBA hat im Herbst 2025 erstmals eine eigene Liste qualitätsgesicherter Emissionsfaktoren veröffentlicht, die regelmäßig fortgeschrieben wird und auch die rund 300 Datensätze des BAFA-Infoblatts zu CO₂-Faktoren enthält. Laut der Publikation des Bundeswirtschaftsministeriums muss eine Bilanzierung zudem verschiedene Methoden abbilden können: Primärdaten, Durchschnittswerte, ausgabenbasierte und hybride Ansätze.</p>
+<p>Wo es schiefgeht: beim Strom. Für Scope 2 verlangt das GHG Protocol ein „Dual Reporting“, also eine Berechnung mit dem Strommix des Netzes (location-based) und eine mit Ihren tatsächlichen Lieferverträgen (market-based). Das <a href="https://www.mvv.de/fileadmin/user_upload/Ueber_uns/klimapositiv_d_und_e/THG-Handbuch_MVV_V1_extern.pdf" rel="nofollow noopener noreferrer" target="_blank">Treibhausgashandbuch der MVV</a> aus dem September 2026 beschreibt, dass dafür zwei Faktoren nötig sind und dass die offiziellen Werte für den Netzstrom zum Stichtag nicht immer vorliegen. Ihre Architektur braucht deshalb eine klare Regel, welcher Ersatzwert in diesem Fall gilt.</p>
+<p><img src="https://media.ai-fast-cdn.com/blog-images/organization-20616/1795601157145_3.-Emissionsfaktoren-als-eigene-Stammdaten-fuhren.jpeg" alt="3. Emissionsfaktoren als eigene Stammdaten führen"></p>
+<h3 id="prufregeln-in-die-datenstrecke-einbauen" tabindex="-1">4. Prüfregeln in die Datenstrecke einbauen</h3>
+<p>Daten werden nicht am Jahresende gut, sondern bei der Eingabe. Wie das in der Praxis aussieht, zeigt das MVV-Handbuch: Die Data Owner tragen Aktivitätsdaten dezentral in eine zentrale Datenbank ein, die sie automatisch mit der jährlich beschlossenen Faktorliste verknüpft. Schon bei der Eingabe vergleicht das System die Werte mit dem Vorjahr. Abweichungen von mehr als 10 % müssen erläutert werden. Die Ergebnisse laufen über Vier-Augen-Prinzip, Plausibilisierung und Stichproben und gehen erst dann über eine technische Schnittstelle in den Nachhaltigkeitsbericht.</p>
+<p>Für ein mittelständisches Unternehmen lässt sich das gut übertragen. Ein Beispiel: Ein Betrieb mit drei Standorten meldet für Standort B plötzlich 40 % weniger Gasverbrauch. Mit einer Vorjahresregel fällt sofort auf, dass eine Monatsrechnung fehlt, nicht erst bei der Prüfung des Berichts.</p>
+<p>Wo es schiefgeht: Prüfregeln existieren nur im Kopf einer Person. Halten Sie sie schriftlich fest, zusammen mit Systemgrenzen und Methodenwahl. Das UBA betont, dass nur transparent dokumentierte Grenzen eine Bilanz über die Jahre vergleichbar machen.</p>
+<h3 id="auswertung-so-bauen-dass-sie-steuert" tabindex="-1">5. Auswertung so bauen, dass sie steuert</h3>
+<p>Die oberste Ebene macht aus Daten Entscheidungen. Die <a href="https://www.iww.de/pn/fuehrung-strategie/datenstrategie-fuer-die-esg-berichterstattung-gute-daten-gute-entscheidungen-wie-datenqualitaet-das-esg-reporting-stark-macht-f170538" rel="nofollow noopener noreferrer" target="_blank">IWW-Fachbeitrag zur ESG-Datenstrategie</a> nennt dafür eine konkrete Anforderung: Das System muss CO₂-Gesamtbilanzen und Teilsummen für Tochtergesellschaften und Standorte in verschiedenen Detailstufen bilden können. Nur dann sieht die Geschäftsführung, welcher Standort, welche Anlage oder welcher Energieträger den Ausschlag gibt.</p>
+<p>Genau hier zahlt sich die Verbindung zum Energiemanagement aus. Dieselben Lastgänge, die in die Bilanz fließen, zeigen Lastspitzen, ineffiziente Anlagen und Einsparpotenziale. Welche Kennzahlen in ein Dashboard gehören, haben wir in <a href="https://planegy.de/blog-esg-dashboard-kpis" target="_blank" rel="noopener">ESG-Dashboard-KPIs</a> zusammengestellt.</p>
+<p>Wo es schiefgeht: bei der Datenkultur. <a href="https://www.haufe.de/sustainability/strategie/esg-datenstrategie-in-der-praxis_575772_654196.html" rel="nofollow noopener noreferrer" target="_blank">Haufe Sustainability</a> weist darauf hin, dass viele Organisationen unterschätzen, wie wichtig „Sustainability Data Literacy“ ist, also die Fähigkeit, ESG-Daten in den richtigen Zusammenhang zu stellen. Ein Dashboard wirkt nur, wenn Energie-, Finanz- und Nachhaltigkeitsverantwortliche dieselben Zahlen lesen und daraus Maßnahmen ableiten.</p>
+<h2 id="warum-die-architektur-auch-ohne-berichtspflicht-lohnt" tabindex="-1">Warum die Architektur auch ohne Berichtspflicht lohnt</h2>
+<p>Die Pflicht zum CSRD-Bericht trifft nach den jüngsten EU-Änderungen nur noch große Unternehmen. Laut einer <a href="https://www.oekom.de/_files_media/zeitschriften/inhaltsverzeichnisse/UB_2026_05.pdf" rel="nofollow noopener noreferrer" target="_blank">Übersicht in der Zeitschrift Umweltbrief</a> berichten künftig nur Unternehmen mit mindestens 1.000 Beschäftigten und mindestens 450 Mio. € Nettoumsatz verpflichtend. Wie CSRD und ESG zusammenhängen, erklären wir in <a href="https://planegy.de/blog-csrd-vs-esg" target="_blank" rel="noopener">CSRD vs. ESG</a>.</p>
+<p>Der Datenbedarf verschwindet damit aber nicht. Banken und Versicherer brauchen ESG-Daten für ihre eigenen Pflichten, laut der Handreichung des Bankenverbands etwa wegen der Bankenrichtlinie CRD VI zu ESG-Risiken im Kreditportfolio, der EBA-Leitlinien zum ESG-Risikomanagement und Solvency II. Der Datenkatalog soll gerade verhindern, dass jede Bank dieselben Daten in anderer Form abfragt. Für Sie heißt das: Wer seine Energie- und Emissionsdaten strukturiert vorhält, beantwortet Kreditgespräche, Kundenanfragen und Lieferantenfragebögen aus einer Quelle.</p>
+<p>Dazu kommen drei Nutzen, die direkt Geld bringen:</p>
+<ul>
+<li><strong>Fördermittel:</strong> Förderanträge bei BAFA, KfW oder für die Bundesförderung für effiziente Wärmenetze (BEW) verlangen Verbrauchs- und Einsparnachweise. Welche Unterlagen gefordert sind, steht in unserem Beitrag zu <a href="https://planegy.de/blog-forderantrag-unterlagen" target="_blank" rel="noopener">Unterlagen für den Förderantrag</a>.</li>
+<li><strong>Energieeffizienz:</strong> Ein Energieaudit nach EN 16247 oder ein Managementsystem nach ISO 50001 greift auf dieselben Zählerdaten zurück wie die THG-Bilanz.</li>
+<li><strong>Wärmeplanung:</strong> Kommunen und Stadtwerke, die eine Wärmeplanung nach dem Wärmeplanungsgesetz (WPG) erarbeiten, brauchen ebenfalls belastbare Daten zu Verbräuchen und Energieträgern. Mehr dazu auf unserer Seite für <a href="https://planegy.de/stadtwerke" target="_blank" rel="noopener">Stadtwerke und Energieversorger</a>.</li>
+</ul>
+<p>Die Architektur ist also keine reine Pflichtübung für den Bericht, sondern die gemeinsame Datenbasis für Ihre Energieentscheidungen.</p>
+<h2 id="unsere-perspektive-die-energieseite-zuerst" tabindex="-1">Unsere Perspektive: Die Energieseite zuerst</h2>
+<blockquote>
+<p>Wir sehen ESG-Datenarchitektur nicht als IT-Projekt, sondern als Energieprojekt mit IT-Unterstützung. Die Emissionen eines Industriebetriebs, eines Stadtwerks oder einer Kommune entstehen in Kesseln, BHKW, Dampferzeugern, Wärmenetzen und Fuhrparks. Wer die Daten richtig strukturieren will, muss verstehen, wie diese Anlagen arbeiten, wo gemessen wird und welcher Energieträger dahintersteht.</p>
+<p>Deshalb verbinden wir bei PLANEGY technische, wirtschaftliche und regulatorische Expertise aus über 20 Jahren im Energiesektor. Wir bewerten Technologien neutral, ohne eigene Produkte oder Herstellerinteressen. Das gilt auch für Daten: Wir bauen die Datenstrecke so, dass sie Ihre Anlagen ehrlich abbildet, und nicht so, dass sie zu einer bestimmten Lösung passt.</p>
+<p>Der größte Gewinn entsteht, wenn Reporting und Umsetzung zusammenfinden. Dieselben Daten, die Ihren Bericht füllen, zeigen, wo eine Umstellung, etwa auf BioLPG als Brückentechnologie, oder eine neue Wärmeversorgung die Emissionen senkt, und sie belegen den Förderantrag dafür. So wird aus der Pflicht ein Werkzeug, das sich rechnet.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="esg-reporting-und-energieberatung-aus-einer-hand" tabindex="-1">ESG-Reporting und Energieberatung aus einer Hand</h2>
+<p>Wenn Sie Ihre Energie- und Emissionsdaten zu einem durchgängigen System verbinden wollen, unterstützen wir Sie mit automatisiertem ESG- und CSRD-Reporting: KPI-Dashboards, Berichterstellung und Integration in Ihr ERP-System. Dazu kommen Energieaudits nach EN 16247, die Begleitung zu ISO 50001 und EMAS sowie ein Förderservice, der passende Mittel aus BEW, KfW, BAFA und EU-Programmen identifiziert und beantragt.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Für Kommunen und Unternehmen, die ihren Klimaschutz laufend betreuen lassen möchten, bieten wir das <a href="https://planegy.de/klimamanager-service" target="_blank" rel="noopener">Klimaschutzmanagement im Abo</a>. Alle weiteren Schwerpunkte finden Sie in der <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Übersicht unserer Leistungen</a>.</p>
+<h2 id="haufige-fragen-zur-esg-datenarchitektur" tabindex="-1">Häufige Fragen zur ESG-Datenarchitektur</h2>
+<h3 id="was-sind-esg-daten" tabindex="-1">Was sind ESG-Daten?</h3>
+<p>ESG-Daten sind Kennzahlen zu Umwelt, Sozialem und Unternehmensführung. Im Energiekontext sind das vor allem Verbräuche nach Energieträger und Standort sowie die daraus berechneten Treibhausgasemissionen nach Scope 1, 2 und 3. Hinzu kommen Angaben wie der Anteil erneuerbarer Energie. Eine ausführliche Einordnung der Scopes finden Sie in unserem Beitrag zu <a href="https://planegy.de/blog-scope-1-2-3" target="_blank" rel="noopener">Scope 1, 2 und 3</a>.</p>
+<h3 id="brauchen-kleine-und-mittlere-unternehmen-eine-esg-datenarchitektur" tabindex="-1">Brauchen kleine und mittlere Unternehmen eine ESG-Datenarchitektur?</h3>
+<p>Auch wenn Sie nicht berichtspflichtig sind, fragen Banken, Versicherer und Großkunden zunehmend ESG-Daten ab. Eine schlanke Architektur mit klaren Quellen, Emissionsfaktoren und Prüfregeln spart Ihnen bei jeder Anfrage Zeit. Sie muss nicht groß sein, aber nachvollziehbar.</p>
+<h3 id="welche-emissionsfaktoren-sollten-wir-verwenden" tabindex="-1">Welche Emissionsfaktoren sollten wir verwenden?</h3>
+<p>Nutzen Sie Faktoren, die zum Energieträger und zur Region passen, aktuell sind und aus einer dokumentierten Quelle stammen. In Deutschland bietet die regelmäßig fortgeschriebene Liste des Umweltbundesamts eine qualitätsgesicherte Grundlage. Wichtig ist, dass Sie jede verwendete Version festhalten, damit Ihre Zahlen über die Jahre vergleichbar bleiben.</p>
+<h3 id="wie-lange-dauert-der-aufbau" tabindex="-1">Wie lange dauert der Aufbau?</h3>
+<p>Das hängt von der Zahl der Standorte, der Qualität vorhandener Zählerdaten und dem Umfang von Scope 3 ab. Sinnvoll ist ein Start mit Scope 1 und 2, weil diese Daten meist schon im Energiemanagement oder ERP vorliegen. Scope 3 bauen Sie anschließend schrittweise aus.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.umweltbundesamt.de/system/files/medien/479/publikationen/2026-05/UBA_Leitfaden%20fuer%20Klimamanagement%20in%20Unternehmen_0.pdf" rel="nofollow noopener noreferrer" target="_blank">Umweltbundesamt: Klimamanagement in Unternehmen. Leitfaden für die Praxis (2026)</a></li>
+<li><a href="https://bankenverband.de/sites/default/files/medien/3/dokumente/handreichung-stadtwerke-und-versorgungsunternehmen_esg-datenkatalog.pdf" rel="nofollow noopener noreferrer" target="_blank">Bankenverband, GDV, VÖB: Handreichung zum ESG-Datenkatalog für Stadtwerke und Versorgungsunternehmen</a></li>
+<li><a href="https://edmcouncil.org/wp-content/uploads/2024/04/EDM-Council_Playbook_ESG-and-Sustainability-Data-Mgmt_April-2024.pdf" rel="nofollow noopener noreferrer" target="_blank">EDM Council: Playbook for Effective ESG and Sustainability Data Management (April 2024)</a></li>
+<li><a href="https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Publikationen/Wirtschaft/emissionserfassung-und-berichterstattung-von-unternehmen.pdf?__blob=publicationFile&amp;v=1" rel="nofollow noopener noreferrer" target="_blank">Bundeswirtschaftsministerium: Emissionserfassung und -berichterstattung von Unternehmen</a></li>
+<li><a href="https://www.ipa.fraunhofer.de/de/Publikationen/studien/data-readiness-fuer-corporate-und-product-carbon-footprint.html" rel="nofollow noopener noreferrer" target="_blank">Fraunhofer IPA: Data Readiness für Corporate und Product Carbon Footprint</a></li>
+<li><a href="https://www.mvv.de/fileadmin/user_upload/Ueber_uns/klimapositiv_d_und_e/THG-Handbuch_MVV_V1_extern.pdf" rel="nofollow noopener noreferrer" target="_blank">MVV: Treibhausgashandbuch (September 2026)</a></li>
+<li><a href="https://www.iww.de/pn/fuehrung-strategie/datenstrategie-fuer-die-esg-berichterstattung-gute-daten-gute-entscheidungen-wie-datenqualitaet-das-esg-reporting-stark-macht-f170538" rel="nofollow noopener noreferrer" target="_blank">IWW: Datenstrategie für die ESG-Berichterstattung</a></li>
+<li><a href="https://www.haufe.de/sustainability/strategie/esg-datenstrategie-in-der-praxis_575772_654196.html" rel="nofollow noopener noreferrer" target="_blank">Haufe Sustainability: ESG-Datenstrategie in der Praxis</a></li>
+<li><a href="https://www.oekom.de/_files_media/zeitschriften/inhaltsverzeichnisse/UB_2026_05.pdf" rel="nofollow noopener noreferrer" target="_blank">oekom: Umweltbrief, Ausgabe 05/2026</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-energiedatenmanagement-aufbau" target="_blank" rel="noopener">Energiedatenmanagement aufbau: der 5-Schritte-Weg zur Praxis</a></li>
+<li><a href="https://planegy.de/blog-energieaudit-messkonzept" target="_blank" rel="noopener">Messkonzept im Energieaudit: So planen Sie die Datenerfassung</a></li>
+<li><a href="https://planegy.de/blog-esg-reporting-software-auswahl-und-implementierung-2026" target="_blank" rel="noopener">ESG-Reporting-Software: Auswahl und Implementierung 2026</a></li>
+<li><a href="https://planegy.de/blog-esg-dashboard-kpis" target="_blank" rel="noopener">ESG-Dashboard-KPIs: Die Kennzahlen, die Ihr Reporting wirklich braucht</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+    <a href="#cookie-einstellungen" data-consent-settings>Cookie-Einstellungen</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>

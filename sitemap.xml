@@ -1000,6 +1000,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+    <url>
+    <loc>https://planegy.de/blog/esg-datenarchitektur-energie</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <!-- SITEMAP_ARTICLES_END -->
 
 </urlset>
