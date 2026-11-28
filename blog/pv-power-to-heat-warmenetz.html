@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PV und Power-to-Heat im Wärmenetz: Planung, Kosten, Förderung – PLANEGY</title>
+  <meta name="description" content="PV-Strom als Wärme im Wärmenetz: Wie Großwärmepumpe, Elektrodenkessel und Speicher zusammenspielen, was sie kosten und welche Förderung 2026 gilt." />
+  <meta name="author" content="Alexios Donas, PLANEGY" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="PV und Power-to-Heat im Wärmenetz: Planung, Kosten, Förderung" />
+  <meta property="og:description" content="PV-Strom als Wärme im Wärmenetz: Wie Großwärmepumpe, Elektrodenkessel und Speicher zusammenspielen, was sie kosten und welche Förderung 2026 gilt." />
+  <meta property="og:image" content="https://planegy.de/assets/og-planegy.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="PLANEGY, Ingenieurbüro für Energieplanung" />
+  <meta property="og:url" content="https://planegy.de/blog/pv-power-to-heat-warmenetz" />
+  <meta property="og:site_name" content="PLANEGY" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://planegy.de/assets/og-planegy.png" />
+  <link rel="canonical" href="https://planegy.de/blog/pv-power-to-heat-warmenetz" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://planegy.de/blog/pv-power-to-heat-warmenetz" },
+    "headline": "PV und Power-to-Heat im Wärmenetz: Planung, Kosten, Förderung",
+    "author": { "@type": "Person", "name": "Alexios Donas" },
+    "publisher": { "@type": "Organization", "name": "PLANEGY", "url": "https://planegy.de" },
+    "datePublished": "2026-11-28",
+    "dateModified": "2026-11-28",
+    "description": "PV-Strom als Wärme im Wärmenetz: Wie Großwärmepumpe, Elektrodenkessel und Speicher zusammenspielen, was sie kosten und welche Förderung 2026 gilt."
+  }
+  </script>
+  <script src="/assets/consent.js" defer></script>
+  <link rel="stylesheet" href="/assets/fonts.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a7fd4'/><text y='.9em' font-size='75' x='12'>⚡</text></svg>" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --blue:#1a7fd4; --blue-l:#3b9ae1; --blue-d:#1565b0; --navy:#0d2b5e; --slate:#64748b; --border:#e2e8f0; --off:#f8fafc; }
+    html { scroll-behavior: smooth; }
+    body { font-family:'Inter',sans-serif; color:var(--navy); background:#fff; -webkit-font-smoothing:antialiased; }
+    nav { background:var(--navy); padding:0 5%; display:flex; align-items:center; justify-content:space-between; height:70px; position:sticky; top:0; z-index:100; }
+    .nav-logo { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#fff; text-decoration:none; letter-spacing:-.5px; }
+    .nav-logo span { color:var(--blue-l); }
+    .nav-back { font-size:.85rem; color:rgba(255,255,255,.6); text-decoration:none; display:flex; align-items:center; gap:.4rem; transition:color .2s; }
+    .nav-back:hover { color:#fff; }
+    .article-hero { background:linear-gradient(135deg,#0d2b5e,#1a7fd4); padding:70px 5% 60px; position:relative; overflow:hidden; }
+    .article-hero::before { content:"🌡️"; position:absolute; right:8%; top:50%; transform:translateY(-50%); font-size:14rem; opacity:.07; line-height:1; pointer-events:none; }
+    .hero-inner { max-width:860px; margin:0 auto; position:relative; z-index:1; }
+    .breadcrumb { display:flex; align-items:center; gap:.5rem; margin-bottom:1.5rem; font-size:.8rem; }
+    .breadcrumb a { color:rgba(255,255,255,.5); text-decoration:none; }
+    .breadcrumb a:hover { color:rgba(255,255,255,.9); }
+    .breadcrumb span { color:rgba(255,255,255,.3); }
+    .article-cat { display:inline-block; background:#1a7fd4; color:#fff; font-size:.72rem; font-weight:700; padding:.3rem .8rem; border-radius:4px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:1rem; }
+    .article-hero h1 { font-family:'DM Sans',sans-serif; font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:800; color:#fff; line-height:1.15; letter-spacing:-.02em; margin-bottom:1rem; }
+    .article-meta { display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; }
+    .article-meta span { font-size:.82rem; color:rgba(255,255,255,.55); }
+    .article-meta strong { color:rgba(255,255,255,.8); }
+    .article-layout { max-width:1100px; margin:0 auto; padding:60px 5% 80px; display:grid; grid-template-columns:1fr 280px; gap:4rem; align-items:start; }
+    .article-body { min-width:0; }
+    .prose h2 { font-family:'DM Sans',sans-serif; font-size:1.4rem; font-weight:800; color:var(--navy); margin:2.5rem 0 .8rem; padding-bottom:.5rem; border-bottom:2px solid var(--blue); display:inline-block; }
+    .prose h3 { font-size:1.05rem; font-weight:700; color:var(--navy); margin:1.5rem 0 .5rem; }
+    .prose p { font-size:.97rem; color:#374151; line-height:1.85; margin-bottom:1rem; }
+    .prose ul,.prose ol { padding-left:1.5rem; margin-bottom:1rem; }
+    .prose li { font-size:.95rem; color:#374151; line-height:1.75; margin-bottom:.4rem; }
+    .prose strong { color:var(--navy); font-weight:700; }
+    .prose a { color:var(--blue); text-decoration:none; }
+    .prose a:hover { text-decoration:underline; }
+    .prose table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
+    .prose th { background:var(--navy); color:#fff; padding:.75rem 1rem; text-align:left; font-weight:600; }
+    .prose td { padding:.65rem 1rem; border-bottom:1px solid var(--border); color:#374151; }
+    .prose tr:nth-child(even) td { background:var(--off); }
+    .sidebar { position:sticky; top:90px; }
+    .sidebar-card { background:var(--off); border:1px solid var(--border); border-radius:14px; padding:1.5rem; margin-bottom:1.2rem; }
+    .sidebar-card h3 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:800; color:var(--navy); margin-bottom:1rem; }
+    .author-card { text-align:center; }
+    .author-avatar { width:70px; height:70px; border-radius:50%; background:linear-gradient(135deg,var(--navy),var(--blue)); display:flex; align-items:center; justify-content:center; font-size:2rem; margin:0 auto 1rem; }
+    .author-name { font-weight:700; font-size:.92rem; color:var(--navy); }
+    .author-role { font-size:.78rem; color:var(--slate); margin-top:.2rem; }
+    .author-cta { display:block; margin-top:1rem; background:var(--blue); color:#fff; text-decoration:none; padding:.6rem; border-radius:8px; font-size:.82rem; font-weight:700; text-align:center; transition:background .2s; }
+    .author-cta:hover { background:var(--blue-d); }
+    .cta-banner { background:linear-gradient(135deg,var(--navy),#1a4a8a); border-radius:16px; padding:2.5rem; margin-top:3rem; text-align:center; }
+    .cta-banner h3 { font-family:'DM Sans',sans-serif; font-size:1.2rem; font-weight:800; color:#fff; margin-bottom:.5rem; }
+    .cta-banner p { color:rgba(255,255,255,.6); font-size:.88rem; margin-bottom:1.2rem; }
+    .cta-banner a { background:var(--blue); color:#fff; text-decoration:none; padding:.75rem 1.5rem; border-radius:10px; font-weight:700; font-size:.9rem; display:inline-block; transition:background .2s; }
+    .cta-banner a:hover { background:var(--blue-d); }
+    footer { background:var(--navy); padding:30px 5%; text-align:center; }
+    footer p { font-size:.82rem; color:rgba(255,255,255,.4); }
+    footer a { color:rgba(255,255,255,.5); text-decoration:none; margin:0 .7rem; }
+    footer a:hover { color:var(--blue-l); }
+    @media(max-width:900px) { .article-layout { grid-template-columns:1fr; } .sidebar { position:static; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">PLAN<span>EGY</span></a>
+  <a href="/blog" class="nav-back">← Zurück zum Blog</a>
+</nav>
+
+<div class="article-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="/">Startseite</a>
+      <span>/</span>
+      <a href="/blog">Blog</a>
+      <span>/</span>
+      <span style="color:rgba(255,255,255,.7)">PV und Power-to-Heat im Wärmenetz: Planung, Kosten, Förderung</span>
+    </div>
+    <div class="article-cat">Wärmeplanung</div>
+    <h1>PV und Power-to-Heat im Wärmenetz: Planung, Kosten, Förderung</h1>
+    <div class="article-meta">
+      <span>📅 <strong>November 2026</strong></span>
+      <span>⏱ <strong>11 Min. Lesezeit</strong></span>
+      <span>👤 <strong>Alexios Donas</strong>, PLANEGY</span>
+    </div>
+  </div>
+</div>
+
+<div class="article-layout">
+  <article class="article-body">
+    <div class="prose">
+      
+<p><img src="https://media.ai-fast-cdn.com/blog-images/organization-20616/1795684049048_PV-Anlage-mit-Warmepumpe-und-Pufferspeichern.jpeg" alt="Photovoltaikanlage mit Wärmepumpe und Pufferspeichern"></p>
+<p>Wenn Photovoltaikstrom ein Wärmenetz speist, wird aus günstigem Mittagsstrom Heizwärme für Wohnhäuser, Betriebe und öffentliche Gebäude. Das gelingt, wenn drei Dinge zusammenpassen: die richtige Wärmeerzeugung (Großwärmepumpe, Elektrodenkessel oder beides), ein passend bemessener Wärmespeicher und ein Betriebskonzept, das Strompreise, Netzentgelte und Förderbedingungen mitdenkt. Die Technik ist erprobt. Ob sich ein Projekt rechnet, entscheidet die Planung: Auslegung, Netzanschluss, Genehmigung und Förderung. Genau dort setzen wir bei PLANEGY an. Wir bewerten alle Technologien neutral und begleiten Kommunen, Stadtwerke und Unternehmen von der Analyse bis zur Umsetzung.</p>
+<div data-blg-cta="after_tldr" data-blg-cta-layout="banner" style="margin:28px 0;font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;box-sizing:border-box;"><div style="border-radius:26px;padding:min(22px,3.2vw);background:radial-gradient(circle at 100% 0%,#d6e8f7 0 150px,rgba(255,255,255,0) 151px),radial-gradient(circle at 0% 100%,#d6e8f7 0 130px,rgba(255,255,255,0) 131px),linear-gradient(180deg,#e4f0fa 0%,#f1f7fc 100%);"><div style="background:#ffffff;border-radius:18px;box-shadow:0 12px 34px rgba(0,0,0,0.13);overflow:hidden;"><div style="padding:34px 30px;text-align:center;"><div style="margin:0 0 18px;"><span style="display:inline-block;max-width:100%;box-sizing:border-box;border-radius:999px;padding:6px 13px;font-size:12px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;line-height:1.3;background:#1A7FD4;color:#ffffff;">PLANEGY</span></div><div style="font-size:26px;font-weight:800;line-height:1.2;letter-spacing:-0.01em;color:#1f2937;margin:0;">Wärmenetze fundiert planen</div><div style="font-size:15px;line-height:1.55;color:#64748b;margin:0 0 24px;max-width:44em;margin-left:auto;margin-right:auto;">PLANEGY bewertet Wärmetechnologien neutral und begleitet Kommunen, Stadtwerke und Unternehmen von der Analyse bis zur Umsetzung.</div><a href="https://planegy.de/" style="display:inline-flex;align-items:center;gap:9px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px 13px 26px;background:#1A7FD4;color:#ffffff;">Besuchen<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" style="display:block;flex:0 0 auto;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div></div></div></div>
+<h2 id="kurz-gesagt" tabindex="-1">Kurz gesagt</h2>
+<ul>
+<li><strong>Power-to-Heat</strong> heißt: Strom wird in Wärme umgewandelt, im Wärmenetz meist über eine Großwärmepumpe oder einen Elektrodenkessel, gekoppelt an einen Wärmespeicher.</li>
+<li><strong>Die Großwärmepumpe ist das Arbeitspferd:</strong> In einer Studie der FH Westküste erreicht sie einen COP von 4,42 und amortisiert sich in 5,3 Jahren.</li>
+<li><strong>Der Elektrodenkessel nutzt Überschussstunden</strong> und lädt den Speicher in kurzer Zeit mit hoher Leistung.</li>
+<li><strong>Die Wirtschaftlichkeit hängt am Strompreis:</strong> Netzentgelte, Steuern und Abgaben entscheiden oft mehr als die Anlagentechnik. PV-Strom hinter demselben Netzanschluss ist deshalb ein starker Hebel.</li>
+<li><strong>Förderung zählt doppelt:</strong> Die BEW bezuschusst Investition und Betrieb von Wärmepumpen im Wärmenetz, läuft in ihrer jetzigen Form aber 2028 aus. Wer plant, sollte jetzt beantragen.</li>
+</ul>
+<h2 id="inhaltsverzeichnis" tabindex="-1">Inhaltsverzeichnis</h2>
+<ul>
+<li><a href="#was-power-to-heat-mit-pv-im-warmenetz-bedeutet">Was Power-to-Heat mit PV im Wärmenetz bedeutet</a></li>
+<li><a href="#die-drei-bausteine-warmepumpe-elektrodenkessel-speicher">Die drei Bausteine: Wärmepumpe, Elektrodenkessel, Speicher</a></li>
+<li><a href="#so-sieht-es-in-der-praxis-aus">So sieht es in der Praxis aus</a></li>
+<li><a href="#wovon-die-wirtschaftlichkeit-abhangt">Wovon die Wirtschaftlichkeit abhängt</a></li>
+<li><a href="#rechtsrahmen-und-forderung-2026">Rechtsrahmen und Förderung 2026</a></li>
+<li><a href="#schritt-fur-schritt-zum-pv-warmenetz">Schritt für Schritt zum PV-Wärmenetz</a></li>
+<li><a href="#ihr-projekt-mit-planegy">Ihr Projekt mit PLANEGY</a></li>
+<li><a href="#unsere-sicht-erst-das-system-dann-die-anlage">Unsere Sicht: Erst das System, dann die Anlage</a></li>
+<li><a href="#haufige-fragen">Häufige Fragen</a></li>
+<li><a href="#quellen">Quellen</a></li>
+</ul>
+<h2 id="was-power-to-heat-mit-pv-im-warmenetz-bedeutet" tabindex="-1">Was Power-to-Heat mit PV im Wärmenetz bedeutet</h2>
+<p>Der Begriff ist schnell erklärt. Laut <a href="https://www.bdew.de/service/stellungnahmen/positionspapier-power-to-heat-ein-baustein-der-sektorkopplung/" rel="nofollow noopener noreferrer" target="_blank">Positionspapier des BDEW</a> bezeichnet Power-to-Heat (PtH) die Umwandlung elektrischer Energie in Wärme. Dazu zählen Elektrodenkessel, Durchlauferhitzer, elektrische Wärmepumpen und Hybridsysteme, von wenigen Kilowatt bis zu mehreren Megawatt. In der Praxis werden PtH-Module in ein System aus Wärmespeicher, Wärmenetz und oft weiteren Erzeugern wie einem Blockheizkraftwerk (BHKW) eingebunden.</p>
+<p>Mit PV kommt eine Besonderheit dazu: Der Strom fällt tagsüber und vor allem von Frühjahr bis Herbst an, also nicht dann, wenn der Wärmebedarf am höchsten ist. Der Wärmespeicher schließt diese Lücke. Er nimmt mittags die Wärme auf und gibt sie abends, nachts und an trüben Tagen ab. Der <a href="https://buergerbeteiligung.sachsen.de/portal/download/resources/beteiligung/1056908/gegenstand/1125613/datei/4530981_0/Bericht+kommunaler+W%C3%A4rmeplan+Beteiligungsportal.pdf" rel="nofollow noopener noreferrer" target="_blank">kommunale Wärmeplan der Landeshauptstadt Dresden</a> beschreibt genau dieses Prinzip: Bei Stromüberangebot stellen Wärmenetze per Power-to-Heat Wärme bereit und speichern sie, bei wenig erneuerbarem Strom greifen sie auf andere Quellen und den Speicher zurück.</p>
+<p>Für Sie als Kommune, Stadtwerk oder Gewerbebetrieb heißt das: PV-Power-to-Heat ist ein Baustein in einem Erzeugungsmix. Wie groß dieser Baustein wird, ergibt sich aus Ihrem Wärmebedarf, Ihrer Fläche für PV, dem Netzanschluss und den Temperaturen in Ihrem Netz.</p>
+<p><img src="https://media.ai-fast-cdn.com/blog-images/organization-20616/1795684132428_Was-Power-to-Heat-mit-PV-im-Warmenetz-bedeutet.jpeg" alt="Was Power-to-Heat mit PV im Wärmenetz bedeutet"></p>
+<h2 id="die-drei-bausteine-warmepumpe-elektrodenkessel-speicher" tabindex="-1">Die drei Bausteine: Wärmepumpe, Elektrodenkessel, Speicher</h2>
+<p>Jeder Baustein hat eine eigene Aufgabe. Die Kunst liegt in der Kombination.</p>
+<table>
+<thead>
+<tr>
+<th>Baustein</th>
+<th>Aufgabe im System</th>
+<th>Stärke</th>
+<th>Typischer Einsatz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Großwärmepumpe</td>
+<td>Grundlast aus PV-Strom und Umweltwärme</td>
+<td>Aus 1 kWh Strom werden mehrere kWh Wärme</td>
+<td>Viele Betriebsstunden über das Jahr</td>
+</tr>
+<tr>
+<td>Elektrodenkessel</td>
+<td>Schnelles Laden des Speichers, Nacherhitzung</td>
+<td>Hohe Leistung, hohe Temperaturen, fast verlustfrei</td>
+<td>Überschussstunden, Spitzen, Netzentlastung</td>
+</tr>
+<tr>
+<td>Tankspeicher</td>
+<td>Kurzzeitspeicher für Stunden bis Tage</td>
+<td>Hohe Lade- und Entladeleistung</td>
+<td>Tagesausgleich von PV-Erzeugung</td>
+</tr>
+<tr>
+<td>Erdbecken- oder Aquiferspeicher</td>
+<td>Mehrtägige bis saisonale Speicherung</td>
+<td>Große Kapazität</td>
+<td>Sommerwärme für Herbst und Winter</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Die Großwärmepumpe</strong> nutzt Umweltwärme aus Luft, Wasser oder Abwasser und hebt sie mit Strom auf Netztemperatur. Weil sie aus jeder Kilowattstunde Strom ein Mehrfaches an Wärme macht, verträgt sie auch Strom, der nicht kostenlos ist. Moderne zweistufige Anlagen erreichen <a href="https://www.energie-und-management.de/nachrichten/energieerzeugung/detail/solarstrom-sorgt-fuer-klimaneutrale-waerme-194548" rel="nofollow noopener noreferrer" target="_blank">Vorlauftemperaturen bis 80 °C</a>, genug für viele Bestandsnetze.</p>
+<p><strong>Der Elektrodenkessel</strong> erhitzt Wasser direkt mit Strom. Er ist robust, schnell regelbar und sehr effizient. Bei der PtH-Anlage im Kraftwerk Hannover-Herrenhausen liegt der <a href="https://www.enercity.de/magazin/unsere-welt/funktionsweise-power-to-heat" rel="nofollow noopener noreferrer" target="_blank">energetische Wirkungsgrad des Heißwassererzeugers bei 99,9 Prozent</a>, die Betriebstemperatur erreicht bis 155 °C. Er eignet sich für Stunden mit sehr günstigem oder überschüssigem Strom und für die Nacherhitzung aus dem Speicher.</p>
+<p><strong>Der Wärmespeicher</strong> macht aus schwankendem Strom planbare Wärme. Die <a href="https://www.bafa.de/SharedDocs/Downloads/DE/Energie/handreichung_planende_entscheidungstraeger.pdf?__blob=publicationFile&amp;v=4" rel="nofollow noopener noreferrer" target="_blank">BAFA-Handreichung zu Großwärmespeichern</a> ordnet zu: Tankspeicher für kurze Zeiträume mit hohem Leistungsbedarf, Erdbeckenspeicher für hybride Anforderungen, Aquiferspeicher für saisonale Speicherung. Sie zählt mehr als 70 installierte, geplante oder im Bau befindliche Großwärmespeicher in deutschen Fernwärmenetzen mit rund 121 GWh Kapazität.</p>
+<h2 id="so-sieht-es-in-der-praxis-aus" tabindex="-1">So sieht es in der Praxis aus</h2>
+<p>Drei Projekte zeigen die Bandbreite.</p>
+<p><strong>Mertingen (Bayern):</strong> Hier versorgt eine <a href="https://www.solarserver.de/2025/01/24/lokaler-strom-aus-wind-und-sonne-fuer-waermenetze/" rel="nofollow noopener noreferrer" target="_blank">750-kW-PV-Anlage eine Großwärmepumpe für das örtliche Wärmenetz</a>. Beide liegen hinter demselben Netzanschluss, zwei Pufferspeicher fassen zusammen 84 m³, eine KI unterstützt die Steuerung. Die Wärmepumpe ist zweistufig ausgelegt, mit 700 kW thermischer Leistung. Laut Planung sollen weitere PV-Projekte mit rund 30 MW folgen, deren Strom größtenteils vor Ort verbraucht werden soll.</p>
+<p><strong>Nechlin (Uckermark):</strong> Das Dorf nutzt Windstrom statt PV, das Prinzip ist dasselbe. Ein Elektrodenkessel lädt einen 1.000-m³-Heißwasserspeicher, gespeist über eine 800 m lange 20-kV-Direktleitung vom Windpark. Der Kessel schaltet sich automatisch zu, wenn der Übertragungsnetzbetreiber ein Abschaltsignal sendet. Ein voller Speicher reicht im Winter für etwa zwei Wochen Dorfversorgung.</p>
+<p><strong>Hannover-Herrenhausen:</strong> Die städtische PtH-Anlage arbeitet seit 2020 mit 20 MW Leistung und wird auf 26 MW erweitert. Der Elektrodenkessel heizt 98 °C warmes Speicherwasser nach.</p>
+<p>Die Lehre aus allen drei: Der Netzanschluss und die direkte Leitung zur Erzeugung sind so wichtig wie die Wärmetechnik selbst.</p>
+<p><img src="https://media.ai-fast-cdn.com/blog-images/organization-20616/1795684112677_So-sieht-es-in-der-Praxis-aus.jpeg" alt="So sieht es in der Praxis aus"></p>
+<h2 id="wovon-die-wirtschaftlichkeit-abhangt" tabindex="-1">Wovon die Wirtschaftlichkeit abhängt</h2>
+<p>Die Technik ist ausgereift. Über den Erfolg entscheiden vier Stellgrößen.</p>
+<h3 id="der-strompreis-den-die-anlage-tatsachlich-zahlt" tabindex="-1">1. Der Strompreis, den die Anlage tatsächlich zahlt</h3>
+<p>Eine <a href="https://www.fh-westkueste-ite.de/wp-content/uploads/2026/05/ite_sief_heft002.pdf" rel="nofollow noopener noreferrer" target="_blank">Studie der FH Westküste</a> hat für 1 MW Referenzleistung gerechnet. Die Wärmepumpe erzielt mit einem COP von 4,42 noch bei Bruttostrompreisen bis 62,38 €/MWh einen positiven Reinerlös, amortisiert sich in 5,3 Jahren und erreicht nach zehn Jahren einen RoI von 91 %. Der Elektrodenkessel braucht dagegen sehr niedrige oder negative Preise. Daraus folgt eine klare Arbeitsteilung: Die Wärmepumpe übernimmt die vielen PV-Stunden, der Kessel die Überschussspitzen.</p>
+<p>Der <a href="https://www.bdew.de/service/stellungnahmen/positionspapier-power-to-heat-ein-baustein-der-sektorkopplung/" rel="nofollow noopener noreferrer" target="_blank">BDEW</a> nennt hohe Abgaben, Steuern und Netzentgelte als Hauptursache, warum viele PtH-Anlagen heute schwer wirtschaftlich zu betreiben sind. Deshalb ist PV-Strom hinter demselben Netzanschluss so interessant: Er erreicht die Wärmepumpe ohne Umweg über das öffentliche Netz.</p>
+<h3 id="die-volllaststunden" tabindex="-1">2. Die Volllaststunden</h3>
+<p>Die <a href="https://www.bafa.de/SharedDocs/Downloads/DE/Energie/handreichung_planende_entscheidungstraeger.pdf?__blob=publicationFile&amp;v=4" rel="nofollow noopener noreferrer" target="_blank">BAFA-Handreichung</a> zeigt: Bei sehr wenigen Vollbenutzungsstunden ist die Nacherhitzung per Elektrodenkessel günstiger, Wärmepumpen lohnen sich ab etwa 300 bis 700 Stunden. Als Orientierung für die Ausspeiseleistung des Speichers nennt sie rund 1.000 Vollbenutzungsstunden. Die Strombezugskosten für die Nacherhitzung können bis zu 50 % der Speicherkosten ausmachen. Die Handreichung empfiehlt deshalb, immer das ganze Speichersystem mit Peripherie und Nacherhitzung zu bewerten, nicht nur den Speicherbehälter.</p>
+<h3 id="der-warmepreis-gegen-den-sie-antreten" tabindex="-1">3. Der Wärmepreis, gegen den Sie antreten</h3>
+<p>Die <a href="https://www.kea-bw.de/fileadmin/user_upload/Waermewende/Downloads/Transformation_Machbarkeitsstudie_Waermenetze_241004.pdf" rel="nofollow noopener noreferrer" target="_blank">Machbarkeitsstudie der KEA-BW</a> zeigt die Messlatte: Ein Einfamilienhaus mit eigener PV und Wärmepumpe kommt auf 12 bis 15 Ct/kWh. Ein ländliches Wärmenetz muss darunter liegen, kritisch wird es ab etwa 7 Ct/kWh. Die Studie sieht PV mit Wärmepumpe ohne Netznutzungskosten künftig vor allem im Sommer und in der Übergangszeit.</p>
+<h3 id="die-grosse-und-der-standort" tabindex="-1">4. Die Größe und der Standort</h3>
+<p>Wie stark Standort und Größe wirken, zeigt eine <a href="https://elib.dlr.de/227891/1/260420_Skript_Tagungsband_SZW_ML.pdf" rel="nofollow noopener noreferrer" target="_blank">DLR-Untersuchung zu hybriden solaren Wärmenetzen</a>: Ein System aus Solarfeld, Saisonalspeicher, Wärmepumpe und Elektrokessel erreicht bei 50 GWh Jahresbedarf einen solaren Deckungsgrad von 79 bis 81 % und Wärmegestehungskosten zwischen 94,83 €/MWh in Erding und 112,09 €/MWh in Bremen. Von rund 54 Mio. € Investition wären etwa 20 Mio. € über die BEW förderfähig. Förderung ist also kein Bonus, sondern Teil der Rechnung.</p>
+<p>Mehr Rechenbeispiele finden Sie in unserem Beitrag zur <a href="https://planegy.de/blog-power-to-heat-wirtschaftlichkeit" target="_blank" rel="noopener">Wirtschaftlichkeit von Power-to-Heat</a>.</p>
+<h2 id="rechtsrahmen-und-forderung-2026" tabindex="-1">Rechtsrahmen und Förderung 2026</h2>
+<h3 id="bundesforderung-fur-effiziente-warmenetze-bew" tabindex="-1">Bundesförderung für effiziente Wärmenetze (BEW)</h3>
+<p>Die <a href="https://www.bafa.de/DE/Energie/Energieeffizienz/Waermenetze/Effiziente_Waermenetze/effiziente_waermenetze_node.html" rel="nofollow noopener noreferrer" target="_blank">BEW des BAFA</a> fördert den Neubau von Wärmenetzen mit hohen Anteilen erneuerbarer Energien und die Dekarbonisierung bestehender Netze. Für Wärme aus strombetriebenen Wärmepumpen, die in Wärmenetze einspeisen, gibt es zusätzlich eine Betriebskostenförderung. Sie wird jährlich anhand Ihrer Betriebsdaten bestimmt und ist laut <a href="https://www.foerderdatenbank.de/FDB/Content/DE/Foerderprogramm/Bund/BMWi/bundesfoerderung-effiziente-waermenetze.html" rel="nofollow noopener noreferrer" target="_blank">Förderdatenbank des Bundes</a> auf höchstens 9,2 ct je kWh Umgebungs- oder Abwärme begrenzt.</p>
+<p>Wichtig für Ihren Zeitplan: Laut <a href="https://www.prognos.com/sites/default/files/2026-03/A-EW_335_Businesscase_Waermenetze_WEB.pdf" rel="nofollow noopener noreferrer" target="_blank">Agora Energiewende und Prognos</a> stehen für die BEW rund 0,8 Mrd. € pro Jahr bereit, und das Programm läuft in seiner jetzigen Form 2028 aus. Die Betriebskostenförderung macht den wirtschaftlichen Betrieb einer Großwärmepumpe oft erst möglich. Wer heute plant, sichert sich mit einem vollständigen Antrag die geltenden Konditionen. Welche Programme sich für Großwärmepumpen kombinieren lassen, erklären wir im Beitrag <a href="https://planegy.de/blog-forderung-grosswarmepumpe" target="_blank" rel="noopener">Förderung für Großwärmepumpen</a>.</p>
+<h3 id="nutzen-statt-abregeln" tabindex="-1">Nutzen statt Abregeln</h3>
+<p>Mit <a href="https://dejure.org/gesetze/EnWG/13k.html" rel="nofollow noopener noreferrer" target="_blank">§ 13k EnWG „Nutzen statt Abregeln“</a> können zusätzliche Verbraucher wie PtH-Anlagen in Engpassregionen Strom abnehmen, der sonst abgeregelt würde. Die Übertragungsnetzbetreiber haben dazu ein <a href="https://www.netztransparenz.de/cdn/files/37bd9764-d02a-46de-fce9-08de8bf3161c/2026-04-01%20u%CC%88nb%20umsetzungskonzept%20%C2%A713k%20enwg.pdf" rel="nofollow noopener noreferrer" target="_blank">Umsetzungskonzept</a> veröffentlicht. Für Elektrodenkessel in windreichen Regionen ist das eine zusätzliche Erlösquelle.</p>
+<h3 id="kwkg-novelle" tabindex="-1">KWKG-Novelle</h3>
+<p>Das Eckpunktepapier des Bundeswirtschaftsministeriums vom 21. September 2026 sieht laut <a href="https://www.stadt-und-werk.de/k21-meldungen/eckpunkte-fuer-flexible-kwk/" rel="nofollow noopener noreferrer" target="_blank">stadt+werk</a> vor, den bisherigen Power-to-Heat-Bonus im KWKG zu streichen und stattdessen elektrische Wärmeerzeuger über eine EnWG-Regelung gezielt an netzdienlichen Standorten einzusetzen. Zugleich soll die maximale Förderung für Neu- und Ausbau eines Wärmenetzes von 50 auf 100 Mio. € je Projekt steigen. Das Gesetzgebungsverfahren steht noch aus. Für Projekte mit BHKW und PtH lohnt es sich, beide Varianten durchzurechnen.</p>
+<h2 id="schritt-fur-schritt-zum-pv-warmenetz" tabindex="-1">Schritt für Schritt zum PV-Wärmenetz</h2>
+<ol>
+<li><strong>Wärmebedarf und Netz verstehen.</strong> Am Anfang stehen Wärmemengen, Lastgänge und Netztemperaturen. Fehler hier ziehen sich durch die ganze Auslegung. Für Kommunen ist die <a href="https://planegy.de/kommunen" target="_blank" rel="noopener">kommunale Wärmeplanung nach WPG</a> der natürliche Rahmen: Sie zeigt, welche Gebiete sich für ein Wärmenetz eignen. Wie eine belastbare Datengrundlage entsteht, beschreiben wir in der <a href="https://planegy.de/blog-warmebedarfsanalyse-kommune" target="_blank" rel="noopener">Wärmebedarfsanalyse für Kommunen</a>.</li>
+<li><strong>PV-Potenzial und Fläche klären.</strong> Wie viel PV-Leistung passt auf Dächer, Freiflächen oder Parkplätze in Netznähe? Entscheidend ist, ob die PV hinter demselben Netzanschluss liegen kann wie die Wärmeerzeugung.</li>
+<li><strong>Erzeugermix technologieoffen auslegen.</strong> Wärmepumpe, Elektrodenkessel, BHKW, Solarthermie oder Abwärme: Wir vergleichen die Optionen neutral, ohne Herstellerinteresse, und bemessen Speicher und Leistung so, dass die Volllaststunden stimmen.</li>
+<li><strong>Netzanschluss früh anfragen.</strong> Die <a href="https://www.dena.de/fileadmin/dena/Publikationen/PDFs/2026/Analyse_Elektrifizierung_der_Fernwaerme.pdf" rel="nofollow noopener noreferrer" target="_blank">dena-Analyse zur Elektrifizierung der Fernwärme</a> nennt unzureichende Netzanschlüsse und Mittelspannungsnetze als zentrale Hemmnisse. Die Anfrage beim Netzbetreiber gehört deshalb an den Anfang, nicht ans Ende.</li>
+<li><strong>Genehmigung vorbereiten.</strong> Je nach Leistung und Standort sind Bau-, Immissionsschutz- und wasserrechtliche Fragen zu klären. Die Genehmigung erteilt die zuständige Behörde. Wir erstellen die Unterlagen und begleiten das Verfahren bis zum Bescheid.</li>
+<li><strong>Förderung beantragen, bevor Sie bestellen.</strong> Bei der BEW gilt: erst Antrag, dann Auftrag. Wir identifizieren die passenden Programme aus BEW, KfW, BAFA und EU und stellen die Anträge mit Ihnen zusammen.</li>
+<li><strong>Betrieb und Steuerung festlegen.</strong> Eine Regelung, die PV-Erzeugung, Speicherstand, Strompreise und Wärmebedarf zusammenführt, holt die Rendite. Mertingen zeigt, wie KI-gestützte Steuerung dabei hilft.</li>
+</ol>
+<p>Einen kompakten Überblick für Kommunen bietet auch unser Beitrag zur <a href="https://planegy.de/blog-power-to-heat-anlage-warme-aus-strom-fur-kommunen" target="_blank" rel="noopener">Power-to-Heat-Anlage für Kommunen</a>.</p>
+<h2 id="ihr-projekt-mit-planegy" tabindex="-1">Ihr Projekt mit PLANEGY</h2>
+<p>Ob Gemeinde mit Wärmeplanungspflicht, Stadtwerk mit Bestandsnetz oder Industriebetrieb mit Prozesswärme: Wir verbinden technische, wirtschaftliche und regulatorische Expertise aus über 20 Jahren im Energiesektor. Wir übernehmen die kommunale Wärmeplanung, die technologieoffene Anlagenkonzeption für Nahwärmesysteme, die Genehmigung und den vollständigen Förderservice. Für unsere Kunden haben wir Förderungen von bis zu 1,2 Mio. € gesichert.</p>
+<p><img src="https://csuxjmfbwmkxiegfpljm.supabase.co/storage/v1/object/public/blog-images/organization-20616/1783501985791_planegy.jpg" alt="PLANEGY"></p>
+<p>Alle Leistungen im Überblick finden Sie auf unserer Seite <a href="https://planegy.de/leistungen" target="_blank" rel="noopener">Leistungen für Wärmeplanung, Energieanlagen und Genehmigung</a>. Stadtwerke finden passende Ansätze unter <a href="https://planegy.de/stadtwerke" target="_blank" rel="noopener">Lösungen für Stadtwerke</a>.</p>
+<h2 id="unsere-sicht-erst-das-system-dann-die-anlage" tabindex="-1">Unsere Sicht: Erst das System, dann die Anlage</h2>
+<blockquote>
+<p>Wir erleben PV-Power-to-Heat als einen der spannendsten Bausteine der Wärmewende. Der Grund ist einfach: Solarstrom ist dort, wo er entsteht, günstig, und Wärmenetze haben mit ihren Speichern genau die Flexibilität, die ihn wertvoll macht.</p>
+<p>Den Unterschied macht aber nicht die einzelne Wärmepumpe oder der einzelne Kessel, sondern das Zusammenspiel. Wie groß wird der Speicher? Welche Leistung bekommt der Elektrodenkessel? Bleibt das BHKW als Partner im System, oder übernimmt BioLPG die Spitzenlast? Welche Förderung trägt den Betrieb über zehn Jahre? Diese Fragen beantworten wir technologieoffen, weil wir keine eigenen Produkte verkaufen.</p>
+<p>Deshalb denken wir Wärmeplanung, Anlagenkonzept, Genehmigung und Förderung in einem Zug. So wird aus einer guten Idee ein genehmigungsfähiges, finanziertes Projekt, das sich im Betrieb rechnet.</p>
+<p><em>Alexios Donas</em></p>
+</blockquote>
+<h2 id="haufige-fragen" tabindex="-1">Häufige Fragen</h2>
+<h3 id="reicht-pv-strom-allein-um-ein-warmenetz-zu-versorgen" tabindex="-1">Reicht PV-Strom allein, um ein Wärmenetz zu versorgen?</h3>
+<p>In der Regel ist PV ein starker Baustein in einem Mix. Im Sommer und in der Übergangszeit kann sie einen großen Teil der Wärme liefern, im Winter übernehmen Speicher und weitere Erzeuger. Auch der Dresdner Wärmeplan setzt auf einen Mix aus PtH, Abwärme, Solarthermie, Großwärmespeichern und weiteren Quellen.</p>
+<h3 id="warmepumpe-oder-elektrodenkessel-was-ist-besser" tabindex="-1">Wärmepumpe oder Elektrodenkessel: Was ist besser?</h3>
+<p>Beide ergänzen sich. Die Großwärmepumpe liefert aus jeder Kilowattstunde Strom mehrere Kilowattstunden Wärme und eignet sich für viele Betriebsstunden. Der Elektrodenkessel lädt den Speicher in Überschussstunden schnell und sehr effizient. Das richtige Verhältnis ergibt sich aus Ihren Volllaststunden und Strompreisen.</p>
+<h3 id="wie-gross-muss-der-warmespeicher-sein" tabindex="-1">Wie groß muss der Wärmespeicher sein?</h3>
+<p>Das hängt von PV-Leistung, Wärmebedarf und Speicherzweck ab. Mertingen kommt mit 84 m³ Puffer für den Tagesausgleich aus, Nechlin hält mit 1.000 m³ etwa zwei Wochen Winterversorgung vor. Wir bemessen den Speicher im Rahmen der Anlagenkonzeption auf Ihre Lastgänge.</p>
+<h3 id="welche-forderung-gibt-es-fur-pv-power-to-heat-im-warmenetz" tabindex="-1">Welche Förderung gibt es für PV-Power-to-Heat im Wärmenetz?</h3>
+<p>Die wichtigste Quelle ist die BEW mit Investitions- und Betriebskostenförderung für Wärmepumpen im Wärmenetz. Dazu kommen je nach Projekt KfW-, BAFA- und EU-Programme. Wichtig ist, den Antrag vor der Auftragsvergabe zu stellen.</p>
+<h2 id="quellen" tabindex="-1">Quellen</h2>
+<ul>
+<li><a href="https://www.bdew.de/service/stellungnahmen/positionspapier-power-to-heat-ein-baustein-der-sektorkopplung/" rel="nofollow noopener noreferrer" target="_blank">BDEW: Positionspapier Power-to-Heat</a></li>
+<li><a href="https://buergerbeteiligung.sachsen.de/portal/download/resources/beteiligung/1056908/gegenstand/1125613/datei/4530981_0/Bericht+kommunaler+W%C3%A4rmeplan+Beteiligungsportal.pdf" rel="nofollow noopener noreferrer" target="_blank">Landeshauptstadt Dresden: Kommunaler Wärmeplan</a></li>
+<li><a href="https://www.energie-und-management.de/nachrichten/energieerzeugung/detail/solarstrom-sorgt-fuer-klimaneutrale-waerme-194548" rel="nofollow noopener noreferrer" target="_blank">E&amp;M: Solarstrom sorgt für klimaneutrale Wärme</a></li>
+<li><a href="https://www.enercity.de/magazin/unsere-welt/funktionsweise-power-to-heat" rel="nofollow noopener noreferrer" target="_blank">enercity: So funktioniert eine Power-to-Heat-Anlage</a></li>
+<li><a href="https://www.bafa.de/SharedDocs/Downloads/DE/Energie/handreichung_planende_entscheidungstraeger.pdf?__blob=publicationFile&amp;v=4" rel="nofollow noopener noreferrer" target="_blank">BAFA: Großwärmespeicher in der Fernwärme</a></li>
+<li><a href="https://www.solarserver.de/2025/01/24/lokaler-strom-aus-wind-und-sonne-fuer-waermenetze/" rel="nofollow noopener noreferrer" target="_blank">Solarserver: Lokaler Strom aus Wind und Sonne für Wärmenetze</a></li>
+<li><a href="https://www.fh-westkueste-ite.de/wp-content/uploads/2026/05/ite_sief_heft002.pdf" rel="nofollow noopener noreferrer" target="_blank">FH Westküste: Nutzung von Überschuss-Strom für Fernwärme</a></li>
+<li><a href="https://www.kea-bw.de/fileadmin/user_upload/Waermewende/Downloads/Transformation_Machbarkeitsstudie_Waermenetze_241004.pdf" rel="nofollow noopener noreferrer" target="_blank">KEA-BW: Transformationsplan und Machbarkeitsstudie für Wärmenetze</a></li>
+<li><a href="https://elib.dlr.de/227891/1/260420_Skript_Tagungsband_SZW_ML.pdf" rel="nofollow noopener noreferrer" target="_blank">DLR: Hybride solare Wärmenetze zur 100-%-Versorgung</a></li>
+<li><a href="https://www.bafa.de/DE/Energie/Energieeffizienz/Waermenetze/Effiziente_Waermenetze/effiziente_waermenetze_node.html" rel="nofollow noopener noreferrer" target="_blank">BAFA: Bundesförderung für effiziente Wärmenetze</a></li>
+<li><a href="https://www.foerderdatenbank.de/FDB/Content/DE/Foerderprogramm/Bund/BMWi/bundesfoerderung-effiziente-waermenetze.html" rel="nofollow noopener noreferrer" target="_blank">Förderdatenbank: Bundesförderung für effiziente Wärmenetze</a></li>
+<li><a href="https://www.prognos.com/sites/default/files/2026-03/A-EW_335_Businesscase_Waermenetze_WEB.pdf" rel="nofollow noopener noreferrer" target="_blank">Agora Energiewende/Prognos: Wärmenetze klimaneutral, wirtschaftlich und bezahlbar</a></li>
+<li><a href="https://dejure.org/gesetze/EnWG/13k.html" rel="nofollow noopener noreferrer" target="_blank">§ 13k EnWG: Nutzen statt Abregeln</a></li>
+<li><a href="https://www.netztransparenz.de/cdn/files/37bd9764-d02a-46de-fce9-08de8bf3161c/2026-04-01%20u%CC%88nb%20umsetzungskonzept%20%C2%A713k%20enwg.pdf" rel="nofollow noopener noreferrer" target="_blank">Übertragungsnetzbetreiber: Umsetzungskonzept § 13k EnWG</a></li>
+<li><a href="https://www.stadt-und-werk.de/k21-meldungen/eckpunkte-fuer-flexible-kwk/" rel="nofollow noopener noreferrer" target="_blank">stadt+werk: Eckpunkte für flexible KWK</a></li>
+<li><a href="https://www.dena.de/fileadmin/dena/Publikationen/PDFs/2026/Analyse_Elektrifizierung_der_Fernwaerme.pdf" rel="nofollow noopener noreferrer" target="_blank">dena: Analyse Elektrifizierung der Fernwärme</a></li>
+</ul>
+<h2 id="empfehlungen" tabindex="-1">Empfehlungen</h2>
+<ul>
+<li><a href="https://planegy.de/blog-power-to-heat-anlage-warme-aus-strom-fur-kommunen" target="_blank" rel="noopener">Power-to-Heat-Anlage: Wärme aus Strom für Kommunen</a></li>
+<li><a href="https://planegy.de/blog-power-to-heat-wirtschaftlichkeit" target="_blank" rel="noopener">Power-to-Heat-Wirtschaftlichkeit: Wann sich die Anlage rechnet</a></li>
+<li><a href="https://planegy.de/blog-nahwarmenetz-kosten" target="_blank" rel="noopener">Nahwärmenetz Kosten: Investitionen, Förderung und Wirtschaftlichkeit</a></li>
+<li><a href="https://planegy.de/blog-nahwaermenetze-planung-wirtschaftlichkeit" target="_blank" rel="noopener">Nahwärmenetze: Planung und Wirtschaftlichkeit</a></li>
+</ul>
+    </div>
+    <div class="cta-banner">
+      <h3>Sie haben ein Energieprojekt?</h3>
+      <p>Beschreiben Sie uns kurz Ihre Ausgangssituation. Wir prüfen gemeinsam, ob und wie PLANEGY unterstützen kann.</p>
+      <a href="/kontakt">Projekt besprechen →</a>
+    </div>
+  </article>
+  <aside class="sidebar">
+    <div class="sidebar-card author-card">
+      <div class="author-avatar"><img src="alexios-donas.jpg" alt="Alexios Donas" style="width:100%;height:100%;border-radius:50%;object-fit:cover"></div>
+      <div class="author-name">Alexios Donas</div>
+      <div class="author-role">Energieberater & Gründer PLANEGY<br/>Zertifizierter Kommunaler Wärmemanager & European Energy Manager (EUREM)</div>
+      <a href="/kontakt" class="author-cta">Projekt besprechen</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📌 Leistungen</h3>
+      <a href="/leistungen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Leistungen</a>
+      <a href="/kommunen" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Kommunen</a>
+      <a href="/stadtwerke" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Stadtwerke</a>
+      <a href="/industrie" style="display:block;margin-top:.5rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Für Industrie &amp; Gewerbe</a>
+    </div>
+    <div class="sidebar-card">
+      <h3>📚 Mehr entdecken</h3>
+      <p style="font-size:.82rem;color:var(--slate);line-height:1.6">Weitere Fachartikel zu Energie, Wärmeplanung und Nachhaltigkeit im PLANEGY Blog.</p>
+      <a href="/blog" style="display:block;margin-top:.8rem;color:var(--blue);font-size:.85rem;font-weight:700;text-decoration:none">→ Alle Artikel</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <p>
+    <a href="/">Startseite</a>
+    <a href="/leistungen">Leistungen</a>
+    <a href="/projekte">Projekte</a>
+    <a href="/blog">Blog</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+    <a href="#cookie-einstellungen" data-consent-settings>Cookie-Einstellungen</a>
+  </p>
+  <p style="margin-top:.8rem">© 2026 PLANEGY – Alexios Donas · Waiblingen</p>
+</footer>
+
+</body>
+</html>
